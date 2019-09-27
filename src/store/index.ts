@@ -1,14 +1,13 @@
 import { createStore, applyMiddleware } from "redux";
-import thunkMiddleware from "react-redux";
+import thunkMiddleware from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import rootReducer from "./rootReducer";
-import { create } from "istanbul-reports";
 
 export type AppState = ReturnType<typeof rootReducer>;
 
 export default function configureStore() {
-  const middleWares = [thunkMiddleware];
-  const middleWareEnhancer = applyMiddleware(...middleWares);
+  const middleWare = [thunkMiddleware];
+  const middleWareEnhancer = applyMiddleware(...middleWare);
 
   const store = createStore(
     rootReducer,
