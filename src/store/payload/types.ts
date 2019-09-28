@@ -1,11 +1,14 @@
-// export interface Name {
-//   userName: string;
-// }
+//state type
+export interface NameState {
+  name: string;
+}
 
-// export const CHANGE_NAME = "CHANGE_NAME";
+//Action type
+export const CHANGE_NAME = "CHANGE_NAME";
 
-// interface ChangeNameAction {
-//   type: typeof CHANGE_NAME;
-//   payload: Name;
-// }
-// export type NameActions = ChangeNameAction;
+interface ChangeName {
+  type: typeof CHANGE_NAME;
+  payload: NameState;
+}
+
+export type NameActionTypes = ChangeName;

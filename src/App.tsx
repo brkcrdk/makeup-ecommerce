@@ -1,33 +1,33 @@
 import React, { useCallback } from "react";
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
-import changeName from "./store/payload/action";
 interface IProps {
   toggle: {
     isTrue: Boolean;
   };
-  name: {
-    userName: string;
+  userName: {
+    name: string;
   };
 }
 const App: React.FC = () => {
-  const x = useSelector((state: IProps) => state.toggle.isTrue);
-  const name = useSelector((state: IProps) => state.name.userName);
+  const toggle = useSelector((state: IProps) => state.toggle.isTrue);
+  const userName = useSelector((state: IProps) => state.userName.name);
   const dispatch = useDispatch();
+
   const handleToggle = useCallback(() => {
     dispatch({
       type: "TOGGLE_TEST"
     });
-    dispatch({
-      type: "CHANGE_NAME",
-      payload: "BURAKAPP"
-    });
+  }, []);
+  const handleName = useCallback(() => {
+    dispatch({ type: "CHANGE_NAME", payload: { name: "Payload Sended" } });
   }, []);
   return (
     <div className="App">
       <header className="App-header">
-        <p>{x.toString().toUpperCase()}</p>
-        <p>State name:{name}</p>
+        <p>Name is => {userName}</p>
+        <button onClick={handleName}>Change Name</button>
+        <p>{toggle.toString().toUpperCase()}</p>
         <button onClick={handleToggle}>Click to toggle</button>
       </header>
     </div>

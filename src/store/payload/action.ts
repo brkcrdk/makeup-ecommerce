@@ -1,13 +1,9 @@
-// import { CHANGE_NAME, Name } from "./types";
+import { NameState, CHANGE_NAME } from "./types";
 
-// // export function changeName(name: Name) {
-// //     return
-// // }
-// const changeName = (name: Name) => {
-//   return {
-//     type: CHANGE_NAME,
-//     payload: name.userName
-//   };
-// };
-
-// export default changeName;
+const changeNameAction = (name: NameState) => {
+  return {
+    type: CHANGE_NAME,
+    payload: name
+  };
+};
+export default changeNameAction;
