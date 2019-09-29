@@ -3,16 +3,16 @@ import "./App.css";
 import Products from "./Products";
 import { useSelector, useDispatch } from "react-redux";
 interface IProps {
-  toggle: {
+  storeToggle: {
     isTrue: Boolean;
   };
-  userName: {
+  storeName: {
     name: string;
   };
 }
 const App: React.FC = () => {
-  const toggle = useSelector((state: IProps) => state.toggle.isTrue);
-  const userName = useSelector((state: IProps) => state.userName.name);
+  const toggle = useSelector((state: IProps) => state.storeToggle.isTrue);
+  const userName = useSelector((state: IProps) => state.storeName.name);
   const dispatch = useDispatch();
 
   const handleToggle = useCallback(() => {
