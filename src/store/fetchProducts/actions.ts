@@ -9,7 +9,7 @@ import {
 
 export function fetchProducts() {
   //Do this for more usability and readability
-  const apiUrl = `https://jsonplaceholder.typicode.com/users/`;
+  const apiUrl = `http://makeup-api.herokuapp.com/api/v1/products.json`;
   const request = axios.get(apiUrl);
 
   //Defined dispatch type here

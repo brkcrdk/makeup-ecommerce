@@ -5,23 +5,26 @@ export interface ProductsState {
   error: null;
 }
 //Define api call structure here
+
 export interface IProducts {
   id: Number;
+  brand: String;
   name: String;
-  username: String;
-  email: String;
-  address: {
-    street: String;
-    suite: String;
-    city: String;
-    zipcode: String;
-    geo: {
-      lat: String;
-      lng: String;
-    };
-  };
-  phone: String;
-  website: String;
+  price: String;
+  price_sign: String;
+  currency: String;
+  image_link: String;
+  product_link: String;
+  website_link: String;
+  description: String;
+  category: String;
+  product_type: String;
+  tag_list: String[];
+  created_at: String;
+  updated_at: String;
+  product_api_url: String;
+  api_featured_image: String;
+  product_colors: {}[];
 }
 //Define types that will be using in actions and reducers!
 export const PRODUCTS_FETCH = "PRODUCTS_FETCH";
