@@ -2,6 +2,8 @@ import React, { useCallback } from "react";
 import "./App.css";
 import Products from "./Products";
 import { useSelector, useDispatch } from "react-redux";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 interface IProps {
   storeToggle: {
     isTrue: Boolean;
@@ -27,11 +29,13 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <p>Name is => {userName}</p>
-        <button onClick={handleName}>Change Name</button>
-        <p>{toggle.toString().toUpperCase()}</p>
-        <button onClick={handleToggle}>Click to toggle</button>
-        <Products />
+        <Router>
+          <p>Name is => {userName}</p>
+          <button onClick={handleName}>Change Name</button>
+          <p>{toggle.toString().toUpperCase()}</p>
+          <button onClick={handleToggle}>Click to toggle</button>
+          <Route path="/products" component={Products} />
+        </Router>
       </header>
     </div>
   );
