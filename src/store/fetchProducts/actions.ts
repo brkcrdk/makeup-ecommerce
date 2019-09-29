@@ -1,7 +1,6 @@
 import axios from "axios";
 import { Dispatch } from "react";
 import {
-  ProductsState,
   PRODUCTS_ERROR,
   PRODUCTS_SUCCESS,
   PRODUCTS_FETCH,

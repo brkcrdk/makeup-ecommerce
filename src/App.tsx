@@ -19,10 +19,11 @@ const App: React.FC = () => {
     dispatch({
       type: "TOGGLE_TEST"
     });
-  }, []);
+  }, [dispatch]);
   const handleName = useCallback(() => {
     dispatch({ type: "CHANGE_NAME", payload: { name: "Payload Sended" } });
-  }, []);
+  }, [dispatch]);
+
   return (
     <div className="App">
       <header className="App-header">
