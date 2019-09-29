@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import "./App.css";
+import Products from "./Products";
 import { useSelector, useDispatch } from "react-redux";
 interface IProps {
   toggle: {
@@ -29,6 +30,7 @@ const App: React.FC = () => {
         <button onClick={handleName}>Change Name</button>
         <p>{toggle.toString().toUpperCase()}</p>
         <button onClick={handleToggle}>Click to toggle</button>
+        <Products />
       </header>
     </div>
   );
