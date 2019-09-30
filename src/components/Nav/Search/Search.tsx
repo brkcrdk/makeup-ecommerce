@@ -1,9 +1,11 @@
 import React from "react";
-import { Container, Icon } from "./SearchStyle";
+import { Container, Icon, Button } from "./SearchStyle";
 const Search: React.FC = () => {
   return (
     <Container>
-      <Icon src="https://img.icons8.com/carbon-copy/100/000000/search.png" />
+      <Button>
+        <Icon src="https://img.icons8.com/carbon-copy/100/000000/search.png" />
+      </Button>
     </Container>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, RightSide, Input } from "./NavBarStyle";
+import { Container, RightSide, Input, InputContainer } from "./NavBarStyle";
 import Brand from "./Brand/Brand";
 import Search from "./Search/Search";
 import Cart from "./Cart/Cart";
@@ -12,7 +12,9 @@ const NavBar: React.FC = () => {
         <Search />
         <Cart />
       </RightSide>
-      <Input />
+      <InputContainer>
+        <Input />
+      </InputContainer>
     </Container>
   );
 };

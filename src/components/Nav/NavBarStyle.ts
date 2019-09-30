@@ -11,15 +11,18 @@ export const RightSide = styled.div`
   justify-content: center;
   align-items: center;
 `;
-export const Input = styled.input`
+export const InputContainer = styled.div`
   position: absolute;
-  font-size: 1.2em;
-  top: 2.8em;
-  width: 95%;
-  padding: 0.5em 0 0 0.5em;
+  width: 100%;
+  display: grid;
+  align-items: center;
+  top: 3.5em;
+`;
+export const Input = styled.input`
+  width: 90%;
   margin: 0 auto;
-  height: 2em;
-  border: 1px double;
-  border-radius: 0.5em;
-  display: flex;
+  padding-inline-start: 1em;
+  height: 100%;
+  background-color: #eae8ed;
+  border: 1px double lightgray;
 `;
