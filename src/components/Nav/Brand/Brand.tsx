@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Image, Text } from "./BrandStyle";
+import { Container, Image, Text } from "./BranStyle";
 import image from "./brand.png";
 const Brand: React.FC = () => {
   return (

@@ -1,14 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 1em;
-  height: 1em;
+  width: 2em;
+  height: 2em;
   display: flex;
   justify-content: center;
-  border: 1px solid red;
 `;
 
-export const Icon = styled.i`
+export const Icon = styled.img`
   width: 100%;
   height: 100%;
 `;

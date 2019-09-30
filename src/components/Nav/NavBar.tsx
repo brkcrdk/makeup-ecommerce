@@ -1,16 +1,18 @@
 import React from "react";
-import { Container } from "./NavBarStyle";
+import { Container, RightSide, Input } from "./NavBarStyle";
 import Brand from "./Brand/Brand";
 import Search from "./Search/Search";
+import Cart from "./Cart/Cart";
 const NavBar: React.FC = () => {
   return (
     <Container>
       <p>Hamburger</p>
       <Brand />
-      <div>
+      <RightSide>
         <Search />
-        <p>Shopping Cart</p>
-      </div>
+        <Cart />
+      </RightSide>
+      <Input />
     </Container>
   );
 };

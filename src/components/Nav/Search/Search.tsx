@@ -1,10 +1,9 @@
 import React from "react";
 import { Container, Icon } from "./SearchStyle";
-import searchIcon from "./searchIcon.png";
 const Search: React.FC = () => {
   return (
     <Container>
-      <Icon className="fas fa-search"></Icon>
+      <Icon src="https://img.icons8.com/carbon-copy/100/000000/search.png" />
     </Container>
   );
 };
