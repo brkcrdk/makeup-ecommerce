@@ -16,16 +16,21 @@ interface IToggle {
   storeToggle: {
     toggle: boolean;
   };
+  storeSidebarToggle: {
+    toggle: boolean;
+  };
 }
 
 const NavBar: React.FC = () => {
   const searchToggle = useSelector(
     (state: IToggle) => state.storeToggle.toggle
   );
-
+  const sidebarToggle = useSelector(
+    (state: IToggle) => state.storeSidebarToggle.toggle
+  );
   return (
     <Container>
-      <HamburgerContainer>
+      <HamburgerContainer sidebarToggle={sidebarToggle}>
         <Hamburger />
       </HamburgerContainer>
       <Brand />

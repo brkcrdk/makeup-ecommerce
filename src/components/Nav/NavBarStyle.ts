@@ -1,7 +1,10 @@
 import styled from "styled-components";
-
-interface IProps {
+//NOTE: every component have their own interfaces!
+interface searchProps {
   searchToggle: boolean;
+}
+interface sideProps {
+  sidebarToggle: boolean;
 }
 
 export const Container = styled.div`
@@ -22,7 +25,7 @@ export const InputContainer = styled.div`
   align-items: center;
   top: 3.5em;
   display: grid;
-  transform: ${(p: IProps) =>
+  transform: ${(p: searchProps) =>
     p.searchToggle ? "translateX(0)" : "translateX(-100%)"};
   transition: transform 0.5s ease-in-out;
 `;
@@ -38,5 +41,10 @@ export const Input = styled.input`
 export const HamburgerContainer = styled.div`
   align-items: center;
   justify-content: center;
-  margin: 1em 0 0 1em;
+  display:${(p: sideProps) => (p.sidebarToggle ? "none" : "grid")}
+  div {
+    width: 2em;
+    border: 1px solid black;
+    margin: 0.5em;
+  }
 `;

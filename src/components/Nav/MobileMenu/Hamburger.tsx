@@ -8,6 +8,7 @@ const Hamburger: React.FC = () => {
       type: "TOGGLE_SIDEBAR"
     });
   }, [dispatch]);
+
   return (
     <div onClick={handleHamburger}>
       <div />
