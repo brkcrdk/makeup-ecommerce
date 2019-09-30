@@ -9,7 +9,7 @@ const Hamburger: React.FC = () => {
     });
   }, [dispatch]);
   return (
-    <div onClick={handleHamburger} style={{ border: "none" }}>
+    <div onClick={handleHamburger}>
       <div />
       <div />
       <div />

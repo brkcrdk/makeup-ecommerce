@@ -1,6 +1,7 @@
 import styled from "styled-components";
-interface Props {
-  toggle: boolean;
+
+interface IProps {
+  searchToggle: boolean;
 }
 
 export const Container = styled.div`
@@ -21,8 +22,8 @@ export const InputContainer = styled.div`
   align-items: center;
   top: 3.5em;
   display: grid;
-  transform: ${(p: Props) =>
-    p.toggle ? "translateX(0)" : "translateX(-100%)"};
+  transform: ${(p: IProps) =>
+    p.searchToggle ? "translateX(0)" : "translateX(-100%)"};
   transition: transform 0.5s ease-in-out;
 `;
 export const Input = styled.input`
@@ -38,9 +39,4 @@ export const HamburgerContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin: 1em 0 0 1em;
-  div {
-    width: 1.5em;
-    border: 1px solid black;
-    margin: 5px;
-  }
 `;

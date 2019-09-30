@@ -1,5 +1,5 @@
 export interface SidebarState {
-  toggle: boolean;
+  sideToggle: boolean;
 }
 export const TOGGLE_SIDEBAR = "TOGGLE_SIDEBAR";
 
