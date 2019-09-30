@@ -1,5 +1,11 @@
 import React from "react";
-import { Container, RightSide, Input, InputContainer } from "./NavBarStyle";
+import {
+  Container,
+  RightSide,
+  Input,
+  InputContainer,
+  Hamburger
+} from "./NavBarStyle";
 import Brand from "./Brand/Brand";
 import Search from "./Search/Search";
 import Cart from "./Cart/Cart";
@@ -14,7 +20,11 @@ const NavBar: React.FC = () => {
   console.log(toggle);
   return (
     <Container>
-      <p>Hamburger</p>
+      <Hamburger>
+        <div />
+        <div />
+        <div />
+      </Hamburger>
       <Brand />
       <RightSide>
         <Search />

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 interface Props {
   toggle: boolean;
 }
@@ -14,29 +13,34 @@ export const RightSide = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
 export const InputContainer = styled.div`
   position: absolute;
   width: 100%;
-  display: ${(p: Props) => (p.toggle ? "grid" : "none")};
+  height: 2em;
   align-items: center;
   top: 3.5em;
-  transition: transform 1s;
-  animation: fade-in 1s;
-  animation-iteration-count: 1;
-  @keyframes fade-in {
-    from {
-      transform: scale(0, 0);
-    }
-    to {
-      translate: scale(1, 1);
-    }
-  }
+  display: grid;
+  transform: ${(p: Props) =>
+    p.toggle ? "translateX(0)" : "translateX(-100%)"};
+  transition: transform 0.5s ease-in-out;
 `;
 export const Input = styled.input`
   width: 90%;
+  height: 100%;
   margin: 0 auto;
   padding-inline-start: 1em;
-  height: 100%;
-  background-color: #eae8ed;
+  background-color: #ffe8ef;
   border: 1px double lightgray;
+`;
+
+export const Hamburger = styled.div`
+  align-items: center;
+  justify-content: center;
+  margin: 1em 0 0 1em;
+  div {
+    width: 1.5em;
+    border: 1px solid black;
+    margin: 5px;
+  }
 `;
