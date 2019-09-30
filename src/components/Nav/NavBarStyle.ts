@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import colours from "../colours";
 export const Container = styled.div`
   width: 100%;
   display: grid;
@@ -31,7 +31,10 @@ export const Input = styled.input`
   height: 100%;
   margin: 0 auto;
   padding-inline-start: 1em;
-  background-color: #ffe8ef;
+  background-color: ${colours.background};
+  color: ${colours.primaryText};
+  font-size: 1em;
+  font-style: italic;
   border: 1px double lightgray;
 `;
 

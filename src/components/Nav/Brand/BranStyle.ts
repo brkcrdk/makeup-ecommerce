@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import colours from "../../colours";
 export const Container = styled.div`
   font-family: "Great Vibes", cursive;
   display: flex;
@@ -16,6 +16,6 @@ export const Text = styled.span`
   font-size: 1.5em;
   padding: 0;
   margin-top: 0.7em;
-  color: 380909;
+  color: ${colours.primaryText};
   font-weight: 700;
 `;
