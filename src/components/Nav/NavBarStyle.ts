@@ -1,4 +1,7 @@
 import styled from "styled-components";
+interface Props {
+  toggle: boolean;
+}
 
 export const Container = styled.div`
   width: 100%;
@@ -14,9 +17,20 @@ export const RightSide = styled.div`
 export const InputContainer = styled.div`
   position: absolute;
   width: 100%;
-  display: grid;
+  display: ${(p: Props) => (p.toggle ? "grid" : "none")};
   align-items: center;
   top: 3.5em;
+  transition: transform 1s;
+  animation: fade-in 1s;
+  animation-iteration-count: 1;
+  @keyframes fade-in {
+    from {
+      transform: scale(0, 0);
+    }
+    to {
+      translate: scale(1, 1);
+    }
+  }
 `;
 export const Input = styled.input`
   width: 90%;
