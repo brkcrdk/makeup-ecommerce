@@ -5,7 +5,6 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
-  border: 1px solid yellow;
 `;
 export const Image = styled.img`
   width: 3em;

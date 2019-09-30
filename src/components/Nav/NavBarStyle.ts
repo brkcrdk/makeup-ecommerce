@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 interface Props {
   toggle: boolean;
 }
@@ -10,7 +11,6 @@ export const Container = styled.div`
 `;
 export const RightSide = styled.div`
   display: flex;
-  border: 1px solid green;
   justify-content: center;
   align-items: center;
 `;
