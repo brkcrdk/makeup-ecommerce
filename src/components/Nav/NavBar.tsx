@@ -4,33 +4,39 @@ import {
   RightSide,
   Input,
   InputContainer,
-  Hamburger
+  HamburgerContainer
 } from "./NavBarStyle";
 import Brand from "./Brand/Brand";
 import Search from "./Search/Search";
 import Cart from "./Cart/Cart";
+import Hamburger from "./MobileMenu/Hamburger";
 import { useSelector } from "react-redux";
 interface IToggle {
   storeToggle: {
     toggle: boolean;
   };
+  storeSidebarToggle: {
+    toggle: boolean;
+  };
 }
 const NavBar: React.FC = () => {
-  const toggle = useSelector((state: IToggle) => state.storeToggle.toggle);
-  console.log(toggle);
+  const searchToggle = useSelector(
+    (state: IToggle) => state.storeToggle.toggle
+  );
+  const sidebarToggle = useSelector(
+    (state: IToggle) => state.storeSidebarToggle.toggle
+  );
   return (
     <Container>
-      <Hamburger>
-        <div />
-        <div />
-        <div />
-      </Hamburger>
+      <HamburgerContainer>
+        <Hamburger />
+      </HamburgerContainer>
       <Brand />
       <RightSide>
         <Search />
         <Cart />
       </RightSide>
-      <InputContainer toggle={toggle}>
+      <InputContainer toggle={searchToggle}>
         <Input />
       </InputContainer>
     </Container>

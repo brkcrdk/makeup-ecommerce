@@ -34,7 +34,7 @@ export const Input = styled.input`
   border: 1px double lightgray;
 `;
 
-export const Hamburger = styled.div`
+export const HamburgerContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin: 1em 0 0 1em;
