@@ -1,11 +1,4 @@
 import styled from "styled-components";
-//NOTE: every component have their own interfaces!
-interface searchProps {
-  searchToggle: boolean;
-}
-interface sideProps {
-  sidebarToggle: boolean;
-}
 
 export const Container = styled.div`
   width: 100%;
@@ -18,6 +11,9 @@ export const RightSide = styled.div`
   align-items: center;
 `;
 
+interface searchProps {
+  searchToggle: boolean;
+}
 export const InputContainer = styled.div`
   position: absolute;
   width: 100%;
@@ -29,6 +25,7 @@ export const InputContainer = styled.div`
     p.searchToggle ? "translateX(0)" : "translateX(-100%)"};
   transition: transform 0.5s ease-in-out;
 `;
+
 export const Input = styled.input`
   width: 90%;
   height: 100%;
@@ -38,6 +35,9 @@ export const Input = styled.input`
   border: 1px double lightgray;
 `;
 
+interface sideProps {
+  sidebarToggle: boolean;
+}
 export const HamburgerContainer = styled.div`
   align-items: center;
   justify-content: center;
