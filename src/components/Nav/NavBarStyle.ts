@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import colours from "../colours";
 export const Container = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 9fr 2fr;
+  border-bottom: 1px solid lightgray;
 `;
 export const RightSide = styled.div`
   display: flex;
@@ -19,7 +20,7 @@ export const InputContainer = styled.div`
   width: 100%;
   height: 2em;
   align-items: center;
-  top: 3.5em;
+  top: 4em;
   display: grid;
   transform: ${(p: searchProps) =>
     p.searchToggle ? "translateX(0)" : "translateX(-100%)"};
@@ -41,13 +42,29 @@ export const Input = styled.input`
 interface sideProps {
   sidebarToggle: boolean;
 }
+
+const transform1 = "rotate(-45deg) translate(-0.7em, 0.2em)";
+const transform2 = "rotate(45deg) translate(-0.7em, -0.2em)";
+
 export const HamburgerContainer = styled.div`
   align-items: center;
   justify-content: center;
-  display:${(p: sideProps) => (p.sidebarToggle ? "none" : "grid")}
+  display: grid;
   div {
     width: 2em;
-    border: 1px solid black;
+    border: 1px solid ${colours.primaryText};
     margin: 0.5em;
+    #ham1 {
+      transition: transform 1s;
+      transform: ${(p: sideProps) => (p.sidebarToggle ? `${transform1}` : ``)};
+    }
+    #ham2 {
+      transition: opacity 0.5s;
+      opacity: ${(p: sideProps) => (p.sidebarToggle ? "0" : `1`)};
+    }
+    #ham3 {
+      transition: transform 1s;
+      transform: ${(p: sideProps) => (p.sidebarToggle ? `${transform2}` : ``)};
+    }
   }
 `;

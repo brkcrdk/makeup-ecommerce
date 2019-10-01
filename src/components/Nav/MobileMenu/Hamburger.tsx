@@ -1,6 +1,5 @@
 import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
-import styled from "styled-components";
 
 const Hamburger: React.FC = () => {
   const dispatch = useDispatch();
@@ -12,9 +11,9 @@ const Hamburger: React.FC = () => {
 
   return (
     <div style={{ border: "none" }} onClick={handleHamburger}>
-      <div />
-      <div />
-      <div />
+      <div id="ham1" />
+      <div id="ham2" />
+      <div id="ham3" />
     </div>
   );
 };

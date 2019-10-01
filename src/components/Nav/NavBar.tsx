@@ -17,7 +17,7 @@ interface IToggle {
     toggle: boolean;
   };
   storeSidebarToggle: {
-    toggle: boolean;
+    sideToggle: boolean;
   };
 }
 
@@ -26,8 +26,9 @@ const NavBar: React.FC = () => {
     (state: IToggle) => state.storeToggle.toggle
   );
   const sidebarToggle = useSelector(
-    (state: IToggle) => state.storeSidebarToggle.toggle
+    (state: IToggle) => state.storeSidebarToggle.sideToggle
   );
+  console.log(sidebarToggle);
   return (
     <Container>
       <HamburgerContainer sidebarToggle={sidebarToggle}>
@@ -39,7 +40,7 @@ const NavBar: React.FC = () => {
         <Cart />
       </RightSide>
       <InputContainer searchToggle={searchToggle}>
-        <Input />
+        <Input placeholder="Search here.." />
       </InputContainer>
     </Container>
   );
