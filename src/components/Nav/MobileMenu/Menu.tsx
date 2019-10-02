@@ -34,9 +34,9 @@ const Menu: React.FC = () => {
           <Link<any> to={`/${item}`} key={key}>
             <AccordionTitle>{item.replace("_", " ")}</AccordionTitle>
             <AccordionContent>
-              {getCategory(products, `${item}`).map((item, index) => (
-                <p key={key}>{item}</p>
-              ))}
+              {getCategory(products, `${item}`).map((item, index) =>
+                item !== null ? <p key={index}>{item.replace("_", " ")}</p> : ""
+              )}
             </AccordionContent>
           </Link>
         ))
