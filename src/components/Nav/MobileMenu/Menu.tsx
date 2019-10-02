@@ -1,40 +1,36 @@
 import React from "react";
-import getType from "../../getType";
-// import { IProducts } from "../../../store/fetchProducts/types";
-
+import { getType } from "../../getTypes";
 import { useSelector } from "react-redux";
+import { AccordionContainer, AccordionTitle } from "./MenuStyle";
 
 interface ProductTypes {
   storeProducts: {
     products: [];
   };
+  storeSidebarToggle: {
+    sideToggle: boolean;
+  };
 }
 
 const Menu: React.FC = () => {
+  const toggle = useSelector(
+    (state: ProductTypes) => state.storeSidebarToggle.sideToggle
+  );
   const products = useSelector(
     (state: ProductTypes) => state.storeProducts.products
   );
-  console.log(getType("brand", products));
-  // const productTypes = products
-  //   .filter((items: IProducts) => {
-  //     return items.brand;
-  //   })
-  //   .map((x: IProducts) => {
-  //     return x.brand;
-  //   });
-  // //TODO: Filter to get array without duplicates
-  // const types = productTypes.filter((value, index, self) => {
-  //   return self.indexOf(value) === index;
-  // });
-  // console.log(types);
+  const types = getType(products);
+
   return (
-    <ul>
-      <li>Menu</li>
-      <li>Menu</li>
-      <li>Menu</li>
-      <li>Menu</li>
-      <li>Menu</li>
-    </ul>
+    <AccordionContainer toggle={toggle}>
+      {types.length < 1 ? (
+        <p>Loading...</p>
+      ) : (
+        types.map((item, key) => (
+          <AccordionTitle key={key}>{item.replace("_", " ")}</AccordionTitle>
+        ))
+      )}
+    </AccordionContainer>
   );
 };
 export default Menu;

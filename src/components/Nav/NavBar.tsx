@@ -12,7 +12,6 @@ import Cart from "./Cart/Cart";
 import Hamburger from "./MobileMenu/Hamburger";
 import Menu from "./MobileMenu/Menu";
 import { useSelector } from "react-redux";
-
 interface IToggle {
   storeToggle: {
     toggle: boolean;
@@ -29,7 +28,6 @@ const NavBar: React.FC = () => {
   const sidebarToggle = useSelector(
     (state: IToggle) => state.storeSidebarToggle.sideToggle
   );
-  console.log(sidebarToggle);
   return (
     <Container>
       <HamburgerContainer sidebarToggle={sidebarToggle}>
