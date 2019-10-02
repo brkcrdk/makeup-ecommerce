@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { getType, getCategory } from "../../getTypes";
 import { useSelector } from "react-redux";
 import {
@@ -24,7 +24,10 @@ const Menu: React.FC = () => {
     (state: ProductTypes) => state.storeProducts.products
   );
   const types = getType(products);
-
+  const [active, setActive] = useState(false);
+  const handleClick = () => {
+    setActive(!active);
+  };
   return (
     <AccordionContainer toggle={toggle}>
       {types.length < 1 ? (
@@ -32,7 +35,7 @@ const Menu: React.FC = () => {
       ) : (
         types.map((item, key) => (
           //Map item types
-          <Link<any> to={`/${item}`} key={key}>
+          <Link<any> to={`/${item}`} key={key} onClick={handleClick}>
             {/* Get rid of underlines */}
             <AccordionTitle>{item.replace("_", " ")}</AccordionTitle>
             {/* Map every item with getCategory function will 
@@ -42,7 +45,7 @@ const Menu: React.FC = () => {
               //Some products will return of category
               //if category is null return nothing..
               item !== null ? (
-                <AccordionContent>
+                <AccordionContent isActive={active}>
                   <Link to={`/${item}`} key={index}>
                     {item.replace("_", " ")}
                   </Link>

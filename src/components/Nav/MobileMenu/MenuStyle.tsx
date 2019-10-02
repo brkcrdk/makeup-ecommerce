@@ -37,7 +37,12 @@ export const AccordionTitle = styled.li`
     background-color: transparent;
   }
 `;
+
+interface ContentProps {
+  isActive: boolean;
+}
 export const AccordionContent = styled.a`
+  display: ${(p: ContentProps) => (p.isActive ? "block" : "none")};
   a {
     padding: 0.5em;
     display: block;
