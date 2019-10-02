@@ -36,3 +36,4 @@ export const AccordionTitle = styled.li`
     background-color: transparent;
   }
 `;
+export const AccordionContent = styled.div``;

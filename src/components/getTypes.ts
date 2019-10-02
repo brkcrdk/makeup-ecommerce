@@ -14,10 +14,10 @@ export const getBrand = (data: []) => {
   return types;
 };
 
-export const getCategory = (data: []) => {
+export const getCategory = (data: [], type: string) => {
   const productTypes = data
     .filter((items: IProducts) => {
-      return items.category;
+      return items.product_type === type;
     })
     .map((items: IProducts) => {
       return items.category;

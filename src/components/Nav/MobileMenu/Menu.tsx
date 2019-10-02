@@ -1,7 +1,11 @@
 import React from "react";
-import { getType } from "../../getTypes";
+import { getType, getCategory } from "../../getTypes";
 import { useSelector } from "react-redux";
-import { AccordionContainer, AccordionTitle } from "./MenuStyle";
+import {
+  AccordionContainer,
+  AccordionTitle,
+  AccordionContent
+} from "./MenuStyle";
 import { Link } from "react-router-dom";
 interface ProductTypes {
   storeProducts: {
@@ -29,6 +33,11 @@ const Menu: React.FC = () => {
         types.map((item, key) => (
           <Link<any> to={`/${item}`} key={key}>
             <AccordionTitle>{item.replace("_", " ")}</AccordionTitle>
+            <AccordionContent>
+              {getCategory(products, `${item}`).map((item, index) => (
+                <p key={key}>{item}</p>
+              ))}
+            </AccordionContent>
           </Link>
         ))
       )}
