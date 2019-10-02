@@ -10,6 +10,7 @@ import Brand from "./Brand/Brand";
 import Search from "./Search/Search";
 import Cart from "./Cart/Cart";
 import Hamburger from "./MobileMenu/Hamburger";
+import Menu from "./MobileMenu/Menu";
 import { useSelector } from "react-redux";
 
 interface IToggle {
@@ -42,6 +43,7 @@ const NavBar: React.FC = () => {
       <InputContainer searchToggle={searchToggle}>
         <Input placeholder="Search here.." />
       </InputContainer>
+      <Menu />
     </Container>
   );
 };
