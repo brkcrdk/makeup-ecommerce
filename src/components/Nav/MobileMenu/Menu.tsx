@@ -1,5 +1,10 @@
 import React from "react";
-
+import {
+  AccordionContainer,
+  AccordionContent,
+  AccordionIcon,
+  AccordionTitle
+} from "./MenuStyle";
 interface Props {}
 
 const Menu: React.FC<Props> = () => {

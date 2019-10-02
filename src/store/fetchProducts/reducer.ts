@@ -23,7 +23,7 @@ const fetchProductReducer = (
     case PRODUCTS_SUCCESS:
       //If action type is success make loading stop and push data to state
       //To push all the data to state use JavaScript spread operator
-      return { ...state, isLoading: false, products: { ...action.payload } };
+      return { ...state, isLoading: false, products: action.payload };
     case PRODUCTS_ERROR:
       //If action type is error make loading stop and push error to state
       return { ...state, isLoading: false, error: action.error };

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProducts } from "./store/fetchProducts/actions";
+import { IProducts } from "./store/fetchProducts/types";
 interface ProductTypes {
   storeProducts: {
     products: [];
@@ -8,7 +9,7 @@ interface ProductTypes {
     error: null | {};
   };
 }
-const Products: React.FC = () => {
+const Products: React.FC<IProducts> = ({ product_type }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());
@@ -16,14 +17,18 @@ const Products: React.FC = () => {
   const products = useSelector(
     (state: ProductTypes) => state.storeProducts.products
   );
-  const isLoading = useSelector(
-    (state: ProductTypes) => state.storeProducts.isLoading
-  );
-  console.log(products);
-  console.log(isLoading);
+
   return (
     <div>
       <p>Products page</p>
+      {products &&
+        products
+          .filter((items) => {
+            return product_type === "blush";
+          })
+          .map((item, key) => {
+            <li key={key}>blush</li>;
+          })}
       <p></p>
     </div>
   );

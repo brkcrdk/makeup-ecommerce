@@ -26,6 +26,7 @@ export interface IProducts {
   api_featured_image: String;
   product_colors: {}[];
 }
+
 //Define types that will be using in actions and reducers!
 export const PRODUCTS_FETCH = "PRODUCTS_FETCH";
 export const PRODUCTS_SUCCESS = "PRODUCTS_SUCCESS";
