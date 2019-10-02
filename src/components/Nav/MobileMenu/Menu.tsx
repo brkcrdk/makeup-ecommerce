@@ -24,7 +24,7 @@ const Menu: React.FC = () => {
   return (
     <AccordionContainer toggle={toggle}>
       {types.length < 1 ? (
-        <p>Loading...</p>
+        <AccordionTitle>Loading...</AccordionTitle>
       ) : (
         types.map((item, key) => (
           <AccordionTitle key={key}>{item.replace("_", " ")}</AccordionTitle>

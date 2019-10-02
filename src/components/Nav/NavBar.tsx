@@ -41,7 +41,6 @@ const NavBar: React.FC = () => {
       <InputContainer searchToggle={searchToggle}>
         <Input placeholder="Search here.." />
       </InputContainer>
-      <Menu />
     </Container>
   );
 };
