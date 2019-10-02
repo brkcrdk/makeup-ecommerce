@@ -17,12 +17,16 @@ const Menu: React.FC = () => {
   );
   const productTypes = products
     .filter((items: IProducts) => {
-      return items.product_type;
+      return items.brand;
     })
     .map((x: IProducts) => {
-      return x.product_type;
+      return x.brand;
     });
-  console.log(productTypes);
+  //TODO: Filter to get array without duplicates
+  const types = productTypes.filter((value, index, self) => {
+    return self.indexOf(value) === index;
+  });
+  console.log(types);
   return (
     <ul>
       <li>Menu</li>
