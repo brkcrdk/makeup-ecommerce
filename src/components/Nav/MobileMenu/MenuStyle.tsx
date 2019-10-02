@@ -3,7 +3,7 @@ interface Toggle {
   toggle: boolean;
 }
 export const AccordionContainer = styled.ul`
-  height: 100%;
+  height: 100vh;
   width: ${(p: Toggle) => (p.toggle ? "10em" : "0")};
   position: fixed;
   top: 0;
@@ -17,8 +17,12 @@ export const AccordionContainer = styled.ul`
   background-color: #111;
   color: white;
   a {
+    cursor: pointer;
     text-decoration: none;
     color: white;
+    :active {
+      background-color: transparent;
+    }
   }
 `;
 
@@ -27,6 +31,8 @@ export const AccordionTitle = styled.li`
   margin: 1em 0 1em 1em;
   overflow-x: hidden;
   width: 100%;
+  :active {
+    border: none;
+    background-color: transparent;
+  }
 `;
-export const AccordionIcon = styled.i``;
-export const AccordionContent = styled.p``;

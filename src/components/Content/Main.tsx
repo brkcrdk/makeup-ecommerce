@@ -1,4 +1,5 @@
 import React from "react";
+import { Container, Content } from "./MainStyle";
 import { useSelector } from "react-redux";
 import Box from "../Nav/Search/SearchBox/Box";
 interface Toggle {
@@ -12,15 +13,12 @@ const Main: React.FC = () => {
     (state: Toggle) => state.storeSidebarToggle.sideToggle
   );
   return (
-    <div
-      style={
-        toggle
-          ? { marginLeft: "10em", transition: "0.5s" }
-          : { transition: "0.5s" }
-      }>
+    <Container toggle={toggle}>
       <Box />
-      <p>Content</p>
-    </div>
+      <Content>
+        <p>Content</p>
+      </Content>
+    </Container>
   );
 };
 
