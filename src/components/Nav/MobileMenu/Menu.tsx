@@ -31,13 +31,26 @@ const Menu: React.FC = () => {
         <AccordionTitle>Loading...</AccordionTitle>
       ) : (
         types.map((item, key) => (
+          //Map item types
           <Link<any> to={`/${item}`} key={key}>
+            {/* Get rid of underlines */}
             <AccordionTitle>{item.replace("_", " ")}</AccordionTitle>
-            <AccordionContent>
-              {getCategory(products, `${item}`).map((item, index) =>
-                item !== null ? <p key={index}>{item.replace("_", " ")}</p> : ""
-              )}
-            </AccordionContent>
+            {/* Map every item with getCategory function will 
+            returns every sub category for that product*/}
+
+            {getCategory(products, `${item}`).map((item, index) =>
+              //Some products will return of category
+              //if category is null return nothing..
+              item !== null ? (
+                <AccordionContent>
+                  <Link to={`/${item}`} key={index}>
+                    {item.replace("_", " ")}
+                  </Link>
+                </AccordionContent>
+              ) : (
+                ""
+              )
+            )}
           </Link>
         ))
       )}

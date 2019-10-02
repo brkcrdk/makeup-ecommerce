@@ -31,9 +31,15 @@ export const AccordionTitle = styled.li`
   margin: 1em 0 1em 1em;
   overflow-x: hidden;
   width: 100%;
+  color: yellow;
   :active {
     border: none;
     background-color: transparent;
   }
 `;
-export const AccordionContent = styled.div``;
+export const AccordionContent = styled.a`
+  a {
+    padding: 0.5em;
+    display: block;
+  }
+`;
