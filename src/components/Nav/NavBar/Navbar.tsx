@@ -5,12 +5,12 @@ import {
   Input,
   InputContainer,
   HamburgerContainer
-} from "./NavBarStyle";
-import Brand from "./Brand/Brand";
-import Search from "./Search/Search";
-import Cart from "./Cart/Cart";
-import Hamburger from "./MobileMenu/Hamburger";
-import Menu from "./MobileMenu/Menu";
+} from "./NavbarStyle";
+import Brand from "../Brand/Brand";
+import Search from "../Search/Search";
+import Cart from "../Cart/Cart";
+import Hamburger from "../MobileMenu/Hamburger";
+import Menu from "../MobileMenu/Menu";
 import { useSelector } from "react-redux";
 interface IToggle {
   storeToggle: {

@@ -2,7 +2,7 @@ import React from "react";
 import { getType } from "../../getTypes";
 import { useSelector } from "react-redux";
 import { AccordionContainer, AccordionTitle } from "./MenuStyle";
-
+import { Link } from "react-router-dom";
 interface ProductTypes {
   storeProducts: {
     products: [];
@@ -27,7 +27,9 @@ const Menu: React.FC = () => {
         <AccordionTitle>Loading...</AccordionTitle>
       ) : (
         types.map((item, key) => (
-          <AccordionTitle key={key}>{item.replace("_", " ")}</AccordionTitle>
+          <Link<any> to="/products" key={key}>
+            <AccordionTitle>{item.replace("_", " ")}</AccordionTitle>
+          </Link>
         ))
       )}
     </AccordionContainer>

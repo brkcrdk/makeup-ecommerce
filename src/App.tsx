@@ -1,22 +1,16 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import NavBar from "./components/Nav/NavBar";
+import NavBar from "./components/Nav/NavBar/Navbar";
 import { fetchProducts } from "./store/fetchProducts/actions";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import SideMenu from "./components/Nav/MobileMenu/Menu";
-interface Toggle {
-  storeSidebarToggle: {
-    sideToggle: boolean;
-  };
-}
+import Main from "./components/Content/Main";
 const App: React.FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
-  const toggle = useSelector(
-    (state: Toggle) => state.storeSidebarToggle.sideToggle
-  );
+
   return (
     <div className="App">
       <header className="App-header">
@@ -24,15 +18,7 @@ const App: React.FC = () => {
           <SideMenu />
           <NavBar />
           <Route path="/products" />
-          {/* TODO: when list open move the page 10em right with transition*/}
-          <p
-            style={
-              toggle
-                ? { marginLeft: "10em", transition: "0.5s" }
-                : { transition: "0.5s" }
-            }>
-            Content
-          </p>
+          <Main />
         </Router>
       </header>
     </div>

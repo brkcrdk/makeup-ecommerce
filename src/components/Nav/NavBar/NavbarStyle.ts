@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import colours from "../colours";
+import colours from "../../colours";
 //NAVBAR CONTAINER
 export const Container = styled.div`
   width: 100%;
