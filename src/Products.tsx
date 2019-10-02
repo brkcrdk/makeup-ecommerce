@@ -9,7 +9,7 @@ interface ProductTypes {
     error: null | {};
   };
 }
-const Products: React.FC<IProducts> = ({ product_type }) => {
+const Products: React.FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());
@@ -23,12 +23,10 @@ const Products: React.FC<IProducts> = ({ product_type }) => {
       <p>Products page</p>
       {products &&
         products
-          .filter((items) => {
-            return product_type === "blush";
+          .filter((items: IProducts) => {
+            return items.product_type === "blush";
           })
-          .map((item, key) => {
-            <li key={key}>blush</li>;
-          })}
+          .map((items: IProducts, key) => <li key={key}>{items.name}</li>)}
       <p></p>
     </div>
   );
