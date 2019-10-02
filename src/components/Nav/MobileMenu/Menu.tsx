@@ -27,7 +27,7 @@ const Menu: React.FC = () => {
         <AccordionTitle>Loading...</AccordionTitle>
       ) : (
         types.map((item, key) => (
-          <Link<any> to="/products" key={key}>
+          <Link<any> to={`/${item}`} key={key}>
             <AccordionTitle>{item.replace("_", " ")}</AccordionTitle>
           </Link>
         ))
