@@ -1,9 +1,20 @@
 import React from "react";
+import { InputContainer, Input } from "./BoxStyle";
 
-interface Props {}
+import { useSelector } from "react-redux";
+interface Toggle {
+  storeToggle: {
+    toggle: boolean;
+  };
+}
 
-const Box: React.FC<Props> = () => {
-  return <div></div>;
+const Box: React.FC = () => {
+  const searchToggle = useSelector((state: Toggle) => state.storeToggle.toggle);
+  return (
+    <InputContainer searchToggle={searchToggle}>
+      <Input placeholder="Search here.." />
+    </InputContainer>
+  );
 };
 
 export default Box;
