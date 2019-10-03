@@ -4,8 +4,7 @@ export const CarouselContainer = styled.div`
   position: relative;
   margin: auto;
   padding-top: 1em;
-  width: 70%;
-  overflow: hidden;
+  width: 100%;
 `;
 
 interface Carousel {
@@ -14,8 +13,7 @@ interface Carousel {
 }
 export const CarouselItem = styled.div`
   display: ${(p: Carousel) => (p.show === p.index ? "flex" : "none")};
-  width: 70%;
-  height: 20em;
+  height: 70vh;
 `;
 
 export const CarouselImg = styled.img`
@@ -23,7 +21,15 @@ export const CarouselImg = styled.img`
   height: 100%;
 `;
 
-export const CarouselText = styled.div``;
+export const CarouselText = styled.p`
+  color: black;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+`;
 
 const prevNext = `
   cursor:pointer;
@@ -32,9 +38,6 @@ const prevNext = `
   width: auto;
   margin-top: -22px;
   padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
@@ -63,7 +66,9 @@ export const Icons = styled.img`
   width: 2em;
   height: 2em;
 `;
-
+export const DotWrapper = styled.div`
+  text-align: center;
+`;
 export const Dots = styled.span`
   cursor: pointer;
   height: 15px;

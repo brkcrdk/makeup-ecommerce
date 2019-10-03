@@ -14,7 +14,8 @@ import {
   Next,
   Prev,
   Icons,
-  Dots
+  Dots,
+  DotWrapper
 } from "./CarouselStyle";
 
 interface Props {}
@@ -36,10 +37,7 @@ const Carousel: React.FC<Props> = () => {
     if (index === 0) return setIndex(slides.length - 1);
     setIndex(index - 1);
   };
-  //Autoslide
-  setTimeout(() => {
-    handleNext();
-  }, 3000);
+
   return (
     <CarouselContainer>
       {slides.map((item, key) => (
@@ -54,9 +52,11 @@ const Carousel: React.FC<Props> = () => {
       <Prev onClick={handlePrev}>
         <Icons src={left} />
       </Prev>
-      {slides.map((item, key) => (
-        <Dots show={key} index={index} key={key} />
-      ))}
+      <DotWrapper>
+        {slides.map((item, key) => (
+          <Dots show={key} index={index} key={key} />
+        ))}
+      </DotWrapper>
     </CarouselContainer>
   );
 };
