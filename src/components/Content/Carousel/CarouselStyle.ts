@@ -61,7 +61,7 @@ scale(1.2, 1.2);
 `;
 export const Next = styled.a`
   ${prevNext}
-  right:-0.5em;
+  right:0;
   border-radius: 0;
   &:hover {
     transform: ${scale};
@@ -69,7 +69,6 @@ export const Next = styled.a`
 `;
 export const Prev = styled.a`
   ${prevNext};
-  left: -0.5em;
   &:hover {
     transform: ${scale};
   }

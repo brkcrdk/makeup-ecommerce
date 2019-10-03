@@ -6,7 +6,7 @@ interface searchProps {
 }
 export const InputContainer = styled.div`
   position: absolute;
-  width: 40%;
+  width: 50%;
   height: 2em;
   align-items: center;
   top: 4em;
