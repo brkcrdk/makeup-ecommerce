@@ -6,14 +6,14 @@ import Cart from "../Cart/Cart";
 import Hamburger from "../MobileMenu/Hamburger";
 import { useSelector } from "react-redux";
 interface IToggle {
-  storeSidebarToggle: {
+  sidebarToggle: {
     sideToggle: boolean;
   };
 }
 
 const NavBar: React.FC = () => {
   const sidebarToggle = useSelector(
-    (state: IToggle) => state.storeSidebarToggle.sideToggle
+    (state: IToggle) => state.sidebarToggle.sideToggle
   );
   return (
     <Container>

@@ -41,7 +41,7 @@ export const AccordionTitle = styled.li`
 interface ContentProps {
   isActive: boolean;
 }
-export const AccordionContent = styled.a`
+export const AccordionContent = styled.div`
   display: ${(p: ContentProps) => (p.isActive ? "block" : "none")};
   a {
     padding: 0.5em;

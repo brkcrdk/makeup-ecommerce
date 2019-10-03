@@ -26,7 +26,6 @@ export function fetchProducts() {
     request
       .then(({ data }) => {
         //If response is succesfull return dispatch with data
-
         dispatch({
           type: PRODUCTS_SUCCESS,
           payload: data

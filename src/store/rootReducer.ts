@@ -1,14 +1,12 @@
 import { combineReducers } from "redux";
 
 import toggleReducer from "./searchInputToggle/reducer";
-import nameReducer from "./payload/reducer";
 import fetchProductReducer from "./fetchProducts/reducer";
 import sidebarToggleReducer from "./sidebarToggle/reducer";
 const rootReducer = combineReducers({
-  storeToggle: toggleReducer,
-  storeName: nameReducer,
+  searchToggle: toggleReducer,
   storeProducts: fetchProductReducer,
-  storeSidebarToggle: sidebarToggleReducer
+  sidebarToggle: sidebarToggleReducer
 });
 
 export default rootReducer;

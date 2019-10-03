@@ -3,15 +3,13 @@ import { Container, Content } from "./MainStyle";
 import { useSelector } from "react-redux";
 import Box from "../Nav/Search/SearchBox/Box";
 interface Toggle {
-  storeSidebarToggle: {
+  sidebarToggle: {
     sideToggle: boolean;
   };
 }
 
 const Main: React.FC = () => {
-  const toggle = useSelector(
-    (state: Toggle) => state.storeSidebarToggle.sideToggle
-  );
+  const toggle = useSelector((state: Toggle) => state.sidebarToggle.sideToggle);
   return (
     <Container toggle={toggle}>
       <Box />

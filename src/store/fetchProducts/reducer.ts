@@ -8,7 +8,7 @@ import {
 //Initial data structure defined in types
 const initialState: ProductsState = {
   products: [],
-  isLoading: false,
+  isLoading: true,
   error: null
 };
 
