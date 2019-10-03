@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import img1 from "./1.jpg";
 import img2 from "./2.jpg";
 import img3 from "./3.jpg";
@@ -37,6 +37,12 @@ const Carousel: React.FC<Props> = () => {
     if (index === 0) return setIndex(slides.length - 1);
     setIndex(index - 1);
   };
+  useEffect(() => {
+    setTimeout(() => {
+      if (index < slides.length - 1) return setIndex(index + 1);
+      return setIndex(0);
+    }, 5000);
+  }, [index, slides.length]);
 
   return (
     <CarouselContainer>
@@ -46,12 +52,8 @@ const Carousel: React.FC<Props> = () => {
           <CarouselText>{item.info}</CarouselText>
         </CarouselItem>
       ))}
-      <Next onClick={handleNext}>
-        <Icons src={right} />
-      </Next>
-      <Prev onClick={handlePrev}>
-        <Icons src={left} />
-      </Prev>
+      <Next onClick={handleNext}>&#8250;</Next>
+      <Prev onClick={handlePrev}>&#8249;</Prev>
       <DotWrapper>
         {slides.map((item, key) => (
           <Dots show={key} index={index} key={key} />

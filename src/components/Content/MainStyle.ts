@@ -5,11 +5,13 @@ interface ContainerProps {
 export const Container = styled.div`
   transition: 0.5s;
   margin-left: ${(p: ContainerProps) => (p.toggle ? "10em" : "")};
-  margin-top: 1em;
+  margin-top: 1.5em;
 `;
 
 export const Content = styled.div`
-  max-width: 100%;
-  padding-left: 1em;
-  padding-top: 1em;
+  /* Center content from here*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1.5em;
 `;
