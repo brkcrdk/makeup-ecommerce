@@ -1,9 +1,9 @@
 import { IProducts } from "../store/fetchProducts/types";
 
-export const getCategory = (data: [], type: string) => {
+export const getCategory = (data: []) => {
   const productTypes = data
     .filter((items: IProducts) => {
-      return items.product_type === type;
+      return items.category;
     })
     .map((items: IProducts) => {
       return items.category;

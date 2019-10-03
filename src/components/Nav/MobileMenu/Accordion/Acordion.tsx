@@ -1,7 +1,7 @@
 import React from "react";
 import {
+  AccordionContainer,
   AccordionContent,
-  AccordionTitle,
   AccordionList
 } from "./AcordionStyle";
 interface Props {
@@ -11,12 +11,16 @@ interface Props {
 
 const Accordion: React.FC<Props> = ({ title, content }) => {
   return (
-    <>
-      <AccordionContent>
-        <AccordionTitle>{title}</AccordionTitle>
-        <AccordionList>BUrat</AccordionList>
-      </AccordionContent>
-    </>
+    <AccordionContainer>
+      <AccordionContent>{title}</AccordionContent>
+      {content.length < 1 ? (
+        <AccordionList>Loading..</AccordionList>
+      ) : (
+        content.map((item, key) => (
+          <AccordionList key={key}>{item.replace("_", " ")}</AccordionList>
+        ))
+      )}
+    </AccordionContainer>
   );
 };
 

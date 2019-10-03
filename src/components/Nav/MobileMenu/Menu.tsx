@@ -1,5 +1,5 @@
 import React from "react";
-import { getType } from "../../getTypes";
+import { getType, getCategory, getBrand } from "../../getTypes";
 import { useSelector } from "react-redux";
 import { Container } from "./MenuStyle";
 import { Link } from "react-router-dom";
@@ -21,19 +21,13 @@ const Menu: React.FC = () => {
     (state: ProductTypes) => state.storeProducts.products
   );
   const types = getType(products);
-
+  const categories = getCategory(products);
+  const brands = getBrand(products);
   return (
     <Container toggle={toggle}>
-      <Acordion title={"Burak"} content={types} />
-      {/* {types.length < 1 ? (
-        <AccordionTitle>Loading...</AccordionTitle>
-      ) : (
-        types.map((item, key) => (
-          <Link<any> to={`/${item}`} key={key}>
-            <AccordionTitle>{item.replace("_", " ")}</AccordionTitle>
-          </Link>
-        ))
-      )} */}
+      <Acordion title={"Types"} content={types} />
+      <Acordion title={"Categories"} content={categories} />
+      <Acordion title={"Brand"} content={brands} />
     </Container>
   );
 };
