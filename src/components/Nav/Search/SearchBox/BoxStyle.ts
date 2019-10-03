@@ -5,7 +5,6 @@ interface searchProps {
   searchToggle: boolean;
 }
 export const InputContainer = styled.div`
-  z-index: 1;
   position: absolute;
   width: 100%;
   height: 2em;
@@ -13,7 +12,7 @@ export const InputContainer = styled.div`
   top: 4em;
   display: grid;
   transform: ${(p: searchProps) =>
-    p.searchToggle ? "translateX(0)" : "translateX(100%)"};
+    p.searchToggle ? "translateX(0)" : "translateX(-100%)"};
   transition: transform 0.5s ease-in-out;
 `;
 //SEARCH INPUT
