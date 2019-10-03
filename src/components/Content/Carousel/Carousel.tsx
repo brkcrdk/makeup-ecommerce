@@ -4,13 +4,17 @@ import img2 from "./2.jpg";
 import img3 from "./3.jpg";
 import img4 from "./4.jpg";
 import img5 from "./5.jpg";
+import left from "./left.png";
+import right from "./right.png";
 import {
   CarouselContainer,
   CarouselItem,
   CarouselImg,
   CarouselText,
   Next,
-  Prev
+  Prev,
+  Icons,
+  Dots
 } from "./CarouselStyle";
 
 interface Props {}
@@ -32,6 +36,10 @@ const Carousel: React.FC<Props> = () => {
     if (index === 0) return setIndex(slides.length - 1);
     setIndex(index - 1);
   };
+  //Autoslide
+  setTimeout(() => {
+    handleNext();
+  }, 3000);
   return (
     <CarouselContainer>
       {slides.map((item, key) => (
@@ -40,8 +48,15 @@ const Carousel: React.FC<Props> = () => {
           <CarouselText>{item.info}</CarouselText>
         </CarouselItem>
       ))}
-      <Next onClick={handleNext}>&#10095;</Next>
-      <Prev onClick={handlePrev}>&#10094;</Prev>
+      <Next onClick={handleNext}>
+        <Icons src={right} />
+      </Next>
+      <Prev onClick={handlePrev}>
+        <Icons src={left} />
+      </Prev>
+      {slides.map((item, key) => (
+        <Dots show={key} index={index} key={key} />
+      ))}
     </CarouselContainer>
   );
 };
