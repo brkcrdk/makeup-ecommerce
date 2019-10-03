@@ -4,7 +4,8 @@ interface ContainerProps {
 }
 export const Container = styled.div`
   transition: 0.5s;
-  margin-left: ${(p: ContainerProps) => (p.toggle ? "10em" : "")};
+  filter: ${(p: ContainerProps) =>
+    p.toggle ? "blur(3px); pointer-events:none" : ""};
   margin-top: 1.5em;
 `;
 

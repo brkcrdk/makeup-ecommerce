@@ -1,11 +1,7 @@
 import React, { useState } from "react";
-import { getCategory, getType } from "../../getTypes";
+import { getType } from "../../getTypes";
 import { useSelector } from "react-redux";
-import {
-  AccordionContainer,
-  AccordionTitle,
-  AccordionContent
-} from "./MenuStyle";
+import { AccordionContainer, AccordionTitle } from "./MenuStyle";
 import { Link } from "react-router-dom";
 interface ProductTypes {
   sidebarToggle: {

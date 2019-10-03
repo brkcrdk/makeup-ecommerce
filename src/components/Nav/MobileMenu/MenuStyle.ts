@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import colours from "../../colours";
 interface Toggle {
   toggle: boolean;
 }
@@ -14,12 +15,12 @@ export const AccordionContainer = styled.ul`
   transition: 0.5s;
   text-transform: capitalize;
   margin-top: 3.5em;
-  background-color: #111;
-  color: white;
+  background-color: ${colours.background};
+  opacity: 0.8;
   a {
     cursor: pointer;
     text-decoration: none;
-    color: white;
+    color: ${colours.primaryText};
     :active {
       background-color: transparent;
     }
@@ -31,7 +32,8 @@ export const AccordionTitle = styled.li`
   margin: 1em 0 1em 1em;
   overflow-x: hidden;
   width: 100%;
-  color: yellow;
+  color: ${colours.primaryText};
+
   :active {
     border: none;
     background-color: transparent;

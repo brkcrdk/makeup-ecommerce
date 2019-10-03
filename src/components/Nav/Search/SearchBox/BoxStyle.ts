@@ -6,13 +6,13 @@ interface searchProps {
 }
 export const InputContainer = styled.div`
   position: absolute;
-  width: 100%;
+  width: 40%;
   height: 2em;
   align-items: center;
   top: 4em;
-  display: grid;
+  display: block;
   transform: ${(p: searchProps) =>
-    p.searchToggle ? "translateX(0)" : "translateX(-100%)"};
+    p.searchToggle ? "translateX(10%)" : "translateX(-120%)"};
   transition: transform 0.5s ease-in-out;
 `;
 //SEARCH INPUT
@@ -26,4 +26,6 @@ export const Input = styled.input`
   font-size: 1em;
   font-style: italic;
   border: 1px double lightgray;
+  border-radius: 0.5em;
+  outline: none;
 `;

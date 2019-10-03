@@ -4,8 +4,6 @@ import img2 from "./2.jpg";
 import img3 from "./3.jpg";
 import img4 from "./4.jpg";
 import img5 from "./5.jpg";
-import left from "./left.png";
-import right from "./right.png";
 import {
   CarouselContainer,
   CarouselItem,
@@ -13,7 +11,6 @@ import {
   CarouselText,
   Next,
   Prev,
-  Icons,
   Dots,
   DotWrapper
 } from "./CarouselStyle";
@@ -37,12 +34,6 @@ const Carousel: React.FC<Props> = () => {
     if (index === 0) return setIndex(slides.length - 1);
     setIndex(index - 1);
   };
-  useEffect(() => {
-    setTimeout(() => {
-      if (index < slides.length - 1) return setIndex(index + 1);
-      return setIndex(0);
-    }, 5000);
-  }, [index, slides.length]);
 
   return (
     <CarouselContainer>
