@@ -7,23 +7,23 @@ export interface ProductsState {
 //Define api call structure here
 
 export interface IProducts {
-  id: Number;
-  brand: String;
-  name: String;
-  price: String;
-  price_sign: String;
-  currency: String;
-  image_link: String;
-  product_link: String;
-  website_link: String;
-  description: String;
-  category: String;
-  product_type: String;
-  tag_list: String[];
-  created_at: String;
-  updated_at: String;
-  product_api_url: String;
-  api_featured_image: String;
+  id: number;
+  brand: string;
+  name: string;
+  price: string;
+  price_sign: string;
+  currency: string;
+  image_link: string;
+  product_link: string;
+  website_link: string;
+  description: string;
+  category: string;
+  product_type: string;
+  tag_list: string[];
+  created_at: string;
+  updated_at: string;
+  product_api_url: string;
+  api_featured_image: string;
   product_colors: {}[];
 }
 

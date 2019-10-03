@@ -3,7 +3,7 @@ import colours from "../../colours";
 interface Toggle {
   toggle: boolean;
 }
-export const AccordionContainer = styled.ul`
+export const Container = styled.div`
   height: 100vh;
   width: ${(p: Toggle) => (p.toggle ? "10em" : "0")};
   position: fixed;
@@ -17,14 +17,6 @@ export const AccordionContainer = styled.ul`
   margin-top: 3.5em;
   background-color: ${colours.background};
   opacity: 0.8;
-  a {
-    cursor: pointer;
-    text-decoration: none;
-    color: ${colours.primaryText};
-    :active {
-      background-color: transparent;
-    }
-  }
 `;
 
 export const AccordionTitle = styled.li`
@@ -37,16 +29,5 @@ export const AccordionTitle = styled.li`
   :active {
     border: none;
     background-color: transparent;
-  }
-`;
-
-interface ContentProps {
-  isActive: boolean;
-}
-export const AccordionContent = styled.div`
-  display: ${(p: ContentProps) => (p.isActive ? "block" : "none")};
-  a {
-    padding: 0.5em;
-    display: block;
   }
 `;
