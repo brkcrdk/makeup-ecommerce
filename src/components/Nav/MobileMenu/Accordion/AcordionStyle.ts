@@ -1,10 +1,15 @@
 import styled from "styled-components";
 import colours from "../../../colours";
 
-export const AccordionContainer = styled.div``;
+export const AccordionContainer = styled.div`
+  border: 1px solid red;
+`;
 
 export const AccordionContent = styled.ul`
   color: ${colours.primaryText};
+  padding-left: 0.5em;
+  /* Used flex to prevent word-wrapping  */
+  display: flex;
 `;
 interface ListProps {
   activeId: number;

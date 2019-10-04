@@ -20,7 +20,9 @@ const Accordion: React.FC<Props> = ({ title, content, activeIndex }) => {
   console.log(index);
   return (
     <AccordionContainer>
-      <AccordionContent onClick={handleToggle}>{title}</AccordionContent>
+      <AccordionContent onClick={handleToggle}>
+        {title} <span>&#10148;</span>
+      </AccordionContent>
       {content.length < 1 ? (
         <AccordionList index={index} activeId={activeIndex}>
           Loading..
