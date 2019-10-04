@@ -1,15 +1,24 @@
 import styled from "styled-components";
 import colours from "../../../colours";
 
-export const AccordionContainer = styled.div`
-  border: 1px solid red;
-`;
+export const AccordionContainer = styled.div``;
 
+interface UlProps {
+  activeId: number;
+  index: number;
+}
 export const AccordionContent = styled.ul`
   color: ${colours.primaryText};
   padding-left: 0.5em;
   /* Used flex to prevent word-wrapping  */
+  /* And saperate text and icon evenly */
   display: flex;
+  justify-content: space-between;
+  span {
+    text-align: right;
+    transform: ${(p: UlProps) =>
+      p.activeId === p.index ? "rotate(90deg)" : ""};
+  }
 `;
 interface ListProps {
   activeId: number;
