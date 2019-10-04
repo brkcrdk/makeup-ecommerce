@@ -15,21 +15,24 @@ export const AccordionContent = styled.ul`
   display: flex;
   justify-content: space-between;
   span {
+    padding: 0 1em;
     text-align: right;
     transform: ${(p: UlProps) =>
       p.activeId === p.index ? "rotate(90deg)" : ""};
+    transition: transform 0.5s;
   }
 `;
 interface ListProps {
   activeId: number;
   index: number;
 }
+
 export const AccordionList = styled.li`
   display: ${(p: ListProps) => (p.activeId === p.index ? "block" : "none")};
   list-style: none;
   margin: 1em 0 1em 1em;
-  overflow-x: hidden;
-  width: 100%;
+
+  transition: all 0.3s ease;
   color: ${colours.primaryText};
 
   :active {

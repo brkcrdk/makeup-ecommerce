@@ -12,12 +12,14 @@ interface Props {
 
 const Accordion: React.FC<Props> = ({ title, content, activeIndex }) => {
   const [index, setIndex] = useState(-1);
+  const [active, setActive] = useState(false);
   //Accordion toggle
   const handleToggle = () => {
     if (index !== activeIndex) return setIndex(activeIndex);
+    //If accordion is open close
     if (index === activeIndex) return setIndex(-1);
   };
-  console.log(index);
+
   return (
     <AccordionContainer>
       <AccordionContent
