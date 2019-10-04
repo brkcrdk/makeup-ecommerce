@@ -17,8 +17,9 @@ export const AccordionContent = styled.ul`
   span {
     padding: 0 1em;
     text-align: right;
+    font-weight: 900;
     transform: ${(p: UlProps) =>
-      p.activeId === p.index ? "rotate(90deg)" : ""};
+      p.activeId === p.index ? "rotate(-90deg)" : ""};
     transition: transform 0.5s;
   }
 `;

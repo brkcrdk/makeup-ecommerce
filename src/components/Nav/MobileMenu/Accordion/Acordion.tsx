@@ -12,7 +12,6 @@ interface Props {
 
 const Accordion: React.FC<Props> = ({ title, content, activeIndex }) => {
   const [index, setIndex] = useState(-1);
-  const [active, setActive] = useState(false);
   //Accordion toggle
   const handleToggle = () => {
     if (index !== activeIndex) return setIndex(activeIndex);
@@ -26,7 +25,7 @@ const Accordion: React.FC<Props> = ({ title, content, activeIndex }) => {
         index={index}
         activeId={activeIndex}
         onClick={handleToggle}>
-        {title} <span>&#10148;</span>
+        {title} <span>&#8826;</span>
       </AccordionContent>
       {content.length < 1 ? (
         <AccordionList index={index} activeId={activeIndex}>
