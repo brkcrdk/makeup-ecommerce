@@ -25,9 +25,9 @@ const Menu: React.FC = () => {
   const brands = getBrand(products);
   return (
     <Container toggle={toggle}>
-      <Acordion title={"Types"} content={types} />
-      <Acordion title={"Categories"} content={categories} />
-      <Acordion title={"Brand"} content={brands} />
+      <Acordion title={"Types"} content={types} activeIndex={0} />
+      <Acordion title={"Categories"} content={categories} activeIndex={1} />
+      <Acordion title={"Brand"} content={brands} activeIndex={2} />
     </Container>
   );
 };
