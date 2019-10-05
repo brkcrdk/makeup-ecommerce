@@ -14,7 +14,7 @@ const FirstSection: React.FC<Props> = () => {
         Forever <span>Gorgeus</span>
       </p>
       <div>
-        <button>Go to Shopping!</button>
+        <button>Go Shopping!</button>
       </div>
     </MainText>
   );

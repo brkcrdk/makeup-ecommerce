@@ -41,7 +41,7 @@ export const MainText = styled.div`
     display: flex;
     justify-content: space-around;
     button {
-      padding: 1.5em;
+      padding: 1em;
       border: 1px solid ${colours.pink};
       color: ${colours.pink};
       background-color: transparent;
@@ -49,9 +49,10 @@ export const MainText = styled.div`
       font-family: ${fonts.montserrat};
       font-size: 1em;
       font-weight: 800;
+      transition: 0.5s;
       :hover {
-        transform: scale(1.1, 1.1);
-        transition: transform 0.5s;
+        color: white;
+        background-color: ${colours.pink};
       }
     }
   }
