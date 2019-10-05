@@ -1,15 +1,13 @@
 import styled from "styled-components";
 import colours from "../../../colours";
 
-interface searchProps {
-  searchToggle: boolean;
-}
 export const InputContainer = styled.div`
   position: absolute;
   width: 100%;
-  height: 2em;
+  height: 2.5em;
   align-items: center;
   top: 4em;
+  padding: 0.5em 0;
   display: block;
   overflow-x: hidden;
   transition: transform 0.5s ease-in-out;
@@ -30,7 +28,7 @@ export const Input = styled.input`
   color: ${colours.primaryText};
   font-size: 1em;
   font-style: italic;
-  border: 1px double lightgray;
   border-radius: 0.5em;
+  border: 1px solid lightgray;
   outline: none;
 `;

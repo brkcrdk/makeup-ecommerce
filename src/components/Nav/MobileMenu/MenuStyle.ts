@@ -5,7 +5,7 @@ interface Toggle {
 }
 export const Container = styled.div`
   height: 100vh;
-  width: ${(p: Toggle) => (p.toggle ? "9em" : "0")};
+  width: ${(p: Toggle) => (p.toggle ? "50%" : "0")};
   position: fixed;
   top: 0;
   z-index: 1;
