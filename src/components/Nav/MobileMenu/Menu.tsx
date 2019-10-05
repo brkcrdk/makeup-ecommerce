@@ -1,10 +1,8 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { getType, getCategory, getBrand } from "../../getTypes";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Container } from "./MenuStyle";
-import { Link } from "react-router-dom";
 import Acordion from "./Accordion/Acordion";
-import Hamburger from "./Hamburger";
 interface ProductTypes {
   sidebarToggle: {
     sideToggle: boolean;
@@ -24,8 +22,15 @@ const Menu: React.FC = () => {
   const types = getType(products);
   const categories = getCategory(products);
   const brands = getBrand(products);
+  const dispatch = useDispatch();
+  const handleClose = useCallback(() => {
+    dispatch({
+      type: "TOGGLE_SIDEBAR"
+    });
+  }, [dispatch]);
   return (
     <Container toggle={toggle}>
+      <span onClick={handleClose}>X</span>
       <Acordion title={"Types"} content={types} activeIndex={0} />
       <Acordion title={"Categories"} content={categories} activeIndex={1} />
       <Acordion title={"Brand"} content={brands} activeIndex={2} />

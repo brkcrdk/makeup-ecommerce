@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import background from "./makeup.jpg";
-interface ContainerProps {
-  toggle: boolean;
-}
+
 export const Container = styled.div`
   background-image: url(${background});
   background-attachment: fixed;
@@ -11,9 +9,15 @@ export const Container = styled.div`
   background-size: cover;
   height: 100vh;
   transition: 0.5s;
-  opacity: ${(p: ContainerProps) => (p.toggle ? "0.7" : "1")};
 `;
-
+interface DimmedProps {
+  toggle: boolean;
+}
+export const Dimmed = styled.div`
+  ${(p: DimmedProps) => (p.toggle ? "background-color:black;opacity:0.5" : "")};
+  height: 100vh;
+  transition: background-color 1s;
+`;
 export const Content = styled.div`
   /* Center content from here*/
   display: flex;

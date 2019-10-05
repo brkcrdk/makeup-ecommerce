@@ -12,7 +12,12 @@ export const Container = styled.div`
   overflow-x: hidden;
   transition: 0.5s;
   text-transform: capitalize;
-  margin-top: 3.5em;
   background-color: ${colours.background};
-  opacity: 0.8;
+  span {
+    padding: 1em 1em 0 0;
+    font-size: 1.2em;
+    font-weight: 900;
+    display: flex;
+    justify-content: flex-end;
+  }
 `;
