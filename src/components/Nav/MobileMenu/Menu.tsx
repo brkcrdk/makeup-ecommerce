@@ -31,6 +31,7 @@ const Menu: React.FC = () => {
   return (
     <Container toggle={toggle}>
       <span onClick={handleClose}>X</span>
+      <hr />
       <Acordion title={"Types"} content={types} activeIndex={0} />
       <Acordion title={"Categories"} content={categories} activeIndex={1} />
       <Acordion title={"Brand"} content={brands} activeIndex={2} />

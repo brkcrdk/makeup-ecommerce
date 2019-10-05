@@ -18,17 +18,21 @@ export const MainText = styled.div`
     color: ${colours.primaryText};
     font-weight: 600;
     margin-left: 1em;
+    @media ${device.mobileM} {
+      font-size: 1.7em;
+    }
   }
   p {
     margin: 0;
     font-family: ${fonts.montserrat};
     color: ${colours.primaryText};
-    font-weight: 900;
+    font-weight: 400;
     span {
       color: ${colours.pink};
       word-spacing: 12em;
       font-size: 2em;
       font-family: ${fonts.greatVibes};
+      font-weight: 600;
     }
   }
 
@@ -54,6 +58,15 @@ export const MainText = styled.div`
 
   #secondText {
     margin-left: 6em;
+    @media ${device.mobileL} {
+      margin-left: 8em;
+    }
+    @media ${device.mobileTablet} {
+      margin-left: 9em;
+    }
+    @media ${device.tablet} {
+      margin-left: 9.5em;
+    }
     span {
       /* Used filter to make text color a little darker */
       /* Equvalent to darken function used in SASS */

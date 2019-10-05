@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import colours from "../../../colours";
-
+import devices from "../../../device";
 export const AccordionContainer = styled.div``;
 
 interface UlProps {
@@ -14,6 +14,10 @@ export const AccordionContent = styled.ul`
   /* And saperate text and icon evenly */
   display: flex;
   justify-content: space-between;
+  padding-left: 0.5em;
+  @media ${devices.mobileS} {
+  }
+
   span {
     padding: 0 1em;
     text-align: right;
@@ -32,7 +36,7 @@ export const AccordionList = styled.li`
   display: ${(p: ListProps) => (p.activeId === p.index ? "block" : "none")};
   list-style: none;
   margin: 1em 0 1em 1em;
-
+  padding-left: 0.5em;
   transition: all 0.3s ease;
   color: ${colours.primaryText};
 
