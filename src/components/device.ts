@@ -8,16 +8,16 @@ const size = {
   laptopL: "1440px",
   desktop: "2560px"
 };
-
+//IF mobile first use max-width
+//IF desktop first use min-width
 const device = {
-  tabletplus: `(max-width: ${size.mobileL})`,
-  mobileS: `(min-width: ${size.mobileS})`,
-  mobileM: `(min-width: ${size.mobileM})`,
-  mobileL: `(min-width: ${size.mobileL})`,
-  mobileTablet: `(min-width: ${size.mobileTablet})`,
-  tablet: `(min-width: ${size.tablet})`,
-  laptop: `(min-width: ${size.laptop})`,
-  laptopL: `(min-width: ${size.laptopL})`,
-  desktopL: `(min-width: ${size.desktop})`
+  mobileS: `(max-width: ${size.mobileS})`,
+  mobileM: `(max-width: ${size.mobileM})`,
+  mobileL: `(max-width: ${size.mobileL})`,
+  mobileTablet: `(max-width: ${size.mobileTablet})`,
+  tablet: `(max-width: ${size.tablet})`,
+  laptop: `(max-width: ${size.laptop})`,
+  laptopL: `(max-width: ${size.laptopL})`,
+  desktopL: `(max-width: ${size.desktop})`
 };
 export default { ...device };

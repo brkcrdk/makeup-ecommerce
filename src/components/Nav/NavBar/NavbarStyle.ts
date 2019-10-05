@@ -6,7 +6,6 @@ export const Container = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 9fr 2fr;
-  border-bottom: 1px solid lightgray;
 `;
 //SEARCH and CART ICON CONTAINER
 export const RightSide = styled.div`
