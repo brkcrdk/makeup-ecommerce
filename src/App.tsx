@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavBar from "./components/Nav/NavBar/Navbar";
 import { fetchProducts } from "./store/fetchProducts/actions";
@@ -12,6 +11,7 @@ interface Products {
     isLoading: boolean;
   };
 }
+
 const App: React.FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {

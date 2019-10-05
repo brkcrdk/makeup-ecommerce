@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import colours from "../../colours";
+import fonts from "../../fonts";
 export const Container = styled.div`
-  font-family: "Great Vibes", cursive;
+  font-family: ${fonts.greatVibes};
   display: flex;
   justify-content: center;
   text-align: center;
