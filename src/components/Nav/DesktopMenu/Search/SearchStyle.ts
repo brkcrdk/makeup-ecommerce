@@ -5,9 +5,22 @@ export const Container = styled.div`
   height: 1.6em;
   display: flex;
   justify-content: center;
+  @media ${device.mobileS} {
+    display: none;
+  }
+  @media ${device.mobileL} {
+    display: none;
+  }
   @media ${device.mobileM} {
-    width: 1.7em;
-    height: 1.7em;
+    display: none;
+  }
+  @media ${device.tablet} {
+    display: none;
+  }
+  @media ${device.tabletLaptop} {
+    display: block;
+    width: 2em;
+    height: 2em;
   }
 `;
 

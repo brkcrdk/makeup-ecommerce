@@ -5,7 +5,7 @@ export const Img = styled.img`
   height: 1.7em;
   margin: 0 0.5em;
   fill: #f1f1f1;
-  @media ${device.mobileM} {
+  @media ${device.mobileL} {
     width: 2em;
     height: 2em;
   }
