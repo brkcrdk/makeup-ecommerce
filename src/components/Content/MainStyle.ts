@@ -14,18 +14,9 @@ export const Section = styled.div`
 interface DimmedProps {
   toggle: boolean;
 }
-const dimmed = `
-  opacity:0.5;
-  background-color:black;
-  transition: 1s;
-`;
-const unDimmed = `
-  background-color:transparent;
-  opacity:1;
-  transition: 1s;
-`;
+
 export const Dimmed = styled.div`
-  ${(p: DimmedProps) => (p.toggle ? dimmed : unDimmed)};
+  filter: ${(p: DimmedProps) => (p.toggle ? "blur(2px)" : "")};
   height: 100vh;
 `;
 export const Content = styled.div`
