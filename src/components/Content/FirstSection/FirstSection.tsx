@@ -7,12 +7,15 @@ const FirstSection: React.FC<Props> = () => {
   return (
     <MainText>
       <h4>Belezza Cosmetics</h4>
-      <p>
+      <p id="firstText">
         <span>Elegance</span> in every way
       </p>
-      <p>
+      <p id="secondText">
         Forever <span>Gorgeus</span>
       </p>
+      <div>
+        <button>Go to Shopping!</button>
+      </div>
     </MainText>
   );
 };
