@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import colours from "../../colours";
+import device from "../../device";
 //NAVBAR CONTAINER
 export const Container = styled.div`
   position: fixed;
@@ -14,13 +15,34 @@ export const RightSide = styled.div`
   align-items: center;
 `;
 
-export const HamburgerContainer = styled.div`
+export const MobileNavbar = styled.div`
   align-items: center;
   justify-content: center;
   display: grid;
+  @media ${device.tabletLaptop} {
+    display: none;
+  }
   div {
     width: 2em;
     border: 1px solid ${colours.primaryText};
     margin: 0.5em;
+  }
+`;
+
+export const DesktopNavbar = styled.div`
+  @media ${device.mobileS} {
+    display: none;
+  }
+  @media ${device.mobileL} {
+    display: none;
+  }
+  @media ${device.mobileM} {
+    display: none;
+  }
+  @media ${device.tablet} {
+    display: none;
+  }
+  @media ${device.tabletLaptop} {
+    display: block;
   }
 `;

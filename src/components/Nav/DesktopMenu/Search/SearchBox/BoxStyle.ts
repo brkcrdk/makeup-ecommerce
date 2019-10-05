@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import colours from "../../../colours";
+import colours from "../../../../colours";
 
 export const InputContainer = styled.div`
   position: absolute;

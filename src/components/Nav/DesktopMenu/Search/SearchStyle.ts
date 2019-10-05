@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import device from "../../device";
+import device from "../../../device";
 export const Container = styled.div`
   width: 1.6em;
   height: 1.6em;
