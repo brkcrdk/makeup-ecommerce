@@ -13,10 +13,19 @@ export const Container = styled.div`
 interface DimmedProps {
   toggle: boolean;
 }
+const dimmed = `
+  opacity:0.5;
+  background-color:black;
+  transition: 1s;
+`;
+const unDimmed = `
+  background-color:transparent;
+  opacity:1;
+  transition: 1s;
+`;
 export const Dimmed = styled.div`
-  ${(p: DimmedProps) => (p.toggle ? "background-color:black;opacity:0.5" : "")};
+  ${(p: DimmedProps) => (p.toggle ? dimmed : unDimmed)};
   height: 100vh;
-  transition: background-color 1s;
 `;
 export const Content = styled.div`
   /* Center content from here*/
