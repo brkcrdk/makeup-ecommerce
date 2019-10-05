@@ -22,8 +22,9 @@ export const AccordionContent = styled.ul`
     padding: 0 1em;
     text-align: right;
     font-weight: 900;
+    font-size: 1.5em;
     transform: ${(p: UlProps) =>
-      p.activeId === p.index ? "rotate(-90deg)" : ""};
+      p.activeId === p.index ? "rotate(90deg)" : "rotate(180deg)"};
     transition: transform 0.5s;
   }
 `;

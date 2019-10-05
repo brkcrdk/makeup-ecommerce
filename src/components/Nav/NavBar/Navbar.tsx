@@ -13,7 +13,6 @@ const NavBar: React.FC = () => {
       </HamburgerContainer>
       <Brand />
       <RightSide>
-        <Search />
         <Cart />
       </RightSide>
     </Container>
