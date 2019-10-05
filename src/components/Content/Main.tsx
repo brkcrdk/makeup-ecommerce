@@ -14,9 +14,7 @@ const Main: React.FC = () => {
   return (
     <Container toggle={toggle}>
       <Box />
-      <Content>
-        <Carousel />
-      </Content>
+      <Content></Content>
     </Container>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./App.css";
+
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavBar from "./components/Nav/NavBar/Navbar";
 import { fetchProducts } from "./store/fetchProducts/actions";
@@ -27,14 +27,12 @@ const App: React.FC = () => {
   // if (loading) return <p>Loading...</p>;
   return (
     <div className="App">
-      <header className="App-header">
-        <Router>
-          <SideMenu />
-          <NavBar />
-          <Route path="/products" />
-          <Main />
-        </Router>
-      </header>
+      <Router>
+        <SideMenu />
+        <NavBar />
+        <Route path="/products" />
+        <Main />
+      </Router>
     </div>
   );
 };

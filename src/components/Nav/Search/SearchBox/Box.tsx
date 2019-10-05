@@ -13,8 +13,8 @@ const Box: React.FC = () => {
     (state: Toggle) => state.searchToggle.toggle
   );
   return (
-    <InputContainer searchToggle={searchToggle}>
-      <Input placeholder="Search here.." />
+    <InputContainer>
+      <Input placeholder="Search here.." searchToggle={searchToggle} />
     </InputContainer>
   );
 };

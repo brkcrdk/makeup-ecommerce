@@ -1,12 +1,17 @@
 import styled from "styled-components";
+import background from "./makeup.jpg";
 interface ContainerProps {
   toggle: boolean;
 }
 export const Container = styled.div`
+  background-image: url(${background});
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
   transition: 0.5s;
-  filter: ${(p: ContainerProps) =>
-    p.toggle ? "blur(3px); pointer-events:none" : ""};
-  margin-top: 1.5em;
+  opacity: ${(p: ContainerProps) => (p.toggle ? "0.7" : "1")};
 `;
 
 export const Content = styled.div`
