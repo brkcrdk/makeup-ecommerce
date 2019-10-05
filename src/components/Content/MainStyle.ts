@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import background from "./makeup.jpg";
 
-export const Container = styled.div`
+export const Container = styled.div``;
+export const Section = styled.div`
   background-image: url(${background});
   background-attachment: fixed;
   background-position: center;

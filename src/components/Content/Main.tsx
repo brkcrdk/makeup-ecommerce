@@ -1,8 +1,9 @@
 import React from "react";
-import { Container, Content, Dimmed } from "./MainStyle";
+import { Container, Section, Content, Dimmed } from "./MainStyle";
 import { useSelector } from "react-redux";
 import Box from "../Nav/Search/SearchBox/Box";
 import Carousel from "./Carousel/Carousel";
+import FirstSection from "./FirstSection/FirstSection";
 interface Toggle {
   sidebarToggle: {
     sideToggle: boolean;
@@ -15,7 +16,12 @@ const Main: React.FC = () => {
     <Container>
       <Dimmed toggle={toggle}>
         <Box />
-        <Content></Content>
+        <Section>
+          <Content>
+            <FirstSection />
+          </Content>
+        </Section>
+        <Carousel />
       </Dimmed>
     </Container>
   );
