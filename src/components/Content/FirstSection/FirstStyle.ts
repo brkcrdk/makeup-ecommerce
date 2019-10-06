@@ -14,7 +14,9 @@ export const MainText = styled.div`
     top: 18em;
     left: 5em;
   }
-
+  @media ${device.desktop} {
+    top: 27em;
+  }
   h4 {
     font-family: ${fonts.greatVibes};
     font-size: 1.5em;
@@ -24,18 +26,27 @@ export const MainText = styled.div`
     @media ${device.mobileM} {
       font-size: 1.7em;
     }
+    @media ${device.desktop} {
+      font-size: 3.5em;
+    }
   }
   p {
     margin: 0;
     font-family: ${fonts.montserrat};
     color: ${colours.primaryText};
     font-weight: 400;
+    @media ${device.desktop} {
+      font-size: 1.5em;
+    }
     span {
       color: ${colours.pink};
       word-spacing: 12em;
       font-size: 2em;
       font-family: ${fonts.greatVibes};
       font-weight: 600;
+    }
+    @media ${device.desktop} {
+      font-size: 2.5em;
     }
   }
 
@@ -53,6 +64,9 @@ export const MainText = styled.div`
       font-size: 1em;
       font-weight: 800;
       transition: 0.5s;
+      @media ${device.desktop} {
+        font-size: 2.5em;
+      }
       :hover {
         color: white;
         background-color: ${colours.pink};

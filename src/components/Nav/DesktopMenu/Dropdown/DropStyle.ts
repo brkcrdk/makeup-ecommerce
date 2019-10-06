@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import fonts from "../../../fonts";
 import colours from "../../../colours";
-
+import device from "../../../device";
 //If hover effect dont work look for searchbox input width.
 
 export const DropContainer = styled.div`
@@ -18,6 +18,10 @@ export const DropContainer = styled.div`
     overflow-x: hidden;
     height: 15em;
     width: 20em;
+    @media ${device.desktop} {
+      height: 20em;
+      width: 25em;
+    }
   }
 `;
 export const DropButton = styled.button`
@@ -30,6 +34,10 @@ export const DropButton = styled.button`
   font-weight: 800;
   font-style: italic;
   text-transform: uppercase;
+  @media ${device.desktop} {
+    font-size: 2em;
+  }
+
   &::after {
     content: "";
     position: absolute;
@@ -78,8 +86,12 @@ export const DropItem = styled.a`
   display: grid;
   text-transform: capitalize;
   cursor: pointer;
+  @media ${device.desktop} {
+    font-size: 1.5em;
+  }
   &:hover {
     transform: scale(1.1, 1.1);
     color: ${colours.primaryText};
+    font-weight: 700;
   }
 `;

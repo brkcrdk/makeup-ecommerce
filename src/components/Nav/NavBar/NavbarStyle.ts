@@ -7,6 +7,10 @@ export const Container = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 9fr 2fr;
+
+  @media ${device.desktop} {
+    margin: 2em 5em;
+  }
 `;
 //SEARCH and CART ICON CONTAINER
 export const RightSide = styled.div`
