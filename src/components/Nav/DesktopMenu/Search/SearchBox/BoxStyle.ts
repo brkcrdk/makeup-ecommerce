@@ -24,8 +24,8 @@ export const Input = styled.input`
   margin: 0 auto;
   padding-inline-start: 1em;
   transform: ${(p: inputProps) =>
-    p.searchToggle ? "translateX(0%)" : "translateX(200%)"};
-  transition: transform 1s ease-in-out;
+    p.searchToggle ? "translateX(0%)" : "translateX(150%)"};
+  transition: transform 0.5s ease-in-out;
   background-color: ${colours.background};
   color: ${colours.primaryText};
   font-size: 1em;

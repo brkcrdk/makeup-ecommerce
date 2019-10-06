@@ -7,17 +7,26 @@ import colours from "../../../colours";
 export const DropContainer = styled.div`
   position: relative;
   display: inline-block;
+  font-family: ${fonts.montserrat};
   margin: 0.8em;
+  /* When hover content menu styles */
   &:hover > div {
     display: block;
+    column-count: 4;
+    column-fill: auto;
+    column-width: 100%;
   }
 `;
 export const DropButton = styled.button`
   background: transparent;
   border: none;
+  outline: none;
   color: ${colours.primaryText};
   font-family: ${fonts.montserrat};
   font-size: 1.1em;
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
   &::after {
     content: "";
     position: absolute;
@@ -38,23 +47,21 @@ export const DropButton = styled.button`
 `;
 
 export const DropContent = styled.div`
+  border: 1px solid red;
   position: absolute;
   display: none;
-  min-width: 160px;
   z-index: 1;
-  &:hover {
-    border: 1px solid grey;
-    box-shadow: 1em 1em 1em rgba(black, 0.1);
-  }
+  padding: 0;
+  height: 11em;
 `;
 export const DropItem = styled.a`
   color: black;
-  padding: 12px 16px;
+  padding: 0.5em;
   text-decoration: none;
   display: grid;
   cursor: pointer;
   &:hover {
     transform: scale(1.1, 1.1);
-    box-shadow: 1em 1em 1em rgba(grey, 0.1);
+    color: ${colours.pink};
   }
 `;

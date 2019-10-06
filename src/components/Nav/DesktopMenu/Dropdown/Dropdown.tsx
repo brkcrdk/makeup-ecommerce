@@ -1,15 +1,24 @@
 import React from "react";
 import { DropContainer, DropButton, DropContent, DropItem } from "./DropStyle";
-interface Props {}
 
-const Dropdown: React.FC<Props> = () => {
+interface Props {
+  title: string;
+  content: string[];
+}
+
+const Dropdown: React.FC<Props> = ({ title, content }) => {
+  console.log(content);
   return (
     <DropContainer>
-      <DropButton>Types</DropButton>
+      <DropButton>{title}</DropButton>
       <DropContent>
-        <DropItem>Buraksle</DropItem>
-        <DropItem>Burak1</DropItem>
-        <DropItem>Burak2</DropItem>
+        {content.length < 1 ? (
+          <DropItem>Loading...</DropItem>
+        ) : (
+          content.map((item, key) => (
+            <DropItem key={key}>{item.replace("_", " ")}</DropItem>
+          ))
+        )}
       </DropContent>
     </DropContainer>
   );
