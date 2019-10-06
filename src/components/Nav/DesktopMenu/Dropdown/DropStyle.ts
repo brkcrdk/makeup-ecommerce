@@ -23,7 +23,7 @@ export const DropContainer = styled.div`
     width: 20em;
     @media ${device.desktop} {
       height: 20em;
-      width: 25em;
+      width: 30em;
     }
   }
 `;
@@ -40,7 +40,6 @@ export const DropButton = styled.button`
   @media ${device.desktop} {
     font-size: 2em;
   }
-
   &::after {
     content: "";
     position: absolute;
@@ -64,7 +63,7 @@ export const DropContent = styled.div`
   position: absolute;
   display: none;
   ::-webkit-scrollbar {
-    width: 1px;
+    width: 2px;
   }
 
   /* Track */

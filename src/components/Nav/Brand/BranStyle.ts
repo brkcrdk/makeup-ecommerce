@@ -8,7 +8,9 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
+  margin-left: 1em;
 `;
+
 export const Image = styled.img`
   width: 3.5em;
   height: 3.5em;

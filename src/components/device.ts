@@ -7,7 +7,7 @@ const size = {
   tabletLaptop: "769px",
   laptop: "1024px",
   laptopL: "1440px",
-  desktop: "1920px",
+  desktop: "1441px",
   desktopL: "2560px"
 };
 //IF mobile first use max-width

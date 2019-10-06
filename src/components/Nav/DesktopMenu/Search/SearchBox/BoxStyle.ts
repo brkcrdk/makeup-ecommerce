@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import colours from "../../../../colours";
 import device from "../../../../device";
+import fonts from "../../../../fonts";
 // WARNING: Input container width might block dropdown functionality
 export const InputContainer = styled.div`
   position: absolute;
@@ -13,7 +14,8 @@ export const InputContainer = styled.div`
   display: flex;
   overflow: hidden;
   transition: transform 0.5s ease-in-out;
-  @media ${device.desktopL} {
+
+  @media ${device.desktop} {
     top: 8em;
     height: 5em;
   }
@@ -26,18 +28,19 @@ export const Input = styled.input`
   width: 100%;
   height: 100%;
   margin: 0 auto;
+  margin-right: 1em;
   padding-inline-start: 1em;
   transform: ${(p: inputProps) =>
-    p.searchToggle ? "translateX(0%)" : "translateX(150%)"};
+    p.searchToggle ? "translateX(0)" : "translateX(150%)"};
   transition: transform 0.5s ease-in-out;
   background-color: ${colours.background};
   color: ${colours.primaryText};
   font-size: 1em;
   font-style: italic;
-  border-radius: 0.5em;
+  font-family: ${fonts.montserrat};
   border: 1px solid lightgray;
   outline: none;
-  @media ${device.desktopL} {
-    font-size: 3em;
+  @media ${device.desktop} {
+    font-size: 2em;
   }
 `;

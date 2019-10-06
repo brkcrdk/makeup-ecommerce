@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 1.6em;
   display: flex;
   justify-content: center;
-
+  margin-right: 1em;
   @media ${device.mobileS} {
     display: none;
   }
@@ -23,11 +23,10 @@ export const Container = styled.div`
     width: 2em;
     height: 2em;
   }
-  @media ${device.desktopL} {
-    display: block;
-    width: 3.4em;
-    height: 3.4em;
-    margin-right: 2em;
+  @media ${device.desktop} {
+    width: 3em;
+    height: 3em;
+    margin-right: 3em;
   }
 `;
 
