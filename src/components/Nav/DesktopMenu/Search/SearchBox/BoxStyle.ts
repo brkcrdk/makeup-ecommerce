@@ -4,7 +4,7 @@ import colours from "../../../../colours";
 // WARNING: Input container width might block dropdown functionality
 export const InputContainer = styled.div`
   position: absolute;
-  width: 40%;
+  width: 30%;
   height: 2.5em;
   align-items: center;
   top: 4em;

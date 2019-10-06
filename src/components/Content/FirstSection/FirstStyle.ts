@@ -4,13 +4,17 @@ import colours from "../../colours";
 import device from "../../device";
 export const MainText = styled.div`
   position: absolute;
+
   top: 15em;
   left: 5em;
   @media ${device.mobileS} {
     left: 1em;
   }
-  @media ${device.mobileM} {
+  @media ${device.laptop} {
+    top: 18em;
+    left: 5em;
   }
+
   h4 {
     font-family: ${fonts.greatVibes};
     font-size: 1.5em;

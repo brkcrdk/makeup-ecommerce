@@ -11,10 +11,13 @@ export const DropContainer = styled.div`
   margin: 0.8em;
   /* When hover content menu styles */
   &:hover > div {
-    display: block;
-    column-count: 4;
-    column-fill: auto;
-    column-width: 100%;
+    padding-top: 0.5em;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 15em;
+    width: 20em;
   }
 `;
 export const DropButton = styled.button`
@@ -49,18 +52,34 @@ export const DropButton = styled.button`
 export const DropContent = styled.div`
   position: absolute;
   display: none;
-  z-index: 1;
-  padding: 0;
-  height: 11em;
+  ::-webkit-scrollbar {
+    width: 1px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: lightgray;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: lightgray;
+  }
 `;
 export const DropItem = styled.a`
-  color: black;
+  color: ${colours.pink};
   padding: 0.5em;
   text-decoration: none;
   display: grid;
+  text-transform: capitalize;
   cursor: pointer;
   &:hover {
     transform: scale(1.1, 1.1);
-    color: ${colours.pink};
+    color: ${colours.primaryText};
   }
 `;
