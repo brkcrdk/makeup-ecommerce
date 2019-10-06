@@ -9,8 +9,14 @@ export const DropContainer = styled.div`
   display: inline-block;
   font-family: ${fonts.montserrat};
   margin: 0.8em;
-  @media ${device.desktop} {
+  @media ${device.tabletLaptop} {
+    margin-top: 1em;
+  }
+  @media ${device.laptop} {
     margin-top: 1.5em;
+  }
+  @media ${device.desktop} {
+    margin-top: 2.7em;
   }
   /* When hover content menu styles */
   &:hover > div {
@@ -37,6 +43,12 @@ export const DropButton = styled.button`
   font-weight: 800;
   font-style: italic;
   text-transform: uppercase;
+  @media ${device.tabletLaptop} {
+    font-size: 0.9em;
+  }
+  @media ${device.laptop} {
+    font-size: 1em;
+  }
   @media ${device.desktop} {
     font-size: 2em;
   }
@@ -88,6 +100,9 @@ export const DropItem = styled.a`
   display: grid;
   text-transform: capitalize;
   cursor: pointer;
+  @media ${device.tabletLaptop} {
+    font-size: 1em;
+  }
   @media ${device.desktop} {
     font-size: 1.5em;
   }

@@ -9,6 +9,12 @@ export const Container = styled.div`
   justify-content: center;
   text-align: center;
   margin-left: 1em;
+  @media ${device.tabletLaptop} {
+    margin: 1em 0 0 1em;
+  }
+  @media ${device.laptop} {
+    margin: 1em 0 0 1em;
+  }
 `;
 
 export const Image = styled.img`
@@ -23,6 +29,14 @@ export const Image = styled.img`
   @media ${device.mobileTablet} {
     width: 5em;
     height: 5em;
+  }
+  @media ${device.tabletLaptop} {
+    width: 3.5em;
+    height: 3.5em;
+  }
+  @media ${device.laptop} {
+    width: 4em;
+    height: 4em;
   }
   @media ${device.desktop} {
     width: 7em;
@@ -40,6 +54,12 @@ export const Text = styled.span`
   }
   @media ${device.mobileTablet} {
     font-size: 2em;
+  }
+  @media ${device.tabletLaptop} {
+    font-size: 1.5em;
+  }
+  @media ${device.laptop} {
+    font-size: 1.7em;
   }
   @media ${device.desktop} {
     font-size: 3em;
