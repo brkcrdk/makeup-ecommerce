@@ -1,15 +1,17 @@
 import styled from "styled-components";
 import colours from "../../../../colours";
 
+// WARNING: Input container width might block dropdown functionality
 export const InputContainer = styled.div`
   position: absolute;
-  width: 100%;
+  width: 40%;
   height: 2.5em;
   align-items: center;
   top: 4em;
+  right: 0;
   padding: 0.5em 0;
-  display: block;
-  overflow-x: hidden;
+  display: flex;
+  overflow: hidden;
   transition: transform 0.5s ease-in-out;
 `;
 //SEARCH INPUT
@@ -17,13 +19,13 @@ interface inputProps {
   searchToggle: boolean;
 }
 export const Input = styled.input`
-  width: 50%;
+  width: 100%;
   height: 100%;
   margin: 0 auto;
   padding-inline-start: 1em;
   transform: ${(p: inputProps) =>
-    p.searchToggle ? "translateX(80%)" : "translateX(200%)"};
-  transition: transform 0.5s ease-in-out;
+    p.searchToggle ? "translateX(0%)" : "translateX(200%)"};
+  transition: transform 1s ease-in-out;
   background-color: ${colours.background};
   color: ${colours.primaryText};
   font-size: 1em;

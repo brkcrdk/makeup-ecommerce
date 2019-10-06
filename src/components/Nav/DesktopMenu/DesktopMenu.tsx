@@ -1,14 +1,15 @@
 import React from "react";
-import { MenuContainer, Menu } from "./DesktopStyle";
+import { MenuContainer } from "./DesktopStyle";
+import Dropdown from "./Dropdown/Dropdown";
 interface Props {}
 
 const DesktopMenu: React.FC<Props> = () => {
   return (
     <MenuContainer>
-      <Menu>Home</Menu>
-      <Menu>Types</Menu>
-      <Menu>Brands</Menu>
-      <Menu>Categories</Menu>
+      <Dropdown />
+      <Dropdown />
+      <Dropdown />
+      <Dropdown />
     </MenuContainer>
   );
 };

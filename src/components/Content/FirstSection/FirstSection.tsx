@@ -8,7 +8,7 @@ const FirstSection: React.FC<Props> = () => {
     <MainText>
       <h4>Belezza Cosmetics</h4>
       <p id="firstText">
-        <span>Elegance</span> in every way
+        <span>Elegance</span> in every way.
       </p>
       <p id="secondText">
         Forever <span>Gorgeus</span>

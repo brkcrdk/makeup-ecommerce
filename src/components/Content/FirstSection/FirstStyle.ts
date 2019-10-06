@@ -4,7 +4,6 @@ import colours from "../../colours";
 import device from "../../device";
 export const MainText = styled.div`
   position: absolute;
-
   top: 15em;
   left: 5em;
   @media ${device.mobileS} {

@@ -5,6 +5,7 @@ export const Container = styled.div`
   height: 1.6em;
   display: flex;
   justify-content: center;
+
   @media ${device.mobileS} {
     display: none;
   }
