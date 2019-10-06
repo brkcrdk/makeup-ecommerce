@@ -22,6 +22,10 @@ export const Image = styled.img`
     width: 5em;
     height: 5em;
   }
+  @media ${device.desktop} {
+    width: 7em;
+    height: 7em;
+  }
 `;
 export const Text = styled.span`
   font-size: 1.5em;
@@ -34,5 +38,8 @@ export const Text = styled.span`
   }
   @media ${device.mobileTablet} {
     font-size: 2em;
+  }
+  @media ${device.desktop} {
+    font-size: 3em;
   }
 `;

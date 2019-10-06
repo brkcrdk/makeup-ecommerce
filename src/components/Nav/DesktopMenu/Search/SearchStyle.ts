@@ -23,6 +23,12 @@ export const Container = styled.div`
     width: 2em;
     height: 2em;
   }
+  @media ${device.desktopL} {
+    display: block;
+    width: 3.4em;
+    height: 3.4em;
+    margin-right: 2em;
+  }
 `;
 
 export const Icon = styled.img`

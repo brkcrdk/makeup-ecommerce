@@ -9,4 +9,8 @@ export const Img = styled.img`
     width: 2em;
     height: 2em;
   }
+  @media ${device.desktop} {
+    width: 3.5em;
+    height: 3.5em;
+  }
 `;

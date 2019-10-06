@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import colours from "../../../../colours";
-
+import device from "../../../../device";
 // WARNING: Input container width might block dropdown functionality
 export const InputContainer = styled.div`
   position: absolute;
@@ -13,6 +13,10 @@ export const InputContainer = styled.div`
   display: flex;
   overflow: hidden;
   transition: transform 0.5s ease-in-out;
+  @media ${device.desktopL} {
+    top: 8em;
+    height: 5em;
+  }
 `;
 //SEARCH INPUT
 interface inputProps {
@@ -33,4 +37,7 @@ export const Input = styled.input`
   border-radius: 0.5em;
   border: 1px solid lightgray;
   outline: none;
+  @media ${device.desktopL} {
+    font-size: 3em;
+  }
 `;

@@ -9,6 +9,9 @@ export const DropContainer = styled.div`
   display: inline-block;
   font-family: ${fonts.montserrat};
   margin: 0.8em;
+  @media ${device.desktop} {
+    margin-top: 1.5em;
+  }
   /* When hover content menu styles */
   &:hover > div {
     padding-top: 0.5em;
