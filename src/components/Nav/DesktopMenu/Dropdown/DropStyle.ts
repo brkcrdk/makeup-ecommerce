@@ -47,7 +47,6 @@ export const DropButton = styled.button`
 `;
 
 export const DropContent = styled.div`
-  border: 1px solid red;
   position: absolute;
   display: none;
   z-index: 1;
