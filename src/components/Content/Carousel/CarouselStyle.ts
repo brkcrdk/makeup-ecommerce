@@ -4,13 +4,15 @@ import styled from "styled-components";
 //   index: number;
 // }
 
-export const CarouselContainer = styled.div`
-  display: grid;
-  align-content: start;
-`;
+export const CarouselContainer = styled.div``;
 
-export const CarouselContent = styled.div``;
-export const CarouselItem = styled.div``;
+export const CarouselContent = styled.div`
+  display: flex;
+  overflow-x: auto;
+`;
+export const CarouselItem = styled.div`
+  flex-shrink: 0;
+`;
 export const CarouselImg = styled.img``;
 
 export const CarouselText = styled.p``;
