@@ -2,7 +2,7 @@ import styled from "styled-components";
 import background from "./makeup.jpg";
 
 export const Container = styled.div``;
-export const Section = styled.div`
+export const MainSection = styled.div`
   background-image: url(${background});
   background-attachment: fixed;
   background-position: center;
@@ -11,6 +11,11 @@ export const Section = styled.div`
   height: 100vh;
   transition: 0.5s;
 `;
+export const MiddleSection = styled.div`
+  border: 1px solid red;
+  margin: 2em;
+`;
+export const FooterSection = styled.div``;
 interface DimmedProps {
   toggle: boolean;
 }

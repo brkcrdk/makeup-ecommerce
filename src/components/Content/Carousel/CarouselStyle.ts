@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const CarouselContainer = styled.div`
   position: relative;
-  width: 85%;
+  width: 80%;
+  height: 100vh;
   padding: 0;
   margin: 0;
 `;
@@ -29,7 +30,7 @@ export const CarouselItem = styled.div`
 
 export const CarouselImg = styled.img`
   border-radius: 0.5em;
-  width: 100%;
+  width: 80%;
 `;
 
 export const CarouselText = styled.p`

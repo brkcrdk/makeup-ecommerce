@@ -1,5 +1,11 @@
 import React from "react";
-import { Container, Section, Content, Dimmed } from "./MainStyle";
+import {
+  Container,
+  MainSection,
+  Content,
+  Dimmed,
+  MiddleSection
+} from "./MainStyle";
 import { useSelector } from "react-redux";
 import Box from "../Nav/DesktopMenu/Search/SearchBox/Box";
 import Carousel from "./Carousel/Carousel";
@@ -16,12 +22,16 @@ const Main: React.FC = () => {
     <Container>
       <Dimmed toggle={toggle}>
         <Box />
-        <Section>
+        <MainSection>
           <Content>
             <FirstSection />
           </Content>
-        </Section>
-        <Carousel />
+        </MainSection>
+        <MiddleSection>
+          <Content>
+            <Carousel />
+          </Content>
+        </MiddleSection>
       </Dimmed>
     </Container>
   );

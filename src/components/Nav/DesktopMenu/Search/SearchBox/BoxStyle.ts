@@ -4,7 +4,7 @@ import device from "../../../../device";
 import fonts from "../../../../fonts";
 // WARNING: Input container width might block dropdown functionality
 export const InputContainer = styled.div`
-  position: absolute;
+  position: fixed;
   width: 30%;
   height: 2.5em;
   align-items: center;
