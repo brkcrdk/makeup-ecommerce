@@ -10,6 +10,7 @@ import Search from "../DesktopMenu/Search/Search";
 import Cart from "../Cart/Cart";
 import Hamburger from "../MobileMenu/Hamburger";
 import Desktop from "../DesktopMenu/DesktopMenu";
+import SideMenu from "../MobileMenu/Menu";
 
 const NavBar: React.FC = () => {
   const [scroll, setScroll] = useState(false);
@@ -20,13 +21,12 @@ const NavBar: React.FC = () => {
       setScroll(false);
     }
   };
-  console.log(scroll);
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
   }, []);
   return (
-    <Container>
-      <MobileNavbar>
+    <Container scroll={scroll}>
+      <MobileNavbar scroll={scroll}>
         <Hamburger />
       </MobileNavbar>
       <Brand />

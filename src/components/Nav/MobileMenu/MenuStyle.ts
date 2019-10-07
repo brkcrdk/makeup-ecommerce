@@ -9,6 +9,7 @@ export const Container = styled.div`
   height: 100vh;
   width: ${(p: Toggle) => (p.toggle ? "70%" : "0")};
   position: fixed;
+  padding-top: 3em;
   top: 0;
   z-index: 1;
   overflow-x: hidden;

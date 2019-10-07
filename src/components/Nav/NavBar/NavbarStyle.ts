@@ -2,13 +2,37 @@ import styled from "styled-components";
 import colours from "../../colours";
 import device from "../../device";
 //NAVBAR CONTAINER
+interface ContainerProps {
+  scroll: boolean;
+}
+const scrolled = `
+  animation-name:fade-in;
+  animation-duration:1s;
+  background-color:white;
+`;
+const unscrolled = `
+  background-color:transparent
+`;
 export const Container = styled.div`
-  position: absolute;
+  /* position: ${(p: ContainerProps) => (p.scroll ? "fixed" : "absolute")};
+  animation-name: ${(p: ContainerProps) => (p.scroll ? "fade-in" : "")};
+  animation-duration: 1s; */
+  ${(p: ContainerProps) => (p.scroll ? scrolled : unscrolled)}
+  position:fixed;
+  z-index:1;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 9fr 2fr;
-  @media ${device.desktop} {
-    padding: 2em;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(-20%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 `;
 //SEARCH and CART ICON CONTAINER
@@ -20,8 +44,10 @@ export const RightSide = styled.div`
     margin-top: 1em;
   }
 `;
-
-export const MobileNavbar = styled.div`
+interface MobileProps {
+  scroll: boolean;
+}
+export const MobileNavbar = styled.div<MobileProps>`
   align-items: center;
   justify-content: center;
   display: grid;
