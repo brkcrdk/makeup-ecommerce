@@ -18,6 +18,7 @@ interface Toggle {
 
 const Main: React.FC = () => {
   const toggle = useSelector((state: Toggle) => state.sidebarToggle.sideToggle);
+
   return (
     <Container>
       <Dimmed toggle={toggle}>

@@ -7,7 +7,6 @@ interface Props {
 }
 
 const Dropdown: React.FC<Props> = ({ title, content }) => {
-  console.log(content);
   return (
     <DropContainer>
       <DropButton>{title}</DropButton>

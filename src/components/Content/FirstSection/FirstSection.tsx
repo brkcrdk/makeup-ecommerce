@@ -1,5 +1,4 @@
 import React from "react";
-import image from "../makeup.jpg";
 import { MainText } from "./FirstStyle";
 
 interface Props {}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Container,
   RightSide,
@@ -12,6 +12,18 @@ import Hamburger from "../MobileMenu/Hamburger";
 import Desktop from "../DesktopMenu/DesktopMenu";
 
 const NavBar: React.FC = () => {
+  const [scroll, setScroll] = useState(false);
+  const handleScroll = () => {
+    if (window.pageYOffset > 200) {
+      setScroll(true);
+    } else {
+      setScroll(false);
+    }
+  };
+  console.log(scroll);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  }, []);
   return (
     <Container>
       <MobileNavbar>
