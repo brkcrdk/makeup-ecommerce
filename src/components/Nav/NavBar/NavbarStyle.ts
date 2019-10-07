@@ -3,7 +3,7 @@ import colours from "../../colours";
 import device from "../../device";
 //NAVBAR CONTAINER
 export const Container = styled.div`
-  position: fixed;
+  position: absolute;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 9fr 2fr;
