@@ -13,7 +13,6 @@ export const MainSection = styled.div`
   transition: 0.5s;
 `;
 export const MiddleSection = styled.div`
-  border: 1px solid red;
   margin: 2em;
 `;
 export const FooterSection = styled.div``;

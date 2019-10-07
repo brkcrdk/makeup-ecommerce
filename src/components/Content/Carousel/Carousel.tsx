@@ -4,15 +4,15 @@ import img2 from "./2.jpg";
 import img3 from "./3.jpg";
 import img4 from "./4.jpg";
 import img5 from "./5.jpg";
+import img6 from "./6.jpg";
 import {
   CarouselContainer,
   CarouselItem,
   CarouselImg,
   CarouselText,
-  Next,
-  Prev,
   Dots,
-  DotWrapper
+  DotWrapper,
+  CarouselContent
 } from "./CarouselStyle";
 
 interface Props {}
@@ -23,7 +23,8 @@ const Carousel: React.FC<Props> = () => {
     { img: img2, info: "Foundations" },
     { img: img3, info: "Lip Liners" },
     { img: img4, info: "Bronzers" },
-    { img: img5, info: "Mascaras & All other stuff." }
+    { img: img5, info: "Mascaras & All other stuff." },
+    { img: img6, info: "" }
   ];
   const [index, setIndex] = useState(0);
   const handleNext = () => {
@@ -37,19 +38,13 @@ const Carousel: React.FC<Props> = () => {
 
   return (
     <CarouselContainer>
-      {slides.map((item, key) => (
-        <CarouselItem key={key} show={key} index={index}>
-          <CarouselImg src={item.img} />
-          <CarouselText>{item.info}</CarouselText>
+      <CarouselContent>
+        <CarouselItem>
+          {slides.map((item, key) => (
+            <CarouselImg src={item.img} key={key} />
+          ))}
         </CarouselItem>
-      ))}
-      <Next onClick={handleNext}>&#8250;</Next>
-      <Prev onClick={handlePrev}>&#8249;</Prev>
-      <DotWrapper>
-        {slides.map((item, key) => (
-          <Dots show={key} index={index} key={key} />
-        ))}
-      </DotWrapper>
+      </CarouselContent>
     </CarouselContainer>
   );
 };
