@@ -8,9 +8,8 @@ import {
 import Brand from "../Brand/Brand";
 import Search from "../DesktopMenu/Search/Search";
 import Cart from "../Cart/Cart";
-import Hamburger from "../MobileMenu/Hamburger";
+import Hamburger from "../MobileMenu/Hamburger/Hamburger";
 import Desktop from "../DesktopMenu/DesktopMenu";
-import SideMenu from "../MobileMenu/Menu";
 
 const NavBar: React.FC = () => {
   const [scroll, setScroll] = useState(false);

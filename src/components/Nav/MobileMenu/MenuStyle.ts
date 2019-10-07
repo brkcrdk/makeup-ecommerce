@@ -43,13 +43,6 @@ export const SearchClose = styled.div`
     background: transparent;
     outline: none;
   }
-  /* Close button  */
-  span {
-    padding: 1em 1em 0 0;
-    font-size: 1.2em;
-    font-weight: 900;
-  }
-
   /* Line under the close button */
   hr {
     width: 90%;
