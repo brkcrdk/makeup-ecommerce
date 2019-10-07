@@ -1,9 +1,12 @@
 import React from "react";
 import { Img } from "./CartStyle";
 import Image from "./cart.svg";
-const Cart: React.FC = () => {
+interface Props {
+  scroll: boolean;
+}
+const Cart: React.FC<Props> = ({ scroll }) => {
   return (
-    <Img>
+    <Img scroll={scroll}>
       <i className="fas fa-shopping-basket" />
     </Img>
   );

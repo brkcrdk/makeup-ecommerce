@@ -8,7 +8,7 @@ interface ContainerProps {
 const scrolled = `
   animation-name:fade-in;
   animation-duration:1s;
-  background-color:white;
+  background-color:${colours.background};
 `;
 const unscrolled = `
   background-color:transparent
@@ -44,10 +44,8 @@ export const RightSide = styled.div`
     margin-top: 1em;
   }
 `;
-interface MobileProps {
-  scroll: boolean;
-}
-export const MobileNavbar = styled.div<MobileProps>`
+
+export const MobileNavbar = styled.div`
   align-items: center;
   justify-content: center;
   display: grid;

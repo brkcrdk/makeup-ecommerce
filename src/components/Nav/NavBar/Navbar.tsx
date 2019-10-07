@@ -25,7 +25,7 @@ const NavBar: React.FC = () => {
   }, []);
   return (
     <Container scroll={scroll}>
-      <MobileNavbar scroll={scroll}>
+      <MobileNavbar >
         <Hamburger />
       </MobileNavbar>
       <Brand />
@@ -34,7 +34,7 @@ const NavBar: React.FC = () => {
       </DesktopNavbar>
       <RightSide>
         <Search />
-        <Cart />
+        <Cart scroll={scroll}/>
       </RightSide>
     </Container>
   );

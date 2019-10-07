@@ -2,14 +2,19 @@ import styled from "styled-components";
 interface ContainerProps {
   toggle: boolean;
 }
-export const Container = styled.div<ContainerProps>`
+export const Container = styled.div`
   #ham1 {
-    transform: rotate(-45deg) translate(-5px, 6px);
+    transition: 0.5s;
+    ${(p: ContainerProps) =>
+      p.toggle ? "transform: rotate(-45deg) translate(-6px, 7px);" : ""}
   }
   #ham2 {
-    opacity: 0;
+    transition: 0.5s;
+    ${(p: ContainerProps) => (p.toggle ? "opacity:0" : "opacity:1")}
   }
   #ham3 {
-    transform: rotate(45deg) translate(-5px, -7px);
+    transition: 0.5s;
+    ${(p: ContainerProps) =>
+      p.toggle ? "transform: rotate(45deg) translate(-7px, -8px);" : ""}
   }
 `;
