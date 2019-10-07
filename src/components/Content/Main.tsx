@@ -28,11 +28,6 @@ const Main: React.FC = () => {
             <FirstSection />
           </Content>
         </MainSection>
-        <MiddleSection>
-          <Content>
-            <Carousel />
-          </Content>
-        </MiddleSection>
       </Dimmed>
     </Container>
   );

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import background from "./makeup.jpg";
 
 export const Container = styled.div``;
+
 export const MainSection = styled.div`
   background-image: url(${background});
   background-attachment: fixed;

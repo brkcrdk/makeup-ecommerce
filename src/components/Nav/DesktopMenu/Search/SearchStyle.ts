@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import device from "../../../device";
 export const Container = styled.div`
-  width: 1.6em;
-  height: 1.6em;
+  font-size: 1.4em;
   display: flex;
   justify-content: center;
   margin-right: 1em;
+
   @media ${device.mobileS} {
     display: none;
   }
@@ -20,25 +20,19 @@ export const Container = styled.div`
   }
   @media ${device.tabletLaptop} {
     display: block;
-    width: 2em;
-    height: 2em;
+    margin-right: 0.5em;
   }
-  @media ${device.tabletLaptop} {
-    width: 1.7em;
-    height: 1.7em;
-  }
+
   @media ${device.laptop} {
-    width: 1.7em;
-    height: 1.7em;
+    font-size: 1.5em;
   }
   @media ${device.desktop} {
-    width: 3em;
-    height: 3em;
-    margin-right: 3em;
+    font-size: 3em;
+    margin-right: 1em;
   }
 `;
 
-export const Icon = styled.img`
+export const Icon = styled.div`
   width: 100%;
   height: 100%;
   cursor: pointer;

@@ -16,6 +16,9 @@ export const RightSide = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media ${device.laptop} {
+    margin-top: 1em;
+  }
 `;
 
 export const MobileNavbar = styled.div`

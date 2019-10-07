@@ -13,7 +13,9 @@ const Search: React.FC = () => {
   return (
     <Container>
       <Button onClick={handleToggle}>
-        <Icon src={icon} />
+        <Icon>
+          <i className="fas fa-search" />
+        </Icon>
       </Button>
     </Container>
   );
