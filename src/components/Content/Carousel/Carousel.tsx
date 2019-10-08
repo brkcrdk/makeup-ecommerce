@@ -10,7 +10,13 @@ const items = [
 
 const Carousel: React.FC = () => {
   // const [wSize, setWSize] = useState(0);
-  const grid = 2;
+
+  //Inside of carousel component new function will going to be added
+  //This new function will going to get size
+  //Maybe with this information carousel automated responsive functionality
+  //Maybe it wont be necessary to have it
+  //Because it could be done with css
+
   // useEffect(() => {
   //   window.addEventListener("resize", () => {
   //     if (window.innerWidth !== wSize) {
@@ -39,8 +45,15 @@ const Carousel: React.FC = () => {
     }
     return newArray;
   };
+  //Explenation=> First create new array with given array
+  //And split that array with given option which is number
+  //Maybe it should be optinal and deault option added in to function
+
   const newItems = handleArray(items, 2);
-  console.log(newItems);
+  //Container is flex this gives slider effect
+  //Content is grid this will gives responsive effect
+  //New arrays each nested array will be inside Content element
+  //In that grid will be given elements will be created.
   return (
     <CarouselContainer>
       {newItems.map((array, key) => (
@@ -54,17 +67,6 @@ const Carousel: React.FC = () => {
           })}
         </CarouselContent>
       ))}
-      {/* {items.map((array, key) => (
-        <CarouselContent>
-          {array.map((item, key) => {
-            if (!item.name) {
-              return <li>{item.adres}</li>;
-            } else if (!item.adres) {
-              return <li>{item.name}</li>;
-            }
-          })}
-        </CarouselContent>
-      ))} */}
     </CarouselContainer>
   );
 };
