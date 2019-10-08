@@ -9,14 +9,16 @@ export const CarouselContainer = styled.div`
   height: 100%;
   border: 1px solid red;
   display: flex;
+  overflow-x: auto;
 `;
 
 export const CarouselContent = styled.ul`
   width: 100%;
   height: 100%;
   border: 1px solid green;
+  flex-shrink: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 4fr 4fr 4fr;
 `;
 export const CarouselItem = styled.li``;
 export const CarouselImg = styled.img``;
