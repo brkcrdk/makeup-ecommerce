@@ -35,7 +35,9 @@ const Carousel: React.FC = () => {
   // } else if (wSize > 375 && wSize <= 425) {
   //   console.log("MobileL");
   // }
+
   const handleArray = (arr: {}[], n: number) => {
+    //Split the array to given number of arrays
     const arrayLength = Math.max(arr.length / n, 1);
     const newArray = [];
     for (let i = 0; i < n; i++) {
@@ -45,7 +47,7 @@ const Carousel: React.FC = () => {
     }
     return newArray;
   };
-  const newItems = handleArray(items, 3);
+  const newItems = handleArray(items, 2);
   return (
     <CarouselContainer>
       {newItems.map((array, key) => (
