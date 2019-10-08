@@ -2,25 +2,12 @@ import React, { useState, useEffect } from "react";
 
 import { CarouselContainer, CarouselContent } from "./CarouselStyle";
 const items = [
-  { name: "Burak1", adres: "Muğla1" },
-  { name: "Burak2", adres: "Muğla2" },
-  { name: "Burak3", adres: "Muğla3" },
-  { name: "Burak4", adres: "Muğla4" },
-  { name: "Burak5", adres: "Muğla5" },
-  { name: "Burak6", adres: "Muğla6" },
-  { name: "Burak1", adres: "Muğla1" },
-  { name: "Burak2", adres: "Muğla2" },
-  { name: "Burak3", adres: "Muğla3" },
-  { name: "Burak4", adres: "Muğla4" },
-  { name: "Burak5", adres: "Muğla5" },
-  { name: "Burak6", adres: "Muğla6" }
+  { object: <li>1</li> },
+  { object: <li>2</li> },
+  { object: <li>3</li> },
+  { object: <li>4</li> }
 ];
-interface ICarousel {
-  items: {
-    name: string;
-    adres: string;
-  };
-}
+
 const Carousel: React.FC = () => {
   // const [wSize, setWSize] = useState(0);
   const grid = 2;
@@ -52,13 +39,18 @@ const Carousel: React.FC = () => {
     }
     return newArray;
   };
-  const newItems = handleArray(items, 5);
+  const newItems = handleArray(items, 2);
+  console.log(newItems);
   return (
     <CarouselContainer>
       {newItems.map((array, key) => (
         <CarouselContent key={key}>
-          {array.map((item: ICarousel | any, key) => {
-            return <li key={key}>{item.name}</li>;
+          {array.map((item: any, key) => {
+            return React.createElement(
+              `${item.object.type}`,
+              { key },
+              `$number is:${item.object.type.children}`
+            );
           })}
         </CarouselContent>
       ))}
