@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { CarouselContainer, CarouselContent } from "./CarouselStyle";
+import { cloneNode } from "@babel/types";
 const items = [
   { name: "Burak1", adres: "Muğla1" },
   { name: "Burak2", adres: "Muğla2" },
@@ -9,7 +10,12 @@ const items = [
   { name: "Burak5", adres: "Muğla5" },
   { name: "Burak6", adres: "Muğla6" }
 ];
-
+interface ICarousel {
+  items: {
+    name: string;
+    adres: string;
+  };
+}
 const Carousel: React.FC = () => {
   // const [wSize, setWSize] = useState(0);
   const grid = 2;
@@ -44,9 +50,9 @@ const Carousel: React.FC = () => {
     <CarouselContainer>
       {newItems.map((array, key) => (
         <CarouselContent key={key}>
-          {array.map((item, key) => (
-            <li>item</li>
-          ))}
+          {array.map((item: ICarousel | any, key) => {
+            return <li key={key}>{item.name}</li>;
+          })}
         </CarouselContent>
       ))}
       {/* {items.map((array, key) => (
