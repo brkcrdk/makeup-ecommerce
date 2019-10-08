@@ -14,6 +14,7 @@ export const MainSection = styled.div`
 `;
 export const MiddleSection = styled.div`
   margin: 2em;
+  border: 1px solid black;
 `;
 export const FooterSection = styled.div``;
 interface DimmedProps {
