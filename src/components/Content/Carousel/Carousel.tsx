@@ -49,7 +49,7 @@ const Carousel: React.FC = () => {
             return React.createElement(
               `${item.object.type}`,
               { key },
-              `$number is:${item.object.type.children}`
+              `number is:${item.object.props.children}`
             );
           })}
         </CarouselContent>
