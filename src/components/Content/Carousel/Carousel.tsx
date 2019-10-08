@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 
 import { CarouselContainer, CarouselContent } from "./CarouselStyle";
-import { cloneNode } from "@babel/types";
 const items = [
+  { name: "Burak1", adres: "Muğla1" },
+  { name: "Burak2", adres: "Muğla2" },
+  { name: "Burak3", adres: "Muğla3" },
+  { name: "Burak4", adres: "Muğla4" },
+  { name: "Burak5", adres: "Muğla5" },
+  { name: "Burak6", adres: "Muğla6" },
   { name: "Burak1", adres: "Muğla1" },
   { name: "Burak2", adres: "Muğla2" },
   { name: "Burak3", adres: "Muğla3" },
@@ -47,7 +52,7 @@ const Carousel: React.FC = () => {
     }
     return newArray;
   };
-  const newItems = handleArray(items, 2);
+  const newItems = handleArray(items, 5);
   return (
     <CarouselContainer>
       {newItems.map((array, key) => (
