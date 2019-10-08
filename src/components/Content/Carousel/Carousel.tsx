@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 
 import { CarouselContainer, CarouselContent } from "./CarouselStyle";
 const items = [
-  [{ name: "Burak1" }, { adres: "Muğla1" }],
-  [{ name: "Burak2" }, { adres: "Muğla2" }],
-  [{ name: "Burak3" }, { adres: "Muğla3" }],
-  [{ name: "Burak4" }, { adres: "Muğla4" }],
-  [{ name: "Burak5" }, { adres: "Muğla5" }]
+  { name: "Burak1", adres: "Muğla1" },
+  { name: "Burak2", adres: "Muğla2" },
+  { name: "Burak3", adres: "Muğla3" },
+  { name: "Burak4", adres: "Muğla4" },
+  { name: "Burak5", adres: "Muğla5" },
+  { name: "Burak6", adres: "Muğla6" }
 ];
-interface Props {}
 
-const Carousel: React.FC<Props> = () => {
+const Carousel: React.FC = () => {
   // const [wSize, setWSize] = useState(0);
   const grid = 2;
   // useEffect(() => {
@@ -29,10 +29,27 @@ const Carousel: React.FC<Props> = () => {
   // } else if (wSize > 375 && wSize <= 425) {
   //   console.log("MobileL");
   // }
-
+  const handleArray = (arr: {}[], n: number) => {
+    const arrayLength = Math.max(arr.length / n, 1);
+    const newArray = [];
+    for (let i = 0; i < n; i++) {
+      if (arrayLength * (i + 1) <= arr.length) {
+        newArray.push(arr.slice(arrayLength * i, arrayLength * (i + 1)));
+      }
+    }
+    return newArray;
+  };
+  const newItems = handleArray(items, 3);
   return (
     <CarouselContainer>
-      {items.map((array, key) => (
+      {newItems.map((array, key) => (
+        <CarouselContent key={key}>
+          {array.map((item, key) => (
+            <li>item</li>
+          ))}
+        </CarouselContent>
+      ))}
+      {/* {items.map((array, key) => (
         <CarouselContent>
           {array.map((item, key) => {
             if (!item.name) {
@@ -42,7 +59,7 @@ const Carousel: React.FC<Props> = () => {
             }
           })}
         </CarouselContent>
-      ))}
+      ))} */}
     </CarouselContainer>
   );
 };
