@@ -61,6 +61,11 @@ const Carousel: React.FC = () => {
           {array.map((item: any, key) => {
             return React.createElement(
               `${item.object.type}`,
+              //Dont need to write key: key
+              //Because map function index parameter and elements
+              //name is same which something like this => key:key
+              //If it was something different then
+              //It was going to be necessary to write it.
               { key },
               `number is:${item.object.props.children}`
             );
