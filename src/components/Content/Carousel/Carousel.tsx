@@ -10,14 +10,13 @@ const items = [
 
 const Carousel: React.FC = () => {
   // const [wSize, setWSize] = useState(0);
-  const [index, setIndex] = useState(0);
-
+  //-----
   //Inside of carousel component new function will going to be added
   //This new function will going to get size
   //Maybe with this information carousel automated responsive functionality
   //Maybe it wont be necessary to have it
   //Because it could be done with css
-
+  //----
   // useEffect(() => {
   //   window.addEventListener("resize", () => {
   //     if (window.innerWidth !== wSize) {
@@ -55,7 +54,7 @@ const Carousel: React.FC = () => {
   //Content is grid this will gives responsive effect
   //New arrays each nested array will be inside Content element
   //In that grid will be given elements will be created.
-
+  //-----
   //Draggable Slider Function
   const [initialX, setInitialX] = useState(0);
   const [diff, setDiff] = useState(0);
@@ -68,13 +67,8 @@ const Carousel: React.FC = () => {
   };
   const mouseEnd = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     setDiff(e.clientX);
-    if (initialX - diff === 0) {
-      setDirection("not moved");
-    } else if (initialX - diff < 0) {
-      setDirection("right");
-    } else {
-      setDirection("left");
-    }
+    handleDiff();
+    handleSlide();
   };
   //Touch actions
   const touchStart = (e: React.TouchEvent<HTMLDivElement>) => {
@@ -82,6 +76,17 @@ const Carousel: React.FC = () => {
   };
   const touchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
     setDiff(e.touches[0].clientX);
+    // if (initialX - diff === 0) {
+    //   setDirection("not moved");
+    // } else if (initialX - diff < 0) {
+    //   setDirection("right");
+    // } else {
+    //   setDirection("left");
+    // }
+    handleDiff();
+    handleSlide();
+  };
+  const handleDiff = () => {
     if (initialX - diff === 0) {
       setDirection("not moved");
     } else if (initialX - diff < 0) {
@@ -90,7 +95,25 @@ const Carousel: React.FC = () => {
       setDirection("left");
     }
   };
-
+  //------
+  //Next and Prev actions
+  const [index, setIndex] = useState(0);
+  const handleSlide = () => {
+    if (direction === "right") {
+      if (newItems.length - 1 === index) {
+        setIndex(0);
+      } else {
+        setIndex(index + 1);
+      }
+    } else {
+      if (index === 0) {
+        setIndex(newItems.length - 1);
+      } else {
+        setIndex(index - 1);
+      }
+    }
+  };
+  console.log(index);
   return (
     <CarouselContainer>
       {newItems.map((array, key) => (
@@ -102,10 +125,7 @@ const Carousel: React.FC = () => {
           onMouseUp={mouseEnd}
           onTouchStart={touchStart}
           onTouchMove={touchEnd}>
-          <p>{`Direction:${direction}`}</p>
-          <p>{`Result:${initialX - diff}`}</p>
-          <p>{`Click start:${initialX}, Click end:${diff}`}</p>
-          {/* {array.map((item: any, key) => {
+          {array.map((item: any, key) => {
             return React.createElement(
               `${item.object.type}`,
               //Dont need to write key: key
@@ -116,7 +136,7 @@ const Carousel: React.FC = () => {
               { key },
               `number is:${item.object.props.children}`
             );
-          })} */}
+          })}
         </CarouselContent>
       ))}
     </CarouselContainer>
