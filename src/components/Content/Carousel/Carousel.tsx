@@ -49,7 +49,7 @@ const Carousel: React.FC = () => {
   //And split that array with given option which is number
   //Maybe it should be optinal and deault option added in to function
 
-  const newItems = handleArray(items, 4);
+  const newItems = handleArray(items, 2);
   //Container is flex this gives slider effect
   //Content is grid this will gives responsive effect
   //New arrays each nested array will be inside Content element
