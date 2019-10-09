@@ -61,10 +61,12 @@ const Carousel: React.FC = () => {
   const [diff, setDiff] = useState(0);
   const [direction, setDirection] = useState("not moved");
   //When first touched or clicked
-  const touchStart = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+
+  //Mouse actions
+  const mouseStart = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     setInitialX(e.clientX);
   };
-  const mouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const mouseEnd = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     setDiff(e.clientX);
     if (initialX - diff === 0) {
       setDirection("not moved");
@@ -74,11 +76,21 @@ const Carousel: React.FC = () => {
       setDirection("left");
     }
   };
+  //Touch actions
+  const touchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    setInitialX(e.touches[0].clientX);
+  };
+  const touchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    setDiff(e.touches[0].clientX);
+    if (initialX - diff === 0) {
+      setDirection("not moved");
+    } else if (initialX - diff < 0) {
+      setDirection("right");
+    } else {
+      setDirection("left");
+    }
+  };
 
-  console.log(`clickStart: ${initialX}`);
-  console.log(`clickEnd: ${diff}`);
-  console.log(`result:${initialX - diff}`);
-  console.log(direction);
   return (
     <CarouselContainer>
       {newItems.map((array, key) => (
@@ -86,8 +98,10 @@ const Carousel: React.FC = () => {
           key={key}
           index={index}
           show={key}
-          onMouseDown={touchStart}
-          onMouseUp={mouseMove}>
+          onMouseDown={mouseStart}
+          onMouseUp={mouseEnd}
+          onTouchStart={touchStart}
+          onTouchMove={touchEnd}>
           <p>{`Direction:${direction}`}</p>
           <p>{`Result:${initialX - diff}`}</p>
           <p>{`Click start:${initialX}, Click end:${diff}`}</p>
