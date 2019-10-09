@@ -1,11 +1,37 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useState, useRef, useEffect, useLayoutEffect } from "react";
+import handleSlide from "./utils/handleSlide";
 import { CarouselContainer, CarouselContent } from "./CarouselStyle";
 const items = [
-  { object: <li>1</li> },
-  { object: <li>2</li> },
-  { object: <li>3</li> },
-  { object: <li>4</li> }
+  {
+    object: <li>Burak</li>
+  },
+  {
+    object: (
+      <div>
+        <li>
+          <a href="#?">Burak1</a>
+        </li>
+      </div>
+    )
+  },
+  {
+    object: (
+      <div>
+        <li>
+          <a href="#?">Burak1</a>
+        </li>
+      </div>
+    )
+  },
+  {
+    object: (
+      <div>
+        <li>
+          <a href="#?">Burak1</a>
+        </li>
+      </div>
+    )
+  }
 ];
 
 const Carousel: React.FC = () => {
@@ -59,61 +85,64 @@ const Carousel: React.FC = () => {
   const [initialX, setInitialX] = useState(0);
   const [diff, setDiff] = useState(0);
   const [direction, setDirection] = useState("not moved");
-  //When first touched or clicked
 
   //Mouse actions
   const mouseStart = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    setInitialX(e.clientX);
+    setInitialX(e.pageX);
   };
   const mouseEnd = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    setDiff(e.clientX);
+    setDiff(e.pageX);
     handleDiff();
-    handleSlide();
+    handleSlide(direction, newItems, index, setIndex);
   };
   //Touch actions
   const touchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-    setInitialX(e.touches[0].clientX);
+    setInitialX(e.touches[0].pageX);
   };
   const touchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
-    setDiff(e.touches[0].clientX);
-    // if (initialX - diff === 0) {
-    //   setDirection("not moved");
-    // } else if (initialX - diff < 0) {
-    //   setDirection("right");
-    // } else {
-    //   setDirection("left");
-    // }
+    setDiff(e.touches[0].pageX);
     handleDiff();
-    handleSlide();
+    handleSlide(direction, newItems, index, setIndex);
   };
+
   const handleDiff = () => {
     if (initialX - diff === 0) {
       setDirection("not moved");
-    } else if (initialX - diff < 0) {
+    } else if (initialX - diff <= -1) {
       setDirection("right");
-    } else {
+    } else if (initialX - diff >= 1) {
       setDirection("left");
     }
   };
   //------
   //Next and Prev actions
   const [index, setIndex] = useState(0);
-  const handleSlide = () => {
-    if (direction === "right") {
-      if (newItems.length - 1 === index) {
-        setIndex(0);
-      } else {
-        setIndex(index + 1);
-      }
+  // const handleSlide = () => {
+  //   if (direction === "right") {
+  //     if (newItems.length - 1 === index) {
+  //       setIndex(0);
+  //     } else {
+  //       setIndex(index + 1);
+  //     }
+  //   } else {
+  //     if (index === 0) {
+  //       setIndex(newItems.length - 1);
+  //     } else {
+  //       setIndex(index - 1);
+  //     }
+  //   }
+  // };
+  const renderer = (obj: any, key: number): any => {
+    if (obj.object.props.children.hasOwnProperty("type")) {
+      return console.log(obj);
     } else {
-      if (index === 0) {
-        setIndex(newItems.length - 1);
-      } else {
-        setIndex(index - 1);
-      }
+      return React.createElement(
+        `${obj.object.type}`,
+        { key },
+        `${obj.object.props.chidren}`
+      );
     }
   };
-  console.log(index);
   return (
     <CarouselContainer>
       {newItems.map((array, key) => (
@@ -126,16 +155,20 @@ const Carousel: React.FC = () => {
           onTouchStart={touchStart}
           onTouchMove={touchEnd}>
           {array.map((item: any, key) => {
-            return React.createElement(
-              `${item.object.type}`,
-              //Dont need to write key: key
-              //Because map function index parameter and elements
-              //name is same which something like this => key:key
-              //If it was something different then
-              //It was going to be necessary to write it.
-              { key },
-              `number is:${item.object.props.children}`
-            );
+            return renderer(item, key);
+            // return item.object.props.children.hasOwnProperty("type")
+            //   ? console.log("var")
+            //   : console.log("yok");
+            // return React.createElement(
+            //   `${item.object.type}`,
+            //   //Dont need to write key: key
+            //   //Because map function index parameter and elements
+            //   //name is same which something like this => key:key
+            //   //If it was something different then
+            //   //It was going to be necessary to write it.
+            //   { key },
+            //   `number is:${item.object.props.children}`
+            // );
           })}
         </CarouselContent>
       ))}
