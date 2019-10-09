@@ -1,16 +1,11 @@
-import React, { useState, useRef, useEffect, useLayoutEffect } from "react";
+import React, { useState } from "react";
 import handleSlide from "./utils/handleSlide";
 import { CarouselContainer, CarouselContent } from "./CarouselStyle";
 const items = [
   {
-    object: <li>Burak</li>
-  },
-  {
     object: (
       <div>
-        <li>
-          <a href="#?">Burak1</a>
-        </li>
+        <p>burak</p>
       </div>
     )
   },
@@ -27,7 +22,16 @@ const items = [
     object: (
       <div>
         <li>
-          <a href="#?">Burak1</a>
+          <a href="#?">Burak2</a>
+        </li>
+      </div>
+    )
+  },
+  {
+    object: (
+      <div>
+        <li>
+          <a href="#?">Burak3</a>
         </li>
       </div>
     )
@@ -132,14 +136,19 @@ const Carousel: React.FC = () => {
   //     }
   //   }
   // };
+
+  //----
+  //For possible nested carousel objects
   const renderer = (obj: any, key: number): any => {
-    if (obj.object.props.children.hasOwnProperty("type")) {
-      return console.log(obj);
+    if (obj.props.children.hasOwnProperty("type")) {
+      return renderer(obj.props.children, key);
+    } else if (obj.props.children.hasOwnProperty("")) {
+      return console.log("empty");
     } else {
       return React.createElement(
-        `${obj.object.type}`,
+        `${obj.type}`,
         { key },
-        `${obj.object.props.chidren}`
+        `${obj.props.children}`
       );
     }
   };
@@ -155,20 +164,11 @@ const Carousel: React.FC = () => {
           onTouchStart={touchStart}
           onTouchMove={touchEnd}>
           {array.map((item: any, key) => {
-            return renderer(item, key);
-            // return item.object.props.children.hasOwnProperty("type")
-            //   ? console.log("var")
-            //   : console.log("yok");
-            // return React.createElement(
-            //   `${item.object.type}`,
-            //   //Dont need to write key: key
-            //   //Because map function index parameter and elements
-            //   //name is same which something like this => key:key
-            //   //If it was something different then
-            //   //It was going to be necessary to write it.
-            //   { key },
-            //   `number is:${item.object.props.children}`
-            // );
+            return React.createElement(
+              `${item.object.type}`,
+              { key },
+              renderer(item.object, key)
+            );
           })}
         </CarouselContent>
       ))}
