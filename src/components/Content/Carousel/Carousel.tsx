@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { CarouselContainer, CarouselContent } from "./CarouselStyle";
 const items = [
@@ -10,6 +10,7 @@ const items = [
 
 const Carousel: React.FC = () => {
   // const [wSize, setWSize] = useState(0);
+  const [index, setIndex] = useState(1);
 
   //Inside of carousel component new function will going to be added
   //This new function will going to get size
@@ -49,7 +50,7 @@ const Carousel: React.FC = () => {
   //And split that array with given option which is number
   //Maybe it should be optinal and deault option added in to function
 
-  const newItems = handleArray(items, 2);
+  const newItems = handleArray(items, 4);
   //Container is flex this gives slider effect
   //Content is grid this will gives responsive effect
   //New arrays each nested array will be inside Content element
@@ -57,7 +58,7 @@ const Carousel: React.FC = () => {
   return (
     <CarouselContainer>
       {newItems.map((array, key) => (
-        <CarouselContent key={key}>
+        <CarouselContent key={key} index={index} show={key}>
           {array.map((item: any, key) => {
             return React.createElement(
               `${item.object.type}`,
