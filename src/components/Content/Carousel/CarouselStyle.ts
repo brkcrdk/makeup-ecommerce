@@ -22,7 +22,7 @@ export const CarouselContent = styled.div`
   border: 1px solid green;
   flex-shrink: 0;
   display: ${(p: CarouselProps) => (p.index === p.show ? "grid" : "none")};
-  grid-template-columns: 4fr 4fr 4fr;
+  grid-template-columns: repeat(9, 1fr);
   cursor: grab;
   * {
     display: flex;
