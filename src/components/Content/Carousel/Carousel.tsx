@@ -55,10 +55,41 @@ const Carousel: React.FC = () => {
   //Content is grid this will gives responsive effect
   //New arrays each nested array will be inside Content element
   //In that grid will be given elements will be created.
+
+  //Draggable Slider Function
+  const [initialX, setInitialX] = useState(0);
+  const [diff, setDiff] = useState(0);
+  const [direction, setDirection] = useState("");
+  //When first touched or clicked
+  const touchStart = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    setInitialX(e.pageX);
+  };
+  const mouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    setDiff(e.pageX);
+    return handleDiff();
+  };
+
+  const handleDiff = () => {
+    if (initialX < diff) {
+      setDirection("right");
+    } else {
+      setDirection("left");
+    }
+  };
+
+  console.log(`initial: ${initialX}`);
+  console.log(`diff: ${diff}`);
+  console.log(`result:${initialX - diff}`);
+  console.log(direction);
   return (
     <CarouselContainer>
       {newItems.map((array, key) => (
-        <CarouselContent key={key} index={index} show={key}>
+        <CarouselContent
+          key={key}
+          index={index}
+          show={key}
+          onMouseDown={touchStart}
+          onMouseUp={mouseMove}>
           {array.map((item: any, key) => {
             return React.createElement(
               `${item.object.type}`,

@@ -23,6 +23,7 @@ export const CarouselContent = styled.div`
   flex-shrink: 0;
   display: ${(p: CarouselProps) => (p.index === p.show ? "grid" : "none")};
   grid-template-columns: 4fr 4fr 4fr;
+  cursor: grab;
   * {
     display: flex;
     justify-content: space-around;
