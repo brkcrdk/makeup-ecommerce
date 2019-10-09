@@ -10,7 +10,7 @@ const items = [
 
 const Carousel: React.FC = () => {
   // const [wSize, setWSize] = useState(0);
-  const [index, setIndex] = useState(1);
+  const [index, setIndex] = useState(0);
 
   //Inside of carousel component new function will going to be added
   //This new function will going to get size
@@ -59,26 +59,24 @@ const Carousel: React.FC = () => {
   //Draggable Slider Function
   const [initialX, setInitialX] = useState(0);
   const [diff, setDiff] = useState(0);
-  const [direction, setDirection] = useState("");
+  const [direction, setDirection] = useState("not moved");
   //When first touched or clicked
   const touchStart = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    setInitialX(e.pageX);
+    setInitialX(e.clientX);
   };
   const mouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    setDiff(e.pageX);
-    return handleDiff();
-  };
-
-  const handleDiff = () => {
-    if (initialX < diff) {
+    setDiff(e.clientX);
+    if (initialX - diff === 0) {
+      setDirection("not moved");
+    } else if (initialX - diff < 0) {
       setDirection("right");
     } else {
       setDirection("left");
     }
   };
 
-  console.log(`initial: ${initialX}`);
-  console.log(`diff: ${diff}`);
+  console.log(`clickStart: ${initialX}`);
+  console.log(`clickEnd: ${diff}`);
   console.log(`result:${initialX - diff}`);
   console.log(direction);
   return (
@@ -90,7 +88,10 @@ const Carousel: React.FC = () => {
           show={key}
           onMouseDown={touchStart}
           onMouseUp={mouseMove}>
-          {array.map((item: any, key) => {
+          <p>{`Direction:${direction}`}</p>
+          <p>{`Result:${initialX - diff}`}</p>
+          <p>{`Click start:${initialX}, Click end:${diff}`}</p>
+          {/* {array.map((item: any, key) => {
             return React.createElement(
               `${item.object.type}`,
               //Dont need to write key: key
@@ -101,7 +102,7 @@ const Carousel: React.FC = () => {
               { key },
               `number is:${item.object.props.children}`
             );
-          })}
+          })} */}
         </CarouselContent>
       ))}
     </CarouselContainer>
