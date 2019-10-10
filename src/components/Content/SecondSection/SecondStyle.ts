@@ -9,7 +9,7 @@ export const Brands = styled.div`
     transition: transform 1s;
     &:hover {
       opacity: 1;
-      transform: scale(1.1);
+      transform: scale(1.07);
     }
   }
 `;
