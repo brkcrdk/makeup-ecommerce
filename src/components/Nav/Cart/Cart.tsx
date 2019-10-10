@@ -1,6 +1,5 @@
 import React from "react";
 import { Img } from "./CartStyle";
-import Image from "./cart.svg";
 interface Props {
   scroll: boolean;
 }

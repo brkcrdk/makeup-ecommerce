@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import EmblaCarouselReact from "embla-carousel-react";
-import { CarouselContainer, CarouselContent } from "./CarouselStyle";
+import { Carosel } from "./CarouselStyle";
 
 const Carousel: React.FC = () => {
   const [embla, setEmbla] = useState<any>(null);
@@ -13,7 +13,7 @@ const Carousel: React.FC = () => {
   }, [embla]);
   return (
     <>
-      <EmblaCarouselReact emblaRef={setEmbla} options={{ loop: true }}>
+      <Carosel emblaRef={setEmbla} options={{ loop: true }}>
         <div style={{ display: "flex" }}>
           <div style={{ flex: "0 0 100%" }}>Slide 1</div>
           <div style={{ flex: "0 0 100%" }}>Slide 2</div>
@@ -26,7 +26,7 @@ const Carousel: React.FC = () => {
             </li>
           </div>
         </div>
-      </EmblaCarouselReact>
+      </Carosel>
       <button onClick={() => embla.scrollPrev()}>Prev</button>
       <button onClick={() => embla.scrollNext()}>Next</button>
     </>
