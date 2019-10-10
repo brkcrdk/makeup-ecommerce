@@ -13,8 +13,11 @@ export const MainSection = styled.div`
   transition: 0.5s;
 `;
 export const MiddleSection = styled.div`
-  margin: 2em;
+  /* TODO: Adjust margin left/right side for every device */
+  margin: 1em 2em;
   background: white;
+  border-radius: 0.5em;
+  box-shadow: 1px 5px 1em rgba(136, 136, 136, 0.5);
 `;
 export const FooterSection = styled.div``;
 interface DimmedProps {

@@ -7,7 +7,7 @@ interface Props {}
 const SecondSection: React.FC<Props> = () => {
   return (
     <Brands>
-      <Carousel content={<Brand />} loop={true} />
+      <Carousel content={<Brand />} loop={false} />
     </Brands>
   );
 };

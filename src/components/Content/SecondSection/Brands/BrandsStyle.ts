@@ -9,8 +9,11 @@ export const MobileS = styled.div`
   margin: 0;
   padding: 0;
   img {
-    border: 1px solid red;
-    margin-top: -1em;
+    margin-top: -1.4em;
+    @media ${device.mobileS} {
+      width: 14em;
+      height: 7em;
+    }
   }
   @media ${device.mobileM} {
     display: none;
