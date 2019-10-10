@@ -1,8 +1,18 @@
 import React from "react";
 import { Container, Header } from "./WantedStyle";
-interface Props {}
+import { randomItems } from "../../../getTypes";
+import { useSelector } from "react-redux";
+interface ProductProps {
+  storeProducts: {
+    products: [];
+  };
+}
 
-const Wanted: React.FC<Props> = () => {
+const Wanted: React.FC = () => {
+  const products = useSelector(
+    (state: ProductProps) => state.storeProducts.products
+  );
+  console.log(randomItems(products));
   return (
     <Container>
       <Header>Most Search Items</Header>

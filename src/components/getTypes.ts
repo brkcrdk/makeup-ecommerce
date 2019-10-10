@@ -8,10 +8,10 @@ export const getCategory = (data: []) => {
     .map((items: IProducts) => {
       return items.category;
     });
-  const types = productTypes.filter((value, index, self) => {
+  const categories = productTypes.filter((value, index, self) => {
     return self.indexOf(value) === index;
   });
-  return types;
+  return categories;
 };
 
 export const getType = (data: []) => {
@@ -36,8 +36,21 @@ export const getBrand = (data: []) => {
     .map((items: IProducts) => {
       return items.brand;
     });
-  const types = productTypes.filter((value, index, self) => {
+  const brands = productTypes.filter((value, index, self) => {
     return self.indexOf(value) === index;
   });
-  return types;
+  return brands;
+};
+
+export const randomItems = (data: [], count?: number) => {
+  const getCount = count === undefined ? 15 : count;
+  const Items = data
+    .filter((items: IProducts, index) => {
+      return index > 100 && index < 101 + getCount;
+    })
+    .map((items: IProducts) => {
+      return items;
+    });
+
+  return Items;
 };

@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { getType, getCategory, getBrand } from "../../getTypes";
 import { useSelector, useDispatch } from "react-redux";
 import { Container, SearchClose } from "./MenuStyle";
@@ -22,7 +22,7 @@ const Menu: React.FC = () => {
   const types = getType(products);
   const categories = getCategory(products);
   const brands = getBrand(products);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   // const handleClose = useCallback(() => {
   //   dispatch({
   //     type: "TOGGLE_SIDEBAR"

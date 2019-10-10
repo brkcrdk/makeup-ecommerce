@@ -8,7 +8,6 @@ import {
 } from "./MainStyle";
 import { useSelector } from "react-redux";
 import Box from "../Nav/DesktopMenu/Search/SearchBox/Box";
-import Carousel from "./Carousel/Carousel";
 import FirstSection from "./FirstSection/FirstSection";
 import SecondSection from "./SecondSection/SecondSection";
 interface Toggle {
