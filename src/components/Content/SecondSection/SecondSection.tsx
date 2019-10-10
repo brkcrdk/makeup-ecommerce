@@ -1,11 +1,10 @@
 import React from "react";
-import { Brands } from "./SecondStyle";
-import Brand from "./Brands/Brands";
+import MobileSBrand from "./Brands/Brands";
 import Carousel from "../Carousel/Carousel";
 interface Props {}
 
 const SecondSection: React.FC<Props> = () => {
-  return <Brands />;
+  return <Carousel content={<MobileSBrand />} loop={false} />;
 };
 
 export default SecondSection;

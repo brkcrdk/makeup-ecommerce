@@ -2,7 +2,7 @@ import React, { useState, useEffect, ReactElement } from "react";
 
 import { Carosel } from "./CarouselStyle";
 interface CarouselProps {
-  content: { children: Element[] };
+  content: ReactElement<ReactElement>;
   loop?: boolean;
 }
 const Carousel: React.FC<CarouselProps> = ({ content, loop }) => {

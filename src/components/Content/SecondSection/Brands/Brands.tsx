@@ -1,5 +1,4 @@
 import React from "react";
-import Carousel from "../../Carousel/Carousel";
 import { Slide, MobileS, MobileTablet } from "./BrandsStyle";
 import img1 from "./1.jpg";
 import img2 from "./2.jpg";
@@ -22,18 +21,17 @@ const Brands: React.FC = () => {
     return newArray;
   };
   const mobileSContent = handleContent(images, images.length);
+
   return (
     <>
       <MobileS>
-        <Carousel>
-          {mobileSContent.map((arr, key) => (
-            <Slide key={key}>
-              {arr.map((image, key) => (
-                <img src={image} />
-              ))}
-            </Slide>
-          ))}
-        </Carousel>
+        {mobileSContent.map((arr, key) => (
+          <Slide key={key}>
+            {arr.map((image, key) => (
+              <img src={image} />
+            ))}
+          </Slide>
+        ))}
       </MobileS>
     </>
   );
