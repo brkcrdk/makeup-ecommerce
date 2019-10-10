@@ -1,7 +1,17 @@
 import styled from "styled-components";
 import background from "./makeup.jpg";
 import colours from "../colours";
+
 export const Container = styled.div``;
+
+export const Content = styled.div`
+  /* Center content from here*/
+  /* Use this if you want to center elements in to div */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1.5em;
+`;
 
 export const MainSection = styled.div`
   background-image: url(${background});
@@ -28,11 +38,4 @@ interface DimmedProps {
 export const Dimmed = styled.div`
   filter: ${(p: DimmedProps) => (p.toggle ? "blur(2px)" : "")};
   height: 100vh;
-`;
-export const Content = styled.div`
-  /* Center content from here*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 1.5em;
 `;
