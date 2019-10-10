@@ -16,6 +16,11 @@ const MobileS = styled.div`
       width: 14em;
       height: 7em;
     }
+    @media ${device.mobileM} {
+      margin-left: 1em;
+      width: 17em;
+      height: 7em;
+    }
   }
   @media ${device.mobileL} {
     display: none;

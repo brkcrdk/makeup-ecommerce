@@ -10,7 +10,7 @@ const SecondSection: React.FC<Props> = () => {
     <>
       <Carousel content={<MobileSBrand />} />
       <Carousel content={<TabletBrand />} />
-      <Carousel content={<DekstopBrand />} />
+      <DekstopBrand />
     </>
   );
 };

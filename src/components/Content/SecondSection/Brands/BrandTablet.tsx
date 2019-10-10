@@ -4,7 +4,10 @@ import device from "../../../device";
 import brandImages from "./brandImages";
 interface Props {}
 const Slide = styled.div`
-  flex: 0 0 0;
+  display: flex;
+  @media ${device.mobileTablet} {
+    margin-left: -3em;
+  }
 `;
 const MobileTablet = styled.div`
   display: flex;
@@ -12,6 +15,9 @@ const MobileTablet = styled.div`
   padding: 0;
   img {
     margin-top: -1em;
+    @media ${device.mobileTablet} {
+      width: 15em;
+    }
   }
   @media ${device.mobileS} {
     display: none;
@@ -24,7 +30,18 @@ const MobileTablet = styled.div`
   }
 `;
 const BrandTablet: React.FC<Props> = () => {
-  return <MobileTablet>MobileTablet goes here..</MobileTablet>;
+  const images = brandImages(3);
+  return (
+    <MobileTablet>
+      {images.map((arr, key) => (
+        <Slide key={key}>
+          {arr.map((image, key) => (
+            <img src={image} key={key} alt={`brand-${key}`} />
+          ))}
+        </Slide>
+      ))}
+    </MobileTablet>
+  );
 };
 
 export default BrandTablet;
