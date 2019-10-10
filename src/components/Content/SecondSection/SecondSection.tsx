@@ -5,8 +5,8 @@ interface Props {}
 
 const SecondSection: React.FC<Props> = () => {
   return (
-    <div style={{ border: "1px solid red" }}>
-      <Carousel content={<Brand />} />
+    <div>
+      <Carousel content={<Brand />} loop={true} />
     </div>
   );
 };

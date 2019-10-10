@@ -1,4 +1,5 @@
 import React from "react";
+import { ImgContainer } from "./BrandsStyle";
 import img1 from "./1.jpg";
 import img2 from "./2.jpg";
 import img3 from "./3.jpg";
@@ -8,14 +9,14 @@ import img6 from "./6.jpg";
 
 const Brands: React.FC = () => {
   return (
-    <div>
+    <ImgContainer>
       <img src={img1} />
       <img src={img2} />
       <img src={img3} />
       <img src={img4} />
       <img src={img5} />
       <img src={img6} />
-    </div>
+    </ImgContainer>
   );
 };
 
