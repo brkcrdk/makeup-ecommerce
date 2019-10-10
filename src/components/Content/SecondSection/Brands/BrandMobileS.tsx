@@ -4,7 +4,7 @@ import styled from "styled-components";
 import device from "../../../device";
 
 export const Slide = styled.div`
-  flex: 0;
+  flex: 0 0 0 0;
 `;
 const MobileS = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ const MobileS = styled.div`
       height: 7em;
     }
   }
-  @media ${device.mobileM} {
+  @media ${device.mobileL} {
     display: none;
   }
 `;

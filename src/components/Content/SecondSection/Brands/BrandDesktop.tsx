@@ -6,25 +6,24 @@ interface Props {}
 const Slide = styled.div`
   flex: 0 0 0;
 `;
-const MobileTablet = styled.div`
+const Desktop = styled.div`
   display: flex;
   margin: 0;
   padding: 0;
   img {
-    margin-top: -1em;
   }
   @media ${device.mobileS} {
     display: none;
   }
   @media ${device.mobileL} {
-    display: flex;
-  }
-  @media ${device.tabletLaptop} {
     display: none;
   }
+  @media ${device.tabletLaptop} {
+    display: flex;
+  }
 `;
-const BrandTablet: React.FC<Props> = () => {
-  return <MobileTablet>MobileTablet goes here..</MobileTablet>;
+const BrandDesktop: React.FC<Props> = () => {
+  return <Desktop>Desktop goes here..</Desktop>;
 };
 
-export default BrandTablet;
+export default BrandDesktop;
