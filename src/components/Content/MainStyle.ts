@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import background from "./makeup.jpg";
-
+import colours from "../colours";
 export const Container = styled.div``;
 
 export const MainSection = styled.div`
@@ -18,7 +18,7 @@ export const MiddleSection = styled.div`
   margin: 1em 2em;
   background: white;
   border-radius: 0.5em;
-  box-shadow: 1px 5px 1em rgba(136, 136, 136, 0.5);
+  box-shadow: ${colours.boxShadow};
 `;
 export const FooterSection = styled.div``;
 interface DimmedProps {
