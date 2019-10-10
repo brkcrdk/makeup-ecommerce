@@ -14,6 +14,14 @@ const SecondSection: React.FC<Props> = () => {
         <Carousel content={<TabletBrand />} />
         <DekstopBrand />
       </Brands>
+      <hr
+        style={{
+          width: "80%",
+          color: "lightgray",
+          marginBottom: "2em",
+          border: "0.5px solid"
+        }}
+      />
     </Container>
   );
 };

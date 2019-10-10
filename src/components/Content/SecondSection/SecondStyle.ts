@@ -4,6 +4,7 @@ import device from "../../device";
 //
 export const Container = styled.div``;
 export const Brands = styled.div`
+  margin-bottom: 3em;
   img {
     opacity: 0.5;
     transition: transform 1s;
