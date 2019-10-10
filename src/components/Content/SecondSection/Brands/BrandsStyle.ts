@@ -19,3 +19,24 @@ export const MobileS = styled.div`
     display: none;
   }
 `;
+
+export const MobileTablet = styled.div`
+  @media ${device.mobileS} {
+    display: none;
+  }
+  @media ${device.mobileM} {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    img {
+      margin-top: -1.4em;
+      @media ${device.mobileS} {
+        width: 10em;
+        height: 7em;
+      }
+    }
+  }
+  @media ${device.mobileTablet} {
+    display: none;
+  }
+`;

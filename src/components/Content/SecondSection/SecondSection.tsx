@@ -5,11 +5,7 @@ import Carousel from "../Carousel/Carousel";
 interface Props {}
 
 const SecondSection: React.FC<Props> = () => {
-  return (
-    <Brands>
-      <Carousel content={<Brand />} loop={false} />
-    </Brands>
-  );
+  return <Brands />;
 };
 
 export default SecondSection;
