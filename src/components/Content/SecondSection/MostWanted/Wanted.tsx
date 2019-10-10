@@ -12,7 +12,7 @@ const Wanted: React.FC = () => {
   const products = useSelector(
     (state: ProductProps) => state.storeProducts.products
   );
-  console.log(randomItems(products));
+  console.log(randomItems(products, 20));
   return (
     <Container>
       <Header>Most Search Items</Header>

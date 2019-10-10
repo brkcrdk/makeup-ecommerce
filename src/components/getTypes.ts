@@ -43,6 +43,8 @@ export const getBrand = (data: []) => {
 };
 
 export const randomItems = (data: [], count?: number) => {
+  //If count not entered return 15 items else return given number of items
+  //Starts from 100
   const getCount = count === undefined ? 15 : count;
   const Items = data
     .filter((items: IProducts, index) => {
