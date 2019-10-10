@@ -6,10 +6,17 @@ import img4 from "./4.jpg";
 import img5 from "./5.jpg";
 import img6 from "./6.jpg";
 
-interface Props {}
-
-const Brands: React.FC<Props> = () => {
-  return <div></div>;
+const Brands: React.FC = () => {
+  return (
+    <div>
+      <img src={img1} />
+      <img src={img2} />
+      <img src={img3} />
+      <img src={img4} />
+      <img src={img5} />
+      <img src={img6} />
+    </div>
+  );
 };
 
 export default Brands;

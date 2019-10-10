@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ReactElement } from "react";
 import { Carosel } from "./CarouselStyle";
 interface CarouselProps {
-  content: React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLDivElement>,
-    HTMLDivElement
-  >;
+  content: ReactElement<React.FunctionComponent>;
 }
 const Carousel: React.FC<CarouselProps> = ({ content }) => {
   const [embla, setEmbla] = useState<any>(null);
