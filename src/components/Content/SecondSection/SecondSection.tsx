@@ -1,9 +1,7 @@
 import React from "react";
 import { Container, BrandSection, WantedSection } from "./SecondStyle";
-import MobileSBrand from "./Brands/BrandMobileS";
-import TabletBrand from "./Brands/BrandTablet";
-import Carousel from "../Carousel/Carousel";
-import DekstopBrand from "./Brands/BrandDesktop";
+
+import Brands from "./Brands/Brands";
 import Wanted from "./MostWanted/Wanted";
 interface Props {}
 
@@ -11,9 +9,7 @@ const SecondSection: React.FC<Props> = () => {
   return (
     <Container>
       <BrandSection>
-        <Carousel content={<MobileSBrand />} />
-        <Carousel content={<TabletBrand />} />
-        <DekstopBrand />
+        <Brands />
       </BrandSection>
       <WantedSection>
         <Wanted />
