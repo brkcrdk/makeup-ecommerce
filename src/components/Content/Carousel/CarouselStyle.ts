@@ -6,11 +6,4 @@ import EmblaCarouselReact from "embla-carousel-react";
 //   index: number;
 // }
 
-export const Carosel = styled(EmblaCarouselReact)`
-  display: flex;
-  border: 1px solid red;
-  * {
-    flex: 0, 0, 100%;
-    cursor: grab;
-  }
-`;
+export const Carosel = styled(EmblaCarouselReact)``;

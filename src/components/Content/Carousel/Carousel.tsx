@@ -1,4 +1,5 @@
 import React, { useState, useEffect, ReactElement } from "react";
+
 import { Carosel } from "./CarouselStyle";
 interface CarouselProps {
   content: ReactElement<React.FunctionComponent>;
@@ -20,9 +21,6 @@ const Carousel: React.FC<CarouselProps> = ({ content, loop }) => {
       <Carosel emblaRef={setEmbla} options={{ loop }}>
         {content}
       </Carosel>
-
-      <button onClick={() => embla.scrollPrev()}>Prev</button>
-      <button onClick={() => embla.scrollNext()}>Next</button>
     </>
   );
 };

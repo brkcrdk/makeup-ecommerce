@@ -1,5 +1,5 @@
 import React from "react";
-import { ImgContainer } from "./BrandsStyle";
+import { Slide, MobileS } from "./BrandsStyle";
 import img1 from "./1.jpg";
 import img2 from "./2.jpg";
 import img3 from "./3.jpg";
@@ -8,15 +8,22 @@ import img5 from "./5.jpg";
 import img6 from "./6.jpg";
 
 const Brands: React.FC = () => {
+  const images = [img1, img2, img3, img4, img5, img6];
   return (
-    <ImgContainer>
-      <img src={img1} />
-      <img src={img2} />
-      <img src={img3} />
-      <img src={img4} />
-      <img src={img5} />
-      <img src={img6} />
-    </ImgContainer>
+    // <>
+    //   {images.map((image, key) => (
+    //     <Slide>
+    //       <img key={key} src={image} />
+    //     </Slide>
+    //   ))}
+    // </>
+    <MobileS>
+      {images.map((image, key) => (
+        <Slide key={key}>
+          <img src={image} />
+        </Slide>
+      ))}
+    </MobileS>
   );
 };
 
