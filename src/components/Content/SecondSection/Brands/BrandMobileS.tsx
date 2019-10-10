@@ -29,7 +29,7 @@ const Brands: React.FC = () => {
       {mobileSContent.map((arr, key) => (
         <Slide key={key}>
           {arr.map((image, key) => (
-            <img key={key} src={image} />
+            <img key={key} src={image} alt={`brand-${key}`} />
           ))}
         </Slide>
       ))}
