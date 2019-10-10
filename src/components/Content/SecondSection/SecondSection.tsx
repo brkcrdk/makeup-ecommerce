@@ -1,5 +1,5 @@
 import React from "react";
-import MobileSBrand from "./Brands/Brands";
+import MobileSBrand from "./Brands/BrandMobileS";
 import Carousel from "../Carousel/Carousel";
 interface Props {}
 
