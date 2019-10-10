@@ -9,8 +9,6 @@ import EmblaCarouselReact from "embla-carousel-react";
 export const Carosel = styled(EmblaCarouselReact)`
   display: flex;
   * {
-    border: 1px solid red;
-    width: 100%;
     flex: 0, 0, 100%;
     cursor: grab;
   }

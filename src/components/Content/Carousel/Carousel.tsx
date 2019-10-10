@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
-import EmblaCarouselReact from "embla-carousel-react";
 import { Carosel } from "./CarouselStyle";
-
-const Carousel: React.FC = () => {
+interface CarouselProps {
+  content: React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+  >;
+}
+const Carousel: React.FC<CarouselProps> = ({ content }) => {
   const [embla, setEmbla] = useState<any>(null);
   useEffect(() => {
     if (embla) {
@@ -14,18 +18,7 @@ const Carousel: React.FC = () => {
   return (
     <>
       <Carosel emblaRef={setEmbla} options={{ loop: true }}>
-        <div style={{ display: "flex" }}>
-          <div style={{ flex: "0 0 100%" }}>Slide 1</div>
-          <div style={{ flex: "0 0 100%" }}>Slide 2</div>
-          <div style={{ flex: "0 0 100%" }}>
-            <li>
-              <a href="#?">Burak</a>
-            </li>
-            <li>
-              <a href="#?">Burak</a>
-            </li>
-          </div>
-        </div>
+        {content}
       </Carosel>
       <button onClick={() => embla.scrollPrev()}>Prev</button>
       <button onClick={() => embla.scrollNext()}>Next</button>
