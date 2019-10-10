@@ -1,39 +1,39 @@
 import React from "react";
-import { Slide, MobileS, MobileTablet } from "./BrandsStyle";
-import img1 from "./1.jpg";
-import img2 from "./2.jpg";
-import img3 from "./3.jpg";
-import img4 from "./4.jpg";
-import img5 from "./5.jpg";
-import img6 from "./6.jpg";
+import brandImages from "./brandImages";
+import styled from "styled-components";
+import device from "../../../device";
+
+export const Slide = styled.div`
+  flex: 0 0 0;
+`;
+const MobileS = styled.div`
+  display: flex;
+  margin: 0;
+  padding: 0;
+  img {
+    margin-top: -1.4em;
+    @media ${device.mobileS} {
+      width: 14em;
+      height: 7em;
+    }
+  }
+  @media ${device.mobileM} {
+    display: none;
+  }
+`;
 
 const Brands: React.FC = () => {
-  const images = [img1, img2, img3, img4, img5, img6];
-  const handleContent = (arr: string[], slideCount: number) => {
-    //Split the array to given number of arrays
-    const arrayLength = Math.max(arr.length / slideCount, 1);
-    const newArray = [];
-    for (let i = 0; i < slideCount; i++) {
-      if (arrayLength * (i + 1) <= arr.length) {
-        newArray.push(arr.slice(arrayLength * i, arrayLength * (i + 1)));
-      }
-    }
-    return newArray;
-  };
-  const mobileSContent = handleContent(images, images.length);
-
+  const mobileSContent = brandImages();
   return (
-    <>
-      <MobileS>
-        {mobileSContent.map((arr, key) => (
-          <Slide key={key}>
-            {arr.map((image, key) => (
-              <img src={image} />
-            ))}
-          </Slide>
-        ))}
-      </MobileS>
-    </>
+    <MobileS>
+      {mobileSContent.map((arr, key) => (
+        <Slide key={key}>
+          {arr.map((image, key) => (
+            <img key={key} src={image} />
+          ))}
+        </Slide>
+      ))}
+    </MobileS>
   );
 };
 

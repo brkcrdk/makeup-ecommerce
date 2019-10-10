@@ -1,5 +1,4 @@
 import React, { useState, useEffect, ReactElement } from "react";
-
 import { Carosel } from "./CarouselStyle";
 interface CarouselProps {
   content: ReactElement<ReactElement>;
