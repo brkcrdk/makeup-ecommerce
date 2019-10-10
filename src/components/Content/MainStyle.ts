@@ -14,6 +14,7 @@ export const MainSection = styled.div`
 `;
 export const MiddleSection = styled.div`
   /* TODO: Adjust margin left/right side for every device */
+  overflow-x: hidden;
   margin: 1em 2em;
   background: white;
   border-radius: 0.5em;
