@@ -20,6 +20,8 @@ export const DropContainer = styled.div`
   }
   /* When hover content menu styles */
   &:hover > div {
+    background: rgba(252, 247, 249, 0.5);
+    border-radius: 0.3em;
     padding-top: 0.5em;
     display: flex;
     flex-wrap: wrap;

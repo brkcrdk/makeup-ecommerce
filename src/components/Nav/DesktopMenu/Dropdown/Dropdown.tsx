@@ -12,10 +12,10 @@ const Dropdown: React.FC<Props> = ({ title, content }) => {
       <DropButton>{title}</DropButton>
       <DropContent>
         {content.length < 1 ? (
-          <DropItem>Loading...</DropItem>
+          <DropItem>&#9880; Loading...</DropItem>
         ) : (
           content.map((item, key) => (
-            <DropItem key={key}>{item.replace("_", " ")}</DropItem>
+            <DropItem key={key}>&#9880; {item.replace("_", " ")}</DropItem>
           ))
         )}
       </DropContent>

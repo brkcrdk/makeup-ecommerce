@@ -3,14 +3,17 @@ import device from "../../device";
 
 //
 export const Container = styled.div``;
-export const Brands = styled.div`
+export const BrandSection = styled.div`
   margin-bottom: 3em;
+  margin-top: 1em;
   img {
     opacity: 0.5;
-    transition: transform 1s;
+    transition: transform 0.5s;
     &:hover {
       opacity: 1;
       transform: scale(1.07);
     }
   }
 `;
+
+export const WantedSection = styled.div``;
