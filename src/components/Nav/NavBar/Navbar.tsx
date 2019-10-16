@@ -23,9 +23,10 @@ const NavBar: React.FC = () => {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <Container scroll={scroll}>
-      <MobileNavbar >
+      <MobileNavbar>
         <Hamburger />
       </MobileNavbar>
       <Brand />
@@ -34,7 +35,7 @@ const NavBar: React.FC = () => {
       </DesktopNavbar>
       <RightSide>
         <Search />
-        <Cart scroll={scroll}/>
+        <Cart scroll={scroll} />
       </RightSide>
     </Container>
   );

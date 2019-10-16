@@ -3,7 +3,7 @@ import { getType, getCategory, getBrand } from "../../getTypes";
 import { useSelector, useDispatch } from "react-redux";
 import { Container, SearchClose } from "./MenuStyle";
 import Acordion from "./Accordion/Acordion";
-interface ProductTypes {
+interface StoreProps {
   sidebarToggle: {
     sideToggle: boolean;
   };
@@ -14,10 +14,10 @@ interface ProductTypes {
 
 const Menu: React.FC = () => {
   const toggle = useSelector(
-    (state: ProductTypes) => state.sidebarToggle.sideToggle
+    (state: StoreProps) => state.sidebarToggle.sideToggle
   );
   const products = useSelector(
-    (state: ProductTypes) => state.storeProducts.products
+    (state: StoreProps) => state.storeProducts.products
   );
   const types = getType(products);
   const categories = getCategory(products);
