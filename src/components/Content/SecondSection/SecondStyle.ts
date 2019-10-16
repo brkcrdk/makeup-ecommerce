@@ -2,7 +2,11 @@ import styled from "styled-components";
 import device from "../../device";
 
 //
-export const Container = styled.div``;
+export const Container = styled.div`
+  border: 1px solid green;
+  margin: 0 2em;
+  width: 90%;
+`;
 export const BrandSection = styled.div`
   margin-bottom: 3em;
   margin-top: 1em;

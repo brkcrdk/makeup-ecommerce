@@ -1,7 +1,7 @@
 import React from "react";
 import MobileSBrand from "./BrandMobileS";
 import TabletBrand from "./BrandTablet";
-import Carousel from "../../Carousel/Carousel";
+import Carousel from "../../../UI/Carousel/Carousel";
 import DekstopBrand from "./BrandDesktop";
 interface Props {}
 

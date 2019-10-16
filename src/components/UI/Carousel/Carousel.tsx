@@ -1,5 +1,8 @@
 import React, { useState, useEffect, ReactElement } from "react";
-import { Carosel } from "./CarouselStyle";
+import EmblaCarouselReact from "embla-carousel-react";
+import styled from "styled-components";
+const Carosel = styled(EmblaCarouselReact)``;
+
 interface CarouselProps {
   content: ReactElement<ReactElement>;
   loop?: boolean;
