@@ -8,7 +8,9 @@ interface Props {}
 const SecondSection: React.FC<Props> = () => {
   return (
     <Container>
-      <BrandSection>{/* <Brands /> */}</BrandSection>
+      {/* <BrandSection>
+        <Brands />
+      </BrandSection> */}
       <WantedSection>
         <Wanted />
       </WantedSection>

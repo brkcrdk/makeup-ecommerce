@@ -63,6 +63,7 @@ export const Indicator = styled.span`
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: relative;
   bottom: 5em;
 `;
