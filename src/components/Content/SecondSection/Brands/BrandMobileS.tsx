@@ -2,7 +2,6 @@ import React from "react";
 import brandImages from "./brandImages";
 import styled from "styled-components";
 import device from "../../../device";
-import Carousel from "../../../UI/Carousel/Carousel";
 export const Slide = styled.div``;
 const MobileS = styled.div`
   display: flex;
@@ -28,19 +27,7 @@ const MobileS = styled.div`
 
 const Brands: React.FC = () => {
   const mobileSContent = brandImages();
-  return (
-    <Carousel>
-      <MobileS>
-        {mobileSContent.map((arr, key) => (
-          <Slide key={key}>
-            {arr.map((image, key) => (
-              <img key={key} src={image} alt={`brand-${key}`} />
-            ))}
-          </Slide>
-        ))}
-      </MobileS>
-    </Carousel>
-  );
+  return <div>Bıurak</div>;
 };
 
 export default Brands;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import MobileSBrand from "./BrandMobileS";
+// import MobileSBrand from "./BrandMobileS";
 // import TabletBrand from "./BrandTablet";
 import DekstopBrand from "./BrandDesktop";
 interface Props {}

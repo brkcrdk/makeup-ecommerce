@@ -69,21 +69,26 @@ export const ButtonContainer = styled.div`
 `;
 
 const buttonStyles = `
+  display:flex;
+  justify-content:center;
+  align-items:center;
   cursor: pointer;
   width: auto;
-  color: black;
+  color: red;
   font-weight: bold;
   font-size: 1.2em;
   transition: 0.6s ease;
-  border-radius: 50%;
   user-select: none;
   outline:none;
+  background:transparent;
+  border:none;
+  height:5em;
 `;
 
-export const Next = styled.a`
+export const Next = styled.button`
   ${buttonStyles}
   left:72%;
 `;
-export const Prev = styled.a`
+export const Prev = styled.button`
   ${buttonStyles}
 `;
