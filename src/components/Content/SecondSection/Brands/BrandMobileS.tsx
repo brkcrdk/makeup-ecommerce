@@ -30,13 +30,13 @@ const Brands: React.FC = () => {
   const mobileSContent = brandImages();
   return (
     <MobileS>
-      {/* {mobileSContent.map((arr, key) => (
+      {mobileSContent.map((arr, key) => (
         <Slide key={key}>
           {arr.map((image, key) => (
             <img key={key} src={image} alt={`brand-${key}`} />
           ))}
         </Slide>
-      ))} */}
+      ))}
     </MobileS>
   );
 };

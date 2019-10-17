@@ -32,17 +32,21 @@ export const SlideContent = styled.div`
   @keyframes next {
     from {
       transform: translateX(150%);
+      opacity: 0.3;
     }
     to {
       transform: translateX(0);
+      opacity: 1;
     }
   }
   @keyframes prev {
     from {
       transform: translateX(-150%);
+      opacity: 0.3;
     }
     to {
       transform: translateX(0);
+      opacity: 1;
     }
   }
 `;

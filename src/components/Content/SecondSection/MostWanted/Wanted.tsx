@@ -3,6 +3,7 @@ import { Container, Header } from "./WantedStyle";
 import { randomItems } from "../../../getTypes";
 import { useSelector } from "react-redux";
 import Carousel from "../../../UI/Carousel/Carousel";
+import MobileBrand from "../Brands/BrandMobileS";
 import img1 from "../Brands/images/1.jpg";
 import img2 from "../Brands/images/2.jpg";
 import img3 from "../Brands/images/3.jpg";
@@ -27,14 +28,9 @@ const Wanted: React.FC = () => {
     <Container>
       <Header>Most Search Items</Header>
       <Carousel>
-        <div>
-          <p>Burak</p>
-          <span>Çardak</span>
-        </div>
-        <div>
-          <p>Burak</p>
-          <span>Çardak</span>
-        </div>
+        {images.map((image, index) => (
+          <img src={image} alt=".." key={index} />
+        ))}
       </Carousel>
     </Container>
   );
