@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import BrandMobile from "../../Content/SecondSection/Brands/BrandMobileS";
 const CaroContainer = styled.div`
   width: 100%;
   border: 1px solid green;
@@ -69,7 +68,10 @@ interface CaroTypes {
 }
 const Carousel: React.FC<CaroTypes> = ({ children }) => {
   const [active, setActive] = useState(0);
-  const [direction, setDirection] = useState("");
+  const [initialX, setInitialX] = useState(0);
+  const [diff, setDiff] = useState(0);
+  const [direction, setDirection] = useState("not moved");
+
   const handleIndicator = (n: number) => {
     if (n !== active) {
       if (active < n) {
@@ -81,10 +83,57 @@ const Carousel: React.FC<CaroTypes> = ({ children }) => {
     }
   };
 
-  console.log(direction);
+  //Drag actions
+  //Mouse actions
+  const mouseStart = (e: React.MouseEvent) => {
+    setInitialX(e.pageX);
+  };
+  const mouseEnd = (e: React.MouseEvent, index: number) => {
+    setDiff(e.pageX);
+    handleDiff(index);
+  };
+  //Touch actions
+  const touchStart = (e: React.TouchEvent) => {
+    setInitialX(e.touches[0].pageX);
+  };
+  const touchEnd = (e: React.TouchEvent, index: number) => {
+    setDiff(e.touches[0].pageX);
+    handleDiff(index);
+  };
 
+  const handleDiff = (n: number) => {
+    if (initialX - diff === 0) {
+      setDirection("not moved");
+    } else if (initialX - diff <= -1) {
+      if (active === n) {
+        setActive(n);
+      } else {
+        setActive(active - 1);
+      }
+      setDirection("next");
+    } else if (initialX - diff >= 1) {
+      setDirection("prev");
+      if (n === 0) {
+        setActive(0);
+      } else {
+        setActive(active + 1);
+      }
+    }
+  };
+  console.log(direction);
   const slides = React.Children.map(children, (slides, index) => (
-    <SlideContent active={active} index={index} direction={direction}>
+    <SlideContent
+      active={active}
+      index={index}
+      direction={direction}
+      onMouseDown={mouseStart}
+      onMouseUp={(e: React.MouseEvent) =>
+        mouseEnd(e, React.Children.count(children))
+      }
+      onTouchStart={touchStart}
+      onTouchMove={(e: React.TouchEvent) =>
+        touchEnd(e, React.Children.count(children))
+      }>
       {slides}
     </SlideContent>
   ));
