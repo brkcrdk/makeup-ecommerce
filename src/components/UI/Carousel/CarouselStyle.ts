@@ -65,7 +65,6 @@ export const ButtonContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   position: relative;
-  bottom: 5em;
 `;
 
 const buttonStyles = `

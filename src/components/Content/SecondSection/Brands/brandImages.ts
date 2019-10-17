@@ -5,6 +5,8 @@ import img4 from "./images/4.jpg";
 import img5 from "./images/5.jpg";
 import img6 from "./images/6.jpg";
 
+export const imgArray = [img1, img2, img3, img4, img5, img6];
+
 const handleContent = (slideCount?: number) => {
   //If slideCount not entered return 6 items as default
   //Else return given number of slideCount which arrays

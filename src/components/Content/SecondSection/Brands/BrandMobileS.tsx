@@ -1,21 +1,19 @@
 import React from "react";
-import brandImages from "./brandImages";
+import { imgArray } from "./brandImages";
 import styled from "styled-components";
 import device from "../../../device";
-export const Slide = styled.div``;
-const MobileS = styled.div`
+import Carousel from "../../../UI/Carousel/Carousel";
+const ImageContainer = styled.div`
   display: flex;
-  margin: 0;
-  padding: 0;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+  margin-bottom: -6em;
   img {
     width: 100%;
     @media ${device.mobileS} {
-      height: 3em;
     }
     @media ${device.mobileM} {
-      margin-left: 1em;
-
-      height: 3em;
     }
     @media ${device.mobileL} {
     }
@@ -26,8 +24,15 @@ const MobileS = styled.div`
 `;
 
 const Brands: React.FC = () => {
-  const mobileSContent = brandImages();
-  return <div>Bıurak</div>;
+  return (
+    <Carousel>
+      {imgArray.map((image, key) => (
+        <ImageContainer>
+          <img src={image} key={key} />
+        </ImageContainer>
+      ))}
+    </Carousel>
+  );
 };
 
 export default Brands;
