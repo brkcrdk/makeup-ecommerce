@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 const CaroContainer = styled.div`
   width: 100%;
@@ -10,6 +10,7 @@ const Slides = styled.div`
   border: 1px solid red;
   width: 100%;
 `;
+
 interface ContentProps {
   active: number;
   index: number;
@@ -26,39 +27,68 @@ export const SlideContent = styled.div`
   display: ${(p: ContentProps) => (p.active === p.index ? "block" : "none")};
   animation-name: ${(p: ContentProps) =>
     p.direction === "next" ? "next" : "prev"};
-  animation-duration: 1s;
+  animation-duration: 1.5s;
   animation-iteration-count: 1;
   @keyframes next {
     from {
-      transform: translateX(150%);
-      opacity: 0.3;
+      opacity: 0.4;
     }
     to {
-      transform: translateX(0);
       opacity: 1;
     }
   }
   @keyframes prev {
     from {
-      transform: translateX(-150%);
-      opacity: 0.3;
+      opacity: 0.4;
     }
     to {
-      transform: translateX(0);
       opacity: 1;
     }
   }
 `;
+const buttonStyles = `
+  cursor: pointer;
+  position: relative;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  color: red;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
 
+`;
+
+const Next = styled.a`
+  ${buttonStyles}
+  left: 1em;
+  border-radius: 3px 0 0 3px;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+`;
+const Prev = styled.a`
+  ${buttonStyles}
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+`;
 const Indicators = styled.div`
   display: flex;
 `;
-export const Indicator = styled.span`
+interface IndicatorProps {
+  active: number;
+  index: number;
+}
+const Indicator = styled.span`
   cursor: pointer;
   height: 15px;
   width: 15px;
   margin: 0 2px;
-  background-color: #bbb;
+  background-color: ${(p: IndicatorProps) =>
+    p.active === p.index ? "#a8a8a8" : "#000"};
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
@@ -68,10 +98,8 @@ interface CaroTypes {
 }
 const Carousel: React.FC<CaroTypes> = ({ children }) => {
   const [active, setActive] = useState(0);
-  const [initialX, setInitialX] = useState(0);
-  const [diff, setDiff] = useState(0);
   const [direction, setDirection] = useState("not moved");
-
+  const [count, setCount] = useState(0);
   const handleIndicator = (n: number) => {
     if (n !== active) {
       if (active < n) {
@@ -82,55 +110,43 @@ const Carousel: React.FC<CaroTypes> = ({ children }) => {
       return setActive(n);
     }
   };
+  useEffect(() => {
+    setCount(React.Children.count(children));
+  }, []);
 
-  //Drag actions
-  //Mouse actions
-  const mouseStart = (e: React.MouseEvent) => {
-    setInitialX(e.pageX);
-  };
-  const mouseEnd = (e: React.MouseEvent) => {
-    setDiff(e.pageX);
-    handleDiff();
-  };
-  //Touch actions
-  const touchStart = (e: React.TouchEvent) => {
-    setInitialX(e.touches[0].pageX);
-  };
-  const touchEnd = (e: React.TouchEvent) => {
-    setDiff(e.touches[0].pageX);
-    handleDiff();
-  };
-
-  const handleDiff = () => {
-    if (initialX - diff === 0) {
-      setDirection("not moved");
-    } else if (initialX - diff <= -1) {
-      setDirection("next");
-    } else if (initialX - diff >= 1) {
-      setDirection("prev");
+  const handleNext = () => {
+    if (active === count - 1) {
+      setActive(0);
+    } else {
+      setActive(active + 1);
     }
   };
-
+  const handlePrev = () => {
+    if (active === 0) {
+      setActive(count - 1);
+    } else {
+      setActive(active - 1);
+    }
+  };
   const slides = React.Children.map(children, (slides, index) => (
-    <SlideContent
-      active={active}
-      index={index}
-      direction={direction}
-      onMouseDown={mouseStart}
-      onMouseUp={mouseEnd}
-      onTouchStart={touchStart}
-      onTouchMove={touchEnd}>
+    <SlideContent active={active} index={index} direction={direction}>
       {slides}
     </SlideContent>
   ));
   const indicators = React.Children.map(children, (child, index) => (
-    <Indicator onClick={() => handleIndicator(index)} />
+    <Indicator
+      onClick={() => handleIndicator(index)}
+      active={active}
+      index={index}
+    />
   ));
 
   return (
     <CaroContainer>
       <Indicators>{indicators}</Indicators>
       <Slides>{slides}</Slides>
+      <Prev onClick={handlePrev}>Prev</Prev>
+      <Next onClick={handleNext}>Next</Next>
     </CaroContainer>
   );
 };
