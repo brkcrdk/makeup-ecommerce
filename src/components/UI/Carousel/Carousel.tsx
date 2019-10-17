@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const CaroContainer = styled.div`
@@ -21,11 +21,33 @@ const SlideContent = styled.div`
   display: ${(p: ContentProps) => (p.active === p.index ? "block" : "none")};
 `;
 
+const Indicators = styled.div`
+  display: flex;
+`;
+const Indicator = styled.span`
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+`;
 const Carousel: React.FC = () => {
   const [active, setActive] = useState(1);
 
+  const handleIndicator = (n: number) => {
+    if (n !== active) {
+      return setActive(n);
+    }
+  };
   return (
     <CaroContainer>
+      <Indicators>
+        <Indicator onClick={() => handleIndicator(0)} />
+        <Indicator onClick={() => handleIndicator(1)} />
+      </Indicators>
       <Slides>
         <SlideContent active={active} index={0}>
           <img src="https://picsum.photos/200/300" alt="" />
