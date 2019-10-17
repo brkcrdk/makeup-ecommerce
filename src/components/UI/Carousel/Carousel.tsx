@@ -15,10 +15,35 @@ interface ContentProps {
   active: number;
   index: number;
 }
+
 const SlideContent = styled.div`
   border: 1px solid blue;
   width: 100%;
+  img {
+    width: 100%;
+    height: 10em;
+  }
   display: ${(p: ContentProps) => (p.active === p.index ? "block" : "none")};
+  animation-name: ${(p: ContentProps) =>
+    p.active < p.index ? "next" : "prev"};
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  @keyframes next {
+    from {
+      transform: translateX(150%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  @keyframes prev {
+    from {
+      transform: translateX(-150%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
 `;
 
 const Indicators = styled.div`
@@ -47,27 +72,25 @@ const Carousel: React.FC = () => {
       <Indicators>
         <Indicator onClick={() => handleIndicator(0)} />
         <Indicator onClick={() => handleIndicator(1)} />
+        <Indicator onClick={() => handleIndicator(2)} />
+        <Indicator onClick={() => handleIndicator(3)} />
+        <Indicator onClick={() => handleIndicator(4)} />
       </Indicators>
       <Slides>
         <SlideContent active={active} index={0}>
-          <img src="https://picsum.photos/200/300" alt="" />
-          <span>0</span>
+          <div>Slide 1</div>
         </SlideContent>
         <SlideContent active={active} index={1}>
-          <img src="https://picsum.photos/200/300" alt="" />
-          <span>1</span>
+          <div>Slide 2</div>
         </SlideContent>
         <SlideContent active={active} index={2}>
-          <img src="https://picsum.photos/200/300" alt="" />
-          <span>2</span>
+          <div>Slide 3</div>
         </SlideContent>
         <SlideContent active={active} index={3}>
-          <img src="https://picsum.photos/200/300" alt="" />
-          <span>3</span>
+          <div>Slide 4</div>
         </SlideContent>
         <SlideContent active={active} index={4}>
-          <img src="https://picsum.photos/200/300" alt="" />
-          <span>4</span>
+          <div>Slide 5</div>
         </SlideContent>
       </Slides>
     </CaroContainer>
