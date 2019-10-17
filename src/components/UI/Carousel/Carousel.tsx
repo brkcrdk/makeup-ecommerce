@@ -102,25 +102,16 @@ const Carousel: React.FC<CaroTypes> = ({ children }) => {
   };
 
   const handleDiff = (n: number) => {
+    const index = n - 1;
     if (initialX - diff === 0) {
       setDirection("not moved");
     } else if (initialX - diff <= -1) {
-      if (active === n) {
-        setActive(n);
-      } else {
-        setActive(active - 1);
-      }
       setDirection("next");
     } else if (initialX - diff >= 1) {
       setDirection("prev");
-      if (n === 0) {
-        setActive(0);
-      } else {
-        setActive(active + 1);
-      }
     }
   };
-  console.log(direction);
+  console.log(active);
   const slides = React.Children.map(children, (slides, index) => (
     <SlideContent
       active={active}
