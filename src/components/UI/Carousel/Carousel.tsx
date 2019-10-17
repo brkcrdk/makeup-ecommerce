@@ -14,6 +14,7 @@ const Slides = styled.div`
 interface ContentProps {
   active: number;
   index: number;
+  direction: string;
 }
 
 export const SlideContent = styled.div`
@@ -25,7 +26,7 @@ export const SlideContent = styled.div`
   }
   display: ${(p: ContentProps) => (p.active === p.index ? "block" : "none")};
   animation-name: ${(p: ContentProps) =>
-    p.active < p.index ? "next" : "prev"};
+    p.direction === "next" ? "next" : "prev"};
   animation-duration: 1s;
   animation-iteration-count: 1;
   @keyframes next {
@@ -64,44 +65,33 @@ interface CaroTypes {
 }
 const Carousel: React.FC<CaroTypes> = ({ children }) => {
   const [active, setActive] = useState(0);
-
+  const [direction, setDirection] = useState("");
   const handleIndicator = (n: number) => {
     if (n !== active) {
+      if (active > n) {
+        setDirection("next");
+      } else {
+        setDirection("prev");
+      }
       return setActive(n);
     }
   };
+
+  console.log(direction);
+
   const slides = React.Children.map(children, (slides, index) => (
-    <SlideContent active={active} index={index}>
+    <SlideContent active={active} index={index} direction={direction}>
       {slides}
     </SlideContent>
   ));
   const indicators = React.Children.map(children, (child, index) => (
     <Indicator onClick={() => handleIndicator(index)} />
   ));
+
   return (
     <CaroContainer>
       <Indicators>{indicators}</Indicators>
-      <Slides>
-        {slides}
-        {/* <SlideContent active={active} index={0}>
-          <div>Slide 1</div>
-        </SlideContent>
-        <SlideContent active={active} index={1}>
-          <div>Slide 2</div>
-        </SlideContent>
-        <SlideContent active={active} index={2}>
-          <div>Slide 3</div>
-        </SlideContent>
-        <SlideContent active={active} index={3}>
-          <div>Slide 4</div>
-        </SlideContent>
-        <SlideContent active={active} index={4}>
-          <div>Slide 5</div>
-        </SlideContent>
-        <SlideContent active={active} index={5}>
-          {children}
-        </SlideContent> */}
-      </Slides>
+      <Slides>{slides}</Slides>
     </CaroContainer>
   );
 };
