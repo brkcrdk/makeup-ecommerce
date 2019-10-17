@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, BrandSection, WantedSection } from "./SecondStyle";
 
-import Brands from "./Brands/Brands";
+// import Brands from "./Brands/Brands";
 import Wanted from "./MostWanted/Wanted";
 interface Props {}
 
