@@ -3,6 +3,7 @@ import { Container, Header } from "./WantedStyle";
 import { randomItems } from "../../../getTypes";
 import { useSelector } from "react-redux";
 import Carousel from "../../../UI/Carousel/Carousel";
+import { SlideContent, Indicator } from "../../../UI/Carousel/Carousel";
 interface ProductProps {
   storeProducts: {
     products: [];
@@ -18,7 +19,11 @@ const Wanted: React.FC = () => {
   return (
     <Container>
       <Header>Most Search Items</Header>
-      <Carousel />
+      <Carousel>
+        <div>
+          <p>Burak</p>
+        </div>
+      </Carousel>
     </Container>
   );
 };

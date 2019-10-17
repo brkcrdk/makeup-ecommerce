@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-
+import BrandMobile from "../../Content/SecondSection/Brands/BrandMobileS";
 const CaroContainer = styled.div`
   width: 100%;
   border: 1px solid green;
@@ -16,7 +16,7 @@ interface ContentProps {
   index: number;
 }
 
-const SlideContent = styled.div`
+export const SlideContent = styled.div`
   border: 1px solid blue;
   width: 100%;
   img {
@@ -49,7 +49,7 @@ const SlideContent = styled.div`
 const Indicators = styled.div`
   display: flex;
 `;
-const Indicator = styled.span`
+export const Indicator = styled.span`
   cursor: pointer;
   height: 15px;
   width: 15px;
@@ -59,7 +59,10 @@ const Indicator = styled.span`
   display: inline-block;
   transition: background-color 0.6s ease;
 `;
-const Carousel: React.FC = () => {
+interface CaroTypes {
+  children: React.ReactNode;
+}
+const Carousel: React.FC<CaroTypes> = ({ children }) => {
   const [active, setActive] = useState(1);
 
   const handleIndicator = (n: number) => {
@@ -75,6 +78,7 @@ const Carousel: React.FC = () => {
         <Indicator onClick={() => handleIndicator(2)} />
         <Indicator onClick={() => handleIndicator(3)} />
         <Indicator onClick={() => handleIndicator(4)} />
+        <Indicator onClick={() => handleIndicator(5)} />
       </Indicators>
       <Slides>
         <SlideContent active={active} index={0}>
@@ -91,6 +95,9 @@ const Carousel: React.FC = () => {
         </SlideContent>
         <SlideContent active={active} index={4}>
           <div>Slide 5</div>
+        </SlideContent>
+        <SlideContent active={active} index={5}>
+          {children}
         </SlideContent>
       </Slides>
     </CaroContainer>
