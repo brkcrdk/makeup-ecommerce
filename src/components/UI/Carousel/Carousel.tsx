@@ -63,25 +63,27 @@ interface CaroTypes {
   children: React.ReactNode;
 }
 const Carousel: React.FC<CaroTypes> = ({ children }) => {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState(0);
 
   const handleIndicator = (n: number) => {
     if (n !== active) {
       return setActive(n);
     }
   };
+  const slides = React.Children.map(children, (slides, index) => (
+    <SlideContent active={active} index={index}>
+      {slides}
+    </SlideContent>
+  ));
+  const indicators = React.Children.map(children, (child, index) => (
+    <Indicator onClick={() => handleIndicator(index)} />
+  ));
   return (
     <CaroContainer>
-      <Indicators>
-        <Indicator onClick={() => handleIndicator(0)} />
-        <Indicator onClick={() => handleIndicator(1)} />
-        <Indicator onClick={() => handleIndicator(2)} />
-        <Indicator onClick={() => handleIndicator(3)} />
-        <Indicator onClick={() => handleIndicator(4)} />
-        <Indicator onClick={() => handleIndicator(5)} />
-      </Indicators>
+      <Indicators>{indicators}</Indicators>
       <Slides>
-        <SlideContent active={active} index={0}>
+        {slides}
+        {/* <SlideContent active={active} index={0}>
           <div>Slide 1</div>
         </SlideContent>
         <SlideContent active={active} index={1}>
@@ -98,7 +100,7 @@ const Carousel: React.FC<CaroTypes> = ({ children }) => {
         </SlideContent>
         <SlideContent active={active} index={5}>
           {children}
-        </SlideContent>
+        </SlideContent> */}
       </Slides>
     </CaroContainer>
   );
