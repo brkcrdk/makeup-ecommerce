@@ -68,7 +68,7 @@ const Carousel: React.FC<CaroTypes> = ({ children }) => {
   const [direction, setDirection] = useState("");
   const handleIndicator = (n: number) => {
     if (n !== active) {
-      if (active > n) {
+      if (active < n) {
         setDirection("next");
       } else {
         setDirection("prev");
