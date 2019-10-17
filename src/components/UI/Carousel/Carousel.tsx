@@ -88,21 +88,20 @@ const Carousel: React.FC<CaroTypes> = ({ children }) => {
   const mouseStart = (e: React.MouseEvent) => {
     setInitialX(e.pageX);
   };
-  const mouseEnd = (e: React.MouseEvent, index: number) => {
+  const mouseEnd = (e: React.MouseEvent) => {
     setDiff(e.pageX);
-    handleDiff(index);
+    handleDiff();
   };
   //Touch actions
   const touchStart = (e: React.TouchEvent) => {
     setInitialX(e.touches[0].pageX);
   };
-  const touchEnd = (e: React.TouchEvent, index: number) => {
+  const touchEnd = (e: React.TouchEvent) => {
     setDiff(e.touches[0].pageX);
-    handleDiff(index);
+    handleDiff();
   };
 
-  const handleDiff = (n: number) => {
-    const index = n - 1;
+  const handleDiff = () => {
     if (initialX - diff === 0) {
       setDirection("not moved");
     } else if (initialX - diff <= -1) {
@@ -111,20 +110,16 @@ const Carousel: React.FC<CaroTypes> = ({ children }) => {
       setDirection("prev");
     }
   };
-  console.log(active);
+
   const slides = React.Children.map(children, (slides, index) => (
     <SlideContent
       active={active}
       index={index}
       direction={direction}
       onMouseDown={mouseStart}
-      onMouseUp={(e: React.MouseEvent) =>
-        mouseEnd(e, React.Children.count(children))
-      }
+      onMouseUp={mouseEnd}
       onTouchStart={touchStart}
-      onTouchMove={(e: React.TouchEvent) =>
-        touchEnd(e, React.Children.count(children))
-      }>
+      onTouchMove={touchEnd}>
       {slides}
     </SlideContent>
   ));
