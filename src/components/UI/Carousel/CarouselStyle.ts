@@ -2,12 +2,10 @@ import styled from "styled-components";
 
 export const CaroContainer = styled.div`
   width: 100%;
-  border: 1px solid green;
   overflow: hidden;
 `;
 
 export const Slides = styled.div`
-  border: 1px solid red;
   width: 100%;
 `;
 
@@ -18,12 +16,7 @@ interface ContentProps {
 }
 
 export const SlideContent = styled.div`
-  border: 1px solid blue;
   width: 100%;
-  img {
-    width: 100%;
-    height: 10em;
-  }
   display: ${(p: ContentProps) => (p.active === p.index ? "block" : "none")};
   animation-name: ${(p: ContentProps) =>
     p.direction === "next" ? "next" : "prev"};
@@ -49,6 +42,7 @@ export const SlideContent = styled.div`
 export const Indicators = styled.div`
   display: flex;
   align-items: flex-end;
+  justify-content: center;
 `;
 interface IndicatorProps {
   active: number;
@@ -66,32 +60,29 @@ export const Indicator = styled.span`
   transition: background-color 0.6s ease;
 `;
 
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  bottom: 5em;
+`;
+
 const buttonStyles = `
   cursor: pointer;
-  position: relative;
-  top: 50%;
   width: auto;
-  padding: 16px;
-  color: red;
+  color: black;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 1.2em;
   transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
+  border-radius: 50%;
   user-select: none;
-
+  outline:none;
 `;
 
 export const Next = styled.a`
   ${buttonStyles}
-  left: 1em;
-  border-radius: 3px 0 0 3px;
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
+  left:72%;
 `;
 export const Prev = styled.a`
   ${buttonStyles}
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
 `;

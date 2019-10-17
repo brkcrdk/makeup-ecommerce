@@ -6,7 +6,8 @@ import {
   Slides,
   Indicators,
   Prev,
-  Next
+  Next,
+  ButtonContainer
 } from "./CarouselStyle";
 
 interface CaroTypes {
@@ -62,8 +63,10 @@ const Carousel: React.FC<CaroTypes> = ({ children }) => {
   return (
     <CaroContainer>
       <Slides>{slides}</Slides>
-      <Prev onClick={handlePrev}>&#10094;</Prev>
-      <Next onClick={handleNext}>&#10095;</Next>
+      <ButtonContainer>
+        <Prev onClick={handlePrev}>&#10094;</Prev>
+        <Next onClick={handleNext}>&#10095;</Next>
+      </ButtonContainer>
       <Indicators>{indicators}</Indicators>
     </CaroContainer>
   );
