@@ -7,7 +7,6 @@ const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
   margin-bottom: -6em;
   img {
     width: 100%;
@@ -17,9 +16,6 @@ const ImageContainer = styled.div`
     }
     @media ${device.mobileL} {
     }
-  }
-  @media ${device.mobileL} {
-    display: none;
   }
 `;
 

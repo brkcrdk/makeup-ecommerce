@@ -50,12 +50,12 @@ interface IndicatorProps {
 }
 export const Indicator = styled.span`
   cursor: pointer;
-  height: ${(p: IndicatorProps) => (p.active === p.index ? "0.3em" : "0.2em")};
+  height: ${(p: IndicatorProps) => (p.active === p.index ? "0.3em" : "2px")};
   width: 1.5em;
   margin: 0 2px;
-  border: 1px solid black;
+  border: 1px solid dodgerblue;
   background-color: ${(p: IndicatorProps) =>
-    p.active === p.index ? "grey" : "transparent"};
+    p.active === p.index ? "dodgerblue" : "transparent"};
   border-radius: 5%;
   transition: background-color 0.6s ease;
 `;
