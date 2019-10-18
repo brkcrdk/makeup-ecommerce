@@ -65,7 +65,8 @@ export const Indicator = styled.span`
   cursor: pointer;
   height: ${(p: IndicatorProps) => (p.active === p.index ? "0.3em" : "2px")};
   width: 1.5em;
-  margin: 2px;
+  margin: 3px 2px;
+  filter: brightness(70%);
   border: 1px solid ${colours.secondaryText};
   background-color: ${(p: IndicatorProps) =>
     p.active === p.index ? `${colours.secondaryText}` : "transparent"};
