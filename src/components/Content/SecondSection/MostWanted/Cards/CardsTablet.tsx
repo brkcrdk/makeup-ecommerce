@@ -13,14 +13,28 @@ const Container = styled.div`
     display: none;
   }
   @media ${device.mobileTablet} {
-    display: block;
+    display: flex;
   }
   @media ${device.laptopL} {
     display: none;
   }
 `;
+
+const CardContainer = styled.div``;
 const CardsTablet: React.FC<Props> = ({ products }) => {
-  return <Container>This is 3</Container>;
+  return (
+    <Container>
+      <Carousel>
+        {products.map((arr, key) => (
+          <CardContainer key={key}>
+            {arr.map((slide, key) => (
+              <Card key={key} />
+            ))}
+          </CardContainer>
+        ))}
+      </Carousel>
+    </Container>
+  );
 };
 
 export default CardsTablet;
