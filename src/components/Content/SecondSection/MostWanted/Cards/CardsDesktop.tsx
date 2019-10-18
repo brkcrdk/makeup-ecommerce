@@ -22,7 +22,7 @@ const CardContainer = styled.div`
 const CardsDesktop: React.FC<Props> = ({ products }) => {
   return (
     <Container>
-      <Carousel>
+      <Carousel display={true}>
         {products.map((arr, key) => (
           <CardContainer key={key}>
             {arr.map((slide, key) => (

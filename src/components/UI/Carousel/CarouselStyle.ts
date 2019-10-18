@@ -73,8 +73,10 @@ export const Indicator = styled.span`
   border-radius: 5%;
   transition: background-color 0.6s ease;
 `;
-
-export const ButtonContainer = styled.div`
+interface ButtonsProps {
+  display: boolean;
+}
+export const ButtonContainer = styled.div<ButtonsProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -89,7 +91,7 @@ export const ButtonContainer = styled.div`
 
 const buttonStyles = `
   display:flex;
-  justify-content:center;
+  justify-content:space-around;
   align-items:center;
   cursor: pointer;
   width: auto;
@@ -108,8 +110,7 @@ const buttonStyles = `
 `;
 
 export const Next = styled.button`
-  ${buttonStyles}
-  left:72%;
+  ${buttonStyles} /* left:72%; */
 `;
 export const Prev = styled.button`
   ${buttonStyles}
