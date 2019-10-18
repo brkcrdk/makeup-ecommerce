@@ -1,5 +1,13 @@
 import React from "react";
-import { CardContent, Container, Name, Title, Img } from "./CardStyle";
+import {
+  CardContent,
+  Container,
+  Name,
+  Title,
+  Img,
+  Price,
+  Add
+} from "./CardStyle";
 interface Props {}
 
 const Card: React.FC<Props> = () => {
@@ -9,6 +17,10 @@ const Card: React.FC<Props> = () => {
       <CardContent>
         <Title>Product Title</Title>
         <Name>Product Name</Name>
+        <div>
+          <Price>5$</Price>
+          <Add>Add to Cart</Add>
+        </div>
       </CardContent>
     </Container>
   );
