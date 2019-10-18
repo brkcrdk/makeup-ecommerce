@@ -8,7 +8,7 @@ export const InputContainer = styled.div`
   width: 30%;
   height: 2.5em;
   align-items: center;
-  top: 4em;
+  top: 5.5em;
   right: 0;
   padding: 0.5em 0;
   display: flex;

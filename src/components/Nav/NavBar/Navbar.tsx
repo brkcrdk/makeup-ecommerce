@@ -14,7 +14,7 @@ import Desktop from "../DesktopMenu/DesktopMenu";
 const NavBar: React.FC = () => {
   const [scroll, setScroll] = useState(false);
   const handleScroll = () => {
-    if (window.pageYOffset > 200) {
+    if (window.pageYOffset > 100) {
       setScroll(true);
     } else {
       setScroll(false);
