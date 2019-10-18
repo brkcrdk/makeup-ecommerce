@@ -3,6 +3,7 @@ import colours from "../../colours";
 import fonts from "../../fonts";
 import device from "../../device";
 export const Container = styled.div`
+  width: 100%;
   border: 1px solid lightgrey;
   border-radius: 3px;
   font-family: ${fonts.raleway};
@@ -11,31 +12,11 @@ export const Container = styled.div`
   &:hover {
     box-shadow: ${colours.boxShadow};
   }
-  @media ${device.mobileS} {
-    width: 100%;
-  }
-  @media ${device.mobileL} {
-    width: 45%;
-  }
-  @media ${device.mobileTablet} {
-    width: 45%;
-  }
-  @media ${device.tablet} {
-    width: 40%;
-  }
 `;
 
 export const Img = styled.img`
   width: 100%;
-  @media ${device.mobileS} {
-    height: 10em;
-  }
-  @media ${device.mobileL} {
-    height: 9em;
-  }
-  @media ${device.tablet} {
-    height: 10em;
-  }
+  height: 10em;
 `;
 export const CardContent = styled.div`
   padding: 0.5em;

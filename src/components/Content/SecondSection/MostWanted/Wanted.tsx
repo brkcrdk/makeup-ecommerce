@@ -3,8 +3,9 @@ import { Container, Header } from "./WantedStyle";
 import { randomItems } from "../../../getTypes";
 import handleProducts from "./handleProducts";
 import { useSelector } from "react-redux";
-import Carousel from "../../../UI/Carousel/Carousel";
-import Card from "../../../UI/Card/Card";
+import Cards from "./Cards/Cards";
+// import Carousel from "../../../UI/Carousel/Carousel";
+// import Card from "../../../UI/Card/Card";
 interface ProductProps {
   storeProducts: {
     products: [];
@@ -17,19 +18,13 @@ const Wanted: React.FC = () => {
   );
   const randomProducts = randomItems(products);
   console.log(handleProducts(randomProducts, 2));
+  //TODO: For mobileS : 1 , mobileM: 1, mobileL: 2
+  //TODO: For mobileTablet : 2 ,tablet:3,laptop 3,
+  //TODO: For desktop and desktopL: 4
   return (
     <Container>
       <Header>Most Search Items</Header>
-      <Carousel>
-        <div style={{ display: "flex" }}>
-          <Card />
-          <Card />
-        </div>
-        <div style={{ display: "flex" }}>
-          <Card />
-          <Card />
-        </div>
-      </Carousel>
+      <Cards />
     </Container>
   );
 };
