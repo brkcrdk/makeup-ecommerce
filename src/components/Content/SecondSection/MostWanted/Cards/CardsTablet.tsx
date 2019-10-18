@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import device from "../../../../device";
+import Card from "../../../../UI/Card/Card";
+import Carousel from "../../../../UI/Carousel/Carousel";
+
 interface Props {}
 const Container = styled.div`
   @media ${device.mobileS} {

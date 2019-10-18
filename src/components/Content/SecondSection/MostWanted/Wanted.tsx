@@ -1,6 +1,5 @@
 import React from "react";
 import { Container, Header } from "./WantedStyle";
-
 import Cards from "./Cards/Cards";
 
 const Wanted: React.FC = () => {

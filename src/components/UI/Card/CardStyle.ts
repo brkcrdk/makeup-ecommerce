@@ -9,8 +9,10 @@ export const Container = styled.div`
   font-family: ${fonts.raleway};
   transition: 0.3s;
   margin: 0 auto;
-  &:hover {
-    box-shadow: ${colours.boxShadow};
+  @media ${device.mobileL} {
+    &:hover {
+      box-shadow: ${colours.boxShadow};
+    }
   }
 `;
 

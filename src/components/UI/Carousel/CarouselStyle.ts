@@ -53,6 +53,7 @@ export const SlideContent = styled.div`
 `;
 export const Indicators = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-end;
   justify-content: center;
 `;
@@ -64,7 +65,7 @@ export const Indicator = styled.span`
   cursor: pointer;
   height: ${(p: IndicatorProps) => (p.active === p.index ? "0.3em" : "2px")};
   width: 1.5em;
-  margin: 0 2px;
+  margin: 2px;
   border: 1px solid ${colours.secondaryText};
   background-color: ${(p: IndicatorProps) =>
     p.active === p.index ? `${colours.secondaryText}` : "transparent"};

@@ -26,7 +26,7 @@ const Cards: React.FC = () => {
       <CardsDesktop />
       <CardsTablet />
       <CardsMobileL />
-      <CardsMobile />
+      <CardsMobile products={randomProducts} />
     </>
   );
 };
