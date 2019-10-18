@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import colours from "../../colours";
-import device from "../../device";
 export const CaroContainer = styled.div`
   width: 100%;
   overflow: hidden;
@@ -74,19 +73,13 @@ export const Indicator = styled.span`
   transition: background-color 0.6s ease;
 `;
 interface ButtonsProps {
-  display?: boolean;
+  display?: string;
 }
 export const ButtonContainer = styled.div`
-  display: ${(p: ButtonsProps) => (p.display ? "flex" : "none")};
+  display: ${(p: ButtonsProps) => (p.display === "display" ? "flex" : "none")};
   justify-content: space-between;
   align-items: center;
   position: relative;
-  @media ${device.mobileS} {
-    display: none;
-  }
-  @media ${device.mobileTablet} {
-    display: flex;
-  }
 `;
 
 const buttonStyles = `

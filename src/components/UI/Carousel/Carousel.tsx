@@ -13,9 +13,10 @@ import {
 
 interface CaroTypes {
   children: React.ReactNode;
-  display?: boolean;
+  display?: "display" | "hide";
 }
-const Carousel: React.FC<CaroTypes> = ({ children, display }) => {
+
+const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
   const [active, setActive] = useState(0);
   const [direction, setDirection] = useState("not moved");
   const [count, setCount] = useState(0);
@@ -63,6 +64,7 @@ const Carousel: React.FC<CaroTypes> = ({ children, display }) => {
       index={index}
     />
   ));
+
   return (
     <CaroContainer>
       <Content>
