@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import colours from "../../colours";
 export const CaroContainer = styled.div`
   width: 100%;
   overflow: hidden;
@@ -53,9 +53,9 @@ export const Indicator = styled.span`
   height: ${(p: IndicatorProps) => (p.active === p.index ? "0.3em" : "2px")};
   width: 1.5em;
   margin: 0 2px;
-  border: 1px solid dodgerblue;
+  border: 1px solid ${colours.secondaryText};
   background-color: ${(p: IndicatorProps) =>
-    p.active === p.index ? "dodgerblue" : "transparent"};
+    p.active === p.index ? `${colours.secondaryText}` : "transparent"};
   border-radius: 5%;
   transition: background-color 0.6s ease;
 `;
@@ -73,15 +73,18 @@ const buttonStyles = `
   align-items:center;
   cursor: pointer;
   width: auto;
-  color: red;
-  font-weight: bold;
-  font-size: 1.2em;
+  color: ${colours.primaryText};
+  font-size: 1.6em;
   transition: 0.6s ease;
   user-select: none;
   outline:none;
   background:transparent;
   border:none;
   height:5em;
+  margin-top:-4em;
+  &:hover{
+    transform:scale(1.5,1.5)
+  }
 `;
 
 export const Next = styled.button`

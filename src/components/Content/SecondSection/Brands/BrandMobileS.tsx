@@ -19,7 +19,7 @@ const MobileImage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: -6em;
+
   img {
     width: 100%;
   }
@@ -42,7 +42,6 @@ const TabletImage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: -5em;
   img {
     height: 4em;
     @media ${device.tablet} {
