@@ -1,9 +1,17 @@
 import React from "react";
-import styled from "styled-components";
+import { CardContent, Container, Name, Title, Img } from "./CardStyle";
 interface Props {}
 
 const Card: React.FC<Props> = () => {
-  return <div>This is card</div>;
+  return (
+    <Container>
+      <Img src="https://picsum.photos/200/300" alt=".." />
+      <CardContent>
+        <Title>Product Title</Title>
+        <Name>Product Name</Name>
+      </CardContent>
+    </Container>
+  );
 };
 
 export default Card;
