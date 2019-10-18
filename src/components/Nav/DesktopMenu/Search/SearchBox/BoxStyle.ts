@@ -14,7 +14,7 @@ export const InputContainer = styled.div`
   display: flex;
   overflow: hidden;
   transition: transform 0.5s ease-in-out;
-
+  z-index: 1;
   @media ${device.desktop} {
     top: 8em;
     height: 5em;
