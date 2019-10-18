@@ -16,16 +16,18 @@ const Cards: React.FC = () => {
   const products = useSelector(
     (state: ProductProps) => state.storeProducts.products
   );
-  const randomProducts = randomItems(products);
-  console.log(handleProducts(randomProducts, 2));
+  const randomProducts = randomItems(products, 12);
+  const productsMobileL = handleProducts(randomProducts, 6);
+  const productsTablet = handleProducts(randomProducts, 4);
+  const productsDesktop = handleProducts(randomProducts, 3);
   //TODO: For mobileS : 1 , mobileM: 1, mobileL: 2
   //TODO: For mobileTablet : 2 ,tablet:3,laptop 3,
   //TODO: For desktop and desktopL: 4
   return (
     <>
-      <CardsDesktop />
-      <CardsTablet />
-      <CardsMobileL />
+      <CardsDesktop products={productsDesktop} />
+      <CardsTablet products={productsTablet} />
+      <CardsMobileL products={productsMobileL} />
       <CardsMobile products={randomProducts} />
     </>
   );

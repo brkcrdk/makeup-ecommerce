@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import device from "../../../../device";
-interface Props {}
+import { IProducts } from "../../../../../store/fetchProducts/types";
+
+interface Props {
+  products: IProducts[][];
+}
 const Container = styled.div`
   @media ${device.mobileS} {
     display: none;
@@ -10,7 +14,7 @@ const Container = styled.div`
     display: block;
   }
 `;
-const CardsDesktop: React.FC<Props> = () => {
+const CardsDesktop: React.FC<Props> = ({ products }) => {
   return <Container>This is 4</Container>;
 };
 
