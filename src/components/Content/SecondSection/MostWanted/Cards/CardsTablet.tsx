@@ -20,7 +20,9 @@ const Container = styled.div`
   }
 `;
 
-const CardContainer = styled.div``;
+const CardContainer = styled.div`
+  display: flex;
+`;
 const CardsTablet: React.FC<Props> = ({ products }) => {
   return (
     <Container>
