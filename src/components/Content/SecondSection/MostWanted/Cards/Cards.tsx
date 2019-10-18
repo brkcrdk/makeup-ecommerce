@@ -20,9 +20,7 @@ const Cards: React.FC = () => {
   const productsMobileL = handleProducts(randomProducts, 6);
   const productsTablet = handleProducts(randomProducts, 4);
   const productsDesktop = handleProducts(randomProducts, 3);
-  //TODO: For mobileS : 1 , mobileM: 1, mobileL: 2
-  //TODO: For mobileTablet : 2 ,tablet:3,laptop 3,
-  //TODO: For desktop and desktopL: 4
+
   return (
     <>
       <CardsDesktop products={productsDesktop} />
