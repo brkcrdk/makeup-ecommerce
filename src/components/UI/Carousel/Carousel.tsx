@@ -20,6 +20,7 @@ const Carousel: React.FC<CaroTypes> = ({ children }) => {
   useEffect(() => {
     setCount(React.Children.count(children));
   }, []);
+  //Indicator actions
   const handleIndicator = (n: number) => {
     if (n !== active) {
       if (active < n) {
@@ -30,7 +31,7 @@ const Carousel: React.FC<CaroTypes> = ({ children }) => {
       return setActive(n);
     }
   };
-
+  //Button actions
   const handleNext = () => {
     if (active === count - 1) {
       setActive(0);
@@ -45,13 +46,16 @@ const Carousel: React.FC<CaroTypes> = ({ children }) => {
       setActive(active - 1);
     }
   };
-  const mouseStart = (e: React.MouseEvent) => {
+  //Mouse drag action
+  const mouseStart = (e: React.MouseEvent) => {};
+  const mouseEnd = (e: React.MouseEvent) => {};
+  //Touch screen drag action
+  const touchStart = (e: React.TouchEvent) => {
+    console.log(e.touches[0].clientX);
+  };
+  const touchEnd = (e: React.TouchEvent) => {
     console.log(e);
   };
-  const touchStart = (e: React.TouchEvent) => {
-    console.log(e.touches[0]);
-  };
-
   //Rendering starts here
   const slides = React.Children.map(children, (slides, index) => (
     <SlideContent active={active} index={index} direction={direction}>
@@ -67,7 +71,11 @@ const Carousel: React.FC<CaroTypes> = ({ children }) => {
     />
   ));
   return (
-    <CaroContainer onMouseDown={mouseStart} onTouchStart={touchStart}>
+    <CaroContainer
+      onMouseDown={mouseStart}
+      onMouseUp={mouseEnd}
+      onTouchStart={touchStart}
+      onTouchCancel={touchEnd}>
       <Slides>{slides}</Slides>
       <ButtonContainer>
         <Prev onClick={handlePrev}>&#10094;</Prev>

@@ -23,8 +23,8 @@ const Brands: React.FC = () => {
   return (
     <Carousel>
       {imgArray.map((image, key) => (
-        <ImageContainer>
-          <img src={image} key={key} />
+        <ImageContainer key={key}>
+          <img src={image} />
         </ImageContainer>
       ))}
     </Carousel>
