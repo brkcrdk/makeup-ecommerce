@@ -11,7 +11,7 @@ export const MainText = styled.div`
     left: 1em;
   }
   @media ${device.laptop} {
-    top: 18em;
+    top: 14em;
     left: 5em;
   }
   @media ${device.desktop} {

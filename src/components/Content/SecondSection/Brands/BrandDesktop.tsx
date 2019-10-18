@@ -3,17 +3,16 @@ import styled from "styled-components";
 import device from "../../../device";
 import brandImages from "./brandImages";
 interface Props {}
-const Slide = styled.div`
-  flex: 0 0 0;
-`;
+
 const Desktop = styled.div`
   display: flex;
+  justify-content: space-evenly;
   margin: 0;
   padding: 0;
   img {
     @media ${device.tabletLaptop} {
-      width: 8em;
-      height: 5em;
+      width: 7em;
+      height: 4em;
     }
     @media ${device.laptop} {
       width: 9em;
@@ -45,11 +44,11 @@ const BrandDesktop: React.FC<Props> = () => {
   return (
     <Desktop>
       {images.map((arr, key) => (
-        <Slide key={key}>
+        <div key={key}>
           {arr.map((image, key) => (
             <img key={key} src={image} alt={`brand-${key}`} />
           ))}
-        </Slide>
+        </div>
       ))}
     </Desktop>
   );
