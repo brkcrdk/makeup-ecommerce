@@ -45,7 +45,14 @@ const Carousel: React.FC<CaroTypes> = ({ children }) => {
       setActive(active - 1);
     }
   };
+  const mouseStart = (e: React.MouseEvent) => {
+    console.log(e);
+  };
+  const touchStart = (e: React.TouchEvent) => {
+    console.log(e.touches[0]);
+  };
 
+  //Rendering starts here
   const slides = React.Children.map(children, (slides, index) => (
     <SlideContent active={active} index={index} direction={direction}>
       {slides}
@@ -59,9 +66,8 @@ const Carousel: React.FC<CaroTypes> = ({ children }) => {
       index={index}
     />
   ));
-
   return (
-    <CaroContainer>
+    <CaroContainer onMouseDown={mouseStart} onTouchStart={touchStart}>
       <Slides>{slides}</Slides>
       <ButtonContainer>
         <Prev onClick={handlePrev}>&#10094;</Prev>
