@@ -57,7 +57,7 @@ const Brands: React.FC = () => {
         <Carousel>
           {imgArray.map((image, key) => (
             <MobileImage key={key}>
-              <img src={image} />
+              <img src={image} alt={`brand-${key}`} />
             </MobileImage>
           ))}
         </Carousel>
@@ -67,7 +67,7 @@ const Brands: React.FC = () => {
           {tabletImages.map((arr, key) => (
             <TabletImage key={key}>
               {arr.map((image, key) => (
-                <img src={image} key={key} />
+                <img src={image} key={key} alt={`brand-${key}`} />
               ))}
             </TabletImage>
           ))}

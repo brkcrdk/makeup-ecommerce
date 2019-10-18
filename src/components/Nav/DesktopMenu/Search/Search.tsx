@@ -1,7 +1,6 @@
 import React, { useCallback } from "react";
 import { Container, Icon, Button } from "./SearchStyle";
 import { useDispatch } from "react-redux";
-import icon from "./searchIcon.svg";
 const Search: React.FC = () => {
   //Toggle search input display
   const dispatch = useDispatch();

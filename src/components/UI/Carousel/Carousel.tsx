@@ -19,7 +19,7 @@ const Carousel: React.FC<CaroTypes> = ({ children }) => {
   const [count, setCount] = useState(0);
   useEffect(() => {
     setCount(React.Children.count(children));
-  }, []);
+  }, [count, children]);
   //Indicator actions
   const handleIndicator = (n: number) => {
     if (n !== active) {

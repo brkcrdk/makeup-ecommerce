@@ -1,6 +1,6 @@
 import React from "react";
 import { getType, getCategory, getBrand } from "../../getTypes";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Container, SearchClose } from "./MenuStyle";
 import Acordion from "./Accordion/Acordion";
 interface StoreProps {
