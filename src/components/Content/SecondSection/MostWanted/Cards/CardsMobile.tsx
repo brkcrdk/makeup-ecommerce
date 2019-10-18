@@ -17,7 +17,7 @@ interface Props {
 const CardsMobile: React.FC<Props> = ({ products }) => {
   return (
     <Container>
-      <Carousel>
+      <Carousel display="hide">
         {products.map((slide, key) => (
           <Card key={key} />
         ))}

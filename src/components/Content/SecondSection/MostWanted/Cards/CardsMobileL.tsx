@@ -25,7 +25,7 @@ const CardContainer = styled.div`
 const CardsMobileL: React.FC<Props> = ({ products }) => {
   return (
     <Container>
-      <Carousel>
+      <Carousel display="hide">
         {products.map((arr, key) => (
           <CardContainer key={key}>
             {arr.map((slide, key) => (
