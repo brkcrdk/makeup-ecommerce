@@ -33,11 +33,18 @@ export const CardContent = styled.div`
   background-color: ${colours.backgroundDarker};
   div {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
   }
 `;
-export const Title = styled.h4``;
-export const Name = styled.p``;
+export const Title = styled.h4`
+  font-size: 0.9em;
+`;
+export const Name = styled.p`
+  margin-top: -1em;
+  font-size: 0.8em;
+  font-weight: 400;
+`;
 export const Price = styled.span`
   font-style: italic;
 `;

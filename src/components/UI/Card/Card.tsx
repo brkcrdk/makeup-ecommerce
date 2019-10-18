@@ -15,10 +15,10 @@ const Card: React.FC<Props> = () => {
     <Container>
       <Img src="https://picsum.photos/200/300" alt=".." />
       <CardContent>
-        <Title>Product Title</Title>
-        <Name>Product Name</Name>
+        <Title>Product Title Product Title</Title>
+        <Name>Product Name Product Name</Name>
         <div>
-          <Price>5$</Price>
+          <Price>52323$</Price>
           <Add>Add to Cart</Add>
         </div>
       </CardContent>
