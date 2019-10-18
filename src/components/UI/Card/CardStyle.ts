@@ -55,8 +55,9 @@ export const Add = styled.button`
   outline: none;
   font-family: ${fonts.montserrat};
   font-weight: 700;
+  transition: 0.5s;
   &:hover {
-    color: ${colours.pink};
-    background-color: ${colours.background};
+    color: ${colours.background};
+    background-color: ${colours.pink};
   }
 `;
