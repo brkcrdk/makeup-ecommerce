@@ -80,7 +80,7 @@ export const ButtonContainer = styled.div`
   @media ${device.mobileS} {
     display: none;
   }
-  @media ${device.mobileL} {
+  @media ${device.mobileTablet} {
     display: flex;
   }
 `;

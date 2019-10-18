@@ -21,7 +21,14 @@ const Wanted: React.FC = () => {
     <Container>
       <Header>Most Search Items</Header>
       <Carousel>
-        <Card />
+        <div style={{ display: "flex" }}>
+          <Card />
+          <Card />
+        </div>
+        <div style={{ display: "flex" }}>
+          <Card />
+          <Card />
+        </div>
       </Carousel>
     </Container>
   );

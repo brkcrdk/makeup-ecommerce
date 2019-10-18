@@ -15,10 +15,13 @@ export const Container = styled.div`
     width: 100%;
   }
   @media ${device.mobileL} {
-    width: 80%;
+    width: 45%;
   }
   @media ${device.mobileTablet} {
     width: 45%;
+  }
+  @media ${device.tablet} {
+    width: 40%;
   }
 `;
 
@@ -28,7 +31,10 @@ export const Img = styled.img`
     height: 10em;
   }
   @media ${device.mobileL} {
-    height: 11em;
+    height: 9em;
+  }
+  @media ${device.tablet} {
+    height: 10em;
   }
 `;
 export const CardContent = styled.div`
@@ -45,7 +51,7 @@ export const Price = styled.span`
   font-style: italic;
 `;
 export const Add = styled.button`
-  background-color: ${colours.background};
+  background-color: transparent;
   color: ${colours.primaryText};
   filter: brightness(90%);
   padding: 0.5em;
@@ -55,5 +61,6 @@ export const Add = styled.button`
   font-weight: 700;
   &:hover {
     color: ${colours.pink};
+    background-color: ${colours.background};
   }
 `;
