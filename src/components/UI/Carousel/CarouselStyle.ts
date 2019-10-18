@@ -74,10 +74,10 @@ export const Indicator = styled.span`
   transition: background-color 0.6s ease;
 `;
 interface ButtonsProps {
-  display: boolean;
+  display?: boolean;
 }
-export const ButtonContainer = styled.div<ButtonsProps>`
-  display: flex;
+export const ButtonContainer = styled.div`
+  display: ${(p: ButtonsProps) => (p.display ? "flex" : "none")};
   justify-content: space-between;
   align-items: center;
   position: relative;

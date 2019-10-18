@@ -67,7 +67,7 @@ const Carousel: React.FC<CaroTypes> = ({ children, display }) => {
     <CaroContainer>
       <Content>
         <Slides>{slides}</Slides>
-        <ButtonContainer display={display === undefined ? true : display}>
+        <ButtonContainer display={display}>
           <Prev onClick={handlePrev}>&#x2770;</Prev>
           <Next onClick={handleNext}>&#x2771;</Next>
         </ButtonContainer>
