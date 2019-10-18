@@ -4,15 +4,21 @@ import fonts from "../../fonts";
 import device from "../../device";
 export const Container = styled.div`
   width: 100%;
-  border: 1px solid lightgrey;
   border-radius: 3px;
   font-family: ${fonts.raleway};
   transition: 0.3s;
-  margin: 0 auto;
   @media ${device.mobileL} {
     &:hover {
       box-shadow: ${colours.boxShadow};
     }
+  }
+  /* No margin on mobileS to make centered*/
+  /* Margin on others to split them */
+  @media ${device.mobileS} {
+    margin: 0 auto;
+  }
+  @media ${device.mobileL} {
+    margin: 0 0.5em;
   }
 `;
 
