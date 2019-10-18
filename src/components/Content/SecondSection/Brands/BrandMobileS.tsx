@@ -6,6 +6,9 @@ import device from "../../../device";
 import Carousel from "../../../UI/Carousel/Carousel";
 
 const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   @media ${device.desktop} {
     display: none;
   }

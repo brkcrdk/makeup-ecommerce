@@ -1,12 +1,24 @@
 import styled from "styled-components";
 import colours from "../../colours";
+import device from "../../device";
 export const CaroContainer = styled.div`
   width: 100%;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const Content = styled.div`
+  display: grid;
+  width: 100%;
 `;
 
 export const Slides = styled.div`
-  width: 100%;
+  width: 99%;
+  display: flex;
+  justify-content: center;
 `;
 
 interface ContentProps {
@@ -65,6 +77,12 @@ export const ButtonContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   position: relative;
+  @media ${device.mobileS} {
+    display: none;
+  }
+  @media ${device.mobileL} {
+    display: flex;
+  }
 `;
 
 const buttonStyles = `
