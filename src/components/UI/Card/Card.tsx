@@ -1,5 +1,5 @@
 import React from "react";
-
+import styled from "styled-components";
 interface Props {}
 
 const Card: React.FC<Props> = () => {
