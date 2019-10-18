@@ -29,7 +29,7 @@ export const Img = styled.img`
 export const CardContent = styled.div`
   padding: 0.5em;
   margin-top: -1.5em;
-  color: ${colours.pink};
+  color: ${colours.primaryText};
   background-color: ${colours.backgroundDarker};
   div {
     display: flex;
@@ -56,6 +56,7 @@ export const Add = styled.button`
   font-family: ${fonts.montserrat};
   font-weight: 700;
   transition: 0.5s;
+  color: ${colours.pink};
   &:hover {
     color: ${colours.background};
     background-color: ${colours.pink};
