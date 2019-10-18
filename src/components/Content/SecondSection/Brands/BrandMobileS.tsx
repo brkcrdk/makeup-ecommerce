@@ -1,33 +1,81 @@
 import React from "react";
 import { imgArray } from "./brandImages";
+import handleContent from "./brandImages";
 import styled from "styled-components";
 import device from "../../../device";
 import Carousel from "../../../UI/Carousel/Carousel";
-const ImageContainer = styled.div`
+
+const Container = styled.div`
+  @media ${device.desktop} {
+    display: none;
+  }
+`;
+const Mobile = styled.div`
+  @media ${device.mobileL} {
+    display: none;
+  }
+`;
+const MobileImage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: -6em;
   img {
     width: 100%;
-    @media ${device.mobileS} {
-    }
-    @media ${device.mobileM} {
-    }
-    @media ${device.mobileL} {
+  }
+`;
+const Tablet = styled.div`
+  @media ${device.mobileS} {
+    display: none;
+  }
+  @media ${device.mobileL} {
+    display: block;
+  }
+  @media ${device.tablet} {
+    display: block;
+  }
+  @media ${device.tabletLaptop} {
+    display: none;
+  }
+`;
+const TabletImage = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -5em;
+  img {
+    height: 4em;
+    @media ${device.tablet} {
+      height: 6em;
     }
   }
 `;
 
 const Brands: React.FC = () => {
+  const tabletImages = handleContent(3);
   return (
-    <Carousel>
-      {imgArray.map((image, key) => (
-        <ImageContainer key={key}>
-          <img src={image} />
-        </ImageContainer>
-      ))}
-    </Carousel>
+    <Container>
+      <Mobile>
+        <Carousel>
+          {imgArray.map((image, key) => (
+            <MobileImage key={key}>
+              <img src={image} />
+            </MobileImage>
+          ))}
+        </Carousel>
+      </Mobile>
+      <Tablet>
+        <Carousel>
+          {tabletImages.map((arr, key) => (
+            <TabletImage key={key}>
+              {arr.map((image, key) => (
+                <img src={image} key={key} />
+              ))}
+            </TabletImage>
+          ))}
+        </Carousel>
+      </Tablet>
+    </Container>
   );
 };
 

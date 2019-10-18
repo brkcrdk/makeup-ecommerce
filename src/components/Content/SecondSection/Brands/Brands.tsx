@@ -7,7 +7,7 @@ interface Props {}
 const Brands: React.FC<Props> = () => {
   return (
     <>
-      {/* <DekstopBrand /> */}
+      <DekstopBrand />
       <MobileSBrand />
     </>
   );
