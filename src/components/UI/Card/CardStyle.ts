@@ -29,6 +29,8 @@ export const Img = styled.img`
 export const CardContent = styled.div`
   padding: 0.5em;
   margin-top: -1.5em;
+  color: ${colours.pink};
+  background-color: ${colours.backgroundDarker};
   div {
     display: flex;
     justify-content: space-between;
@@ -41,10 +43,8 @@ export const Price = styled.span`
 `;
 export const Add = styled.button`
   background-color: transparent;
-  color: ${colours.primaryText};
-  filter: brightness(90%);
   padding: 0.5em;
-  border: none;
+  border: 1px solid ${colours.pink};
   outline: none;
   font-family: ${fonts.montserrat};
   font-weight: 700;
