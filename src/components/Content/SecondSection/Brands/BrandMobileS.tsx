@@ -9,6 +9,9 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  #indicator-container {
+    margin-top: -5em;
+  }
   @media ${device.desktop} {
     display: none;
   }

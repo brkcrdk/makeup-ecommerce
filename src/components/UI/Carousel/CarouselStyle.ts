@@ -51,6 +51,7 @@ export const SlideContent = styled.div`
   }
 `;
 export const Indicators = styled.div`
+  margin-top: 1em;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
