@@ -35,11 +35,17 @@ const TipContent = styled.div`
 `;
 const TipHeader = styled.h4`
   margin: 0;
+  @media ${device.desktop} {
+    font-size: 2em;
+  }
 `;
 const TipText = styled.p`
   font-size: 0.9em;
   text-align: left;
   margin: 0;
+  @media ${device.desktop} {
+    font-size: 1.7em;
+  }
 `;
 const TipButton = styled.button`
   background: transparent;
@@ -51,7 +57,11 @@ const TipButton = styled.button`
   &:hover {
     background-color: ${colours.pink};
   }
+  @media ${device.desktop} {
+    font-size: 1.7em;
+  }
 `;
+
 const Tip: React.FC<Props> = () => {
   return (
     <TipContainer>
