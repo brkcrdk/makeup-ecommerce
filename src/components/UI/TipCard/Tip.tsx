@@ -14,10 +14,11 @@ const TipContent = styled.div`
   padding: 0.5em;
   word-wrap: break-word;
 `;
-const TipHeader = styled.h5`
+const TipHeader = styled.h4`
   margin: 0;
 `;
 const TipText = styled.p`
+  font-size: 0.9em;
   text-align: left;
   margin: 0;
 `;
