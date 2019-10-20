@@ -1,7 +1,12 @@
 import React, { useCallback } from "react";
 import { Container, Icon, Button } from "./SearchStyle";
 import { useDispatch } from "react-redux";
-const Search: React.FC = () => {
+
+interface ScrollProps {
+  scroll: boolean;
+}
+
+const Search: React.FC<ScrollProps> = ({ scroll }) => {
   //Toggle search input display
   const dispatch = useDispatch();
   const handleToggle = useCallback(() => {
@@ -12,7 +17,7 @@ const Search: React.FC = () => {
   return (
     <Container>
       <Button onClick={handleToggle}>
-        <Icon>
+        <Icon scroll={scroll}>
           <i className="fas fa-search" />
         </Icon>
       </Button>

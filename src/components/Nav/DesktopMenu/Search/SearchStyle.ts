@@ -32,12 +32,15 @@ export const Container = styled.div`
     margin-right: 1em;
   }
 `;
-
+interface IconProps {
+  scroll: boolean;
+}
 export const Icon = styled.div`
   width: 100%;
   height: 100%;
   cursor: pointer;
-  color: ${colours.secondaryText};
+  color: ${(p: IconProps) =>
+    p.scroll ? `${colours.primaryText}` : `${colours.secondaryText}`};
   @media ${device.laptop} {
     color: ${colours.primaryText};
   }

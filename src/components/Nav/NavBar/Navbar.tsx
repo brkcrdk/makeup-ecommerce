@@ -34,7 +34,7 @@ const NavBar: React.FC = () => {
         <Desktop />
       </DesktopNavbar>
       <RightSide>
-        <Search />
+        <Search scroll={scroll} />
         <Cart scroll={scroll} />
       </RightSide>
     </Container>
