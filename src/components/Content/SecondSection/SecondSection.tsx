@@ -1,5 +1,11 @@
 import React from "react";
-import { Container, BrandSection, WantedSection } from "./SecondStyle";
+import {
+  Container,
+  BrandSection,
+  WantedSection,
+  Parallax
+} from "./SecondStyle";
+import img from "./p1.jpg";
 
 import Brands from "./Brands/Brands";
 import Wanted from "./MostWanted/Wanted";
@@ -14,6 +20,7 @@ const SecondSection: React.FC<Props> = () => {
       <WantedSection>
         <Wanted />
       </WantedSection>
+      <Parallax style={{ backgroundImage: `url(${img})` }} />
     </Container>
   );
 };
