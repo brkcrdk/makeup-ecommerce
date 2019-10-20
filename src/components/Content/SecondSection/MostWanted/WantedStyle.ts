@@ -18,4 +18,16 @@ export const Header = styled.h3`
     font-size: 1.2em;
     margin-top: -1em;
   }
+  @media ${device.mobileL} {
+    font-size: 1.5em;
+  }
+  @media ${device.mobileTablet} {
+    font-size: 1.7em;
+  }
+  @media ${device.laptop} {
+    font-size: 2em;
+  }
+  @media ${device.desktop} {
+    font-size: 2.5em;
+  }
 `;
