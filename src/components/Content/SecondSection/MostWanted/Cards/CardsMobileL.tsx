@@ -21,7 +21,7 @@ const Container = styled.div`
 `;
 const CardContainer = styled.div`
   display: flex;
-  img {
+  .card-image {
     @media ${device.mobileL} {
       height: 8em;
     }

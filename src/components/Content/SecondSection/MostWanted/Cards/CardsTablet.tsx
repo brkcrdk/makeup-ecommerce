@@ -24,7 +24,7 @@ const CardContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  img {
+  .card-image {
     @media ${device.mobileTablet} {
       height: 8em;
     }

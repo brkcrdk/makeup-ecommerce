@@ -20,12 +20,25 @@ const CardContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  img {
+  .card-container {
     @media ${device.desktopL} {
     }
   }
-  .card-container {
+  .card-title {
+    font-size: 2.5em;
+  }
+  .card-name {
+    font-size: 2em;
+  }
+  .card-price {
+    font-size: 1.8em;
+  }
+  .card-button {
+    font-size: 1.7em;
+  }
+  .card-image {
     @media ${device.desktopL} {
+      height: 15em;
     }
   }
 `;
