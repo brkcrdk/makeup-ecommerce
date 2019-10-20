@@ -36,6 +36,9 @@ const CardContainer = styled.div`
         margin: 0 auto;
         text-align: center;
       }
+      @media ${device.tablet} {
+        display: flex;
+      }
     }
     @media ${device.laptop} {
       width: 15em;
@@ -44,6 +47,9 @@ const CardContainer = styled.div`
   .card-price {
     @media ${device.mobileTablet} {
       padding: 0.5em 0;
+    }
+    @media ${device.tablet} {
+      padding: 0;
     }
   }
 `;
