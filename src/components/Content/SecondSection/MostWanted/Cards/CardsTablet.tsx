@@ -30,11 +30,20 @@ const CardContainer = styled.div`
     }
   }
   .card-container {
-    @media ${device.mobileTablet} {
-      margin: 0.3em;
+    .card-content {
+      @media ${device.mobileTablet} {
+        display: grid;
+        margin: 0 auto;
+        text-align: center;
+      }
     }
     @media ${device.laptop} {
       width: 15em;
+    }
+  }
+  .card-price {
+    @media ${device.mobileTablet} {
+      padding: 0.5em 0;
     }
   }
 `;
