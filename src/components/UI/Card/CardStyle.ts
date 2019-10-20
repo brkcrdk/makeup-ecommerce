@@ -32,9 +32,10 @@ export const CardContent = styled.div`
   color: ${colours.primaryText};
   background-color: ${colours.backgroundDarker};
   div {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    /*TODO: button and price goes here if add something new change from here */
+    grid-template-columns: 4fr 8fr;
+    /* justify-content: space-between; */
   }
 `;
 export const Title = styled.h4`
