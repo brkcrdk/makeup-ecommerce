@@ -53,7 +53,7 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
   //Drag actions & states here
   const [isDown, setIsDown] = useState(false);
   const [startX, setStartX] = useState(0);
-  const [scollLeft, setScrollLeft] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
 
   const carouselRef = useRef<HTMLDivElement>(null);
   const [carousel, setCarousel] = useState();
@@ -75,8 +75,14 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
     setIsDown(false);
   };
   const mouseMove = (e: React.MouseEvent) => {
-    if (!isDown) return;
+    if (isDown) return;
     e.preventDefault();
+    const x = e.pageX - carousel.current.offsetLeft;
+    const walk = (x - startX) * 3;
+    setScrollLeft(scrollLeft - walk);
+    console.log(walk);
+    console.log(startX);
+    console.log(scrollLeft);
   };
 
   //Rendering starts here
