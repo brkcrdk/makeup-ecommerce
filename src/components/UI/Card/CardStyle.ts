@@ -9,7 +9,7 @@ export const Container = styled.div`
   transition: 0.3s;
   @media ${device.mobileL} {
     &:hover {
-      box-shadow: ${colours.boxShadow};
+      box-shadow: ${colours.darkerBoxShadow};
     }
   }
   /* No margin on mobileS to make centered*/

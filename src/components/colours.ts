@@ -4,7 +4,8 @@ const colours = {
   primaryText: "#4a3838",
   secondaryText: "#ffaaad",
   pink: "#d12148",
-  boxShadow: "1px 5px 1em rgba(0, 0, 0, 0.5)"
+  boxShadow: "1px 5px 1em rgba(136, 136, 136, 0.5)",
+  darkerBoxShadow: "1px 5px 1em rgba(0, 0, 0, 0.5)"
 };
 
 export default colours;
