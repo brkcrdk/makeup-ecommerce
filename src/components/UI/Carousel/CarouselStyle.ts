@@ -19,6 +19,7 @@ export const Slides = styled.div`
   width: 99%;
   display: flex;
   justify-content: center;
+  cursor: grab;
 `;
 
 interface ContentProps {

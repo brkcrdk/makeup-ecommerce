@@ -51,9 +51,6 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
   };
 
   //Drag actions & states here
-  const [isDown, setIsDown] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
 
   const carouselRef = useRef<HTMLDivElement>(null);
   const [carousel, setCarousel] = useState();
@@ -63,26 +60,26 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
     }
   }, []);
 
+  const [startX, setStartX] = useState(0);
+  const [endX, setEndX] = useState(0);
+
   const mouseDown = (e: React.MouseEvent) => {
-    setIsDown(true);
-    setStartX(e.pageX - carousel.current.offsetLeft);
-    setScrollLeft(carousel.current.scrollLeft);
+    setStartX(e.pageX);
   };
   const mouseUp = (e: React.MouseEvent) => {
-    setIsDown(false);
-  };
-  const mouseLeave = (e: React.MouseEvent) => {
-    setIsDown(false);
+    setEndX(e.pageX);
+    alert(`start:${startX} end:${endX}`);
+    if (startX > endX) {
+      alert("left");
+    } else if (startX < endX) {
+      alert("right");
+    } else if (startX - endX === 0) {
+      alert("not moved");
+    }
   };
   const mouseMove = (e: React.MouseEvent) => {
-    if (isDown) return;
-    e.preventDefault();
-    const x = e.pageX - carousel.current.offsetLeft;
-    const walk = (x - startX) * 3;
-    setScrollLeft(scrollLeft - walk);
-    console.log(walk);
-    console.log(startX);
-    console.log(scrollLeft);
+    // console.log(`start: ${startX}`);
+    // console.log(`end:${endX}`);
   };
 
   //Rendering starts here
@@ -104,7 +101,6 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
     <CaroContainer
       onMouseMove={mouseMove}
       onMouseDown={mouseDown}
-      onMouseLeave={mouseLeave}
       onMouseUp={mouseUp}>
       <Content>
         <Slides ref={carouselRef}>{slides}</Slides>
