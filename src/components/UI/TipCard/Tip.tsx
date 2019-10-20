@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import fonts from "../../fonts";
+import colours from "../../colours";
 interface Props {}
 const TipContainer = styled.div`
   font-family: ${fonts.aBeeZee};
@@ -22,6 +23,17 @@ const TipText = styled.p`
   text-align: left;
   margin: 0;
 `;
+const TipButton = styled.button`
+  background: transparent;
+  border: 1px solid ${colours.pink};
+  font-family: ${fonts.aBeeZee};
+  color: ${colours.primaryText};
+  padding: 0.5em;
+  outline: none;
+  &:hover {
+    background-color: ${colours.pink};
+  }
+`;
 const Tip: React.FC<Props> = () => {
   return (
     <TipContainer>
@@ -33,6 +45,7 @@ const Tip: React.FC<Props> = () => {
           nisi!
         </TipText>
       </TipContent>
+      <TipButton>Read More..</TipButton>
     </TipContainer>
   );
 };
