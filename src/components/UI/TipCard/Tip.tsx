@@ -2,14 +2,32 @@ import React from "react";
 import styled from "styled-components";
 import fonts from "../../fonts";
 import colours from "../../colours";
+import device from "../../device";
 interface Props {}
 const TipContainer = styled.div`
   font-family: ${fonts.aBeeZee};
   margin: 0.5em;
+  @media ${device.mobileTablet} {
+    margin: 0.5em 0;
+  }
 `;
 const TipImage = styled.img`
   width: 100%;
-  height: 10em;
+  @media ${device.mobileS} {
+    height: 10em;
+  }
+  @media ${device.mobileL} {
+    width: 90%;
+  }
+  @media ${device.laptopL} {
+    width: 80%;
+  }
+  @media ${device.desktop} {
+    width: 70%;
+  }
+  @media ${device.desktop} {
+    height: 15em;
+  }
 `;
 const TipContent = styled.div`
   padding: 0.5em;
