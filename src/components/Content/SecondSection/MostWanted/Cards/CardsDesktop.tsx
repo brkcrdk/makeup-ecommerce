@@ -25,16 +25,24 @@ const CardContainer = styled.div`
     }
   }
   .card-title {
-    font-size: 2.5em;
+    @media ${device.desktopL} {
+      font-size: 2.5em;
+    }
   }
   .card-name {
-    font-size: 2em;
+    @media ${device.desktopL} {
+      font-size: 2em;
+    }
   }
   .card-price {
-    font-size: 1.8em;
+    @media ${device.desktopL} {
+      font-size: 1.8em;
+    }
   }
   .card-button {
-    font-size: 1.7em;
+    @media ${device.desktopL} {
+      font-size: 1.7em;
+    }
   }
   .card-image {
     @media ${device.desktopL} {
