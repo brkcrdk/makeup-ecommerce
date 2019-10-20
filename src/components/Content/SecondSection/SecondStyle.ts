@@ -2,7 +2,6 @@ import styled from "styled-components";
 import device from "../../device";
 import fonts from "../../fonts";
 import colours from "../../colours";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 export const Container = styled.div`
   margin: 0 2em;
   width: 90%;
