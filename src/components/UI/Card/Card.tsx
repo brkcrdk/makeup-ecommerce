@@ -14,10 +14,16 @@ interface CardProps {
   image: string;
   name: string;
   price: string;
-  currency: string;
+  priceSign: string;
 }
 
-const Card: React.FC<CardProps> = ({ title, image, name, price, currency }) => {
+const Card: React.FC<CardProps> = ({
+  title,
+  image,
+  name,
+  price,
+  priceSign
+}) => {
   return (
     // TODO: use card container class to style card
     <Container className="card-container">
@@ -26,7 +32,7 @@ const Card: React.FC<CardProps> = ({ title, image, name, price, currency }) => {
         <Title>{title}</Title>
         <Name>{name}</Name>
         <div>
-          <Price>{`${price} ${currency}`}</Price>
+          <Price>{`${price} ${priceSign}`}</Price>
           <Add>Add to Cart</Add>
         </div>
       </CardContent>

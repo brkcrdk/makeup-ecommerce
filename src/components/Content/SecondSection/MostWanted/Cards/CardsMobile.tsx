@@ -19,7 +19,14 @@ const CardsMobile: React.FC<Props> = ({ products }) => {
     <Container>
       <Carousel display="hide">
         {products.map((slide, key) => (
-          <Card key={key} title={slide.brand} />
+          <Card
+            key={key}
+            title={slide.brand}
+            image={slide.api_featured_image}
+            price={slide.price}
+            priceSign={slide.price_sign}
+            name={slide.name}
+          />
         ))}
       </Carousel>
     </Container>
