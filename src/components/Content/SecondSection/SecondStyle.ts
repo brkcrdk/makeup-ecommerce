@@ -39,9 +39,13 @@ export const Parallax = styled.div`
     color: ${colours.primaryText};
     @media ${device.mobileS} {
       font-size: 1em;
+      font-weight: 600;
     }
     @media ${device.mobileTablet} {
       font-size: 1.5em;
+    }
+    @media ${device.desktop} {
+      font-size: 2em;
     }
   }
   @media ${device.mobileS} {
