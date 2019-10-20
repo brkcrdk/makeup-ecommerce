@@ -15,6 +15,7 @@ interface CardProps {
   name: string;
   price: string;
   priceSign: string;
+  key: number;
 }
 
 const Card: React.FC<CardProps> = ({
