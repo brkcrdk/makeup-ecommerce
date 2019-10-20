@@ -5,7 +5,7 @@ import {
   WantedSection,
   Parallax
 } from "./SecondStyle";
-import img from "./p3.jpg";
+import img from "./p1.jpg";
 
 import Tips from "./Tips/Tips";
 import Brands from "./Brands/Brands";
@@ -21,7 +21,9 @@ const SecondSection: React.FC<Props> = () => {
       <WantedSection>
         <Wanted />
       </WantedSection>
-      <Parallax style={{ backgroundImage: `url(${img})` }} />
+      <Parallax style={{ backgroundImage: `url(${img})` }}>
+        <h3>Tips & Tricks from Our Editors</h3>
+      </Parallax>
       <Tips />
     </Container>
   );

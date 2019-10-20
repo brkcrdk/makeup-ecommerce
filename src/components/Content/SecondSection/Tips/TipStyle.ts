@@ -11,5 +11,4 @@ export const Container = styled.div`
 `;
 export const TipContainer = styled.div`
   width: 100%;
-  border: 1px solid black;
 `;
