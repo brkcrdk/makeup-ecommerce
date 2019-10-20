@@ -30,6 +30,9 @@ const CardContainer = styled.div`
     }
   }
   .card-container {
+    @media ${device.mobileTablet} {
+      margin: 0.3em;
+    }
     @media ${device.laptop} {
       width: 15em;
     }

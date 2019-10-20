@@ -28,6 +28,10 @@ export const Header = styled.h3`
     font-size: 2em;
   }
   @media ${device.desktop} {
+    margin-top: 1em;
     font-size: 2.5em;
+  }
+  @media ${device.desktopL} {
+    font-size: 3em;
   }
 `;

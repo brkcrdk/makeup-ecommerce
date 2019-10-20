@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import colours from "../../colours";
+import device from "../../device";
 export const CaroContainer = styled.div`
   width: 100%;
   overflow: hidden;
@@ -72,6 +73,10 @@ export const Indicator = styled.span`
     p.active === p.index ? `${colours.secondaryText}` : "transparent"};
   border-radius: 5%;
   transition: background-color 0.6s ease;
+  @media ${device.desktopL} {
+    height: ${(p: IndicatorProps) =>
+      p.active === p.index ? "0.5em" : "0.3em"};
+  }
 `;
 interface ButtonsProps {
   display?: string;

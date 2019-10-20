@@ -22,6 +22,7 @@ const CardContainer = styled.div`
   align-items: center;
   .card-container {
     @media ${device.desktopL} {
+      margin: 2em;
     }
   }
   .card-title {
