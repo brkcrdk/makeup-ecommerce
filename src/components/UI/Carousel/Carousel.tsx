@@ -74,7 +74,7 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
           <Next onClick={handleNext}>&#x2771;</Next>
         </ButtonContainer>
         {/* TODO: Use indicator-container to adjust indicator margin */}
-        <Indicators id="indicator-container">{indicators}</Indicators>
+        <Indicators className="indicator-container">{indicators}</Indicators>
       </Content>
     </CaroContainer>
   );

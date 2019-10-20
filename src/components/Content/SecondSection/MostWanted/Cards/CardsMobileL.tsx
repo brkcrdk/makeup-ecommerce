@@ -21,6 +21,11 @@ const Container = styled.div`
 `;
 const CardContainer = styled.div`
   display: flex;
+  img {
+    @media ${device.mobileL} {
+      height: 8em;
+    }
+  }
 `;
 const CardsMobileL: React.FC<Props> = ({ products }) => {
   return (

@@ -22,6 +22,18 @@ const Container = styled.div`
 
 const CardContainer = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    @media ${device.mobileTablet} {
+      height: 8em;
+    }
+  }
+  .card-container {
+    @media ${device.laptop} {
+      width: 15em;
+    }
+  }
 `;
 const CardsTablet: React.FC<Props> = ({ products }) => {
   return (

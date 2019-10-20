@@ -12,7 +12,8 @@ interface Props {}
 
 const Card: React.FC<Props> = () => {
   return (
-    <Container>
+    // TODO: use card container class to style card
+    <Container className="card-container">
       <Img src="https://picsum.photos/200/300" alt=".." />
       <CardContent>
         <Title>Product Title Product Titles</Title>

@@ -9,7 +9,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  #indicator-container {
+  .indicator-container {
     margin-top: -5em;
   }
   @media ${device.desktop} {
