@@ -4,7 +4,7 @@ import fonts from "../../fonts";
 import device from "../../device";
 export const Container = styled.div`
   width: 100%;
-  border-radius: 3px;
+  border-radius: 1em;
   font-family: ${fonts.raleway};
   transition: 0.3s;
   @media ${device.mobileL} {
@@ -32,16 +32,19 @@ export const CardContent = styled.div`
   color: ${colours.primaryText};
   background-color: ${colours.backgroundDarker};
   div {
-    display: grid;
-    /*TODO: button and price goes here if add something new change from here */
-    grid-template-columns: 4fr 8fr;
-    /* justify-content: space-between; */
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
   }
 `;
 export const Title = styled.h4`
+  display: flex;
+  justify-content: center;
   font-size: 0.9em;
 `;
 export const Name = styled.p`
+  display: flex;
+  justify-content: flex-start;
   margin-top: -1em;
   font-size: 0.8em;
   font-weight: 400;
