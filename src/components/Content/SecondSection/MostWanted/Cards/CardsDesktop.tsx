@@ -18,6 +18,16 @@ const Container = styled.div`
 `;
 const CardContainer = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    @media ${device.desktopL} {
+    }
+  }
+  .card-container {
+    @media ${device.desktopL} {
+    }
+  }
 `;
 const CardsDesktop: React.FC<Props> = ({ products }) => {
   return (
@@ -26,7 +36,7 @@ const CardsDesktop: React.FC<Props> = ({ products }) => {
         {products.map((arr, key) => (
           <CardContainer key={key}>
             {arr.map((slide, key) => (
-              <Card key={key} />
+              <Card key={key} title={slide.brand} />
             ))}
           </CardContainer>
         ))}
