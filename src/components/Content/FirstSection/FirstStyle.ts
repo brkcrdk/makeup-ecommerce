@@ -5,13 +5,13 @@ import device from "../../device";
 
 export const MainText = styled.div`
   position: absolute;
-  top: 15em;
+  top: 14em;
   left: 5em;
   @media ${device.mobileS} {
     left: 1em;
   }
   @media ${device.laptop} {
-    top: 14em;
+    top: 13em;
     left: 5em;
   }
   @media ${device.desktop} {

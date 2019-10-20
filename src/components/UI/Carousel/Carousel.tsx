@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Indicator,
   CaroContainer,
@@ -50,38 +50,6 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
     }
   };
 
-  //Drag actions & states here
-
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const [carousel, setCarousel] = useState();
-  useEffect(() => {
-    if (carouselRef && carouselRef.current) {
-      setCarousel(carouselRef);
-    }
-  }, []);
-
-  const [startX, setStartX] = useState(0);
-  const [endX, setEndX] = useState(0);
-
-  const mouseDown = (e: React.MouseEvent) => {
-    setStartX(e.pageX);
-  };
-  const mouseUp = (e: React.MouseEvent) => {
-    setEndX(e.pageX);
-    alert(`start:${startX} end:${endX}`);
-    if (startX > endX) {
-      alert("left");
-    } else if (startX < endX) {
-      alert("right");
-    } else if (startX - endX === 0) {
-      alert("not moved");
-    }
-  };
-  const mouseMove = (e: React.MouseEvent) => {
-    // console.log(`start: ${startX}`);
-    // console.log(`end:${endX}`);
-  };
-
   //Rendering starts here
   const slides = React.Children.map(children, (slides, index) => (
     <SlideContent active={active} index={index} direction={direction}>
@@ -98,12 +66,9 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
   ));
 
   return (
-    <CaroContainer
-      onMouseMove={mouseMove}
-      onMouseDown={mouseDown}
-      onMouseUp={mouseUp}>
+    <CaroContainer>
       <Content>
-        <Slides ref={carouselRef}>{slides}</Slides>
+        <Slides>{slides}</Slides>
         <ButtonContainer display={display}>
           <Prev onClick={handlePrev}>&#x2770;</Prev>
           <Next onClick={handleNext}>&#x2771;</Next>

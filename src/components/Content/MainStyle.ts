@@ -21,6 +21,7 @@ export const MainSection = styled.div`
   background-size: cover;
   height: 100vh;
   transition: 0.5s;
+  margin-bottom: 1em;
 `;
 export const MiddleSection = styled.div`
   /* TODO: Adjust margin left/right side for every device */

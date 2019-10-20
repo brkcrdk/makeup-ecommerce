@@ -30,8 +30,7 @@ export const Parallax = styled.div`
   align-items: center;
   width: 100vw;
   height: 20vh;
-  margin-left: -5vw;
-  margin-bottom: 1em;
+  margin: 1em 0 1em -5vw;
   h3 {
     margin-right: 3.5em;
     font-family: ${fonts.aBeeZee};
