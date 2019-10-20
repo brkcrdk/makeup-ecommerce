@@ -9,7 +9,7 @@ export const Header = styled.h3`
   display: flex;
   justify-content: center;
   color: ${colours.primaryText};
-  font-family: ${fonts.raleway};
+  font-family: ${fonts.aBeeZee};
   font-weight: 300;
   font-size: 2em;
   letter-spacing: 0;

@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import img1 from "./p1.jpg";
-import img2 from "./p2.jpg";
-import img3 from "./p3.jpg";
-
+import device from "../../device";
+import fonts from "../../fonts";
+import colours from "../../colours";
+import { Colors } from "react-native/Libraries/NewAppScreen";
 export const Container = styled.div`
   margin: 0 2em;
   width: 90%;
@@ -20,11 +20,30 @@ export const BrandSection = styled.div`
   }
 `;
 export const WantedSection = styled.div``;
+
 export const Parallax = styled.div`
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 10em;
-  margin: 2em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 20vh;
+  margin-left: -5vw;
+  margin-bottom: 1em;
+  h3 {
+    margin-right: 3.5em;
+    font-family: ${fonts.aBeeZee};
+    color: ${colours.primaryText};
+    @media ${device.mobileS} {
+      font-size: 1em;
+    }
+    @media ${device.mobileTablet} {
+      font-size: 1.5em;
+    }
+  }
+  @media ${device.mobileS} {
+  }
 `;
