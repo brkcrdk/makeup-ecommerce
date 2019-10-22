@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import colours from "../../../colours";
-import devices from "../../../device";
+import { device, colours } from "../../../utils";
 export const AccordionContainer = styled.div``;
 
 interface UlProps {
@@ -15,7 +14,7 @@ export const AccordionContent = styled.ul`
   display: flex;
   justify-content: space-between;
   padding-left: 0.5em;
-  @media ${devices.mobileS} {
+  @media ${device.mobileS} {
   }
 
   span {

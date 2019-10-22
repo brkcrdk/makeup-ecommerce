@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import device from "../../../device";
-import colours from "../../../colours";
+import { device, colours } from "../../../utils";
+
 export const Container = styled.div`
   font-size: 1.4em;
   display: flex;

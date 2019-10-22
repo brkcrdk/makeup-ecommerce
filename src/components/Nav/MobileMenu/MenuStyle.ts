@@ -1,7 +1,5 @@
 import styled from "styled-components";
-import colours from "../../colours";
-import fonts from "../../fonts";
-import devices from "../../device";
+import { device, fonts, colours } from "../../utils";
 interface Toggle {
   toggle: boolean;
 }
@@ -17,10 +15,10 @@ export const Container = styled.div`
   text-transform: capitalize;
   background-color: ${colours.background};
   font-family: ${fonts.montserrat};
-  @media ${devices.mobileTablet} {
+  @media ${device.mobileTablet} {
     width: ${(p: Toggle) => (p.toggle ? "60%" : "0")};
   }
-  @media ${devices.tablet} {
+  @media ${device.tablet} {
     width: ${(p: Toggle) => (p.toggle ? "50%" : "0")};
   }
 `;

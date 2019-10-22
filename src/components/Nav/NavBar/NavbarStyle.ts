@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import colours from "../../colours";
-import device from "../../device";
+import { colours, device } from "../../utils";
 //NAVBAR CONTAINER
 interface ContainerProps {
   scroll: boolean;

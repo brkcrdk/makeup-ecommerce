@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import colours from "../../../../colours";
-import device from "../../../../device";
-import fonts from "../../../../fonts";
+
+import { device, colours, fonts } from "../../../../utils";
+
 // WARNING: Input container width might block dropdown functionality
 export const InputContainer = styled.div`
   position: fixed;
