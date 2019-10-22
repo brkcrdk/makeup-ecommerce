@@ -15,6 +15,7 @@ const TipImage = styled.img`
   width: 100%;
   @media ${device.mobileS} {
     height: 10em;
+    object-fit: cover;
   }
   @media ${device.mobileL} {
     width: 90%;
@@ -35,19 +36,17 @@ const TipContent = styled.div`
 `;
 const TipHeader = styled.h4`
   margin: 0;
+  /* TODO: 3 dots after 2 line of text */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
   @media ${device.desktop} {
     font-size: 2em;
   }
 `;
-const TipText = styled.p`
-  font-size: 0.9em;
-  text-align: left;
-  margin: 0;
 
-  @media ${device.desktop} {
-    font-size: 1.7em;
-  }
-`;
 const TipButton = styled.button`
   background: transparent;
   border: 1px solid ${colours.pink};
