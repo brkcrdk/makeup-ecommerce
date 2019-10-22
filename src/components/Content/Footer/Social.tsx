@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { colours } from "../../utils";
+import { colours, device } from "../../utils";
 interface Props {}
 const Container = styled.div`
   display: flex;
@@ -15,6 +15,15 @@ const SocialLinks = styled.a`
   cursor: pointer;
   i {
     font-size: 1.1em;
+    @media ${device.mobileL} {
+      font-size: 1.5em;
+    }
+    @media ${device.laptop} {
+      font-size: 1.5em;
+    }
+    @media ${device.desktop} {
+      font-size: 2em;
+    }
   }
 `;
 const Social: React.FC<Props> = () => {

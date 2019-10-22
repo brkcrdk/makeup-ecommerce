@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, FootSection } from "./FooterStyle";
+import { Container, FootSection, BrandContainer } from "./FooterStyle";
 import Links from "./Links";
 import Brand from "../../Nav/Brand/Brand";
 import Social from "./Social";
@@ -10,7 +10,9 @@ const Footer: React.FC<Props> = () => {
     <Container>
       <FootSection>
         <Links />
-        <Brand />
+        <BrandContainer>
+          <Brand />
+        </BrandContainer>
         <Social />
       </FootSection>
       <p>

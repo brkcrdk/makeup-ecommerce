@@ -14,16 +14,24 @@ export const Container = styled.div`
     }
   }
 `;
-
+export const BrandContainer = styled.div`
+  @media ${device.mobileS} {
+    margin-top: 0;
+  }
+  @media ${device.tablet} {
+    margin-top: -1em;
+  }
+`;
 export const FootSection = styled.div`
-  display: grid;
   margin-bottom: 1.5em;
   @media ${device.mobileS} {
+    display: grid;
     grid-template-columns: repeat(1, 12fr);
     margin-top: 2.5em;
   }
   @media ${device.tablet} {
-    grid-template-columns: repeat(3, 4fr);
-    margin-top: 5em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
 `;
