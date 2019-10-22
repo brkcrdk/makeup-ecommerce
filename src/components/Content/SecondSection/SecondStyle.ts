@@ -29,29 +29,33 @@ export const Parallax = styled.div`
   align-items: center;
   width: 100vw;
   margin: 1em 0 1em -5vw;
+
   @media ${device.mobileS} {
     background-attachment: initial;
     height: 10vh;
-    h3 {
-      background: linear-gradient(
-        to right,
-        ${colours.pink},
-        ${colours.primaryText}
-      );
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
   }
+
   @media ${device.tablet} {
     height: 20vh;
+    background-attachment: fixed;
+    color: ${colours.pink};
+  }
+  @media ${device.laptopL} {
+    height: 15vh;
     background-attachment: fixed;
     color: ${colours.pink};
   }
   h3 {
     margin-right: 3.5em;
     font-family: ${fonts.aBeeZee};
-
+    background: linear-gradient(
+      to right,
+      ${colours.pink},
+      ${colours.primaryText}
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     @media ${device.mobileS} {
       font-size: 1em;
       font-weight: 600;
@@ -62,7 +66,5 @@ export const Parallax = styled.div`
     @media ${device.desktop} {
       font-size: 2em;
     }
-  }
-  @media ${device.mobileS} {
   }
 `;
