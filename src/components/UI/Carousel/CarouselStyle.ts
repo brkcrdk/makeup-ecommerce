@@ -95,7 +95,7 @@ const buttonStyles = `
   width: auto;
   color: ${colours.primaryText};
   font-size: 1.6em;
-  transition: 0.6s ease;
+  transition: 0.4s ease;
   user-select: none;
   outline:none;
   background:transparent;
@@ -103,7 +103,10 @@ const buttonStyles = `
   height:5em;
   margin-top:-4em;
   &:hover{
-    transform:scale(1.5,1.5)
+    transform:scale(1.2,1.2);
+    @media ${device.tablet}{
+      transform:none;
+    }
   }
 `;
 
