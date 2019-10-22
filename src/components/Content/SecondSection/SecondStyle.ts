@@ -31,6 +31,9 @@ export const Parallax = styled.div`
   width: 100vw;
   height: 20vh;
   margin: 1em 0 1em -5vw;
+  @media ${device.mobileTablet} {
+    background-attachment: fixed;
+  }
   h3 {
     margin-right: 3.5em;
     font-family: ${fonts.aBeeZee};
