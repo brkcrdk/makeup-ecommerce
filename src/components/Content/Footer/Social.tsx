@@ -12,6 +12,7 @@ const SocialLinks = styled.a`
   text-decoration: none;
   color: ${colours.pink};
   margin: 0 1em;
+  cursor: pointer;
   i {
     font-size: 1.1em;
   }
@@ -27,6 +28,9 @@ const Social: React.FC<Props> = () => {
       </SocialLinks>
       <SocialLinks href="#?">
         <i className="fab fa-facebook-f" />
+      </SocialLinks>
+      <SocialLinks href="#?">
+        <i className="fab fa-pinterest" />
       </SocialLinks>
     </Container>
   );

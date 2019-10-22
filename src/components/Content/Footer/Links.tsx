@@ -14,7 +14,9 @@ const Link = styled.a`
   color: ${colours.primaryText};
   font-family: ${fonts.montserrat};
   margin: 0.5em;
+  cursor: pointer;
 `;
+
 interface Props {}
 
 const Links: React.FC<Props> = () => {
