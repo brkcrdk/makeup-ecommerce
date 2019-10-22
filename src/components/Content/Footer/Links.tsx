@@ -1,11 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-
+import colours from "../../colours";
+import fonts from "../../fonts";
 const Container = styled.div`
   display: flex;
+  justify-content: space-around;
+  align-items: center;
 `;
 const Link = styled.a`
-  margin: 0 1em;
+  text-decoration: none;
+  outline: none;
+  color: ${colours.primaryText};
+  font-family: ${fonts.montserrat};
+  margin: 0.5em;
 `;
 interface Props {}
 
