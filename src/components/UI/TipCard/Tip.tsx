@@ -3,7 +3,7 @@ import styled from "styled-components";
 import fonts from "../../fonts";
 import colours from "../../colours";
 import device from "../../device";
-interface Props {}
+
 const TipContainer = styled.div`
   font-family: ${fonts.aBeeZee};
   margin: 0.5em;
@@ -43,6 +43,7 @@ const TipText = styled.p`
   font-size: 0.9em;
   text-align: left;
   margin: 0;
+
   @media ${device.desktop} {
     font-size: 1.7em;
   }
@@ -62,17 +63,16 @@ const TipButton = styled.button`
     font-size: 1.7em;
   }
 `;
-
-const Tip: React.FC<Props> = () => {
+interface Props {
+  title: string;
+  imgUrl: string;
+}
+const Tip: React.FC<Props> = ({ title, imgUrl }) => {
   return (
     <TipContainer>
-      <TipImage src="https://picsum.photos/200/300" alt="tip-images" />
+      <TipImage src={imgUrl} alt="tip-images" />
       <TipContent>
-        <TipHeader>Title</TipHeader>
-        <TipText>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid,
-          nisi!
-        </TipText>
+        <TipHeader>{title}</TipHeader>
       </TipContent>
       <TipButton>Read More..</TipButton>
     </TipContainer>
