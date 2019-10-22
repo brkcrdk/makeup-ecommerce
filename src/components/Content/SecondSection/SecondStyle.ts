@@ -21,7 +21,6 @@ export const BrandSection = styled.div`
 export const WantedSection = styled.div``;
 
 export const Parallax = styled.div`
-  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -33,11 +32,17 @@ export const Parallax = styled.div`
   margin: 1em 0 1em -5vw;
   @media ${device.mobileS} {
     background-attachment: initial;
+    align-items: flex-start;
+    color: black;
+  }
+  @media ${device.tablet} {
+    background-attachment: fixed;
+    color: ${colours.pink};
   }
   h3 {
     margin-right: 3.5em;
     font-family: ${fonts.aBeeZee};
-    color: ${colours.primaryText};
+
     @media ${device.mobileS} {
       font-size: 1em;
       font-weight: 600;
