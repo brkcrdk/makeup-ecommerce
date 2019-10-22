@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { device, colours, fonts } from "../../utils";
 export const Container = styled.div`
   text-align: center;
-  padding: 0 1em;
+  padding: 1em;
+  line-height: 1.6;
   p {
     font-family: ${fonts.aBeeZee};
     span {
