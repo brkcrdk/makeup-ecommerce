@@ -1,8 +1,13 @@
 import styled from "styled-components";
 import device from "../../device";
 export const Container = styled.div`
+  text-align: center;
+`;
+
+export const FootSection = styled.div`
   display: grid;
   text-align: center;
+  margin-bottom: 1.5em;
   @media ${device.mobileS} {
     grid-template-columns: repeat(1, 12fr);
     margin-top: 2.5em;

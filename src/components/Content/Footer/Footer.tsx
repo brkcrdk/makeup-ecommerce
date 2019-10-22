@@ -1,13 +1,16 @@
 import React from "react";
-import { Container } from "./FooterStyle";
+import { Container, FootSection } from "./FooterStyle";
 interface Props {}
 
 const Footer: React.FC<Props> = () => {
   return (
     <Container>
-      <div>Links</div>
-      <div>Brand</div>
-      <div>Social</div>
+      <FootSection>
+        <div>Links</div>
+        <div>Brand</div>
+        <div>Social</div>
+      </FootSection>
+      All Rights Reserved
     </Container>
   );
 };
