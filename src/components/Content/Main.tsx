@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import Box from "../Nav/DesktopMenu/Search/SearchBox/Box";
 import FirstSection from "./FirstSection/FirstSection";
 import SecondSection from "./SecondSection/SecondSection";
+import Footer from "./Footer/Footer";
 interface Toggle {
   sidebarToggle: {
     sideToggle: boolean;
@@ -33,6 +34,7 @@ const Main: React.FC = () => {
             <SecondSection />
           </Content>
         </MiddleSection>
+        <Footer />
       </Dimmed>
     </Container>
   );
