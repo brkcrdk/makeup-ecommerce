@@ -1,8 +1,5 @@
 import styled from "styled-components";
-import fonts from "../../fonts";
-import colours from "../../colours";
-import device from "../../device";
-
+import { fonts, device, colours } from "../../utils";
 export const MainText = styled.div`
   position: absolute;
   top: 14em;

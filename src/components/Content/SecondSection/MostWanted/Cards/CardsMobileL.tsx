@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import device from "../../../../device";
+import { device } from "../../../../utils";
 import Card from "../../../../UI/Card/Card";
 import Carousel from "../../../../UI/Carousel/Carousel";
 import { IProducts } from "../../../../../store/fetchProducts/types";

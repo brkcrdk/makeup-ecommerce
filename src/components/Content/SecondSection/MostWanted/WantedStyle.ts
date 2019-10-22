@@ -1,7 +1,5 @@
 import styled from "styled-components";
-import fonts from "../../../fonts";
-import colours from "../../../colours";
-import device from "../../../device";
+import { fonts, colours, device } from "../../../utils";
 export const Container = styled.div`
   /* width: 100%; */
 `;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import device from "../../../device";
+import { device } from "../../../utils";
 export const Container = styled.div`
   text-align: center;
   display: grid;

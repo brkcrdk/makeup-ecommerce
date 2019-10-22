@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import background from "./mainPic.jpg";
-import colours from "../colours";
+import { colours } from "../utils";
 
 export const Container = styled.div``;
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import device from "../../device";
-import colours from "../../colours";
+import { device, colours, fonts } from "../../utils";
+
 interface ImgProps {
   scroll: boolean;
 }

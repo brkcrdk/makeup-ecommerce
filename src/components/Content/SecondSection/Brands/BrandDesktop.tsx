@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import device from "../../../device";
+import { device } from "../../../utils";
 import brandImages from "./brandImages";
 interface Props {}
 

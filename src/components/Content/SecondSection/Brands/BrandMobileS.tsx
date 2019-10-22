@@ -2,7 +2,7 @@ import React from "react";
 import { imgArray } from "./brandImages";
 import handleContent from "./brandImages";
 import styled from "styled-components";
-import device from "../../../device";
+import { device } from "../../../utils";
 import Carousel from "../../../UI/Carousel/Carousel";
 
 const Container = styled.div`
