@@ -6,7 +6,6 @@ export const Container = styled.div`
 
 export const FootSection = styled.div`
   display: grid;
-  text-align: center;
   margin-bottom: 1.5em;
   @media ${device.mobileS} {
     grid-template-columns: repeat(1, 12fr);
