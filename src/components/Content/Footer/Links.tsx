@@ -6,6 +6,7 @@ const Container = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 1em;
 `;
 const Link = styled.a`
   text-decoration: none;
