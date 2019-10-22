@@ -28,14 +28,23 @@ export const Parallax = styled.div`
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 20vh;
   margin: 1em 0 1em -5vw;
   @media ${device.mobileS} {
     background-attachment: initial;
-    align-items: flex-start;
-    color: black;
+    height: 10vh;
+    h3 {
+      background: linear-gradient(
+        to right,
+        ${colours.pink},
+        ${colours.primaryText}
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   }
   @media ${device.tablet} {
+    height: 20vh;
     background-attachment: fixed;
     color: ${colours.pink};
   }
