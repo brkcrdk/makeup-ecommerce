@@ -15,6 +15,10 @@ const SocialLinks = styled.a`
   cursor: pointer;
   i {
     font-size: 1.1em;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      color: ${colours.primaryText};
+    }
     @media ${device.mobileL} {
       font-size: 1.5em;
     }

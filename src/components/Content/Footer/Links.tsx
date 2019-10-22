@@ -12,7 +12,11 @@ const Link = styled.a`
   color: ${colours.primaryText};
   font-family: ${fonts.montserrat};
   margin: 0.5em;
+  transition: 0.3s ease-in-out;
   cursor: pointer;
+  &:hover {
+    color: ${colours.pink};
+  }
 `;
 
 interface Props {}
