@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, FootSection } from "./FooterStyle";
 import Links from "./Links";
+import Brand from "../../Nav/Brand/Brand";
 interface Props {}
 
 const Footer: React.FC<Props> = () => {
@@ -8,8 +9,7 @@ const Footer: React.FC<Props> = () => {
     <Container>
       <FootSection>
         <Links />
-
-        <div>Brand</div>
+        <Brand />
         <div>Social</div>
       </FootSection>
       All Rights Reserved
