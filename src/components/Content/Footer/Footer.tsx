@@ -13,7 +13,9 @@ const Footer: React.FC<Props> = () => {
         <Brand />
         <Social />
       </FootSection>
-      All Rights Reserved
+      <p>
+        &#xa9; 2019 <span>Bellezza Cosmetics</span> All Rights Reserved
+      </p>
     </Container>
   );
 };

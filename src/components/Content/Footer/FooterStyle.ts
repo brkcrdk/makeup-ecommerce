@@ -1,8 +1,19 @@
 import styled from "styled-components";
 import device from "../../device";
+import fonts from "../../fonts";
+import colours from "../../colours";
 export const Container = styled.div`
   text-align: center;
   padding: 0 1em;
+  p {
+    font-family: ${fonts.aBeeZee};
+    span {
+      color: ${colours.pink};
+      font-size: 1.2em;
+      font-weight: 900;
+      font-family: ${fonts.dancingScript};
+    }
+  }
 `;
 
 export const FootSection = styled.div`
