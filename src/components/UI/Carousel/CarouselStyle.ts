@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import colours from "../../colours";
-import device from "../../device";
+import { device, colours } from "../../utils";
 export const CaroContainer = styled.div`
   width: 100%;
   overflow: hidden;

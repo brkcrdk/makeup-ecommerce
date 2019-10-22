@@ -1,7 +1,5 @@
 import styled from "styled-components";
-import device from "../../device";
-import fonts from "../../fonts";
-import colours from "../../colours";
+import { device, colours, fonts } from "../../utils";
 export const Container = styled.div`
   text-align: center;
   padding: 0 1em;

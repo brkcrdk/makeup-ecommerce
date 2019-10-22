@@ -1,9 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import fonts from "../../fonts";
-import colours from "../../colours";
-import device from "../../device";
-
+import { device, colours, fonts } from "../../utils";
 const TipContainer = styled.div`
   font-family: ${fonts.aBeeZee};
   margin: 0.5em;
