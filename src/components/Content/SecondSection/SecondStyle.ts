@@ -63,8 +63,11 @@ export const Parallax = styled.div`
     @media ${device.mobileTablet} {
       font-size: 1.5em;
     }
-    @media ${device.desktop} {
+    @media ${device.laptopL} {
       font-size: 2em;
+    }
+    @media ${device.desktop} {
+      font-size: 2.3em;
     }
   }
 `;

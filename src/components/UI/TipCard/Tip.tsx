@@ -54,6 +54,7 @@ const TipButton = styled.button`
   color: ${colours.primaryText};
   padding: 0.5em;
   outline: none;
+  transition: 0.5s;
   &:hover {
     background-color: ${colours.pink};
   }
