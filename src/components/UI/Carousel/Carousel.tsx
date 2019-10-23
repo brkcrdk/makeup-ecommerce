@@ -94,8 +94,6 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
   };
   const touchEnd = (e: React.TouchEvent) => {
     setTouchEndX(e.changedTouches[0].pageX);
-    console.log({ touchStartX, touchEndX });
-    console.log(`diff:${touchStartX - touchEndX}`);
     if (touchEndX - touchStartX > 0) {
       handleNext();
     } else if (touchEndX - touchStartX < 0) {
