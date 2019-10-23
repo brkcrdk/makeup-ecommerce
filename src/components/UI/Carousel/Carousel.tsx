@@ -53,11 +53,14 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
   const [isDown, setIsDown] = useState(false);
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(0);
+  const [left, setLeft] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
+
   const mouseStart = (e: React.MouseEvent) => {
     setIsDown(true);
     if (sliderRef && sliderRef.current) {
       setStart(e.pageX - sliderRef.current.offsetLeft);
+      setLeft(sliderRef.current.offsetLeft);
     }
     console.log(start);
   };
@@ -70,7 +73,11 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
 
   const mouseMove = (e: React.MouseEvent) => {
     if (!isDown) return;
+    e.preventDefault();
     console.log(start);
+    if (sliderRef && sliderRef.current) {
+      const x = e.pageX - sliderRef.current.offsetLeft;
+    }
   };
 
   //Rendering starts here
