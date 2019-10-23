@@ -52,20 +52,35 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
   //Swipe action for carousel
   const [isDown, setIsDown] = useState(false);
   const [start, setStart] = useState(0);
+  const [diff, setDiff] = useState("not moved");
   const [end, setEnd] = useState(0);
-  const [left, setLeft] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const mouseStart = (e: React.MouseEvent) => {
     setIsDown(true);
     if (sliderRef && sliderRef.current) {
       setStart(e.pageX - sliderRef.current.offsetLeft);
-      setLeft(sliderRef.current.offsetLeft);
     }
-    console.log(start);
   };
   const mouseEnd = (e: React.MouseEvent) => {
     setIsDown(false);
+    // if (!isDown) return;
+    e.preventDefault();
+
+    if (sliderRef && sliderRef.current) {
+      setEnd(e.pageX - sliderRef.current.offsetLeft);
+    }
+    console.log({ end, start });
+    console.log(`diff: ${end - start}`);
+    if (end - start <= 15 && end - start >= -15) {
+      console.log("not-moved");
+    } else if (end - start > 16) {
+      console.log("right");
+      handleNext();
+    } else if (end - start < -16) {
+      console.log("left");
+      handlePrev();
+    }
   };
   const mouseLeave = () => {
     setIsDown(false);
@@ -74,10 +89,6 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
   const mouseMove = (e: React.MouseEvent) => {
     if (!isDown) return;
     e.preventDefault();
-    console.log(start);
-    if (sliderRef && sliderRef.current) {
-      const x = e.pageX - sliderRef.current.offsetLeft;
-    }
   };
 
   //Rendering starts here

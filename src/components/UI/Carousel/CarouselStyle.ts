@@ -8,6 +8,9 @@ export const CaroContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  img {
+    pointer-events: none;
+  }
 `;
 export const Content = styled.div`
   display: grid;
