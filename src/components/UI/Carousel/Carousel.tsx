@@ -52,7 +52,6 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
   //Swipe action for carousel
   const [isDown, setIsDown] = useState(false);
   const [start, setStart] = useState(0);
-  const [diff, setDiff] = useState("not moved");
   const [end, setEnd] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
 
@@ -64,28 +63,24 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
   };
   const mouseEnd = (e: React.MouseEvent) => {
     setIsDown(false);
-    // if (!isDown) return;
     e.preventDefault();
-
+    //This is for typescript.
+    //ıf dont use this you get "object is null" error
     if (sliderRef && sliderRef.current) {
       setEnd(e.pageX - sliderRef.current.offsetLeft);
     }
-    console.log({ end, start });
-    console.log(`diff: ${end - start}`);
-    if (end - start <= 15 && end - start >= -15) {
-      console.log("not-moved");
-    } else if (end - start > 16) {
-      console.log("right");
+    //If difference smaller then +- 15 dont move
+    if (end - start >= 15) {
       handleNext();
-    } else if (end - start < -16) {
-      console.log("left");
+    } else if (end - start <= -15) {
       handlePrev();
     }
   };
+  //If mouse goes over slider stop action
   const mouseLeave = () => {
     setIsDown(false);
   };
-
+  //When mouse move stop selecting text and images
   const mouseMove = (e: React.MouseEvent) => {
     if (!isDown) return;
     e.preventDefault();
