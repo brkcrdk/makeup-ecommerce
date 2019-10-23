@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { device, colours } from "../../../utils";
+import { colours } from "../../../utils";
 export const AccordionContainer = styled.div``;
 
 interface UlProps {
@@ -9,13 +9,12 @@ interface UlProps {
 export const AccordionContent = styled.ul`
   color: ${colours.primaryText};
   padding-left: 0.5em;
+
   /* Used flex to prevent word-wrapping  */
   /* And saperate text and icon evenly */
   display: flex;
   justify-content: space-between;
   padding-left: 0.5em;
-  @media ${device.mobileS} {
-  }
 
   span {
     padding: 0 1em;

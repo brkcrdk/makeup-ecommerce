@@ -22,17 +22,10 @@ const Menu: React.FC = () => {
   const types = getType(products);
   const categories = getCategory(products);
   const brands = getBrand(products);
-  // const dispatch = useDispatch();
-  // const handleClose = useCallback(() => {
-  //   dispatch({
-  //     type: "TOGGLE_SIDEBAR"
-  //   });
-  // }, [dispatch]);
   return (
     <Container toggle={toggle}>
       <SearchClose>
         <input placeholder="Search here..." />
-        {/* <span onClick={handleClose}>X</span> */}
       </SearchClose>
 
       <Acordion title={"Types"} content={types} activeIndex={0} />

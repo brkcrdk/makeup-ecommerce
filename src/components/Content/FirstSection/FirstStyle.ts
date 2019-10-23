@@ -5,6 +5,7 @@ export const MainText = styled.div`
   top: 14em;
   left: 5em;
   @media ${device.mobileS} {
+    top: 11em;
     left: 1em;
   }
   @media ${device.laptop} {
