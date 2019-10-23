@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { handleNext, handlePrev, handleIndicator, mouseStart } from "./handles";
 import {
   Indicator,
   CaroContainer,
@@ -15,52 +16,31 @@ interface CaroTypes {
   children: React.ReactNode;
   display?: "display" | "hide";
 }
-
 const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
+  //Carousel States
   const [active, setActive] = useState(0);
   const [direction, setDirection] = useState("not moved");
   const [count, setCount] = useState(0);
-  useEffect(() => {
-    setCount(React.Children.count(children));
-  }, [count, children]);
-  //Indicator actions
-  const handleIndicator = (n: number) => {
-    if (n !== active) {
-      if (active < n) {
-        setDirection("next");
-      } else {
-        setDirection("prev");
-      }
-      return setActive(n);
-    }
-  };
-  //Button actions
-  const handleNext = () => {
-    if (active === count - 1) {
-      setActive(0);
-    } else {
-      setActive(active + 1);
-    }
-  };
-  const handlePrev = () => {
-    if (active === 0) {
-      setActive(count - 1);
-    } else {
-      setActive(active - 1);
-    }
-  };
-  //Swipe action for carousel
+
+  //Slide action states
   const [isDown, setIsDown] = useState(false);
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setCount(React.Children.count(children));
+  }, [count, children]);
+
+  //Swipe action for carousel
+
   //FOR MOUSE ACTIONS
-  const mouseStart = (e: React.MouseEvent) => {
-    setIsDown(true);
-    if (sliderRef && sliderRef.current) {
-      setStart(e.pageX - sliderRef.current.offsetLeft);
-    }
-  };
+  // const mouseStart = (e: React.MouseEvent) => {
+  //   setIsDown(true);
+  //   if (sliderRef && sliderRef.current) {
+  //     setStart(e.pageX - sliderRef.current.offsetLeft);
+  //   }
+  // };
   const mouseEnd = (e: React.MouseEvent) => {
     setIsDown(false);
     e.preventDefault();
@@ -71,9 +51,9 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
     }
     //If difference smaller then +- 15 dont move
     if (end - start >= 15) {
-      handleNext();
+      handleNext(count, active, setActive);
     } else if (end - start <= -15) {
-      handlePrev();
+      handlePrev(count, active, setActive);
     }
   };
   //If mouse goes over slider stop action
@@ -95,9 +75,9 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
   const touchEnd = (e: React.TouchEvent) => {
     setTouchEndX(e.changedTouches[0].pageX);
     if (touchEndX - touchStartX > 0) {
-      handleNext();
+      handleNext(count, active, setActive);
     } else if (touchEndX - touchStartX < 0) {
-      handlePrev();
+      handlePrev(count, active, setActive);
     }
   };
   //Rendering starts here
@@ -109,7 +89,7 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
 
   const indicators = React.Children.map(children, (child, index) => (
     <Indicator
-      onClick={() => handleIndicator(index)}
+      onClick={() => handleIndicator(index, active, setDirection, setActive)}
       active={active}
       index={index}
     />
@@ -118,7 +98,9 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
   return (
     <CaroContainer
       ref={sliderRef}
-      onMouseDown={mouseStart}
+      onMouseDown={(e: React.MouseEvent) => {
+        mouseStart(e, setIsDown, sliderRef, setStart);
+      }}
       onMouseUp={mouseEnd}
       onMouseLeave={mouseLeave}
       onMouseMove={mouseMove}
@@ -127,8 +109,18 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
       <Content>
         <Slides>{slides}</Slides>
         <ButtonContainer display={display}>
-          <Prev onClick={handlePrev}>&#x2770;</Prev>
-          <Next onClick={handleNext}>&#x2771;</Next>
+          <Prev
+            onClick={() => {
+              handlePrev(active, count, setActive);
+            }}>
+            &#x2770;
+          </Prev>
+          <Next
+            onClick={() => {
+              handleNext(count, active, setActive);
+            }}>
+            &#x2771;
+          </Next>
         </ButtonContainer>
         {/* TODO: Use indicator-container to adjust indicator margin */}
         <Indicators className="indicator-container">{indicators}</Indicators>
