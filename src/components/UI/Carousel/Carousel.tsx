@@ -126,7 +126,7 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
       onTouchStart={touchStart}
       onTouchEnd={touchEnd}>
       <Content>
-        <Slides>{slides}</Slides>
+        <Slides handle={isDown}>{slides}</Slides>
         <ButtonContainer display={display}>
           <Prev onClick={handlePrev}>&#x2770;</Prev>
           <Next onClick={handleNext}>&#x2771;</Next>

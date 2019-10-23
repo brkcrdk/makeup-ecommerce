@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { device, colours } from "../../utils";
+interface SlidesProps {
+  handle: boolean;
+}
 export const CaroContainer = styled.div`
   width: 100%;
   overflow: hidden;
@@ -21,7 +24,7 @@ export const Slides = styled.div`
   width: 99%;
   display: flex;
   justify-content: center;
-  cursor: grab;
+  cursor: ${(p: SlidesProps) => (p.handle ? "grabbing" : "grab")};
 `;
 
 interface ContentProps {
