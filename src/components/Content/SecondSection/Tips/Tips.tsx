@@ -8,7 +8,7 @@ const Tips: React.FC<Props> = () => {
   return (
     <Container>
       {content.map((tip, key) => (
-        <TipContainer>
+        <TipContainer key={key}>
           <Tip imgUrl={tip.imgUrl} title={tip.title} />
         </TipContainer>
       ))}
