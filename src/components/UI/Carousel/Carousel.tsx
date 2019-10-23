@@ -54,7 +54,7 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
-
+  //FOR MOUSE ACTIONS
   const mouseStart = (e: React.MouseEvent) => {
     setIsDown(true);
     if (sliderRef && sliderRef.current) {
@@ -86,6 +86,22 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
     e.preventDefault();
   };
 
+  //FOR TOUCHSCREEN ACTIONS
+  const [touchStartX, setTouchStartX] = useState(0);
+  const [touchEndX, setTouchEndX] = useState(0);
+  const touchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.touches[0].pageX);
+  };
+  const touchEnd = (e: React.TouchEvent) => {
+    setTouchEndX(e.changedTouches[0].pageX);
+    console.log({ touchStartX, touchEndX });
+    console.log(`diff:${touchStartX - touchEndX}`);
+    if (touchEndX - touchStartX > 0) {
+      handleNext();
+    } else if (touchEndX - touchStartX < 0) {
+      handlePrev();
+    }
+  };
   //Rendering starts here
   const slides = React.Children.map(children, (slides, index) => (
     <SlideContent active={active} index={index} direction={direction}>
@@ -107,7 +123,9 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
       onMouseDown={mouseStart}
       onMouseUp={mouseEnd}
       onMouseLeave={mouseLeave}
-      onMouseMove={mouseMove}>
+      onMouseMove={mouseMove}
+      onTouchStart={touchStart}
+      onTouchEnd={touchEnd}>
       <Content>
         <Slides>{slides}</Slides>
         <ButtonContainer display={display}>
