@@ -20,7 +20,7 @@ const fetchProductReducer = (
     case PRODUCT_FETCH:
       return { ...state, isLoading: true };
     case PRODUCT_SUCCESS:
-      return { ...state, isLoading: false, product: action.payload };
+      return { ...state, isLoading: false, products: action.payload };
     case PRODUCT_ERROR:
       return { ...state, isLoading: false, error: action.error };
     default:

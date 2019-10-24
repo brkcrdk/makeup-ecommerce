@@ -9,7 +9,8 @@ import fetchProductReducer from "./fetchProduct/reducer";
 const rootReducer = combineReducers({
   searchToggle: toggleReducer,
   storeProducts: fetchProductsReducer,
-  sidebarToggle: sidebarToggleReducer
+  sidebarToggle: sidebarToggleReducer,
+  storeProduct: fetchProductReducer
 });
 
 export default rootReducer;
