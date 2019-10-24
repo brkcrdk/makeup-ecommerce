@@ -94,15 +94,14 @@ export const DropContent = styled.div`
     background: lightgray;
   }
 `;
-export const DropItem = styled.a`
-  color: ${colours.pink};
+export const DropItem = styled.li`
   padding: 0.5em;
-  text-decoration: none;
   display: grid;
   text-transform: capitalize;
   cursor: pointer;
   a {
     text-decoration: none;
+    color: ${colours.pink};
   }
   @media ${device.tabletLaptop} {
     font-size: 1em;
