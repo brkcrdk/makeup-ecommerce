@@ -15,6 +15,7 @@ export function fetchProduct(...params: string[]) {
   //For that purpose first parameter filtered and added as a first parameter
   //rest of the parameters mapped with & sign but this added comma for every parameter which will cause error
   //For avoid this error concat rest parameters with & sign and this will not add comma
+  //And no parameter entered wont get errors
   const firstParam = params
     .filter((v, i) => {
       return i === 0;
@@ -29,7 +30,6 @@ export function fetchProduct(...params: string[]) {
   const apiUrl = `http://makeup-api.herokuapp.com/api/v1/products.json?${firstParam}${restParam.concat(
     ...rest
   )}`;
-  console.log(apiUrl);
   const request = axios.get(apiUrl);
 
   return (dispatch: Dispatch<ProductActionTypes>) => {

@@ -14,10 +14,10 @@ interface StoreProps {
 const Shop: React.FC<StoreProps> = ({ location }) => {
   const dispatch = useDispatch();
   useEffect(() => {
-    // const searchType = location.pathname.split("/")[2];
-    // const searchInput = location.pathname.split("/")[3];
-    dispatch(fetchProduct("Burak", "Çardak", "Murat", "Çardak"));
-  }, [dispatch]);
+    const searchType = location.pathname.split("/")[2];
+    const searchInput = location.pathname.split("/")[3];
+    dispatch(fetchProduct(`${searchType}=${searchInput}`));
+  }, [dispatch, location.pathname]);
   const isLoading = useSelector(
     (state: StoreProps) => state.storeProduct.isLoading
   );
