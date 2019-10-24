@@ -11,8 +11,9 @@ interface StoreProps {
   location: {
     pathname: string;
   };
+  match: {};
 }
-const Shop: React.FC<StoreProps> = ({ location }, match) => {
+const Shop: React.FC<StoreProps> = ({ location, match }) => {
   console.log(match);
   const dispatch = useDispatch();
   useEffect(() => {
