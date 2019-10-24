@@ -37,8 +37,11 @@ export const AccordionList = styled.li`
   margin: 1em 0 1em 1em;
   padding-left: 0.5em;
   transition: all 0.3s ease;
-  color: ${colours.primaryText};
-
+  cursor: pointer;
+  a {
+    text-decoration: none;
+    color: ${colours.primaryText};
+  }
   :active {
     border: none;
     background-color: transparent;

@@ -4,6 +4,7 @@ import {
   AccordionContent,
   AccordionList
 } from "./AcordionStyle";
+import { Link } from "react-router-dom";
 interface Props {
   title: string;
   content: string[];
@@ -34,7 +35,7 @@ const Accordion: React.FC<Props> = ({ title, content, activeIndex }) => {
       ) : (
         content.map((item, key) => (
           <AccordionList index={index} activeId={activeIndex} key={key}>
-            {item.replace("_", " ")}
+            <Link to={`/products/${item}`}>{item.replace("_", " ")}</Link>
           </AccordionList>
         ))
       )}
