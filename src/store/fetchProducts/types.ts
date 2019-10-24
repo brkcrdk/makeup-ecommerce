@@ -49,7 +49,7 @@ interface ProductsError {
   error: null;
 }
 //Exporting the action types
-export type ProductActionTypes =
+export type ProductsActionTypes =
   | ProductsFetch
   | ProductsSuccess
   | ProductsError;

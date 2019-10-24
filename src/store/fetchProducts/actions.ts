@@ -4,7 +4,7 @@ import {
   PRODUCTS_ERROR,
   PRODUCTS_SUCCESS,
   PRODUCTS_FETCH,
-  ProductActionTypes
+  ProductsActionTypes
 } from "./types";
 
 export function fetchProducts() {
@@ -14,7 +14,7 @@ export function fetchProducts() {
 
   //Defined dispatch type here
   //Which takes defined action types as a parameter
-  return (dispatch: Dispatch<ProductActionTypes>) => {
+  return (dispatch: Dispatch<ProductsActionTypes>) => {
     //When function is called first change isLoading to true
     //This way could use spinners and loaders
     dispatch({

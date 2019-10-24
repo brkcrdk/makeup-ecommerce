@@ -2,19 +2,19 @@ import {
   PRODUCTS_ERROR,
   PRODUCTS_SUCCESS,
   PRODUCTS_FETCH,
-  ProductActionTypes,
+  ProductsActionTypes,
   ProductsState
 } from "./types";
 //Initial data structure defined in types
 const initialState: ProductsState = {
   products: [],
-  isLoading: true,
+  isLoading: false,
   error: null
 };
 
 const fetchProductReducer = (
   state = initialState,
-  action: ProductActionTypes
+  action: ProductsActionTypes
 ) => {
   switch (action.type) {
     //If action type is fetching make start loading.
