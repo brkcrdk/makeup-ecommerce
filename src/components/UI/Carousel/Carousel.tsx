@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import * as _ from "lodash";
 import {
   Indicator,
   CaroContainer,
@@ -74,27 +75,22 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
 
     //Start state must be empty at first.
     //If start and end states are not empty work
-    if (end !== undefined && start !== undefined) {
-      //If difference smaller then +- 15 dont move
-      if (end - start >= 15) {
-        handleNext();
-      } else if (end - start <= -15) {
-        handlePrev();
-      }
-      setTimeout(() => {
-        setEnd(0);
-      }, 1000);
-    }
   };
   //If mouse goes over slider stop action
   const mouseLeave = () => {
     setIsDown(false);
   };
   //When mouse move stop selecting text and images
-  const mouseMove = (e: React.MouseEvent) => {
+  const mouseMove = _.debounce(() => {
     if (!isDown) return;
-    e.preventDefault();
-  };
+    if (end !== undefined && start !== undefined) {
+      if (end - start >= 15) {
+        handleNext();
+      } else if (end - start <= -15) {
+        handlePrev();
+      }
+    }
+  }, 300);
 
   //FOR TOUCHSCREEN ACTIONS
   const [touchStartX, setTouchStartX] = useState<number>();
@@ -112,8 +108,7 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
       }
     }
   };
-  console.log(`start:${start}`);
-  console.log(`end: ${end}`);
+
   //Rendering starts here
   const slides = React.Children.map(children, (slides, index) => (
     <SlideContent active={active} index={index} direction={direction}>
