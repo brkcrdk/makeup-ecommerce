@@ -11,7 +11,7 @@ export const getCategory = (data: []) => {
   const categories = productTypes.filter((value, index, self) => {
     return self.indexOf(value) === index;
   });
-  return categories;
+  return categories.sort();
 };
 
 export const getType = (data: []) => {
@@ -25,7 +25,7 @@ export const getType = (data: []) => {
   const types = productTypes.filter((value, index, self) => {
     return self.indexOf(value) === index;
   });
-  return types;
+  return types.sort();
 };
 //TODO: Will be using for filter section..
 export const getBrand = (data: []) => {
@@ -39,7 +39,7 @@ export const getBrand = (data: []) => {
   const brands = productTypes.filter((value, index, self) => {
     return self.indexOf(value) === index;
   });
-  return brands;
+  return brands.sort();
 };
 
 export const randomItems = (data: [], count?: number) => {
@@ -54,5 +54,5 @@ export const randomItems = (data: [], count?: number) => {
       return items;
     });
 
-  return Items;
+  return Items.sort();
 };
