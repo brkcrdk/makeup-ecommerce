@@ -21,7 +21,7 @@ const SecondSection: React.FC<Props> = () => {
       <WantedSection>
         <Wanted />
       </WantedSection>
-      <Parallax style={{ backgroundImage: `url(${img})` }}>
+      <Parallax>
         <h3>Tips & Tricks from Our Editors</h3>
       </Parallax>
       <Tips />

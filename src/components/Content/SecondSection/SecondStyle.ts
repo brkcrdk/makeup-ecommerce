@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { device, fonts, colours } from "../../utils";
+import parallax from "./p1.jpg";
 export const Container = styled.div`
   margin: 0 2em;
   width: 90%;
@@ -19,6 +20,7 @@ export const BrandSection = styled.div`
 export const WantedSection = styled.div``;
 
 export const Parallax = styled.div`
+  background-image: url(${parallax});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
