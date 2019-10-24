@@ -5,7 +5,6 @@ import {
   WantedSection,
   Parallax
 } from "./SecondStyle";
-import img from "./p1.jpg";
 
 import Tips from "./Tips/Tips";
 import Brands from "./Brands/Brands";

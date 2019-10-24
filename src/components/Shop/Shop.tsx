@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Container, BreadCrumb } from "./ShopStyle";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProduct } from "../../store/fetchProduct/actions";
 interface StoreProps {
@@ -11,7 +12,8 @@ interface StoreProps {
     pathname: string;
   };
 }
-const Shop: React.FC<StoreProps> = ({ location }) => {
+const Shop: React.FC<StoreProps> = ({ location }, match) => {
+  console.log(match);
   const dispatch = useDispatch();
   useEffect(() => {
     const searchType = location.pathname.split("/")[2];
@@ -23,11 +25,11 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
   );
 
   return (
-    <div style={{ paddingTop: "5em" }}>
-      <div style={{ border: "1px solid red" }}>
+    <Container>
+      <BreadCrumb>
         {isLoading ? "Loading please wait.." : "Shop is here"}
-      </div>
-    </div>
+      </BreadCrumb>
+    </Container>
   );
 };
 
