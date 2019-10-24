@@ -5,6 +5,7 @@ export const Container = styled.div`
   border-radius: 1em;
   font-family: ${fonts.raleway};
   transition: 0.3s;
+  cursor: pointer;
   @media ${device.mobileL} {
     &:hover {
       box-shadow: ${colours.darkerBoxShadow};
