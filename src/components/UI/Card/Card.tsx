@@ -29,7 +29,7 @@ const Card: React.FC<CardProps> = ({
     // TODO: use card container class to style card
     <Container className="card-container">
       <Img className="card-image" src={image} alt={`${name}-image`} />
-      <a href="#?">Burak</a>
+      Burak
       <CardContent>
         <Title className="card-title">{title}</Title>
         <Name className="card-name">{name}</Name>

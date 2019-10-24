@@ -70,8 +70,11 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
     if (sliderRef && sliderRef.current) {
       setEnd(e.pageX - sliderRef.current.offsetLeft);
     }
-    //If difference smaller then +- 15 dont move
+
+    //Start state must be empty at first.
+    //If start and end states are not empty work
     if (end !== undefined && start !== undefined) {
+      //If difference smaller then +- 15 dont move
       if (end - start >= 15) {
         handleNext();
       } else if (end - start <= -15) {
@@ -90,17 +93,19 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
   };
 
   //FOR TOUCHSCREEN ACTIONS
-  const [touchStartX, setTouchStartX] = useState(0);
-  const [touchEndX, setTouchEndX] = useState(0);
+  const [touchStartX, setTouchStartX] = useState<number>();
+  const [touchEndX, setTouchEndX] = useState<number>();
   const touchStart = (e: React.TouchEvent) => {
     setTouchStartX(e.touches[0].pageX);
   };
   const touchEnd = (e: React.TouchEvent) => {
     setTouchEndX(e.changedTouches[0].pageX);
-    if (touchEndX - touchStartX > 0) {
-      handleNext();
-    } else if (touchEndX - touchStartX < 0) {
-      handlePrev();
+    if (touchStartX !== undefined && touchEndX !== undefined) {
+      if (touchEndX - touchStartX > 0) {
+        handleNext();
+      } else if (touchEndX - touchStartX < 0) {
+        handlePrev();
+      }
     }
   };
   //Rendering starts here
