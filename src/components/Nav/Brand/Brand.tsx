@@ -6,7 +6,7 @@ import image from "./brand.png";
 const Brand: React.FC = () => {
   return (
     <Container>
-      <Link to="/">
+      <Link to="/shop">
         <Image src={image} />
         <Text>Bellezza</Text>
       </Link>
