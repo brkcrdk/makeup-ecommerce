@@ -14,13 +14,16 @@ export function fetchProduct(...params: string[]) {
       return i === 0;
     })
     .map((v, i) => v);
-  const restParam = params
+  const rest = params
     .filter((v, i) => {
       return i > 0;
     })
-    .map((v, i) => `${v}`);
-  const apiUrl = `http://makeup-api.herokuapp.com/api/v1/products.json?${firstParam}${restParam}`;
-  console.log({ ...restParam });
+    .map((v, i) => `&${v}`);
+  const restParam = "";
+  const apiUrl = `http://makeup-api.herokuapp.com/api/v1/products.json?${firstParam}${restParam.concat(
+    ...rest
+  )}`;
+  console.log(apiUrl);
   const request = axios.get(apiUrl);
 
   return (dispatch: Dispatch<ProductActionTypes>) => {
