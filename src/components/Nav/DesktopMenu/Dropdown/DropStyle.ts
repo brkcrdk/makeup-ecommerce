@@ -101,6 +101,9 @@ export const DropItem = styled.a`
   display: grid;
   text-transform: capitalize;
   cursor: pointer;
+  a {
+    text-decoration: none;
+  }
   @media ${device.tabletLaptop} {
     font-size: 1em;
   }

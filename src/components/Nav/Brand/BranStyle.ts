@@ -7,6 +7,10 @@ export const Container = styled.div`
   justify-content: center;
   text-align: center;
   margin-left: 1em;
+  a {
+    display: flex;
+    text-decoration: none;
+  }
   @media ${device.tabletLaptop} {
     margin: 1em 0 0 1em;
   }
