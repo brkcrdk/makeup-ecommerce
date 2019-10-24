@@ -9,6 +9,12 @@ import {
 } from "./types";
 
 export function fetchProduct(...params: string[]) {
+  //Dont know how mant filters will going to add
+  //First parameter wont get & sign
+  //Rest of the parameters will get & sign
+  //For that purpose first parameter filtered and added as a first parameter
+  //rest of the parameters mapped with & sign but this added comma for every parameter which will cause error
+  //For avoid this error concat rest parameters with & sign and this will not add comma
   const firstParam = params
     .filter((v, i) => {
       return i === 0;
