@@ -65,6 +65,26 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
   const mouseEnd = (e: React.MouseEvent) => {
     setIsDown(false);
     e.preventDefault();
+    //This is for typescript.
+    //ıf dont use this you get "object is null" error
+
+    if (sliderRef && sliderRef.current) {
+      setEnd(e.pageX - sliderRef.current.offsetLeft);
+    }
+
+    //Start state must be empty at first.
+    //If start and end states are not empty work
+    if (end !== undefined && start !== undefined) {
+      //If difference smaller then +- 15 dont move
+      if (end - start >= 15) {
+        handleNext();
+      } else if (end - start <= -15) {
+        handlePrev();
+      }
+      setTimeout(() => {
+        setEnd(0);
+      }, 1000);
+    }
   };
   //If mouse goes over slider stop action
   const mouseLeave = () => {
@@ -74,13 +94,6 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
   const mouseMove = (e: React.MouseEvent) => {
     if (!isDown) return;
     e.preventDefault();
-    if (sliderRef && sliderRef.current) {
-      setEnd(e.pageX - sliderRef.current.offsetLeft);
-    }
-    if (start !== undefined && end !== undefined) {
-      e.preventDefault();
-      console.log(`diff:${end - start}`);
-    }
   };
 
   //FOR TOUCHSCREEN ACTIONS
@@ -99,7 +112,8 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
       }
     }
   };
-
+  console.log(`start:${start}`);
+  console.log(`end: ${end}`);
   //Rendering starts here
   const slides = React.Children.map(children, (slides, index) => (
     <SlideContent active={active} index={index} direction={direction}>
