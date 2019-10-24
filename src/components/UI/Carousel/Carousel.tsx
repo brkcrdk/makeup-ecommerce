@@ -51,8 +51,8 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
   };
   //Swipe action for carousel
   const [isDown, setIsDown] = useState(false);
-  const [start, setStart] = useState(0);
-  const [end, setEnd] = useState(0);
+  const [start, setStart] = useState<number>();
+  const [end, setEnd] = useState<number>();
   const sliderRef = useRef<HTMLDivElement>(null);
   //FOR MOUSE ACTIONS
   const mouseStart = (e: React.MouseEvent) => {
@@ -66,14 +66,17 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
     e.preventDefault();
     //This is for typescript.
     //ıf dont use this you get "object is null" error
+
     if (sliderRef && sliderRef.current) {
       setEnd(e.pageX - sliderRef.current.offsetLeft);
     }
     //If difference smaller then +- 15 dont move
-    if (end - start >= 15) {
-      handleNext();
-    } else if (end - start <= -15) {
-      handlePrev();
+    if (end !== undefined && start !== undefined) {
+      if (end - start >= 15) {
+        handleNext();
+      } else if (end - start <= -15) {
+        handlePrev();
+      }
     }
   };
   //If mouse goes over slider stop action
@@ -96,7 +99,6 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
     setTouchEndX(e.changedTouches[0].pageX);
     if (touchEndX - touchStartX > 0) {
       handleNext();
-      handleNext();
     } else if (touchEndX - touchStartX < 0) {
       handlePrev();
     }
@@ -117,15 +119,18 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
   ));
 
   return (
-    <CaroContainer
-      ref={sliderRef}
-      onMouseDown={mouseStart}
-      onMouseUp={mouseEnd}
-      onMouseLeave={mouseLeave}
-      onMouseMove={mouseMove}
-      onTouchStart={touchStart}
-      onTouchEnd={touchEnd}>
-      <Content>
+    <CaroContainer>
+      <Content
+        ref={sliderRef}
+        onClick={(e: React.MouseEvent) => {
+          e.preventDefault();
+        }}
+        onMouseDown={mouseStart}
+        onMouseUp={mouseEnd}
+        onMouseLeave={mouseLeave}
+        onMouseMove={mouseMove}
+        onTouchStart={touchStart}
+        onTouchEnd={touchEnd}>
         <Slides handle={isDown}>{slides}</Slides>
         <ButtonContainer display={display}>
           <Prev onClick={handlePrev}>&#x2770;</Prev>
