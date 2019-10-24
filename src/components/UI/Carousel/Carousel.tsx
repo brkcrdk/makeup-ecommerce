@@ -100,6 +100,8 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
   };
   const touchEnd = (e: React.TouchEvent) => {
     setTouchEndX(e.changedTouches[0].pageX);
+  };
+  const touchMove = _.debounce(() => {
     if (touchStartX !== undefined && touchEndX !== undefined) {
       if (touchEndX - touchStartX > 0) {
         handleNext();
@@ -107,8 +109,7 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
         handlePrev();
       }
     }
-  };
-
+  }, 300);
   //Rendering starts here
   const slides = React.Children.map(children, (slides, index) => (
     <SlideContent active={active} index={index} direction={direction}>
@@ -136,7 +137,8 @@ const Carousel: React.FC<CaroTypes> = ({ children, display = "display" }) => {
         onMouseLeave={mouseLeave}
         onMouseMove={mouseMove}
         onTouchStart={touchStart}
-        onTouchEnd={touchEnd}>
+        onTouchEnd={touchEnd}
+        onTouchMove={touchMove}>
         <Slides handle={isDown}>{slides}</Slides>
         <ButtonContainer display={display}>
           <Prev onClick={handlePrev}>&#x2770;</Prev>
