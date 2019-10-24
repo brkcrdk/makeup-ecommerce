@@ -9,7 +9,7 @@ import {
 } from "./types";
 
 export function fetchProduct() {
-  const apiUrl = `http://makeup-api.herokuapp.com/api/v1/products.json`;
+  const apiUrl = `http://makeup-api.herokuapp.com/api/v1/products.json?`;
   const request = axios.get(apiUrl);
 
   return (dispatch: Dispatch<ProductActionTypes>) => {

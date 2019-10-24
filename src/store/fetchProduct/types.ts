@@ -34,7 +34,7 @@ interface ProductFetch {
 }
 interface ProductSuccess {
   type: typeof PRODUCT_SUCCESS;
-  payload: IProduct;
+  payload: IProduct[];
 }
 interface ProductError {
   type: typeof PRODUCT_ERROR;
