@@ -14,13 +14,13 @@ interface StoreProps {
 const Shop: React.FC<StoreProps> = ({ location }) => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchProduct());
+    const searchType = location.pathname.split("/")[2];
+    const searchInput = location.pathname.split("/")[3];
+    dispatch(fetchProduct(`${searchType}=${searchInput}`));
   }, [dispatch]);
   const isLoading = useSelector(
     (state: StoreProps) => state.storeProduct.isLoading
   );
-  const searchType = location.pathname.split("/")[2];
-  const searchInput = location.pathname.split("/")[3];
 
   return (
     <div style={{ paddingTop: "5em" }}>

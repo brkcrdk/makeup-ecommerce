@@ -8,8 +8,11 @@ import {
   ProductActionTypes
 } from "./types";
 
-export function fetchProduct() {
-  const apiUrl = `http://makeup-api.herokuapp.com/api/v1/products.json?`;
+export function fetchProduct(arg1: string, arg2?: string) {
+  const apiUrl = `http://makeup-api.herokuapp.com/api/v1/products.json?${arg1}&${
+    arg2 === undefined ? "" : arg2
+  }`;
+  console.log(apiUrl);
   const request = axios.get(apiUrl);
 
   return (dispatch: Dispatch<ProductActionTypes>) => {
