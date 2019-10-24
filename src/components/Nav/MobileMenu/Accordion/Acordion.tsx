@@ -9,9 +9,10 @@ interface Props {
   title: string;
   content: string[];
   activeIndex: number;
+  url: string;
 }
 
-const Accordion: React.FC<Props> = ({ title, content, activeIndex }) => {
+const Accordion: React.FC<Props> = ({ title, content, activeIndex, url }) => {
   const [index, setIndex] = useState(-1);
   //Accordion toggle
   const handleToggle = () => {
@@ -19,7 +20,6 @@ const Accordion: React.FC<Props> = ({ title, content, activeIndex }) => {
     //If accordion is open close
     if (index === activeIndex) return setIndex(-1);
   };
-
   return (
     <AccordionContainer>
       <AccordionContent
@@ -35,7 +35,7 @@ const Accordion: React.FC<Props> = ({ title, content, activeIndex }) => {
       ) : (
         content.map((item, key) => (
           <AccordionList index={index} activeId={activeIndex} key={key}>
-            <Link to={`/products/${item}`}>{item.replace("_", " ")}</Link>
+            <Link to={`/shop/${url}/${item}`}>{item.replace("_", " ")}</Link>
           </AccordionList>
         ))
       )}

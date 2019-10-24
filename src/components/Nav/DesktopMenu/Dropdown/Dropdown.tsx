@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 interface Props {
   title: string;
   content: string[];
+  url: string;
 }
 
-const Dropdown: React.FC<Props> = ({ title, content }) => {
+const Dropdown: React.FC<Props> = ({ title, content, url }) => {
   return (
     <DropContainer>
       <DropButton>{title}</DropButton>
@@ -16,7 +17,7 @@ const Dropdown: React.FC<Props> = ({ title, content }) => {
         ) : (
           content.map((item, key) => (
             <DropItem key={key}>
-              <Link to={`/products/${item}`}>
+              <Link to={`/shop/${url}/${item}`}>
                 &#9880; {item.replace("_", " ")}
               </Link>
             </DropItem>

@@ -1,8 +1,9 @@
 import React from "react";
 
-interface Props {}
+interface RouterProps {}
 
-const Shop: React.FC<Props> = () => {
+const Shop: React.FC<RouterProps> = (match) => {
+  console.log(match);
   return <div>Shop page..</div>;
 };
 

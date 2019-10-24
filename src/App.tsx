@@ -32,7 +32,7 @@ const App: React.FC = () => {
         <SideMenu />
         <NavBar />
         <Route path="/" exact component={Main} />
-        <Route path="/shop" component={Shop} />
+        <Route path="/shop/:id" component={Shop} />
       </Router>
     </div>
   );

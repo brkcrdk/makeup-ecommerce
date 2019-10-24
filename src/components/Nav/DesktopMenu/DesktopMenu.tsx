@@ -18,9 +18,9 @@ const DesktopMenu: React.FC = () => {
   const types = getType(products);
   return (
     <MenuContainer>
-      <Dropdown title="Types" content={types} />
-      <Dropdown title="Categories" content={categories} />
-      <Dropdown title="Brands" content={brands} />
+      <Dropdown title="Types" content={types} url="product_types" />
+      <Dropdown title="Categories" content={categories} url="category" />
+      <Dropdown title="Brands" content={brands} url="brand" />
     </MenuContainer>
   );
 };

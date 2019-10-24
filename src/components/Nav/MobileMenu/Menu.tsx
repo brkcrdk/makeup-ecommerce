@@ -28,9 +28,19 @@ const Menu: React.FC = () => {
         <input placeholder="Search here..." />
       </SearchClose>
 
-      <Acordion title={"Types"} content={types} activeIndex={0} />
-      <Acordion title={"Categories"} content={categories} activeIndex={1} />
-      <Acordion title={"Brand"} content={brands} activeIndex={2} />
+      <Acordion
+        title={"Types"}
+        content={types}
+        activeIndex={0}
+        url="product_types"
+      />
+      <Acordion
+        title={"Categories"}
+        content={categories}
+        activeIndex={1}
+        url="category"
+      />
+      <Acordion title={"Brand"} content={brands} activeIndex={2} url="brand" />
     </Container>
   );
 };
