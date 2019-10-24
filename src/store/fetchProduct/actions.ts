@@ -8,11 +8,19 @@ import {
   ProductActionTypes
 } from "./types";
 
-export function fetchProduct(arg1: string, arg2?: string) {
-  const apiUrl = `http://makeup-api.herokuapp.com/api/v1/products.json?${arg1}&${
-    arg2 === undefined ? "" : arg2
-  }`;
-  console.log(apiUrl);
+export function fetchProduct(...params: string[]) {
+  const firstParam = params
+    .filter((v, i) => {
+      return i === 0;
+    })
+    .map((v, i) => v);
+  const restParam = params
+    .filter((v, i) => {
+      return i > 0;
+    })
+    .map((v, i) => `${v}`);
+  const apiUrl = `http://makeup-api.herokuapp.com/api/v1/products.json?${firstParam}${restParam}`;
+  console.log({ ...restParam });
   const request = axios.get(apiUrl);
 
   return (dispatch: Dispatch<ProductActionTypes>) => {
