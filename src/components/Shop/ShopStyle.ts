@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import background from "./p11.jpg";
-import { colours } from "../utils";
+import { colours, fonts } from "../utils";
 export const Container = styled.div``;
 
 export const Parallax = styled.div`
@@ -9,7 +9,16 @@ export const Parallax = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 60vh;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h3 {
+    font-family: ${fonts.dancingScript};
+    font-style: italic;
+    font-size: 2em;
+    position: absolute;
+  }
 `;
 
 export const Content = styled.div`
