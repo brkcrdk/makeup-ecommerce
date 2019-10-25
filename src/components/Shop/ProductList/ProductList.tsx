@@ -6,13 +6,12 @@ interface Props {
 }
 
 const ProductList: React.FC<Props> = ({ products, isLoading }) => {
-  const [itemPerPage, setItemPerPage] = useState(15);
+  //PAGINATION STARTS HERE
+  const [itemPerPage] = useState(15);
   const [currentPage, setCurrentPage] = useState(1);
-
   const indexOfLastItem = currentPage * itemPerPage;
   const indexOfFirstItem = indexOfLastItem - itemPerPage;
   const currentProducts = products.slice(indexOfFirstItem, indexOfLastItem);
-
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(products.length / itemPerPage); i++) {
     pageNumbers.push(i);
@@ -21,14 +20,12 @@ const ProductList: React.FC<Props> = ({ products, isLoading }) => {
     e: React.MouseEvent<HTMLLIElement, MouseEvent>
   ): void => {
     let target = e.target as HTMLLIElement;
-    const id = parseFloat(target.id);
-    if (id > products.length) {
-      setCurrentPage(1);
-    } else {
-      setCurrentPage(id);
-    }
+    setCurrentPage(parseFloat(target.id));
   };
-
+  if (pageNumbers.length < currentPage) {
+    setCurrentPage(pageNumbers.length);
+  }
+  //RENDER STARTS HERE
   if (isLoading) return <p>Loading...</p>;
 
   return (
