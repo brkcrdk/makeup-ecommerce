@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Container, BreadCrumb } from "./ShopStyle";
+import { Container, Parallax } from "./ShopStyle";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProduct } from "../../store/fetchProduct/actions";
 interface StoreProps {
@@ -26,9 +26,10 @@ const Shop: React.FC<StoreProps> = ({ location, match }) => {
 
   return (
     <Container>
-      <BreadCrumb>
+      <Parallax>
+        Home/Shop/Some Item
         {isLoading ? "Loading please wait.." : "Shop is here"}
-      </BreadCrumb>
+      </Parallax>
     </Container>
   );
 };

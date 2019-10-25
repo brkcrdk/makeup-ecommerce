@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import SideMenu from "./components/Nav/MobileMenu/Menu";
 import Main from "./components/Content/Main";
 import Shop from "./components/Shop/Shop";
+import Box from "./components/Nav/DesktopMenu/Search/SearchBox/Box";
 interface Products {
   storeProducts: {
     isLoading: boolean;
@@ -31,6 +32,7 @@ const App: React.FC = () => {
     <div className="App">
       <Router>
         <SideMenu />
+        <Box />
         <NavBar />
         <Route path="/" exact component={Main} />
         <Route path="/shop" component={Shop} />

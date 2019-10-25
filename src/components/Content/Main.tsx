@@ -7,7 +7,6 @@ import {
   MiddleSection
 } from "./MainStyle";
 import { useSelector } from "react-redux";
-import Box from "../Nav/DesktopMenu/Search/SearchBox/Box";
 import FirstSection from "./FirstSection/FirstSection";
 import SecondSection from "./SecondSection/SecondSection";
 import Footer from "./Footer/Footer";
@@ -23,7 +22,6 @@ const Main: React.FC = () => {
   return (
     <Container>
       <Dimmed toggle={toggle}>
-        <Box />
         <MainSection>
           <Content>
             <FirstSection />
