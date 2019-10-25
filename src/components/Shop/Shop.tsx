@@ -32,7 +32,7 @@ const Shop: React.FC<StoreProps> = ({ location, match }) => {
   return (
     <Container>
       <Parallax>
-        <h3>Our Products</h3>
+        <h3>SHOP/</h3>
       </Parallax>
       <Content>
         <Filter />

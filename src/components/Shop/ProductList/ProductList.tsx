@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { IProduct } from "../../../store/fetchProduct/types";
 interface Props {
   products: IProduct[];
@@ -8,7 +8,7 @@ interface Props {
 const ProductList: React.FC<Props> = ({ products, isLoading }) => {
   //PAGINATION STARTS HERE
   const [itemPerPage] = useState(15);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
   const indexOfLastItem = currentPage * itemPerPage;
   const indexOfFirstItem = indexOfLastItem - itemPerPage;
   const currentProducts = products.slice(indexOfFirstItem, indexOfLastItem);
@@ -22,12 +22,20 @@ const ProductList: React.FC<Props> = ({ products, isLoading }) => {
     let target = e.target as HTMLLIElement;
     setCurrentPage(parseFloat(target.id));
   };
-  if (pageNumbers.length < currentPage) {
-    setCurrentPage(pageNumbers.length);
-  }
+  useEffect(() => {
+    handleActive();
+  }, [currentPage, pageNumbers]);
+
+  const handleActive = () => {
+    if (currentPage === 0) {
+      setCurrentPage(1);
+    } else if (currentPage > pageNumbers.length) {
+      setCurrentPage(1);
+    }
+  };
   //RENDER STARTS HERE
   if (isLoading) return <p>Loading...</p>;
-
+  console.log(currentPage);
   return (
     <div>
       {currentProducts.map((product, index) => (
