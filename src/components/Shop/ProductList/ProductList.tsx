@@ -21,10 +21,16 @@ const ProductList: React.FC<Props> = ({ products, isLoading }) => {
     e: React.MouseEvent<HTMLLIElement, MouseEvent>
   ): void => {
     let target = e.target as HTMLLIElement;
-    setCurrentPage(parseFloat(target.id));
+    const id = parseFloat(target.id);
+    if (id > products.length) {
+      setCurrentPage(1);
+    } else {
+      setCurrentPage(id);
+    }
   };
 
   if (isLoading) return <p>Loading...</p>;
+
   return (
     <div>
       {currentProducts.map((product, index) => (
