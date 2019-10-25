@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
-import { Container, Content } from "./ShopStyle";
+import { Container, Content, Parallax } from "./ShopStyle";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProduct } from "../../store/fetchProduct/actions";
+import ProductList from "./ProductList/ProductList";
+import Filter from "./Filter/Filter";
 interface StoreProps {
   storeProduct: {
     product: [];
@@ -26,13 +28,10 @@ const Shop: React.FC<StoreProps> = ({ location, match }) => {
 
   return (
     <Container>
+      <Parallax />
       <Content>
-        Home/Shop/Some Item
-        {isLoading ? "Loading please wait.." : "Shop is here"}
-        <p>
-          Home/Shop/Some Item
-          {isLoading ? "Loading please wait.." : "Shop is here"}
-        </p>
+        <Filter />
+        <ProductList />
       </Content>
     </Container>
   );
