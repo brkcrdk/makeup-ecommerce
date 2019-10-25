@@ -14,7 +14,7 @@ export const InputContainer = styled.div`
   display: flex;
   overflow: hidden;
   transition: transform 0.5s ease-in-out;
-  z-index: 99999999;
+  z-index: 1;
   @media ${device.desktop} {
     top: 8em;
     height: 5em;
@@ -40,7 +40,6 @@ export const Input = styled.input`
   font-family: ${fonts.montserrat};
   border: 1px solid lightgray;
   outline: none;
-  z-index: 99999999;
   @media ${device.desktop} {
     font-size: 2em;
   }
