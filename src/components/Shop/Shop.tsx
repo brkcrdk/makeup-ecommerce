@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Container, Content, Parallax } from "./ShopStyle";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProduct } from "../../store/fetchProduct/actions";
+import Footer from "../Content/Footer/Footer";
 import ProductList from "./ProductList/ProductList";
 import Filter from "./Filter/Filter";
 interface StoreProps {
@@ -25,7 +26,9 @@ const Shop: React.FC<StoreProps> = ({ location, match }) => {
   const isLoading = useSelector(
     (state: StoreProps) => state.storeProduct.isLoading
   );
-
+  const products = useSelector(
+    (state: StoreProps) => state.storeProduct.product
+  );
   return (
     <Container>
       <Parallax>
@@ -33,8 +36,9 @@ const Shop: React.FC<StoreProps> = ({ location, match }) => {
       </Parallax>
       <Content>
         <Filter />
-        <ProductList />
+        <ProductList products={products} isLoading={isLoading} />
       </Content>
+      <Footer />
     </Container>
   );
 };

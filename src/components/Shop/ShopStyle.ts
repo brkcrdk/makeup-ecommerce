@@ -22,11 +22,11 @@ export const Parallax = styled.div`
 `;
 
 export const Content = styled.div`
-  background-color: white;
-  border-radius: 2px;
-  box-shadow: ${colours.boxShadow};
   display: grid;
   grid-template-columns: 4fr 8fr;
+  background-color: ${colours.background};
+  border-radius: 2px;
+  box-shadow: ${colours.boxShadow};
   margin-top: -2em;
   margin-left: 0.7em;
   margin-right: 0.7em;
