@@ -35,7 +35,6 @@ const ProductList: React.FC<Props> = ({ products, isLoading }) => {
   };
   //RENDER STARTS HERE
   if (isLoading) return <p>Loading...</p>;
-  console.log(currentPage);
   return (
     <div>
       {currentProducts.map((product, index) => (

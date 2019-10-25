@@ -30,7 +30,6 @@ export function fetchProduct(...params: string[]) {
   const apiUrl = `http://makeup-api.herokuapp.com/api/v1/products.json?${firstParam}${restParam.concat(
     ...rest
   )}`;
-  console.log(apiUrl);
   const request = axios.get(apiUrl);
 
   return (dispatch: Dispatch<ProductActionTypes>) => {
