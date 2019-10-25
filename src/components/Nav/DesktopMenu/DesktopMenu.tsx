@@ -19,7 +19,7 @@ const DesktopMenu: React.FC = () => {
 
   return (
     <MenuContainer>
-      <Dropdown title="Types" content={types} url="product_types" />
+      <Dropdown title="Types" content={types} url="product_type" />
       <Dropdown
         title="Categories"
         content={categories}

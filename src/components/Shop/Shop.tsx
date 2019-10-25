@@ -14,7 +14,6 @@ interface StoreProps {
   match: {};
 }
 const Shop: React.FC<StoreProps> = ({ location, match }) => {
-  console.log(match);
   const dispatch = useDispatch();
   useEffect(() => {
     const searchType = location.pathname.split("/")[2];

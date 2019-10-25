@@ -32,7 +32,7 @@ const Menu: React.FC = () => {
         title={"Types"}
         content={types}
         activeIndex={0}
-        url="product_types"
+        url="product_type"
       />
       <Acordion
         title={"Categories"}

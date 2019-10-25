@@ -34,7 +34,7 @@ const App: React.FC = () => {
         <NavBar />
         <Route path="/" exact component={Main} />
         <Route path="/shop" component={Shop} />
-        {/* <Route path="/shop/:id" component={Shop} /> */}
+        <Route path="/shop:id" component={Shop} />
       </Router>
     </div>
   );
