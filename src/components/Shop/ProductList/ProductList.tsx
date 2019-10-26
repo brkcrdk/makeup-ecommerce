@@ -12,7 +12,7 @@ const ProductList: React.FC<Props> = ({ products, isLoading }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [upperBound, setUpperBound] = useState(5);
   const [lowerBound, setLowerBound] = useState(0);
-  const [pageBound, setPageBound] = useState(3);
+  const [pageBound, setPageBound] = useState(5);
   const indexOfLastItem = currentPage * itemPerPage;
   const indexOfFirstItem = indexOfLastItem - itemPerPage;
   const currentProducts = products.slice(indexOfFirstItem, indexOfLastItem);
