@@ -94,9 +94,15 @@ const Pagination: React.FC<Props> = ({ children }) => {
       {renderContent}
       <PaginationWrapper>
         <PagiBottom>
-          <PagiButton onClick={handlePrev}>&#8592; Prev</PagiButton>
+          <PagiButton disabled={activePage === 1} onClick={handlePrev}>
+            &#8592; Prev
+          </PagiButton>
           {renderPageNumbers}
-          <PagiButton onClick={handleNext}>Next &#8594;</PagiButton>
+          <PagiButton
+            disabled={activePage === pageNumbers.length}
+            onClick={handleNext}>
+            Next &#8594;
+          </PagiButton>
         </PagiBottom>
       </PaginationWrapper>
     </Container>
