@@ -1,21 +1,26 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { IProduct } from "../../../store/fetchProduct/types";
-import { Container, PageList } from "./ProductStyle";
+import { Container, Pagination, PageList, PageContent } from "./ProductStyle";
 
 interface Props {
-  products: IProduct[];
-  isLoading: boolean;
+  // products: IProduct[];
+  // isLoading: boolean;
+  children: React.ReactNode;
 }
 
-const ProductList: React.FC<Props> = ({ products, isLoading }) => {
+const ProductList: React.FC<Props> = ({ children }) => {
   const [itemPerPage] = useState(15);
   const [currentPage, setCurrentPage] = useState(0);
   const [upperBound, setUpperBound] = useState(5);
   const [lowerBound, setLowerBound] = useState(0);
-  const [pageBound, setPageBound] = useState(5);
+  const [pageBound] = useState(5);
   const indexOfLastItem = currentPage * itemPerPage;
   const indexOfFirstItem = indexOfLastItem - itemPerPage;
+  const products = React.Children.map(children, (children, index) => {
+    return children;
+  });
   const currentProducts = products.slice(indexOfFirstItem, indexOfLastItem);
+
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(products.length / itemPerPage); i++) {
     pageNumbers.push(i);
@@ -26,6 +31,7 @@ const ProductList: React.FC<Props> = ({ products, isLoading }) => {
     let target = e.target as HTMLLIElement;
     setCurrentPage(parseFloat(target.id));
   };
+
   const handleActive = useCallback(() => {
     if (currentPage === 0) {
       setCurrentPage(1);
@@ -33,6 +39,7 @@ const ProductList: React.FC<Props> = ({ products, isLoading }) => {
       setCurrentPage(1);
     }
   }, [currentPage, pageNumbers.length]);
+
   useEffect(() => {
     handleActive();
   }, [currentPage, pageNumbers, handleActive]);
@@ -56,29 +63,32 @@ const ProductList: React.FC<Props> = ({ products, isLoading }) => {
     }
   };
   //RENDER STARTS HERE
-  if (isLoading) return <p>Loading...</p>;
+  // if (isLoading) return <p>Loading...</p>;
 
   const renderPageNumbers = pageNumbers.map((number, index) => {
     if (number < upperBound + 1 && number > lowerBound) {
       return (
-        <li key={index} id={`${number}`} onClick={handleCurrentPage}>
+        <PageList key={index} id={`${number}`} onClick={handleCurrentPage}>
           {number}
-        </li>
+        </PageList>
       );
     }
   });
 
+  const renderContent = React.Children.map(
+    currentProducts,
+    (children, index) => <PageContent>{children}</PageContent>
+  );
   return (
     <Container>
-      {currentProducts.map((product, index) => (
-        <li key={index}>{product.name}</li>
-      ))}
-      <PageList>
-        <button onClick={handlePrev}>Prev</button>
-        {renderPageNumbers}
-        <button onClick={handleNext}>Next</button>
-        <span>{`active: ${currentPage}`}</span>
-      </PageList>
+      {renderContent}
+      <Pagination>
+        <div>
+          <button onClick={handlePrev}>&#8592; Prev</button>
+          {renderPageNumbers}
+          <button onClick={handleNext}>Next &#8594;</button>
+        </div>
+      </Pagination>
     </Container>
   );
 };
