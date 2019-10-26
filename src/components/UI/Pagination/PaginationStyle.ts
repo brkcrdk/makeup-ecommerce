@@ -39,4 +39,8 @@ export const PagiButton = styled.button`
   border: none;
   background: none;
   outline: none;
+  cursor: pointer;
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;
