@@ -8,6 +8,7 @@ interface Props {
 const ProductList: React.FC<Props> = ({ products, isLoading }) => {
   //PAGINATION STARTS HERE
   const [itemPerPage] = useState(15);
+  //Set current page 0 to initial value which active page
   const [currentPage, setCurrentPage] = useState(0);
   const indexOfLastItem = currentPage * itemPerPage;
   const indexOfFirstItem = indexOfLastItem - itemPerPage;
@@ -22,10 +23,10 @@ const ProductList: React.FC<Props> = ({ products, isLoading }) => {
     let target = e.target as HTMLLIElement;
     setCurrentPage(parseFloat(target.id));
   };
-  useEffect(() => {
-    handleActive();
-  }, [currentPage, pageNumbers]);
-
+  //This function runs when page is loading
+  //When other product link is click pageNumber array length might change
+  //When this happens currentPage might be bigger than the pageNumber length
+  //This cause blank page error. To fix this bug when page loading set currentPage to 1
   const handleActive = () => {
     if (currentPage === 0) {
       setCurrentPage(1);
@@ -33,6 +34,10 @@ const ProductList: React.FC<Props> = ({ products, isLoading }) => {
       setCurrentPage(1);
     }
   };
+  useEffect(() => {
+    handleActive();
+  }, [currentPage, pageNumbers, handleActive]);
+
   //RENDER STARTS HERE
   if (isLoading) return <p>Loading...</p>;
   return (
