@@ -36,47 +36,7 @@ const Shop: React.FC<StoreProps> = ({ location, match }) => {
       </Parallax>
       <Content>
         <Filter />
-        <ProductList>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-          <li>Burak</li>
-        </ProductList>
+        <ProductList isLoading={isLoading} products={products} />
       </Content>
       <Footer />
     </Container>
