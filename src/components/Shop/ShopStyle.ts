@@ -1,7 +1,9 @@
 import styled from "styled-components";
-import background from "./p11.jpg";
+import background from "./p1.jpg";
 import { colours, fonts } from "../utils";
-export const Container = styled.div``;
+export const Container = styled.div`
+  padding-top: 5.5em;
+`;
 
 export const Parallax = styled.div`
   background-image: url(${background});
@@ -27,7 +29,6 @@ export const Content = styled.div`
   background-color: ${colours.background};
   border-radius: 2px;
   box-shadow: ${colours.boxShadow};
-  margin-top: -2em;
   margin-left: 0.7em;
   margin-right: 0.7em;
 `;

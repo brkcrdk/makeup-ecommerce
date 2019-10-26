@@ -31,6 +31,7 @@ export const PagiList = styled.li`
   padding: 0.5em 1em;
   margin: 0 0.5em;
   list-style: none;
+  transition: 0.5s;
   cursor: pointer;
 `;
 
