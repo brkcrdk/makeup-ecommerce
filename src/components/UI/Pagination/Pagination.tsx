@@ -70,7 +70,12 @@ const Pagination: React.FC<Props> = ({ children }) => {
   const renderPageNumbers = pageNumbers.map((number, index) => {
     if (number < upperBound + 1 && number > lowerBound) {
       return (
-        <PageList key={index} id={`${number}`} onClick={handleActivePage}>
+        <PageList
+          key={index}
+          id={`${number}`}
+          activePage={activePage}
+          activeId={number}
+          onClick={handleActivePage}>
           {number}
         </PageList>
       );
