@@ -11,12 +11,13 @@ export const Parallax = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 50vh;
+  height: 40vh;
   display: flex;
   justify-content: center;
   align-items: center;
   h3 {
-    font-family: ${fonts.dancingScript};
+    color: ${colours.pink};
+    font-family: ${fonts.raleway};
     font-style: italic;
     font-size: 2em;
     position: absolute;
@@ -25,10 +26,11 @@ export const Parallax = styled.div`
 
 export const Content = styled.div`
   display: grid;
-  grid-template-columns: 4fr 8fr;
+  grid-template-columns: 3fr 9fr;
   background-color: ${colours.background};
   border-radius: 2px;
   box-shadow: ${colours.boxShadow};
+  /* margin-top: -2em; */
   margin-left: 0.7em;
   margin-right: 0.7em;
 `;
