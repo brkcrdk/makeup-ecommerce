@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React from "react";
 import { IProduct } from "../../../store/fetchProduct/types";
-// import { Container, Pagination, PageList, PageContent } from "./ProductStyle";
 import Pagination from "../../UI/Pagination/Pagination";
 interface Props {
   products: IProduct[];
