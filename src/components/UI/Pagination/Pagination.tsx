@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
 import {
-  PageContent,
-  PageList,
+  PagiContent,
+  PagiList,
   Container,
-  PaginationWrapper
+  PaginationWrapper,
+  PagiButton,
+  PagiBottom
 } from "./PaginationStyle";
 interface Props {
   children: React.ReactNode;
@@ -70,30 +72,30 @@ const Pagination: React.FC<Props> = ({ children }) => {
   const renderPageNumbers = pageNumbers.map((number, index) => {
     if (number < upperBound + 1 && number > lowerBound) {
       return (
-        <PageList
+        <PagiList
           key={index}
           id={`${number}`}
           activePage={activePage}
           activeId={number}
           onClick={handleActivePage}>
           {number}
-        </PageList>
+        </PagiList>
       );
     }
   });
   //Render content
   const renderContent = React.Children.map(activeContent, (children, index) => (
-    <PageContent>{children}</PageContent>
+    <PagiContent>{children}</PagiContent>
   ));
   return (
     <Container>
       {renderContent}
       <PaginationWrapper>
-        <div>
-          <button onClick={handlePrev}>&#8592; Prev</button>
+        <PagiBottom>
+          <PagiButton onClick={handlePrev}>&#8592; Prev</PagiButton>
           {renderPageNumbers}
-          <button onClick={handleNext}>Next &#8594;</button>
-        </div>
+          <PagiButton onClick={handleNext}>Next &#8594;</PagiButton>
+        </PagiBottom>
       </PaginationWrapper>
     </Container>
   );

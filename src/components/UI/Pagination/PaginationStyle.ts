@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { colours, fonts } from "../../utils";
 
 export const Container = styled.div``;
+export const PagiContent = styled.div``;
 
 export const PaginationWrapper = styled.div`
   display: flex;
@@ -14,14 +15,8 @@ export const PaginationWrapper = styled.div`
     border: 1px solid ${colours.pink};
     padding: 0.5em;
   }
-  button {
-    color: ${colours.primaryText};
-    border: none;
-    background: none;
-    outline: none;
-  }
 `;
-interface PagelistProps {
+interface PagilistProps {
   activePage: number;
   activeId: number;
 }
@@ -30,12 +25,18 @@ const active = `
   background-color:${colours.pink};
   color:white;  
 `;
-
-export const PageList = styled.li`
-  ${(p: PagelistProps) => (p.activePage === p.activeId ? active : "")}
+export const PagiBottom = styled.div``;
+export const PagiList = styled.li`
+  ${(p: PagilistProps) => (p.activePage === p.activeId ? active : "")}
   padding: 0.5em 1em;
   margin: 0 0.5em;
   list-style: none;
   cursor: pointer;
 `;
-export const PageContent = styled.div``;
+
+export const PagiButton = styled.button`
+  color: ${colours.primaryText};
+  border: none;
+  background: none;
+  outline: none;
+`;
