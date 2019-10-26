@@ -69,31 +69,22 @@ const Pagination: React.FC<Props> = ({ children }) => {
 
   //RENDERING ACTIONS
   //Render Numbers
-  const renderPageNumbers = pageNumbers.map((number, index) => {
-    if (number < upperBound + 1 && number > lowerBound) {
-      return (
-        <PagiList
-          key={index}
-          id={`${number}`}
-          activePage={activePage}
-          activeId={number}
-          onClick={handleActivePage}>
-          {number}
-        </PagiList>
-      );
-    } else {
-      return (
-        <PagiList
-          key={index}
-          id={`${number}`}
-          activePage={activePage}
-          activeId={number}
-          onClick={handleActivePage}>
-          {number}
-        </PagiList>
-      );
-    }
-  });
+
+  const renderPageNumbers = pageNumbers
+    .filter((number, index) => {
+      return number < upperBound + 1 && number > lowerBound;
+    })
+    .map((number, index) => (
+      <PagiList
+        key={index}
+        id={`${number}`}
+        activeId={number}
+        activePage={activePage}
+        onClick={handleActivePage}>
+        {number}
+      </PagiList>
+    ));
+
   //Render content
   const renderContent = React.Children.map(activeContent, (children, index) => (
     <PagiContent key={index}>{children}</PagiContent>
