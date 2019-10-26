@@ -83,7 +83,13 @@ const Pagination: React.FC<Props> = ({ children }) => {
   return (
     <Container>
       {renderContent}
-      <PaginationWrapper>{renderPageNumbers}</PaginationWrapper>
+      <PaginationWrapper>
+        <div>
+          <button onClick={handlePrev}>&#8592; Prev</button>
+          {renderPageNumbers}
+          <button onClick={handleNext}>Next &#8594;</button>
+        </div>
+      </PaginationWrapper>
     </Container>
   );
 };
