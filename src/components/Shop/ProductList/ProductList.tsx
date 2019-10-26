@@ -10,7 +10,9 @@ interface Props {
 const ProductList: React.FC<Props> = ({ products, isLoading }) => {
   const [itemPerPage] = useState(15);
   const [currentPage, setCurrentPage] = useState(0);
-
+  const [upperBound, setUpperBound] = useState(5);
+  const [lowerBound, setLowerBound] = useState(0);
+  const [pageBound, setPageBound] = useState(3);
   const indexOfLastItem = currentPage * itemPerPage;
   const indexOfFirstItem = indexOfLastItem - itemPerPage;
   const currentProducts = products.slice(indexOfFirstItem, indexOfLastItem);
@@ -36,11 +38,19 @@ const ProductList: React.FC<Props> = ({ products, isLoading }) => {
   }, [currentPage, pageNumbers, handleActive]);
 
   const handleNext = () => {
-    if (currentPage !== pageNumbers.length + 1) {
+    if (currentPage + 1 > upperBound) {
+      setUpperBound(upperBound + pageBound);
+      setLowerBound(lowerBound + pageBound);
+    }
+    if (currentPage !== pageNumbers.length) {
       setCurrentPage(currentPage + 1);
     }
   };
   const handlePrev = () => {
+    if ((currentPage - 1) % pageBound === 0) {
+      setUpperBound(upperBound - pageBound);
+      setLowerBound(lowerBound - pageBound);
+    }
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
     }
@@ -49,11 +59,13 @@ const ProductList: React.FC<Props> = ({ products, isLoading }) => {
   if (isLoading) return <p>Loading...</p>;
 
   const renderPageNumbers = pageNumbers.map((number, index) => {
-    return (
-      <li key={index} id={`${number}`} onClick={handleCurrentPage}>
-        {number}
-      </li>
-    );
+    if (number < upperBound + 1 && number > lowerBound) {
+      return (
+        <li key={index} id={`${number}`} onClick={handleCurrentPage}>
+          {number}
+        </li>
+      );
+    }
   });
 
   return (
@@ -65,6 +77,7 @@ const ProductList: React.FC<Props> = ({ products, isLoading }) => {
         <button onClick={handlePrev}>Prev</button>
         {renderPageNumbers}
         <button onClick={handleNext}>Next</button>
+        <span>{`active: ${currentPage}`}</span>
       </PageList>
     </Container>
   );
