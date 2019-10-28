@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import {
   PagiContent,
+  ContentWrapper,
   PagiList,
   Container,
   PaginationWrapper,
@@ -91,7 +92,7 @@ const Pagination: React.FC<Props> = ({ children }) => {
   ));
   return (
     <Container>
-      {renderContent}
+      <ContentWrapper>{renderContent}</ContentWrapper>
       <PaginationWrapper>
         <PagiBottom>
           <PagiButton disabled={activePage === 1} onClick={handlePrev}>

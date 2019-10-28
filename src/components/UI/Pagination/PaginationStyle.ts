@@ -2,6 +2,13 @@ import styled from "styled-components";
 import { colours, fonts } from "../../utils";
 
 export const Container = styled.div``;
+export const ContentWrapper = styled.div`
+  border: 1px solid red;
+  display: grid;
+  grid-template-columns: repeat(4, 3fr);
+  grid-gap: 1em;
+`;
+
 export const PagiContent = styled.div``;
 
 export const PaginationWrapper = styled.div`
