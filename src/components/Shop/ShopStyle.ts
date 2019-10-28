@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colours, fonts } from "../utils";
+import { colours, fonts, device } from "../utils";
 export const Container = styled.div`
   /* padding-top: 5.5em; */
   background-color: white;
@@ -27,11 +27,13 @@ export const Parallax = styled.div`
 export const Content = styled.div`
   display: grid;
   grid-template-columns: 3fr 9fr;
-  /* background-color: ${colours.background}; */
   border-radius: 2px;
   box-shadow: ${colours.boxShadow};
   margin-top: -2em;
   margin-left: 0.7em;
   margin-right: 0.7em;
   padding: 1em;
+  @media ${device.mobileS} {
+    grid-template-columns: 1fr;
+  }
 `;

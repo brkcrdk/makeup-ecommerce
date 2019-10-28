@@ -1,12 +1,16 @@
 import styled from "styled-components";
-import { colours, fonts } from "../../utils";
+import { colours, fonts, device } from "../../utils";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  width: 100%;
+`;
 export const ContentWrapper = styled.div`
-  border: 1px solid red;
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 3fr);
-  grid-gap: 1em;
+  grid-template-columns: repeat(3, 4fr);
+  @media ${device.mobileS} {
+    grid-template-columns: repeat(1, 12fr);
+  }
 `;
 
 export const PagiContent = styled.div``;
@@ -29,15 +33,15 @@ interface PagilistProps {
 }
 
 const active = `
-  background-color:${colours.pink};
-  color:white;  
+  border-bottom:2px solid ${colours.pink};
 `;
-export const PagiBottom = styled.div``;
+export const PagiBottom = styled.div`
+  margin-top: 0.5em;
+`;
 export const PagiList = styled.li`
   ${(p: PagilistProps) => (p.activePage === p.activeId ? active : "")}
-  padding: 0.5em 1em;
-  margin: 0 0.5em;
   list-style: none;
+  padding: 0 0.3em;
   transition: 0.5s;
   cursor: pointer;
 `;
