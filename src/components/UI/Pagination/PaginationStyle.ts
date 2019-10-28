@@ -21,9 +21,6 @@ export const ContentWrapper = styled.div`
   @media ${device.laptop} {
     grid-template-columns: repeat(4, 3fr);
   }
-  @media ${device.laptopL} {
-    grid-template-columns: repeat(6, 2fr);
-  }
 `;
 
 export const PagiContent = styled.div``;
