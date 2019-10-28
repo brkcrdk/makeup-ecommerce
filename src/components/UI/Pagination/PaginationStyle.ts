@@ -7,9 +7,22 @@ export const Container = styled.div`
 export const ContentWrapper = styled.div`
   width: 100%;
   display: grid;
+  grid-gap: 1em;
   grid-template-columns: repeat(3, 4fr);
   @media ${device.mobileS} {
     grid-template-columns: repeat(1, 12fr);
+  }
+  @media ${device.mobileL} {
+    grid-template-columns: repeat(2, 6fr);
+  }
+  @media ${device.tablet} {
+    grid-template-columns: repeat(3, 4fr);
+  }
+  @media ${device.laptop} {
+    grid-template-columns: repeat(4, 3fr);
+  }
+  @media ${device.laptopL} {
+    grid-template-columns: repeat(6, 2fr);
   }
 `;
 
