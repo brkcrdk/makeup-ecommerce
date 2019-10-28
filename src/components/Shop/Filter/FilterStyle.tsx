@@ -11,9 +11,9 @@ export const Container = styled.div`
     }
     .multi-range {
       position: relative;
-      width: 160px;
+      width: 100%;
       height: 28px;
-      margin: 16px;
+      /* margin: 16px; */
       border: 1px solid #ddd;
       font-family: monospace;
     }

@@ -8,12 +8,12 @@ const Filter: React.FC<Props> = () => {
   const [max, setMax] = useState(100);
   const handleMin = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value);
-    if (e.target.id === "input1") setMin(value);
+    if (e.target.id === "input1" && value < max) setMin(value);
   };
 
   const handleMax = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value);
-    if (e.target.id === "input2") setMax(value);
+    if (e.target.id === "input2" && value > min) setMax(value);
   };
 
   return (
@@ -28,7 +28,7 @@ const Filter: React.FC<Props> = () => {
             type="range"
             min="0"
             max="99"
-            step="5"
+            step="1"
             value={min}
             onChange={handleMin}
           />
