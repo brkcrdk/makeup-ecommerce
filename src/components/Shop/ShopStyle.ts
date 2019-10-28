@@ -2,11 +2,11 @@ import styled from "styled-components";
 import { colours, fonts } from "../utils";
 export const Container = styled.div`
   /* padding-top: 5.5em; */
-  background-color: ${colours.background};
+  background-color: white;
 `;
 
 export const Parallax = styled.div`
-  background-color: ${colours.background};
+  background-color: white;
   /* background-attachment: fixed; */
   /* background-position: center; */
   /* background-repeat: no-repeat; */
