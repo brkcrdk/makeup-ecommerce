@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container } from "./FilterStyle";
+import { setMaxListeners } from "cluster";
 interface Props {}
 
 const Filter: React.FC<Props> = () => {
@@ -7,38 +8,43 @@ const Filter: React.FC<Props> = () => {
   const [max, setMax] = useState(100);
   const handleMin = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value);
-    if (value >= 0 && value <= 100) {
-      setMin(value);
-    } else {
-      alert("value must be 0-100");
-    }
+    if (e.target.id === "input1") setMin(value);
   };
 
   const handleMax = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value);
-    if (value >= 0 && value <= 100) {
-      setMin(value);
-    } else {
-      alert("value must be 0-100");
-    }
+    if (e.target.id === "input2") setMax(value);
   };
-  const slider = React.createElement("input", {
-    type: "range",
-    max: "100",
-    min: 0,
-    step: 1,
-    value: "10"
-  });
 
   return (
     <Container>
       <h3>Filter By</h3>
       <hr />
       <div>
-        <span className="multi-range">
-          <input type="range" min="0" max="50" value="5" id="lower" />
-          <input type="range" min="0" max="50" value="45" id="upper" />
-        </span>
+        <div className="multi-range" data-lbound="0" data-ubound="100">
+          <hr />
+          <input
+            id="input1"
+            type="range"
+            min="0"
+            max="99"
+            step="5"
+            value={min}
+            onChange={handleMin}
+          />
+          <input
+            id="input2"
+            type="range"
+            min="5"
+            max="100"
+            step="1"
+            value={max}
+            onChange={handleMax}
+          />
+        </div>
+        <p>
+          min{min} max{max}
+        </p>
       </div>
     </Container>
   );
