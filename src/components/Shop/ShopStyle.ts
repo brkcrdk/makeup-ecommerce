@@ -1,17 +1,17 @@
 import styled from "styled-components";
-import background from "./p1.jpg";
 import { colours, fonts } from "../utils";
 export const Container = styled.div`
-  padding-top: 5.5em;
+  /* padding-top: 5.5em; */
+  background-color: ${colours.background};
 `;
 
 export const Parallax = styled.div`
-  background-image: url(${background});
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 40vh;
+  background-color: ${colours.background};
+  /* background-attachment: fixed; */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,10 +27,11 @@ export const Parallax = styled.div`
 export const Content = styled.div`
   display: grid;
   grid-template-columns: 3fr 9fr;
-  background-color: ${colours.background};
+  /* background-color: ${colours.background}; */
   border-radius: 2px;
   box-shadow: ${colours.boxShadow};
-  /* margin-top: -2em; */
+  margin-top: -2em;
   margin-left: 0.7em;
   margin-right: 0.7em;
+  padding: 1em;
 `;

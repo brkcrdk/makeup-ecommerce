@@ -1,4 +1,5 @@
 import React from "react";
+import { Container } from "./ProductStyle";
 import { IProduct } from "../../../store/fetchProduct/types";
 import Pagination from "../../UI/Pagination/Pagination";
 interface Props {
@@ -8,11 +9,13 @@ interface Props {
 
 const ProductList: React.FC<Props> = ({ products, isLoading }) => {
   return (
-    <Pagination>
-      {products.map((product, index) => (
-        <li>{product.name}</li>
-      ))}
-    </Pagination>
+    <Container>
+      <Pagination>
+        {products.map((product, index) => (
+          <li>{product.name}</li>
+        ))}
+      </Pagination>
+    </Container>
   );
 };
 

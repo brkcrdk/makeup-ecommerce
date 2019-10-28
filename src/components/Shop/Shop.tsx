@@ -31,9 +31,9 @@ const Shop: React.FC<StoreProps> = ({ location, match }) => {
   );
   return (
     <Container>
-      {/* <Parallax>
+      <Parallax>
         <h3>Shop</h3>
-      </Parallax> */}
+      </Parallax>
       <Content>
         <Filter />
         <ProductList isLoading={isLoading} products={products} />

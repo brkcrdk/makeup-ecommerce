@@ -1,9 +1,9 @@
 import React from "react";
-
+import { Container } from "./FilterStyle";
 interface Props {}
 
 const Filter: React.FC<Props> = () => {
-  return <div style={{ border: "1px solid red" }}>Filter section</div>;
+  return <Container>Filter section</Container>;
 };
 
 export default Filter;
