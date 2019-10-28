@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { device, fonts, colours } from "../../utils";
 export const Container = styled.div`
   width: 100%;
-  border-radius: 1em;
   font-family: ${fonts.raleway};
   transition: 0.3s;
   cursor: pointer;
@@ -24,15 +23,18 @@ export const Container = styled.div`
 export const Img = styled.img`
   width: 100%;
   height: 10em;
+  padding-bottom: 0.5em;
 `;
 export const CardContent = styled.div`
   padding: 0.5em;
   margin-top: -1.5em;
+  min-height: 8em;
   color: ${colours.primaryText};
   background-color: ${colours.backgroundDarker};
-  div {
+  .card-content {
+    padding-top: 0.5em;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-end;
   }
 `;
@@ -42,8 +44,13 @@ export const Title = styled.h4`
   font-size: 0.9em;
 `;
 export const Name = styled.p`
-  display: flex;
-  justify-content: flex-start;
+  /* display: flex;
+         justify-content: flex-start; */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin-top: -1em;
   font-size: 0.8em;
   font-weight: 400;

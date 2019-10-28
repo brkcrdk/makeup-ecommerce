@@ -13,7 +13,7 @@ interface Props {
 }
 
 const Pagination: React.FC<Props> = ({ children }) => {
-  const [itemPerPage] = useState(15);
+  const [itemPerPage] = useState(12);
   const [activePage, setActivePage] = useState(0);
   const [upperBound, setUpperBound] = useState(5);
   const [lowerBound, setLowerBound] = useState(0);
