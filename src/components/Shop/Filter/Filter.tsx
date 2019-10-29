@@ -5,8 +5,6 @@ interface Props {}
 
 const Filter: React.FC<Props> = () => {
   const [values, setValues] = useState({ min: 0, max: 100 });
-  // const handleSlider = (e: React.ChangeEvent<HTMLInputElement>) => {
-  // };
 
   return (
     <Container>
@@ -15,7 +13,7 @@ const Filter: React.FC<Props> = () => {
       <div>
         <Slider
           rangeMin={0}
-          rangeMax={200}
+          rangeMax={100}
           values={values}
           setValues={setValues}
         />
