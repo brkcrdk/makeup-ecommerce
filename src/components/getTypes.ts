@@ -58,12 +58,30 @@ export const randomItems = (data: [], count?: number) => {
 };
 
 export const getColours = (data: []) => {
-  const colours = data
+  const productColours = data
     .filter((items: IProducts) => {
       return items.product_colors.length > 0;
     })
     .map((item: IProducts, index) => {
       return item.product_colors;
     });
-  return colours;
+
+  return productColours;
+};
+
+export const getTags = (data: []) => {
+  const tagList: string[] = [];
+  const productTags = data
+    .filter((items: IProducts) => {
+      return items.tag_list.length > 0;
+    })
+    .map((item: IProducts) => {
+      return item.tag_list.map((tag) => {
+        return tagList.push(tag);
+      });
+    });
+  const tag = tagList.filter((value, index, self) => {
+    return self.indexOf(value) === index;
+  });
+  return tag;
 };

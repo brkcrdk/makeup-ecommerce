@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container } from "./FilterStyle";
 import Slider from "../../UI/Slider/Slider";
-import { getColours } from "../../getTypes";
+import { getColours, getTags } from "../../getTypes";
 
 interface Props {
   products: [];
@@ -11,7 +11,8 @@ interface Props {
 const Filter: React.FC<Props> = ({ products }) => {
   const [values, setValues] = useState({ min: 0, max: 100 });
 
-  console.log(getColours(products));
+  // console.log(getColours(products));
+  console.log(getTags(products));
   return (
     <Container>
       <h3>Filter By</h3>
