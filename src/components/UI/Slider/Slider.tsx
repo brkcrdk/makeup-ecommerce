@@ -70,12 +70,14 @@ interface Props {
 const Slider: React.FC<Props> = ({ rangeMax, rangeMin, values, setValues }) => {
   const handleMin = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value);
-    if (e.target.id === "min" && value < values.max) Re;
+    if (e.target.id === "min" && value < values.max)
+      setValues({ min: value, max: values.max });
   };
 
   const handleMax = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value);
-    if (e.target.id === "max" && value > values.min) setMax(value);
+    if (e.target.id === "max" && value > values.min)
+      setValues({ min: values.min, max: value });
   };
   return (
     <Container>
