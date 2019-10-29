@@ -1,8 +1,17 @@
 import styled from "styled-components";
 
+const thumbStyle = `
+    transform: translateY(-14px);
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    height: 1em;
+    width: 1em;
+    background: red;
+    border-radius: 50%;`;
+
 export const SlideWrapper = styled.div`
   display: flex;
-
   .multi-range,
   .multi-range * {
     box-sizing: border-box;
@@ -21,8 +30,6 @@ export const SlideWrapper = styled.div`
       width: 100%;
       top: 50%;
     }
-  }
-  .multi-range {
     input[type="range"] {
       -webkit-appearance: none;
       width: calc(100% - 16px);
@@ -32,34 +39,28 @@ export const SlideWrapper = styled.div`
       &:last-of-type {
         margin-left: 16px;
       }
+
       &::-webkit-slider-thumb {
-        transform: translateY(-18px);
+        ${thumbStyle}
+      }
+      &::-moz-range-thumb {
+        ${thumbStyle}
+      }
+      &::-ms-thumb {
+        ${thumbStyle}
+      }
+      &::-webkit-slider-runnable-track {
         -webkit-appearance: none;
-        appearance: none;
-        cursor: pointer;
-        height: 2em;
-        width: 2em;
-        background: red;
+        height: 0px;
+      }
+      &::-moz-range-track {
+        -webkit-appearance: none;
+        height: 0px;
+      }
+      &::-ms-track {
+        -webkit-appearance: none;
+        height: 0px;
       }
     }
-  }
-
-  .multi-range > input[type="range"]::-webkit-slider-runnable-track {
-    -webkit-appearance: none;
-    height: 0px;
-  }
-  .multi-range > input[type="range"]::-moz-range-thumb {
-    transform: translateY(-18px);
-  }
-  .multi-range > input[type="range"]::-moz-range-track {
-    -webkit-appearance: none;
-    height: 0px;
-  }
-  .multi-range > input[type="range"]::-ms-thumb {
-    transform: translateY(-18px);
-  }
-  .multi-range > input[type="range"]::-ms-track {
-    -webkit-appearance: none;
-    height: 0px;
   }
 `;
