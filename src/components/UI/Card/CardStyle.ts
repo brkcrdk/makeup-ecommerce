@@ -39,6 +39,7 @@ export const CardContent = styled.div`
   }
 `;
 export const Title = styled.h4`
+  text-transform: capitalize;
   display: flex;
   justify-content: center;
   font-size: 0.9em;

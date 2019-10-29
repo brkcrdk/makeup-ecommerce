@@ -55,50 +55,55 @@ const Container = styled.div`
 `;
 
 interface Props {
-  minBound: number;
-  maxValue: number;
+  rangeMin: number;
+  rangeMax: number;
+  values: { min: number; max: number };
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Slider: React.FC<Props> = ({ minBound, maxValue }) => {
-  const [min, setMin] = useState(minBound);
-  const [max, setMax] = useState(maxValue);
-  const handleMin = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = parseFloat(e.target.value);
-    if (e.target.id === "input1" && value < max) setMin(value);
-  };
+const Slider: React.FC<Props> = ({
+  rangeMax,
+  rangeMin,
+  values,
+  handleChange
+}) => {
+  // const handleMin = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const value = parseFloat(e.target.value);
+  //   if (e.target.id === "input1" && value < max) setMin(value);
+  // };
 
-  const handleMax = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = parseFloat(e.target.value);
-    if (e.target.id === "input2" && value > min) setMax(value);
-  };
+  // const handleMax = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const value = parseFloat(e.target.value);
+  //   if (e.target.id === "input2" && value > min) setMax(value);
+  // };
   return (
     <Container>
       <div
         className="multi-range"
-        data-lbound={`${minBound}`}
-        data-ubound={`${maxValue}`}>
+        data-lbound={`${rangeMin}`}
+        data-ubound={`${rangeMax}`}>
         <hr />
         <input
-          id="input1"
+          id="min"
           type="range"
-          min={`${minBound}`}
-          max={`${maxValue}`}
-          step="1"
-          value={min}
-          onChange={handleMin}
+          min={`${rangeMin}`}
+          max={`${rangeMax}`}
+          step="5"
+          value={values.min}
+          onChange={handleChange}
         />
         <input
-          id="input2"
+          id="max"
           type="range"
-          min={`${minBound}`}
-          max={`${maxValue}`}
-          step="1"
-          value={max}
-          onChange={handleMax}
+          min={`${rangeMin}`}
+          max={`${rangeMax}`}
+          step="5"
+          value={values.max}
+          onChange={handleChange}
         />
       </div>
       <p>
-        min{min} max{max}
+        min{values.min} max{values.max}
       </p>
     </Container>
   );
