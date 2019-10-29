@@ -24,7 +24,10 @@ export interface IProducts {
   updated_at: string;
   product_api_url: string;
   api_featured_image: string;
-  product_colors: {}[];
+  product_colors: {
+    hex_value: string;
+    colour_name: string;
+  }[];
 }
 
 //Define types that will be using in actions and reducers!

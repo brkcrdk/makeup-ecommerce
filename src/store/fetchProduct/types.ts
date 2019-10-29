@@ -22,7 +22,10 @@ export interface IProduct {
   updated_at: string;
   product_api_url: string;
   api_featured_image: string;
-  product_colors: {}[];
+  product_colors: {
+    hex_value: string;
+    colour_name: string;
+  }[];
 }
 
 export const PRODUCT_FETCH = "PRODUCT_FETCH";

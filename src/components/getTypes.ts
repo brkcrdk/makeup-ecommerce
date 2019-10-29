@@ -56,3 +56,14 @@ export const randomItems = (data: [], count?: number) => {
 
   return Items.sort();
 };
+
+export const getColours = (data: []) => {
+  const colours = data
+    .filter((items: IProducts) => {
+      return items.product_colors.length > 0;
+    })
+    .map((item: IProducts, index) => {
+      return item.product_colors;
+    });
+  return colours;
+};

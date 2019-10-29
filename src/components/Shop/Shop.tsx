@@ -35,7 +35,7 @@ const Shop: React.FC<StoreProps> = ({ location, match }) => {
         <h3>Shop</h3>
       </Parallax>
       <Content>
-        <Filter />
+        <Filter isLoading={isLoading} products={products} />
         <ProductList isLoading={isLoading} products={products} />
       </Content>
       <Footer />
