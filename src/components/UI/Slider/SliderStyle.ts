@@ -31,8 +31,6 @@ export const SlideWrapper = styled.div`
     position: relative;
     width: 100%;
     height: 28px;
-    border: 1px solid #ddd;
-    font-family: monospace;
     hr {
       border: 2px solid ${colours.pink};
       border-radius: 1em;
