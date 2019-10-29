@@ -24,7 +24,11 @@ const Filter: React.FC<Props> = ({ products }) => {
         setValues={setValues}
       />
       <TagContainer>
-        <Tags />
+        {tags.length < 1 ? (
+          <p>No tags found for this product.</p>
+        ) : (
+          tags.map((tag, index) => <Tags key={index} />)
+        )}
       </TagContainer>
     </Container>
   );

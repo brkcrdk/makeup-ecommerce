@@ -5,6 +5,7 @@ interface TagProps {
   toggle: boolean;
 }
 const Tag = styled.div`
+  margin: 0.3em;
   display: flex;
   justify-content: center;
   align-items: center;
