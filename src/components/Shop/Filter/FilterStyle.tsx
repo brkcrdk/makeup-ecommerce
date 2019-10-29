@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import { colours } from "../../utils";
 export const Container = styled.div`
   text-align: center;
 `;
 
-export const ColourContainer = styled.div`
+export const TagContainer = styled.div`
   position: relative;
   display: flex;
   justify-content: flex-start;

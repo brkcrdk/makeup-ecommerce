@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Container, ColourContainer } from "./FilterStyle";
+import { Container, TagContainer } from "./FilterStyle";
 import Slider from "../../UI/Slider/Slider";
-import Colours from "./Colours";
-import { getColours, getTags } from "../../getTypes";
+import Tags from "./Tags";
+import { getTags } from "../../getTypes";
 
 interface Props {
   products: [];
@@ -11,8 +11,8 @@ interface Props {
 
 const Filter: React.FC<Props> = ({ products }) => {
   const [values, setValues] = useState({ min: 0, max: 100 });
-  const colours = getColours(products);
-  console.log(colours);
+  const tags = getTags(products);
+  console.log(tags);
   return (
     <Container>
       <h3>Filter By</h3>
@@ -23,16 +23,9 @@ const Filter: React.FC<Props> = ({ products }) => {
         values={values}
         setValues={setValues}
       />
-      <ColourContainer>
-        {colours.map((colour, index) =>
-          colour.map((colour, index) => (
-            <Colours
-              hexValue={colour.hex_value}
-              colourName={colour.colour_name}
-            />
-          ))
-        )}
-      </ColourContainer>
+      <TagContainer>
+        <Tags />
+      </TagContainer>
     </Container>
   );
 };
