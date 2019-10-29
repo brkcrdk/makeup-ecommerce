@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { fonts, colours } from "../../utils";
 const thumbStyle = `
-    transform: translateY(-13px);
+    transform: translateY(-14px);
     -webkit-appearance: none;
     appearance: none;
     outline:none;
