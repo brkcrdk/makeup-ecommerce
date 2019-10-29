@@ -12,6 +12,7 @@ const Colour = styled.div`
     top: -2.5em;
   }
   span {
+    cursor: text;
     visibility: hidden;
     position: relative;
     padding: 0.5em;
@@ -31,7 +32,10 @@ const Colour = styled.div`
     }
   }
 `;
-interface Props {}
+interface Props {
+  hexValue: string;
+  colourName: string;
+}
 
 const Colours: React.FC<Props> = () => {
   return (
