@@ -6,8 +6,6 @@ export const Container = styled.div`
 
 export const ColourContainer = styled.div`
   position: relative;
-
-  border: 1px solid red;
   display: flex;
   justify-content: flex-start;
   align-items: center;

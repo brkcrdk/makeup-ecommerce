@@ -12,8 +12,7 @@ interface Props {
 const Filter: React.FC<Props> = ({ products }) => {
   const [values, setValues] = useState({ min: 0, max: 100 });
   const colours = getColours(products);
-  // console.log(getColours(products));
-  // console.log(getTags(products));
+  console.log(colours);
   return (
     <Container>
       <h3>Filter By</h3>
@@ -24,7 +23,16 @@ const Filter: React.FC<Props> = ({ products }) => {
         values={values}
         setValues={setValues}
       />
-      <ColourContainer>{}</ColourContainer>
+      <ColourContainer>
+        {colours.map((colour, index) =>
+          colour.map((colour, index) => (
+            <Colours
+              hexValue={colour.hex_value}
+              colourName={colour.colour_name}
+            />
+          ))
+        )}
+      </ColourContainer>
     </Container>
   );
 };

@@ -1,12 +1,16 @@
 import React from "react";
 import styled from "styled-components";
+
+interface ColourProps {
+  hexValue: string;
+}
 const Colour = styled.div`
   cursor: pointer;
   width: 1.5em;
   height: 1.5em;
   margin: 0.2em;
   border-radius: 50%;
-  background: blue;
+  background: ${(p: ColourProps) => p.hexValue};
   &:hover > span {
     visibility: visible;
     top: -2.5em;
@@ -32,14 +36,15 @@ const Colour = styled.div`
     }
   }
 `;
+
 interface Props {
   hexValue: string;
   colourName: string;
 }
 
-const Colours: React.FC<Props> = () => {
+const Colours: React.FC<Props> = ({ colourName, hexValue }) => {
   return (
-    <Colour>
+    <Colour hexValue={hexValue}>
       <span>Tooltip</span>
     </Colour>
   );
