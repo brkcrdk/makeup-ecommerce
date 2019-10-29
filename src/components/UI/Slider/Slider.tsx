@@ -1,62 +1,10 @@
 import React from "react";
-import styled from "styled-components";
-import { Container, SlideWrapper } from "./SliderStyle";
-import { fonts } from "../../utils";
-// const Container = styled.div`
-//   display: flex;
-//   align-items: center;
-
-//   div {
-//     .multi-range,
-//     .multi-range * {
-//       box-sizing: border-box;
-//       padding: 0;
-//       margin: 0;
-//     }
-
-//     .multi-range > hr {
-//       position: absolute;
-//       width: 100%;
-//       top: 50%;
-//     }
-//     .multi-range > input[type="range"] {
-//       width: calc(100% - 16px);
-//       position: absolute;
-//       bottom: 6px;
-//       left: 0;
-//     }
-//     .multi-range > input[type="range"]:last-of-type {
-//       margin-left: 16px;
-//     }
-//     .multi-range > input[type="range"]::-webkit-slider-thumb {
-//       transform: translateY(-18px);
-//     }
-//     .multi-range > input[type="range"]::-webkit-slider-runnable-track {
-//       -webkit-appearance: none;
-//       height: 0px;
-//     }
-//     .multi-range > input[type="range"]::-moz-range-thumb {
-//       transform: translateY(-18px);
-//     }
-//     .multi-range > input[type="range"]::-moz-range-track {
-//       -webkit-appearance: none;
-//       height: 0px;
-//     }
-//     .multi-range > input[type="range"]::-ms-thumb {
-//       transform: translateY(-18px);
-//     }
-//     .multi-range > input[type="range"]::-ms-track {
-//       -webkit-appearance: none;
-//       height: 0px;
-//     }
-//   }
-// `;
+import { SlideWrapper } from "./SliderStyle";
 
 interface Props {
   rangeMin: number;
   rangeMax: number;
   values: { min: number; max: number };
-  // handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   setValues: React.Dispatch<
     React.SetStateAction<{
       min: number;
@@ -78,36 +26,34 @@ const Slider: React.FC<Props> = ({ rangeMax, rangeMin, values, setValues }) => {
       setValues({ min: values.min, max: value });
   };
   return (
-    <Container>
+    <SlideWrapper>
       <span>min</span>
-      <SlideWrapper>
-        <div
-          className="multi-range"
-          data-lbound={`${rangeMin}`}
-          data-ubound={`${rangeMax}`}>
-          <hr />
-          <input
-            id="min"
-            type="range"
-            min={`${rangeMin}`}
-            max={`${rangeMax}`}
-            step="5"
-            value={values.min}
-            onChange={handleMin}
-          />
-          <input
-            id="max"
-            type="range"
-            min={`${rangeMin}`}
-            max={`${rangeMax}`}
-            step="5"
-            value={values.max}
-            onChange={handleMax}
-          />
-        </div>
-      </SlideWrapper>
+      <div
+        className="multi-range"
+        data-lbound={`${rangeMin}`}
+        data-ubound={`${rangeMax}`}>
+        <hr />
+        <input
+          id="min"
+          type="range"
+          min={`${rangeMin}`}
+          max={`${rangeMax}`}
+          step="5"
+          value={values.min}
+          onChange={handleMin}
+        />
+        <input
+          id="max"
+          type="range"
+          min={`${rangeMin}`}
+          max={`${rangeMax}`}
+          step="5"
+          value={values.max}
+          onChange={handleMax}
+        />
+      </div>
       <span>max</span>
-    </Container>
+    </SlideWrapper>
   );
 };
 

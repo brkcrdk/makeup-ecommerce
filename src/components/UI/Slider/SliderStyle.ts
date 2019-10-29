@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
-
 export const SlideWrapper = styled.div`
+  display: flex;
+
   .multi-range,
   .multi-range * {
     box-sizing: border-box;
@@ -31,6 +31,7 @@ export const SlideWrapper = styled.div`
     margin-left: 16px;
   }
   .multi-range > input[type="range"]::-webkit-slider-thumb {
+    color: red;
     transform: translateY(-18px);
   }
   .multi-range > input[type="range"]::-webkit-slider-runnable-track {
