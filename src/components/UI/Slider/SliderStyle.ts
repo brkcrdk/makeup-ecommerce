@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const SlideWrapper = styled.div`
   display: flex;
-
   .multi-range,
   .multi-range * {
     box-sizing: border-box;
@@ -17,6 +16,7 @@ export const SlideWrapper = styled.div`
     font-family: monospace;
   }
   .multi-range > hr {
+    border: 1px solid red;
     position: absolute;
     width: 100%;
     top: 50%;
@@ -31,8 +31,14 @@ export const SlideWrapper = styled.div`
     margin-left: 16px;
   }
   .multi-range > input[type="range"]::-webkit-slider-thumb {
-    color: red;
     transform: translateY(-18px);
+    -webkit-appearance: none;
+    border-radius: 15px;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #4caf50;
+    cursor: pointer;
   }
   .multi-range > input[type="range"]::-webkit-slider-runnable-track {
     -webkit-appearance: none;
