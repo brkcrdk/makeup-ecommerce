@@ -1,17 +1,26 @@
 import styled from "styled-components";
-
+import { fonts, colours } from "../../utils";
 const thumbStyle = `
-    transform: translateY(-14px);
+    transform: translateY(-13px);
     -webkit-appearance: none;
     appearance: none;
-    cursor: pointer;
+    outline:none;
+    cursor: grab;
     height: 1em;
-    width: 1em;
-    background: red;
-    border-radius: 50%;`;
+    width: 0.5em;
+    background: ${colours.primaryText};
+    transition:0.2s;
+    &:active{ 
+      transform:translateY(-17px);
+     height:1.5em;
+     width:1em;
+    }
+    ;`;
 
 export const SlideWrapper = styled.div`
-  display: flex;
+  p {
+    font-family: ${fonts.raleway};
+  }
   .multi-range,
   .multi-range * {
     box-sizing: border-box;
@@ -25,7 +34,8 @@ export const SlideWrapper = styled.div`
     border: 1px solid #ddd;
     font-family: monospace;
     hr {
-      border: 1px solid red;
+      border: 2px solid ${colours.pink};
+      border-radius: 1em;
       position: absolute;
       width: 100%;
       top: 50%;

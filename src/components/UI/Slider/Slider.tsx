@@ -27,7 +27,6 @@ const Slider: React.FC<Props> = ({ rangeMax, rangeMin, values, setValues }) => {
   };
   return (
     <SlideWrapper>
-      <span>min</span>
       <div
         className="multi-range"
         data-lbound={`${rangeMin}`}
@@ -52,10 +51,12 @@ const Slider: React.FC<Props> = ({ rangeMax, rangeMin, values, setValues }) => {
           onChange={handleMax}
         />
       </div>
-      <span>max</span>
-      <div className="container">
-        <div className="multi-range"></div>
-      </div>
+      <p>
+        Range:
+        <strong>
+          {values.min}$~{values.max}$
+        </strong>
+      </p>
     </SlideWrapper>
   );
 };
