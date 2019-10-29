@@ -53,6 +53,9 @@ const Slider: React.FC<Props> = ({ rangeMax, rangeMin, values, setValues }) => {
         />
       </div>
       <span>max</span>
+      <div className="container">
+        <div className="multi-range"></div>
+      </div>
     </SlideWrapper>
   );
 };
