@@ -58,24 +58,25 @@ interface Props {
   rangeMin: number;
   rangeMax: number;
   values: { min: number; max: number };
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  // handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  setValues: React.Dispatch<
+    React.SetStateAction<{
+      min: number;
+      max: number;
+    }>
+  >;
 }
 
-const Slider: React.FC<Props> = ({
-  rangeMax,
-  rangeMin,
-  values,
-  handleChange
-}) => {
-  // const handleMin = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const value = parseFloat(e.target.value);
-  //   if (e.target.id === "input1" && value < max) setMin(value);
-  // };
+const Slider: React.FC<Props> = ({ rangeMax, rangeMin, values, setValues }) => {
+  const handleMin = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseFloat(e.target.value);
+    if (e.target.id === "min" && value < values.max) Re;
+  };
 
-  // const handleMax = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const value = parseFloat(e.target.value);
-  //   if (e.target.id === "input2" && value > min) setMax(value);
-  // };
+  const handleMax = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseFloat(e.target.value);
+    if (e.target.id === "max" && value > values.min) setMax(value);
+  };
   return (
     <Container>
       <div
@@ -90,7 +91,7 @@ const Slider: React.FC<Props> = ({
           max={`${rangeMax}`}
           step="5"
           value={values.min}
-          onChange={handleChange}
+          onChange={handleMin}
         />
         <input
           id="max"
@@ -99,7 +100,7 @@ const Slider: React.FC<Props> = ({
           max={`${rangeMax}`}
           step="5"
           value={values.max}
-          onChange={handleChange}
+          onChange={handleMax}
         />
       </div>
       <p>
