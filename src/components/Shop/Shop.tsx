@@ -6,6 +6,7 @@ import { searchFilter, removeFilter } from "../../store/searchFilter/action";
 import Footer from "../Content/Footer/Footer";
 import ProductList from "./ProductList/ProductList";
 import Filter from "./Filter/Filter";
+import { IFilter } from "../../store/searchFilter/types";
 interface StoreProps {
   storeProduct: {
     product: [];
@@ -13,7 +14,7 @@ interface StoreProps {
     error: null;
   };
   searchFilter: {
-    filters: string[];
+    filters: IFilter;
   };
   location: {
     pathname: string;
@@ -23,12 +24,15 @@ interface StoreProps {
 const Shop: React.FC<StoreProps> = ({ location, match }) => {
   const dispatch = useDispatch();
   const filter = useSelector((state: StoreProps) => state.searchFilter.filters);
-
+  const x = Object.entries(filter);
+  console.log(x[1]);
   useEffect(() => {
     const searchType = location.pathname.split("/")[2];
     const searchInput = location.pathname.split("/")[3];
-    dispatch(fetchProduct(`${searchType}=${searchInput}`));
+    dispatch(searchFilter({ [searchType]: `${searchInput}` }));
+    dispatch(fetchProduct());
   }, [dispatch, location.pathname]);
+
   const isLoading = useSelector(
     (state: StoreProps) => state.storeProduct.isLoading
   );
@@ -36,27 +40,19 @@ const Shop: React.FC<StoreProps> = ({ location, match }) => {
     (state: StoreProps) => state.storeProduct.product
   );
 
-  const handleRemove = useCallback(
-    (item: string) => {
-      dispatch(removeFilter([`${item}`]));
-    },
-    [dispatch]
-  );
-  const handleAdd = useCallback(() => {
-    dispatch(searchFilter(["burak", "çardak", "murat", "çardak", "burak"]));
-  }, [dispatch]);
+  // const handleRemove = useCallback(
+  //   (item: string) => {
+  //     dispatch(removeFilter([`${item}`]));
+  //   },
+  //   [dispatch]
+  // );
+  // const handleAdd = useCallback(() => {
+  //   dispatch(searchFilter(["burak", "çardak", "murat", "çardak", "burak"]));
+  // }, [dispatch]);
   return (
     <Container>
       <Parallax>
-        <h3>Shop filters:{filter.map((filter) => filter)}</h3>
-        {filter.map((filter, i) => (
-          <button
-            onClick={() => {
-              handleRemove(`${filter}`);
-            }}>
-            {filter}
-          </button>
-        ))}
+        {/* <h3>Shop filters:{filter.map((filter) => filter)}</h3> */}
       </Parallax>
       <Content>
         <Filter isLoading={isLoading} products={products} />
