@@ -1,5 +1,5 @@
 export interface FilterState {
-  filters: IFilter;
+  filters: string[];
 }
 export interface IFilter {
   product_type: string;

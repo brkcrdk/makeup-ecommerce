@@ -1,13 +1,13 @@
 import { SEARCH_FILTER, REMOVE_FILTER, IFilter } from "./types";
 
-export const searchFilter = (filters: {}) => {
+export const searchFilter = (filters: string[]) => {
   return {
     type: SEARCH_FILTER,
     payload: filters
   };
 };
 
-export const removeFilter = (filters: {}) => {
+export const removeFilter = (filters: string[]) => {
   return {
     type: REMOVE_FILTER,
     payload: filters

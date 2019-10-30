@@ -1,6 +1,5 @@
 import React from "react";
 import { DropContainer, DropButton, DropContent, DropItem } from "./DropStyle";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 interface Props {
   title: string;
