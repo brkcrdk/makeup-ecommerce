@@ -12,7 +12,6 @@ interface Props {
 const Filter: React.FC<Props> = ({ products }) => {
   const [values, setValues] = useState({ min: 0, max: 100 });
   const tags = getTags(products);
-  console.log(tags);
   return (
     <Container>
       <h3>Filter By</h3>
