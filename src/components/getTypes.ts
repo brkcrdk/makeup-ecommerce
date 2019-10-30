@@ -89,18 +89,21 @@ export const getTags = (data: []) => {
 };
 
 export const getFilters = (filterObj: IFilter) => {
-  const values = Object.values(filterObj);
-  return values
+  const values = Object.entries(filterObj);
+  const filters = values
     .filter((value) => {
-      return value !== "" && value !== 0;
+      return value[1] !== "" && value[1] !== 0;
     })
     .filter((value) => {
-      if (isArray(value)) {
-        if (value.length > 0) {
+      if (isArray(value[1])) {
+        if (value[1].length > 0) {
           return value;
         }
       } else {
         return value;
       }
     });
+  return filters.map((filter) => {
+    return `${filter[0]}=${filter[1]}`;
+  });
 };
