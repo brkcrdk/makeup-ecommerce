@@ -7,6 +7,8 @@ import Footer from "../Content/Footer/Footer";
 import ProductList from "./ProductList/ProductList";
 import Filter from "./Filter/Filter";
 import { IFilter } from "../../store/searchFilter/types";
+import { getFilters } from "../getTypes";
+// import { isArray } from "util";
 interface StoreProps {
   storeProduct: {
     product: [];
@@ -24,12 +26,15 @@ interface StoreProps {
 const Shop: React.FC<StoreProps> = ({ location, match }) => {
   const dispatch = useDispatch();
   const filter = useSelector((state: StoreProps) => state.searchFilter.filters);
-  const x = Object.entries(filter);
-  console.log(x[1]);
+  console.log(getFilters(filter));
   useEffect(() => {
     const searchType = location.pathname.split("/")[2];
     const searchInput = location.pathname.split("/")[3];
-    dispatch(searchFilter({ [searchType]: `${searchInput}` }));
+    dispatch(
+      searchFilter({
+        [searchType]: `${searchInput}`
+      })
+    );
     dispatch(fetchProduct());
   }, [dispatch, location.pathname]);
 
