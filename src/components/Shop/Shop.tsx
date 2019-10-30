@@ -36,15 +36,27 @@ const Shop: React.FC<StoreProps> = ({ location, match }) => {
     (state: StoreProps) => state.storeProduct.product
   );
 
-  const handleRemove = useCallback(() => {
-    dispatch(removeFilter(["burak"]));
+  const handleRemove = useCallback(
+    (item: string) => {
+      dispatch(removeFilter([`${item}`]));
+    },
+    [dispatch]
+  );
+  const handleAdd = useCallback(() => {
+    dispatch(searchFilter(["burak", "çardak", "murat", "çardak", "burak"]));
   }, [dispatch]);
-
   return (
     <Container>
       <Parallax>
-        <h3>Shop filters:{filter.map((filter, i) => filter)}</h3>
-        <button onClick={handleRemove}>Delete</button>
+        <h3>Shop filters:{filter.map((filter) => filter)}</h3>
+        {filter.map((filter, i) => (
+          <button
+            onClick={() => {
+              handleRemove(`${filter}`);
+            }}>
+            {filter}
+          </button>
+        ))}
       </Parallax>
       <Content>
         <Filter isLoading={isLoading} products={products} />

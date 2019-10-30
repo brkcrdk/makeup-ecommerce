@@ -16,7 +16,6 @@ const filterReducer = (state = initialState, action: FilterActions) => {
     case REMOVE_FILTER:
       const itemIndex = state.filters.indexOf(action.payload.toString());
       if (itemIndex !== -1) {
-        console.log(itemIndex);
         return {
           ...state,
           filters: state.filters.filter((item, index) => {
@@ -24,7 +23,6 @@ const filterReducer = (state = initialState, action: FilterActions) => {
           })
         };
       } else {
-        console.log("yok");
         return { ...state };
       }
     default:
