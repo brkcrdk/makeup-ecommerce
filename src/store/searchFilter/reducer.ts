@@ -21,13 +21,14 @@ const initialState: FilterState = {
 const filterReducer = (state = initialState, action: FilterActions) => {
   switch (action.type) {
     case SEARCH_FILTER:
+      console.log(state.filters.product_tags);
       return { ...state, filters: { ...state.filters, ...action.payload } };
     // if (state.filters.indexOf(action.payload.toString()) === -1) {
     //   return { ...state, filters: state.filters.concat(action.payload) };
     // } else {
     //   return { ...state };
     // }
-    case REMOVE_FILTER:
+    // case REMOVE_FILTER:
     // const itemIndex = state.filters.indexOf(action.payload.toString());
     // if (itemIndex !== -1) {
     //   return {
