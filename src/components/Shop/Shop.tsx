@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Container, Content, Parallax } from "./ShopStyle";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProduct } from "../../store/fetchProduct/actions";
+import { searchFilter } from "../../store/searchFilter/action";
 import Footer from "../Content/Footer/Footer";
 import ProductList from "./ProductList/ProductList";
 import Filter from "./Filter/Filter";
@@ -22,6 +23,8 @@ const Shop: React.FC<StoreProps> = ({ location, match }) => {
     const searchType = location.pathname.split("/")[2];
     const searchInput = location.pathname.split("/")[3];
     dispatch(fetchProduct(`${searchType}=${searchInput}`));
+    dispatch(searchFilter(["burak"]));
+    dispatch(searchFilter(["murat"]));
   }, [dispatch, location.pathname]);
   const isLoading = useSelector(
     (state: StoreProps) => state.storeProduct.isLoading
