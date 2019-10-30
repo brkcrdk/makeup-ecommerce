@@ -26,7 +26,8 @@ interface StoreProps {
 const Shop: React.FC<StoreProps> = ({ location, match }) => {
   const dispatch = useDispatch();
   const filter = useSelector((state: StoreProps) => state.searchFilter.filters);
-  console.log(getFilters(filter));
+  const x = getFilters(filter);
+
   useEffect(() => {
     const searchType = location.pathname.split("/")[2];
     const searchInput = location.pathname.split("/")[3];
@@ -36,7 +37,7 @@ const Shop: React.FC<StoreProps> = ({ location, match }) => {
         product_tags: ["burak", "murat"]
       })
     );
-    dispatch(fetchProduct());
+    dispatch(fetchProduct(...x));
   }, [dispatch, location.pathname]);
 
   const isLoading = useSelector(
