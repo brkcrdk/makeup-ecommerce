@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { Container, Content, Parallax } from "./ShopStyle";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProduct } from "../../store/fetchProduct/actions";
-import { searchFilter } from "../../store/searchFilter/action";
+import { searchFilter, removeFilter } from "../../store/searchFilter/action";
 import Footer from "../Content/Footer/Footer";
 import ProductList from "./ProductList/ProductList";
 import Filter from "./Filter/Filter";
@@ -12,6 +12,9 @@ interface StoreProps {
     isLoading: boolean;
     error: null;
   };
+  searchFilter: {
+    filters: string[];
+  };
   location: {
     pathname: string;
   };
@@ -19,12 +22,12 @@ interface StoreProps {
 }
 const Shop: React.FC<StoreProps> = ({ location, match }) => {
   const dispatch = useDispatch();
+  const filter = useSelector((state: StoreProps) => state.searchFilter.filters);
+
   useEffect(() => {
     const searchType = location.pathname.split("/")[2];
     const searchInput = location.pathname.split("/")[3];
     dispatch(fetchProduct(`${searchType}=${searchInput}`));
-    dispatch(searchFilter(["burak"]));
-    dispatch(searchFilter(["murat"]));
   }, [dispatch, location.pathname]);
   const isLoading = useSelector(
     (state: StoreProps) => state.storeProduct.isLoading
@@ -32,10 +35,16 @@ const Shop: React.FC<StoreProps> = ({ location, match }) => {
   const products = useSelector(
     (state: StoreProps) => state.storeProduct.product
   );
+
+  const handleRemove = useCallback(() => {
+    dispatch(removeFilter(["burak"]));
+  }, [dispatch]);
+
   return (
     <Container>
       <Parallax>
-        <h3>Shop</h3>
+        <h3>Shop filters:{filter.map((filter, i) => filter)}</h3>
+        <button onClick={handleRemove}>Delete</button>
       </Parallax>
       <Content>
         <Filter isLoading={isLoading} products={products} />

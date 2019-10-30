@@ -3,10 +3,14 @@ export interface FilterState {
 }
 
 export const SEARCH_FILTER = "SEARCH_FILTEER";
+export const REMOVE_FILTER = "REMOVE_FILTER";
 
 interface SeachFilter {
   type: typeof SEARCH_FILTER;
   payload: string[];
 }
-
-export type FilterActions = SeachFilter;
+interface RemoveFilter {
+  type: typeof REMOVE_FILTER;
+  payload: string[];
+}
+export type FilterActions = SeachFilter | RemoveFilter;
