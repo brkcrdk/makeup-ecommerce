@@ -16,6 +16,7 @@ interface StoreProps {
   };
   searchFilter: {
     filters: IFilter;
+    product_tags: string[];
   };
   location: {
     pathname: string;
@@ -25,6 +26,9 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
   const dispatch = useDispatch();
   const filters = useSelector(
     (state: StoreProps) => state.searchFilter.filters
+  );
+  const tags = useSelector(
+    (state: StoreProps) => state.searchFilter.product_tags
   );
 
   useEffect(() => {
