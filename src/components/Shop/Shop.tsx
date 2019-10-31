@@ -41,13 +41,21 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
       fetchProduct(
         `product_type=${filters.product_type}`,
         `brand=${filters.brand}`,
-        "product_category=",
+        `product_category=${filters.product_category}`,
         `price_greater_than=${filters.price_greater_than}`,
-        "price_less_than=",
+        `price_less_than=${filters.price_less_than}`,
         `product_tags=${tagSelector.map((tag) => tag)},`
       )
     );
-  }, [dispatch, filters.price_greater_than, filters.product_type, tagSelector]);
+  }, [
+    dispatch,
+    filters.product_type,
+    filters.brand,
+    filters.product_category,
+    filters.price_greater_than,
+    filters.price_less_than,
+    tagSelector
+  ]);
 
   const isLoading = useSelector(
     (state: StoreProps) => state.storeProduct.isLoading
