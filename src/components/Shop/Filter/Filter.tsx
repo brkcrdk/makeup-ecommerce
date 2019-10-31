@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Container, TagContainer } from "./FilterStyle";
 import Slider from "../../UI/Slider/Slider";
 import Tags from "./Tags";
-import { getTags } from "../../getTypes";
 
 interface Props {
   products: [];
@@ -11,7 +10,6 @@ interface Props {
 
 const Filter: React.FC<Props> = ({ products }) => {
   const [values, setValues] = useState({ min: 0, max: 100 });
-  const tags = getTags(products);
 
   return (
     <Container>
@@ -23,13 +21,7 @@ const Filter: React.FC<Props> = ({ products }) => {
         values={values}
         setValues={setValues}
       />
-      <TagContainer>
-        {tags.length < 1 ? (
-          <p>No tags found for this product.</p>
-        ) : (
-          tags.map((tag, index) => <Tags key={index} />)
-        )}
-      </TagContainer>
+      <Tags products={products} />
     </Container>
   );
 };

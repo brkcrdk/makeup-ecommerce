@@ -1,10 +1,14 @@
 import styled from "styled-components";
-import { colours, device } from "../../utils";
+import { colours, device, fonts } from "../../utils";
 export const Container = styled.div`
   /* box-shadow: ${colours.boxShadow}; */
   margin: 0 1em;
-  
   overflow:hidden;
+  h4{
+    text-align:center;
+    font-family:${fonts.montserrat};
+    font-size:1.5em;
+  }
    @media ${device.mobileL}{
     padding-right:0.5em;
   }

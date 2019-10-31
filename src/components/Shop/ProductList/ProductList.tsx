@@ -9,6 +9,12 @@ interface Props {
 }
 
 const ProductList: React.FC<Props> = ({ products, isLoading }) => {
+  if (isLoading)
+    return (
+      <Container>
+        <h4>Loading.. please wait.</h4>
+      </Container>
+    );
   return (
     <Container>
       <Pagination>

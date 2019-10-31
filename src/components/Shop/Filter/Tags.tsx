@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { fonts, colours } from "../../utils";
+import { getTags } from "../../getTypes";
+
 interface TagProps {
   toggle: boolean;
 }
@@ -18,19 +20,40 @@ const Tag = styled.div`
   color: ${colours.primaryText};
   cursor: pointer;
 `;
+const TagContainer = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 0.5em;
+  p {
+    font-family: ${fonts.aBeeZee};
+  }
+`;
+interface Props {
+  products: [];
+}
 
-interface Props {}
-
-const Tags: React.FC<Props> = () => {
+const Tags: React.FC<Props> = ({ products }) => {
   const [toggle, setToggle] = useState(false);
+  const tags = getTags(products);
+  if (tags.length < 1)
+    return (
+      <TagContainer>
+        <p>No tags for this product.</p>
+      </TagContainer>
+    );
   return (
-    <Tag
-      toggle={toggle}
-      onClick={() => {
-        setToggle(!toggle);
-      }}>
-      <span>Badge</span>
-    </Tag>
+    <TagContainer>
+      <Tag
+        toggle={toggle}
+        onClick={() => {
+          setToggle(!toggle);
+        }}>
+        <span>Badge</span>
+      </Tag>
+    </TagContainer>
   );
 };
 
