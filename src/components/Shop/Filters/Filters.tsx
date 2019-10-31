@@ -6,7 +6,7 @@ interface Props {
   tags: string[];
 }
 
-const Filters: React.FC<Props> = ({ activeFilters }) => {
+const Filters: React.FC<Props> = ({ activeFilters, tags }) => {
   const x = Object.entries(activeFilters);
   const values = x
     .filter((ent) => ent[1] !== "" && ent[1] !== 0 && ent[1] !== 100)
@@ -18,6 +18,9 @@ const Filters: React.FC<Props> = ({ activeFilters }) => {
         <li key={i}>
           {ent[0]}= {ent[1]}
         </li>
+      ))}
+      {tags.map((item, index) => (
+        <li key={index}>{item}</li>
       ))}
     </div>
   );
