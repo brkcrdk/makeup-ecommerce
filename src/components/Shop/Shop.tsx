@@ -26,8 +26,7 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
   const filters = useSelector(
     (state: StoreProps) => state.searchFilter.filters
   );
-  const tags = [""];
-  console.log(filters);
+
   useEffect(() => {
     const searchType = location.pathname.split("/")[2];
     const searchInput = location.pathname.split("/")[3];
@@ -53,12 +52,22 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
   const handlePriceClear = useCallback(() => {
     dispatch(searchFilter({ price_greater_than: 0 }));
   }, [dispatch]);
+
+  const handleTags = (e: React.MouseEvent<HTMLSpanElement>) => {
+    let target = e.target as HTMLSpanElement;
+    dispatch(searchFilter({ product_tags: [target.innerText] }));
+  };
+
   return (
     <Container>
       <Parallax>
         <h3>Shop</h3>
         <button onClick={handlePriceGreat}>price_greate=20</button>
         <button onClick={handlePriceClear}>Clear priceState</button>
+        <span onClick={handleTags}>burak</span>
+        <span onClick={handleTags}>murat</span>
+        <span onClick={handleTags}>furklan</span>
+        <span onClick={handleTags}>aykut</span>
       </Parallax>
       <Content>
         <Filter isLoading={isLoading} products={products} />
