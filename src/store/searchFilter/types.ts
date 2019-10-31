@@ -1,6 +1,6 @@
 export interface FilterState {
   filters: IFilter;
-  product_tags?: string[];
+  product_tags: string[];
 }
 
 export interface IFilter {

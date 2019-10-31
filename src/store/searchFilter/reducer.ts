@@ -15,18 +15,10 @@ const filterReducer = (state = initialState, action: FilterActions) => {
     case SEARCH_FILTER:
       return { ...state, filters: { ...state.filters, ...action.payload } };
     case PRODUCT_TAGS:
-      if (
-        state.product_tags !== undefined &&
-        action.payload.product_tags !== undefined
-      ) {
-        return {
-          ...state,
-          product_tags: state.product_tags.concat(action.payload.product_tags)
-        };
-      } else {
-        return { ...state };
-      }
-
+      return {
+        ...state,
+        product_tags: state.product_tags.concat(action.payload)
+      };
     default:
       return state;
   }
