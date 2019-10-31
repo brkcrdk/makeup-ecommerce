@@ -12,6 +12,7 @@ const Container = styled.div`
 `;
 
 const Filter = styled.div`
+  text-transform: capitalize;
   border: 1px solid grey;
   display: flex;
   justify-content: center;
@@ -51,12 +52,11 @@ const Filters: React.FC<Props> = ({ activeFilters, tags }) => {
         );
       })}
       {tags.map((item, index) => (
-        <li key={index}>{item}</li>
+        <Filter key={index}>
+          <p>{item}</p>
+          <button>X</button>
+        </Filter>
       ))}
-      <Filter>
-        <p>Filter Text</p>
-        <button>X</button>
-      </Filter>
     </Container>
   );
 };
