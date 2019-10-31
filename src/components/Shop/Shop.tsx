@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { Container, Content, Parallax } from "./ShopStyle";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProduct } from "../../store/fetchProduct/actions";
-
 import Footer from "../Content/Footer/Footer";
 import ProductList from "./ProductList/ProductList";
 import Filter from "./Filter/Filter";

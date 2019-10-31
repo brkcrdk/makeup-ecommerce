@@ -68,7 +68,7 @@ export const getColours = (data: []) => {
 
   return productColours;
 };
-
+//TODO: check productTags
 export const getTags = (data: []) => {
   const tagList: string[] = [];
   const productTags = data
