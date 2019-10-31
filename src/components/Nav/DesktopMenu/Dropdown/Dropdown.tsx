@@ -17,9 +17,7 @@ const Dropdown: React.FC<Props> = ({ title, content, url }) => {
         ) : (
           content.map((item, key) => (
             <DropItem key={key}>
-              <Link to={`/shop/${url}/${item}`}>
-                &#9880; {item.replace("_", " ")}
-              </Link>
+              <Link to={`/shop`}>&#9880; {item.replace("_", " ")}</Link>
             </DropItem>
           ))
         )}

@@ -40,7 +40,9 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
     const searchInput = location.pathname.split("/")[3];
     dispatch(
       fetchProduct(
-        `${searchType}=${searchInput}`,
+        "product_type=blush",
+        "brand=almay",
+        "product_category=powd",
         `price_greater_than=${filters.price_greater_than}`,
         "price_less_than=",
         `product_tags=${tagSelector.map((tag) => tag)},`
@@ -71,7 +73,9 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
   }, [dispatch]);
 
   const tags = ["vegan", "canadian", "organic", "sugar free"];
-
+  const clearAll = useCallback(() => {
+    dispatch(fetchProduct());
+  }, [dispatch]);
   return (
     <Container>
       <Parallax>
@@ -84,6 +88,7 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
           </span>
         ))}
         <button onClick={deleteTag}>Remove</button>
+        <button onClick={clearAll}>ClearAll tags</button>
       </Parallax>
       <Content>
         <Filter isLoading={isLoading} products={products} />
