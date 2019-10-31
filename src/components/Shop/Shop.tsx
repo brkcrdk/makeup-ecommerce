@@ -31,24 +31,23 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
   const filters = useSelector(
     (state: StoreProps) => state.searchFilter.filters
   );
+
   const tagSelector = useSelector(
     (state: StoreProps) => state.searchFilter.product_tags
   );
 
   useEffect(() => {
-    const searchType = location.pathname.split("/")[2];
-    const searchInput = location.pathname.split("/")[3];
     dispatch(
       fetchProduct(
-        "product_type=blush",
-        "brand=almay",
-        "product_category=powd",
+        `product_type=${filters.product_type}`,
+        "brand=",
+        "product_category=",
         `price_greater_than=${filters.price_greater_than}`,
         "price_less_than=",
         `product_tags=${tagSelector.map((tag) => tag)},`
       )
     );
-  }, [dispatch, location.pathname, filters.price_greater_than, tagSelector]);
+  }, [dispatch, filters.price_greater_than, filters.product_type, tagSelector]);
 
   const isLoading = useSelector(
     (state: StoreProps) => state.storeProduct.isLoading
