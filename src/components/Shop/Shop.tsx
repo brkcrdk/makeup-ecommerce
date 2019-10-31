@@ -20,7 +20,7 @@ interface StoreProps {
 }
 const Shop: React.FC<StoreProps> = ({ location, match }) => {
   const dispatch = useDispatch();
-  const tags = ["vegan"];
+  const tags = [""];
   useEffect(() => {
     const searchType = location.pathname.split("/")[2];
     const searchInput = location.pathname.split("/")[3];
@@ -28,8 +28,8 @@ const Shop: React.FC<StoreProps> = ({ location, match }) => {
     dispatch(
       fetchProduct(
         `${searchType}=${searchInput}`,
-        "price_greater_than=15",
-        "price_less_than=40",
+        "price_greater_than=",
+        "price_less_than=",
         "brand=",
         `product_tags=${tags.map((tag) => {
           return tag;
