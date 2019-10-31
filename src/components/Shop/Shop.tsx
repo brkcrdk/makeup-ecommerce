@@ -13,7 +13,9 @@ interface StoreProps {
     isLoading: boolean;
     error: null;
   };
-
+  searchFilter: {
+    filters: {};
+  };
   location: {
     pathname: string;
   };
@@ -21,11 +23,14 @@ interface StoreProps {
 }
 const Shop: React.FC<StoreProps> = ({ location, match }) => {
   const dispatch = useDispatch();
+  const filters = useSelector(
+    (state: StoreProps) => state.searchFilter.filters
+  );
   const tags = [""];
   useEffect(() => {
     const searchType = location.pathname.split("/")[2];
     const searchInput = location.pathname.split("/")[3];
-    dispatch(searchFilter({ product_type: "burak" }));
+    dispatch(searchFilter({ price_greater_than: 20 }));
     dispatch(
       fetchProduct(
         `${searchType}=${searchInput}`,

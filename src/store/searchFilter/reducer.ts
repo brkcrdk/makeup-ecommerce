@@ -1,16 +1,13 @@
 import { SEARCH_FILTER, FilterState, FilterActions } from "./types";
 
 const initialState: FilterState = {
-  filters: {
-    product_type: ""
-  }
+  filters: {}
 };
 
 const filterReducer = (state = initialState, action: FilterActions) => {
   switch (action.type) {
     case SEARCH_FILTER:
-      console.log(action.payload.product_type);
-      return { ...state };
+      return { ...state, filters: { ...state.filters, ...action.payload } };
     default:
       return state;
   }
