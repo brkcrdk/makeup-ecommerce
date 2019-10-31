@@ -31,19 +31,13 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
   useEffect(() => {
     const searchType = location.pathname.split("/")[2];
     const searchInput = location.pathname.split("/")[3];
-    dispatch(searchFilter({ price_greater_than: 20 }));
     dispatch(
       fetchProduct(
         `${searchType}=${searchInput}`,
-        `price_greater_than=`,
-        "price_less_than=",
-        "brand=",
-        `product_tags=${tags.map((tag) => {
-          return tag;
-        })}`
+        `price_greater_than=${filters.price_greater_than}`
       )
     );
-  }, [dispatch, location.pathname]);
+  }, [dispatch, location.pathname, filters.price_greater_than]);
 
   const isLoading = useSelector(
     (state: StoreProps) => state.storeProduct.isLoading
@@ -51,11 +45,14 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
   const products = useSelector(
     (state: StoreProps) => state.storeProduct.product
   );
-
+  const handlePriceGreat = useCallback(() => {
+    dispatch(searchFilter({ price_greater_than: 20 }));
+  }, [dispatch]);
   return (
     <Container>
       <Parallax>
         <h3>Shop</h3>
+        <button onClick={handlePriceGreat}>price_greate=20</button>
       </Parallax>
       <Content>
         <Filter isLoading={isLoading} products={products} />
