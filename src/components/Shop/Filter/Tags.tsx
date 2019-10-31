@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import styled from "styled-components";
 import { fonts, colours } from "../../utils";
 import { getTags } from "../../getTypes";
-
+import { useDispatch } from "react-redux";
+import { searchTags } from "../../../store/searchFilter/action";
 interface TagProps {
   toggle: boolean;
 }
@@ -39,6 +40,14 @@ interface Props {
 const Tags: React.FC<Props> = ({ products }) => {
   const [toggle, setToggle] = useState(false);
   const tags = getTags(products);
+  const dispatch = useDispatch();
+  const addTag = useCallback(
+    (tag: string) => {
+      dispatch(searchTags([tag]));
+    },
+    [dispatch]
+  );
+
   if (tags.length < 1)
     return (
       <TagContainer>
@@ -52,7 +61,7 @@ const Tags: React.FC<Props> = ({ products }) => {
           key={index}
           toggle={toggle}
           onClick={() => {
-            setToggle(!toggle);
+            addTag(tag);
           }}>
           <span>{tag}</span>
         </Tag>

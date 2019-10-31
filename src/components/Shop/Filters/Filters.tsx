@@ -1,11 +1,7 @@
 import React, { useCallback } from "react";
 import styled from "styled-components";
 import { IFilter } from "../../../store/searchFilter/types";
-import {
-  searchFilter,
-  searchTags,
-  removeTags
-} from "../../../store/searchFilter/action";
+import { searchFilter, removeTags } from "../../../store/searchFilter/action";
 import { useDispatch } from "react-redux";
 interface Props {
   activeFilters: IFilter;
@@ -54,13 +50,6 @@ const Filters: React.FC<Props> = ({ activeFilters, tags }) => {
     [dispatch]
   );
 
-  const addTag = useCallback(
-    (tag: string) => {
-      dispatch(searchTags([tag]));
-    },
-    [dispatch]
-  );
-
   const removeTag = useCallback(
     (tag: string) => {
       dispatch(removeTags(tag));
@@ -88,15 +77,10 @@ const Filters: React.FC<Props> = ({ activeFilters, tags }) => {
       })}
       {tags.map((item, index) => (
         <Filter key={index}>
-          <p
-            onClick={() => {
-              addTag(item);
-            }}>
-            {item}
-          </p>
+          <p>{item}</p>
           <button
             onClick={() => {
-              removeTags(item);
+              removeTag(item);
             }}>
             X
           </button>
