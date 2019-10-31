@@ -17,6 +17,7 @@ const Tag = styled.div`
   border-radius: 0.3em;
   padding: 0.5em;
   font-family: ${fonts.aBeeZee};
+  text-transform: capitalize;
   color: ${colours.primaryText};
   cursor: pointer;
 `;
