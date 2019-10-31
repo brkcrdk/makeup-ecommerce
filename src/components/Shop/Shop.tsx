@@ -25,7 +25,7 @@ const Shop: React.FC<StoreProps> = ({ location, match }) => {
   useEffect(() => {
     const searchType = location.pathname.split("/")[2];
     const searchInput = location.pathname.split("/")[3];
-
+    dispatch(searchFilter({ product_type: "burak" }));
     dispatch(
       fetchProduct(
         `${searchType}=${searchInput}`,
