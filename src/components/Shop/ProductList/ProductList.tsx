@@ -12,7 +12,7 @@ const ProductList: React.FC<Props> = ({ products, isLoading }) => {
   if (isLoading)
     return (
       <Container>
-        <h4>Loading.. please wait.</h4>
+        <h3>Loading.. please wait.</h3>
       </Container>
     );
   return (

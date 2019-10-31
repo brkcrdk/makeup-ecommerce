@@ -46,13 +46,16 @@ const Tags: React.FC<Props> = ({ products }) => {
     );
   return (
     <TagContainer>
-      <Tag
-        toggle={toggle}
-        onClick={() => {
-          setToggle(!toggle);
-        }}>
-        <span>Badge</span>
-      </Tag>
+      {tags.map((tag, index) => (
+        <Tag
+          key={index}
+          toggle={toggle}
+          onClick={() => {
+            setToggle(!toggle);
+          }}>
+          <span>{tag}</span>
+        </Tag>
+      ))}
     </TagContainer>
   );
 };

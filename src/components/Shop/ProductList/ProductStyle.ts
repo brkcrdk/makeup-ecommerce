@@ -4,7 +4,7 @@ export const Container = styled.div`
   /* box-shadow: ${colours.boxShadow}; */
   margin: 0 1em;
   overflow:hidden;
-  h4{
+  h3{
     text-align:center;
     font-family:${fonts.montserrat};
     font-size:1.5em;
