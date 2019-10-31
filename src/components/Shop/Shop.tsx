@@ -11,7 +11,7 @@ import Footer from "../Content/Footer/Footer";
 import ProductList from "./ProductList/ProductList";
 import Filter from "./Filter/Filter";
 import { IFilter } from "../../store/searchFilter/types";
-
+import Filters from "./Filters/Filters";
 interface StoreProps {
   storeProduct: {
     product: [];
@@ -63,39 +63,32 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
   const products = useSelector(
     (state: StoreProps) => state.storeProduct.product
   );
-  const handlePriceGreat = useCallback(() => {
-    dispatch(searchFilter({ price_greater_than: 20 }));
-  }, [dispatch]);
-  const handlePriceClear = useCallback(() => {
-    dispatch(searchFilter({ price_greater_than: 0 }));
-  }, [dispatch]);
+  // const handlePriceGreat = useCallback(() => {
+  //   dispatch(searchFilter({ price_greater_than: 20 }));
+  // }, [dispatch]);
+  // const handlePriceClear = useCallback(() => {
+  //   dispatch(searchFilter({ price_greater_than: 0 }));
+  // }, [dispatch]);
 
-  const handleTags = (e: React.MouseEvent<HTMLSpanElement>) => {
-    let target = e.target as HTMLSpanElement;
-    dispatch(searchTags([target.innerText]));
-  };
+  // const handleTags = (e: React.MouseEvent<HTMLSpanElement>) => {
+  //   let target = e.target as HTMLSpanElement;
+  //   dispatch(searchTags([target.innerText]));
+  // };
 
-  const deleteTag = useCallback(() => {
-    dispatch(removeTags("vegan"));
-  }, [dispatch]);
+  // const deleteTag = useCallback(() => {
+  //   dispatch(removeTags("vegan"));
+  // }, [dispatch]);
 
-  const tags = ["vegan", "canadian", "organic", "sugar free"];
-  const clearAll = useCallback(() => {
-    dispatch(fetchProduct());
-  }, [dispatch]);
+  // const tags = ["vegan", "canadian", "organic", "sugar free"];
+  // const clearAll = useCallback(() => {
+  //   dispatch(fetchProduct());
+  // }, [dispatch]);
+
   return (
     <Container>
       <Parallax>
         <h3>Shop</h3>
-        <button onClick={handlePriceGreat}>price_greate=20</button>
-        <button onClick={handlePriceClear}>Clear priceState</button>
-        {tags.map((tag, i) => (
-          <span key={i} onClick={handleTags}>
-            {tag}
-          </span>
-        ))}
-        <button onClick={deleteTag}>Remove</button>
-        <button onClick={clearAll}>ClearAll tags</button>
+        <Filters activeFilters={filters} tags={tagSelector} />
       </Parallax>
       <Content>
         <Filter isLoading={isLoading} products={products} />

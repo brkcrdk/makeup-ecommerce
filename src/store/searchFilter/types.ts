@@ -9,8 +9,6 @@ export interface IFilter {
   brand?: string;
   price_greater_than?: number;
   price_less_than?: number;
-  rating_greater_than?: number;
-  rating_less_than?: number;
 }
 
 export const SEARCH_FILTER = "SEARCH_FILTER";
