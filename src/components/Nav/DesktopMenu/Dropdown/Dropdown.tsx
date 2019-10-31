@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { DropContainer, DropButton, DropContent, DropItem } from "./DropStyle";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { searchFilter } from "../../../../store/searchFilter/action";
+import { IFilter } from "../../../../store/searchFilter/types";
 interface Props {
   title: string;
   content: string[];
   url: string;
+  searchFilter: {
+    filters: IFilter;
+  };
 }
 
 const Dropdown: React.FC<Props> = ({ title, content, url }) => {
+  const dispatch = useDispatch();
+  const handleFilter = useCallback(() => {}, [dispatch]);
   return (
     <DropContainer>
       <DropButton>{title}</DropButton>
@@ -17,7 +24,7 @@ const Dropdown: React.FC<Props> = ({ title, content, url }) => {
         ) : (
           content.map((item, key) => (
             <DropItem key={key}>
-              <Link to={`/shop`}>&#9880; {item.replace("_", " ")}</Link>
+              <a>&#9880; {item.replace("_", " ")}</a>
             </DropItem>
           ))
         )}
