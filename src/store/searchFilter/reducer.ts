@@ -7,7 +7,7 @@ import {
 
 const initialState: FilterState = {
   filters: { price_greater_than: 0 },
-  product_tags: [""]
+  product_tags: []
 };
 
 const filterReducer = (state = initialState, action: FilterActions) => {

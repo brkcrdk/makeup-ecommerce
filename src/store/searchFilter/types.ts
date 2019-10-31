@@ -21,6 +21,6 @@ interface SearchFilter {
 }
 interface ProductTags {
   type: typeof PRODUCT_TAGS;
-  payload: FilterState;
+  payload: string[];
 }
 export type FilterActions = SearchFilter | ProductTags;

@@ -55,7 +55,7 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
 
   const handleTags = (e: React.MouseEvent<HTMLSpanElement>) => {
     let target = e.target as HTMLSpanElement;
-    dispatch(searchTags(["burak"]));
+    dispatch(searchTags([target.innerText]));
   };
 
   return (
