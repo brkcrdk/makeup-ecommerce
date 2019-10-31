@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import {
   AccordionContainer,
   AccordionContent,
   AccordionList
 } from "./AcordionStyle";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { searchFilter } from "../../../../store/searchFilter/action";
+import { IFilter } from "../../../../store/searchFilter/types";
 interface Props {
   title: string;
   content: string[];
   activeIndex: number;
   url: string;
+  searchFilter?: {
+    filters: IFilter;
+  };
 }
 
 const Accordion: React.FC<Props> = ({ title, content, activeIndex, url }) => {
@@ -20,6 +26,14 @@ const Accordion: React.FC<Props> = ({ title, content, activeIndex, url }) => {
     //If accordion is open close
     if (index === activeIndex) return setIndex(-1);
   };
+  const dispatch = useDispatch();
+  const handleFilter = useCallback(
+    (filterSection: string, filter: string) => {
+      dispatch(searchFilter({ [filterSection]: filter }));
+    },
+    [dispatch]
+  );
+
   return (
     <AccordionContainer>
       <AccordionContent
@@ -35,7 +49,13 @@ const Accordion: React.FC<Props> = ({ title, content, activeIndex, url }) => {
       ) : (
         content.map((item, key) => (
           <AccordionList index={index} activeId={activeIndex} key={key}>
-            <Link to={`/shop/${url}/${item}`}>{item.replace("_", " ")}</Link>
+            <Link
+              to={`/shop`}
+              onClick={() => {
+                handleFilter(url, item);
+              }}>
+              {item.replace("_", " ")}
+            </Link>
           </AccordionList>
         ))
       )}
