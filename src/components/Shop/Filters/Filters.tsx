@@ -59,7 +59,7 @@ const Filters: React.FC<Props> = ({ activeFilters, tags }) => {
   return (
     <Container>
       {values.map((filter, i) => {
-        const type = filter[0].replace("_", " ");
+        const type = filter[0].replace(/\_/g, " ");
         const value = filter[1];
         return (
           <Filter key={i}>
