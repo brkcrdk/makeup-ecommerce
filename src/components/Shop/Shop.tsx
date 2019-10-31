@@ -2,7 +2,7 @@ import React, { useEffect, useCallback } from "react";
 import { Container, Content, Parallax } from "./ShopStyle";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProduct } from "../../store/fetchProduct/actions";
-import { searchFilter } from "../../store/searchFilter/action";
+import { searchFilter, searchTags } from "../../store/searchFilter/action";
 import Footer from "../Content/Footer/Footer";
 import ProductList from "./ProductList/ProductList";
 import Filter from "./Filter/Filter";
@@ -55,7 +55,7 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
 
   const handleTags = (e: React.MouseEvent<HTMLSpanElement>) => {
     let target = e.target as HTMLSpanElement;
-    dispatch(searchFilter({ product_tags: [target.innerText] }));
+    dispatch(searchTags(["burak"]));
   };
 
   return (
