@@ -7,7 +7,7 @@ import {
 } from "./types";
 
 const initialState: FilterState = {
-  filters: { price_greater_than: 0, product_type: "" },
+  filters: { price_greater_than: 0, product_type: "", brand: "" },
   product_tags: []
 };
 

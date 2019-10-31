@@ -40,7 +40,7 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
     dispatch(
       fetchProduct(
         `product_type=${filters.product_type}`,
-        "brand=",
+        `brand=${filters.brand}`,
         "product_category=",
         `price_greater_than=${filters.price_greater_than}`,
         "price_less_than=",
