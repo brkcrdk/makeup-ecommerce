@@ -34,11 +34,15 @@ const Filter = styled.div`
 `;
 
 const Filters: React.FC<Props> = ({ activeFilters, tags }) => {
+  const dispatch = useDispatch();
+
   const filters = Object.entries(activeFilters);
   const values = filters
-    .filter((ent) => ent[1] !== "" && ent[1] !== 0 && ent[1] !== 100)
-    .map((ent) => ent);
-  const dispatch = useDispatch();
+    .filter(
+      (filter) => filter[1] !== "" && filter[1] !== 0 && filter[1] !== 100
+    )
+    .map((filter) => filter);
+
   const removeFilter = useCallback(
     (filterSection: string) => {
       dispatch(searchFilter({ [filterSection]: "" }));
@@ -47,9 +51,9 @@ const Filters: React.FC<Props> = ({ activeFilters, tags }) => {
   );
   return (
     <Container>
-      {values.map((ent, i) => {
-        const type = ent[0].replace("_", " ");
-        const value = ent[1];
+      {values.map((filter, i) => {
+        const type = filter[0].replace("_", " ");
+        const value = filter[1];
         return (
           <Filter key={i}>
             <p>
@@ -57,7 +61,7 @@ const Filters: React.FC<Props> = ({ activeFilters, tags }) => {
             </p>
             <button
               onClick={() => {
-                removeFilter(ent[0]);
+                removeFilter(filter[0]);
               }}>
               X
             </button>
