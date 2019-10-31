@@ -6,6 +6,7 @@ import { searchFilter } from "../../store/searchFilter/action";
 import Footer from "../Content/Footer/Footer";
 import ProductList from "./ProductList/ProductList";
 import Filter from "./Filter/Filter";
+import { IFilter } from "../../store/searchFilter/types";
 
 interface StoreProps {
   storeProduct: {
@@ -14,19 +15,19 @@ interface StoreProps {
     error: null;
   };
   searchFilter: {
-    filters: {};
+    filters: IFilter;
   };
   location: {
     pathname: string;
   };
-  match: {};
 }
-const Shop: React.FC<StoreProps> = ({ location, match }) => {
+const Shop: React.FC<StoreProps> = ({ location }) => {
   const dispatch = useDispatch();
   const filters = useSelector(
     (state: StoreProps) => state.searchFilter.filters
   );
   const tags = [""];
+  console.log(filters);
   useEffect(() => {
     const searchType = location.pathname.split("/")[2];
     const searchInput = location.pathname.split("/")[3];
@@ -34,7 +35,7 @@ const Shop: React.FC<StoreProps> = ({ location, match }) => {
     dispatch(
       fetchProduct(
         `${searchType}=${searchInput}`,
-        "price_greater_than=",
+        `price_greater_than=`,
         "price_less_than=",
         "brand=",
         `product_tags=${tags.map((tag) => {
