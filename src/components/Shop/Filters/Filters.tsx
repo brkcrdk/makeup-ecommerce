@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 import { IFilter } from "../../../store/searchFilter/types";
-
+import { searchFilter } from "../../../store/searchFilter/action";
+import { useDispatch } from "react-redux";
 interface Props {
   activeFilters: IFilter;
   tags: string[];
@@ -37,6 +38,13 @@ const Filters: React.FC<Props> = ({ activeFilters, tags }) => {
   const values = filters
     .filter((ent) => ent[1] !== "" && ent[1] !== 0 && ent[1] !== 100)
     .map((ent) => ent);
+  const dispatch = useDispatch();
+  const removeFilter = useCallback(
+    (filterSection: string) => {
+      dispatch(searchFilter({ [filterSection]: "" }));
+    },
+    [dispatch]
+  );
   return (
     <Container>
       {values.map((ent, i) => {
@@ -47,7 +55,12 @@ const Filters: React.FC<Props> = ({ activeFilters, tags }) => {
             <p>
               {type}={value}
             </p>
-            <button>X</button>
+            <button
+              onClick={() => {
+                removeFilter(ent[0]);
+              }}>
+              X
+            </button>
           </Filter>
         );
       })}
