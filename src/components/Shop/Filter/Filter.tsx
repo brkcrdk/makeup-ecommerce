@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, TagContainer } from "./FilterStyle";
+import { Container } from "./FilterStyle";
 import Slider from "../../UI/Slider/Slider";
 import Tags from "./Tags";
 
