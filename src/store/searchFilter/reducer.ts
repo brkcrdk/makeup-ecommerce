@@ -25,8 +25,17 @@ const filterReducer = (state = initialState, action: FilterActions) => {
         return state;
       }
     case REMOVE_TAGS:
-      console.log(action.payload);
-      return state;
+      if (state.product_tags.indexOf(action.payload.toString()) > -1) {
+        return {
+          ...state,
+          product_tags: state.product_tags.filter((tag) => {
+            return tag !== action.payload.toString();
+          })
+        };
+      } else {
+        return state;
+      }
+
     default:
       return state;
   }

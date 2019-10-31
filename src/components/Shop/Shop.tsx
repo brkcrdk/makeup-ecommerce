@@ -66,12 +66,9 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
     dispatch(searchTags([target.innerText]));
   };
 
-  const removeTags = useCallback(
-    (tag: string[]) => {
-      dispatch(removeTags([`${tag}`]));
-    },
-    [dispatch]
-  );
+  const deleteTag = useCallback(() => {
+    dispatch(removeTags("vegan"));
+  }, [dispatch]);
 
   const tags = ["vegan", "canadian", "organic", "sugar free"];
 
@@ -86,7 +83,7 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
             {tag}
           </span>
         ))}
-        <button onClick={removeTags(["vegan"])}>Remove</button>
+        <button onClick={deleteTag}>Remove</button>
       </Parallax>
       <Content>
         <Filter isLoading={isLoading} products={products} />

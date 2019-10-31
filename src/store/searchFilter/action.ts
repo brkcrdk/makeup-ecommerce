@@ -14,7 +14,7 @@ export const searchTags = (tags: string[]) => {
   };
 };
 
-export const removeTags = (tags: string[]) => {
+export const removeTags = (tags: string) => {
   return {
     type: REMOVE_TAGS,
     payload: tags
