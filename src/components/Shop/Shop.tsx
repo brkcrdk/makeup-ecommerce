@@ -34,7 +34,9 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
     dispatch(
       fetchProduct(
         `${searchType}=${searchInput}`,
-        `price_greater_than=${filters.price_greater_than}`
+        `price_greater_than=${filters.price_greater_than}`,
+        "price_less_than=",
+        "product_tags="
       )
     );
   }, [dispatch, location.pathname, filters.price_greater_than]);
@@ -48,11 +50,15 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
   const handlePriceGreat = useCallback(() => {
     dispatch(searchFilter({ price_greater_than: 20 }));
   }, [dispatch]);
+  const handlePriceClear = useCallback(() => {
+    dispatch(searchFilter({ price_greater_than: 0 }));
+  }, [dispatch]);
   return (
     <Container>
       <Parallax>
         <h3>Shop</h3>
         <button onClick={handlePriceGreat}>price_greate=20</button>
+        <button onClick={handlePriceClear}>Clear priceState</button>
       </Parallax>
       <Content>
         <Filter isLoading={isLoading} products={products} />
