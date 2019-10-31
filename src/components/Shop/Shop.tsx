@@ -66,7 +66,7 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
         <button onClick={handlePriceClear}>Clear priceState</button>
         <span onClick={handleTags}>burak</span>
         <span onClick={handleTags}>murat</span>
-        <span onClick={handleTags}>furklan</span>
+        <span onClick={handleTags}>furkan</span>
         <span onClick={handleTags}>aykut</span>
       </Parallax>
       <Content>
