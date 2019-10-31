@@ -9,7 +9,7 @@ interface UlProps {
 export const AccordionContent = styled.ul`
   color: ${colours.primaryText};
   padding-left: 0.5em;
-
+  cursor: pointer;
   /* Used flex to prevent word-wrapping  */
   /* And saperate text and icon evenly */
   display: flex;
