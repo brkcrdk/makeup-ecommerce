@@ -22,20 +22,15 @@ interface StoreProps {
     filters: IFilter;
     product_tags: string[];
   };
-  location: {
-    pathname: string;
-  };
 }
-const Shop: React.FC<StoreProps> = ({ location }) => {
+const Shop: React.FC<StoreProps> = () => {
   const dispatch = useDispatch();
   const filters = useSelector(
     (state: StoreProps) => state.searchFilter.filters
   );
-
   const tagSelector = useSelector(
     (state: StoreProps) => state.searchFilter.product_tags
   );
-
   useEffect(() => {
     dispatch(
       fetchProduct(
@@ -88,11 +83,13 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
     <Container>
       <Parallax>
         <h3>Shop</h3>
-        <Filters activeFilters={filters} tags={tagSelector} />
       </Parallax>
       <Content>
         <Filter isLoading={isLoading} products={products} />
-        <ProductList isLoading={isLoading} products={products} />
+        <div style={{ display: "grid" }}>
+          <Filters activeFilters={filters} tags={tagSelector} />
+          <ProductList isLoading={isLoading} products={products} />
+        </div>
       </Content>
       <Footer />
     </Container>

@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import { IFilter } from "../../../store/searchFilter/types";
 
 interface Props {
@@ -6,14 +7,17 @@ interface Props {
   tags: string[];
 }
 
+const Container = styled.div`
+  display: flex;
+`;
+
 const Filters: React.FC<Props> = ({ activeFilters, tags }) => {
   const x = Object.entries(activeFilters);
   const values = x
     .filter((ent) => ent[1] !== "" && ent[1] !== 0 && ent[1] !== 100)
     .map((ent) => ent);
-  console.log(values);
   return (
-    <div>
+    <Container>
       {values.map((ent, i) => (
         <li key={i}>
           {ent[0]}= {ent[1]}
@@ -22,7 +26,7 @@ const Filters: React.FC<Props> = ({ activeFilters, tags }) => {
       {tags.map((item, index) => (
         <li key={index}>{item}</li>
       ))}
-    </div>
+    </Container>
   );
 };
 
