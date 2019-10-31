@@ -1,6 +1,7 @@
 import {
   SEARCH_FILTER,
   PRODUCT_TAGS,
+  REMOVE_TAGS,
   FilterState,
   FilterActions
 } from "./types";
@@ -23,6 +24,9 @@ const filterReducer = (state = initialState, action: FilterActions) => {
       } else {
         return state;
       }
+    case REMOVE_TAGS:
+      console.log(action.payload);
+      return state;
     default:
       return state;
   }

@@ -2,7 +2,11 @@ import React, { useEffect, useCallback } from "react";
 import { Container, Content, Parallax } from "./ShopStyle";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProduct } from "../../store/fetchProduct/actions";
-import { searchFilter, searchTags } from "../../store/searchFilter/action";
+import {
+  searchFilter,
+  searchTags,
+  removeTags
+} from "../../store/searchFilter/action";
 import Footer from "../Content/Footer/Footer";
 import ProductList from "./ProductList/ProductList";
 import Filter from "./Filter/Filter";
@@ -27,7 +31,7 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
   const filters = useSelector(
     (state: StoreProps) => state.searchFilter.filters
   );
-  const tags = useSelector(
+  const tagSelector = useSelector(
     (state: StoreProps) => state.searchFilter.product_tags
   );
 
@@ -39,10 +43,10 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
         `${searchType}=${searchInput}`,
         `price_greater_than=${filters.price_greater_than}`,
         "price_less_than=",
-        "product_tags="
+        `product_tags=${tagSelector.map((tag) => tag)},`
       )
     );
-  }, [dispatch, location.pathname, filters.price_greater_than]);
+  }, [dispatch, location.pathname, filters.price_greater_than, tagSelector]);
 
   const isLoading = useSelector(
     (state: StoreProps) => state.storeProduct.isLoading
@@ -62,16 +66,27 @@ const Shop: React.FC<StoreProps> = ({ location }) => {
     dispatch(searchTags([target.innerText]));
   };
 
+  const removeTags = useCallback(
+    (tag: string[]) => {
+      dispatch(removeTags([`${tag}`]));
+    },
+    [dispatch]
+  );
+
+  const tags = ["vegan", "canadian", "organic", "sugar free"];
+
   return (
     <Container>
       <Parallax>
         <h3>Shop</h3>
         <button onClick={handlePriceGreat}>price_greate=20</button>
         <button onClick={handlePriceClear}>Clear priceState</button>
-        <span onClick={handleTags}>burak</span>
-        <span onClick={handleTags}>murat</span>
-        <span onClick={handleTags}>furkan</span>
-        <span onClick={handleTags}>aykut</span>
+        {tags.map((tag, i) => (
+          <span key={i} onClick={handleTags}>
+            {tag}
+          </span>
+        ))}
+        <button onClick={removeTags(["vegan"])}>Remove</button>
       </Parallax>
       <Content>
         <Filter isLoading={isLoading} products={products} />
