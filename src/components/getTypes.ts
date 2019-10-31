@@ -1,5 +1,4 @@
 import { IProducts } from "../store/fetchProducts/types";
-import { isArray } from "util";
 
 export const getCategory = (data: []) => {
   const productTypes = data
@@ -28,7 +27,7 @@ export const getType = (data: []) => {
   });
   return types.sort();
 };
-//TODO: Will be using for filter section..
+
 export const getBrand = (data: []) => {
   const productTypes = data
     .filter((items: IProducts) => {
@@ -86,23 +85,3 @@ export const getTags = (data: []) => {
   });
   return tag;
 };
-
-// export const getFilters = (filterObj: IFilter) => {
-//   const values = Object.entries(filterObj);
-//   const filters = values
-//     .filter((value) => {
-//       return value[1] !== "" && value[1] !== 0;
-//     })
-//     .filter((value) => {
-//       if (isArray(value[1])) {
-//         if (value[1].length > 0) {
-//           return value;
-//         }
-//       } else {
-//         return value;
-//       }
-//     });
-//   return filters.map((filter) => {
-//     return `${filter[0]}=${filter[1]}`;
-//   });
-// };

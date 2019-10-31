@@ -4,16 +4,14 @@ import { fonts, colours } from "../../utils";
 import { getTags } from "../../getTypes";
 import { useDispatch } from "react-redux";
 import { searchTags } from "../../../store/searchFilter/action";
-interface TagProps {
-  toggle: boolean;
-}
+
 const Tag = styled.div`
   margin: 0.3em;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid;
-  border-color: ${(p: TagProps) => (p.toggle ? `green` : "black")};
+  border-color: ${colours.pink};
   background: transparent;
   border-radius: 0.3em;
   padding: 0.5em;
@@ -38,7 +36,6 @@ interface Props {
 }
 
 const Tags: React.FC<Props> = ({ products }) => {
-  const [toggle, setToggle] = useState(false);
   const tags = getTags(products);
   const dispatch = useDispatch();
   const addTag = useCallback(
@@ -59,7 +56,6 @@ const Tags: React.FC<Props> = ({ products }) => {
       {tags.map((tag, index) => (
         <Tag
           key={index}
-          toggle={toggle}
           onClick={() => {
             addTag(tag);
           }}>

@@ -1,6 +1,5 @@
 import React from "react";
 import { SlideWrapper } from "./SliderStyle";
-
 interface Props {
   rangeMin: number;
   rangeMax: number;

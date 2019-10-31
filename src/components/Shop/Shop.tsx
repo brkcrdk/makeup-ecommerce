@@ -1,12 +1,8 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect } from "react";
 import { Container, Content, Parallax } from "./ShopStyle";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProduct } from "../../store/fetchProduct/actions";
-import {
-  searchFilter,
-  searchTags,
-  removeTags
-} from "../../store/searchFilter/action";
+
 import Footer from "../Content/Footer/Footer";
 import ProductList from "./ProductList/ProductList";
 import Filter from "./Filter/Filter";
@@ -63,20 +59,6 @@ const Shop: React.FC<StoreProps> = () => {
   // }, [dispatch]);
   // const handlePriceClear = useCallback(() => {
   //   dispatch(searchFilter({ price_greater_than: 0 }));
-  // }, [dispatch]);
-
-  // const handleTags = (e: React.MouseEvent<HTMLSpanElement>) => {
-  //   let target = e.target as HTMLSpanElement;
-  //   dispatch(searchTags([target.innerText]));
-  // };
-
-  // const deleteTag = useCallback(() => {
-  //   dispatch(removeTags("vegan"));
-  // }, [dispatch]);
-
-  // const tags = ["vegan", "canadian", "organic", "sugar free"];
-  // const clearAll = useCallback(() => {
-  //   dispatch(fetchProduct());
   // }, [dispatch]);
 
   return (

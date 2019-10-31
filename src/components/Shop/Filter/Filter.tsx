@@ -1,26 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container } from "./FilterStyle";
-import Slider from "../../UI/Slider/Slider";
 import Tags from "./Tags";
-
+import Price from "./Price";
 interface Props {
   products: [];
   isLoading: boolean;
 }
 
 const Filter: React.FC<Props> = ({ products }) => {
-  const [values, setValues] = useState({ min: 0, max: 100 });
-
   return (
     <Container>
       <h3>Filter By</h3>
       <hr />
-      <Slider
-        rangeMin={0}
-        rangeMax={100}
-        values={values}
-        setValues={setValues}
-      />
+      <Price />
       <Tags products={products} />
     </Container>
   );
