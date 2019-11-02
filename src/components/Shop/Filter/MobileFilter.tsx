@@ -36,10 +36,6 @@ const MobileFilter: React.FC<Props> = ({ products, isLoading }) => {
     <Container toggle={toggle}>
       <h5 onClick={handleToggle}>Filter by</h5>
       <Tags products={products} />
-      <p>Mobile filter container</p>
-      <li>Burak</li>
-      <li>Burak</li>
-      <li>Burak</li>
     </Container>
   );
 };

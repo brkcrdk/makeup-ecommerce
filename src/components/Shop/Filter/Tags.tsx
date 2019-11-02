@@ -34,7 +34,7 @@ const TagContainer = styled.div`
     display: none;
   }
   @media ${device.laptop} {
-    display: block;
+    display: flex;
   }
 `;
 const MobileTag = styled.div`
@@ -61,9 +61,14 @@ const Tags: React.FC<Props> = ({ products }) => {
 
   if (tags.length < 1)
     return (
-      <TagContainer>
-        <p>No tags for this product.</p>
-      </TagContainer>
+      <>
+        <TagContainer>
+          <p>No tags for this product.</p>
+        </TagContainer>
+        <MobileTag>
+          <p>No tags for this product</p>
+        </MobileTag>
+      </>
     );
   return (
     <>
@@ -78,7 +83,19 @@ const Tags: React.FC<Props> = ({ products }) => {
           </Tag>
         ))}
       </TagContainer>
-      <MobileTag>Mobile Tag goes here</MobileTag>
+      <MobileTag>
+        <label>Choose tag</label>
+        <select>
+          {tags.map((tag, index) => (
+            <option
+              onClick={() => {
+                addTag(tag);
+              }}>
+              {tag}
+            </option>
+          ))}
+        </select>
+      </MobileTag>
     </>
   );
 };
