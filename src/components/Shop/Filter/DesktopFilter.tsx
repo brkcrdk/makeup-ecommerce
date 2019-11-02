@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { device, fonts } from "../../utils";
 import Tags from "./FilterTypes/Tags";
@@ -6,8 +6,10 @@ import Price from "./FilterTypes/Price";
 import Types from "./FilterTypes/Types";
 import Categories from "./FilterTypes/Categories";
 import Brands from "./FilterTypes/Brands";
+
 const Container = styled.div`
   text-align: center;
+
   h3 {
     font-family: ${fonts.raleway};
     font-weight: 200;
@@ -35,6 +37,17 @@ interface Props {
 }
 
 const DesktopFilter: React.FC<Props> = ({ products, isLoading }) => {
+  const [scroll, setScroll] = useState(false);
+  const handleScroll = () => {
+    if (window.pageYOffset > 250) {
+      setScroll(true);
+    } else {
+      setScroll(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  }, []);
   return (
     <Container>
       <h3>Filter By</h3>

@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { Container, Content, Parallax } from "./ShopStyle";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProduct } from "../../store/fetchProduct/actions";
-import { searchFilter } from "../../store/searchFilter/action";
 import Footer from "../Content/Footer/Footer";
 import ProductList from "./ProductList/ProductList";
 import Filter from "./Filter/Filter";
@@ -28,6 +27,7 @@ const Shop: React.FC<StoreProps> = () => {
     (state: StoreProps) => state.searchFilter.product_tags
   );
   useEffect(() => {
+    const abort = new AbortController();
     dispatch(
       fetchProduct(
         `product_type=${filters.product_type}`,
@@ -38,6 +38,9 @@ const Shop: React.FC<StoreProps> = () => {
         `product_tags=${tagSelector.map((tag) => tag)},`
       )
     );
+    return () => {
+      abort.abort();
+    };
   }, [
     dispatch,
     filters.product_type,
