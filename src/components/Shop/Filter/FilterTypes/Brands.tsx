@@ -7,10 +7,12 @@ interface Props {
 const Brands: React.FC<Props> = ({ products }) => {
   const brands = getBrand(products);
   return (
-    <select>
+    <>
       <label>Choose brand:</label>
-      <option>Brands</option>
-    </select>
+      <select>
+        <option>Brands</option>
+      </select>
+    </>
   );
 };
 

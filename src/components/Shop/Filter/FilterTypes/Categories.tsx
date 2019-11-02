@@ -8,10 +8,12 @@ interface Props {
 const Categories: React.FC<Props> = ({ products }) => {
   const categories = getCategory(products);
   return (
-    <select>
+    <>
       <label>Choose category:</label>
-      <option>Category</option>
-    </select>
+      <select>
+        <option>Category</option>
+      </select>
+    </>
   );
 };
 

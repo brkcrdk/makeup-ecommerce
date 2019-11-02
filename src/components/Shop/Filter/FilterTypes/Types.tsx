@@ -8,15 +8,17 @@ interface Props {
 const Types: React.FC<Props> = ({ products }) => {
   const types = getType(products);
   return (
-    <select>
+    <>
       <label>Product Type: </label>
-      <option value="">Select Type</option>
-      {types.map((type, index) => (
-        <option key={index} value={type}>
-          {type}
-        </option>
-      ))}
-    </select>
+      <select>
+        <option value="">Select Type</option>
+        {types.map((type, index) => (
+          <option key={index} value={type}>
+            {type}
+          </option>
+        ))}
+      </select>
+    </>
   );
 };
 
