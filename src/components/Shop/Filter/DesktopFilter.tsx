@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { device, fonts } from "../../utils";
 import Tags from "./FilterTypes/Tags";
@@ -37,17 +37,6 @@ interface Props {
 }
 
 const DesktopFilter: React.FC<Props> = ({ products, isLoading }) => {
-  const [scroll, setScroll] = useState(false);
-  const handleScroll = () => {
-    if (window.pageYOffset > 250) {
-      setScroll(true);
-    } else {
-      setScroll(false);
-    }
-  };
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-  }, []);
   return (
     <Container>
       <h3>Filter By</h3>

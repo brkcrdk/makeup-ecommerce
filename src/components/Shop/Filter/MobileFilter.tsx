@@ -11,11 +11,9 @@ interface ContainerProps {
 }
 
 const Container = styled.div`
-  height: ${(p: ContainerProps) => (p.toggle ? "30em" : "5em")};
-  background: ${(p: ContainerProps) =>
-    p.toggle ? "transparent" : `lightpink`};
+  max-height: ${(p: ContainerProps) => (p.toggle ? "50em" : "5em")};
   overflow: hidden;
-  transition: height 0.5s, background 0.5s;
+  transition: max-height 0.7s;
   h5 {
     cursor: pointer;
     font-family: ${fonts.raleway};
@@ -35,9 +33,7 @@ const Wrapper = styled.div`
     display: grid;
   }
   @media ${device.mobileTablet} {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    grid-template-columns: repeat(2, 6fr);
   }
 `;
 
@@ -59,8 +55,8 @@ const MobileFilter: React.FC<Props> = ({ products, isLoading }) => {
         <Categories products={products} isLoading={isLoading} />
         <Brands products={products} isLoading={isLoading} />
         <Tags products={products} isLoading={isLoading} />
-        <Price />
       </Wrapper>
+      <Price />
     </Container>
   );
 };
