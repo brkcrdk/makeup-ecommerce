@@ -7,11 +7,17 @@ interface Props {
   defaultValue?: string;
 }
 const Container = styled.div`
+  font-family: ${fonts.aBeeZee};
   label {
     margin-bottom: 0.5em;
     font-weight: 600;
   }
+  hr {
+    border: 0.5px solid lightgrey;
+    margin-bottom: 0.5em;
+  }
   select {
+    font-family: ${fonts.aBeeZee};
     width: 100%;
     padding: 0.5em;
     margin-bottom: 1em;
