@@ -1,6 +1,6 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
-import { fonts, colours } from "../../utils";
+import { fonts, colours, device } from "../../utils";
 import { getTags } from "../../getTypes";
 import { useDispatch } from "react-redux";
 import { searchTags } from "../../../store/searchFilter/action";
@@ -30,6 +30,20 @@ const TagContainer = styled.div`
   p {
     font-family: ${fonts.aBeeZee};
   }
+  @media ${device.mobileS} {
+    display: none;
+  }
+  @media ${device.laptop} {
+    display: block;
+  }
+`;
+const MobileTag = styled.div`
+  @media ${device.mobileS} {
+    display: block;
+  }
+  @media ${device.laptop} {
+    display: none;
+  }
 `;
 interface Props {
   products: [];
@@ -52,17 +66,20 @@ const Tags: React.FC<Props> = ({ products }) => {
       </TagContainer>
     );
   return (
-    <TagContainer>
-      {tags.map((tag, index) => (
-        <Tag
-          key={index}
-          onClick={() => {
-            addTag(tag);
-          }}>
-          <span>{tag}</span>
-        </Tag>
-      ))}
-    </TagContainer>
+    <>
+      <TagContainer>
+        {tags.map((tag, index) => (
+          <Tag
+            key={index}
+            onClick={() => {
+              addTag(tag);
+            }}>
+            <span>{tag}</span>
+          </Tag>
+        ))}
+      </TagContainer>
+      <MobileTag>Mobile Tag goes here</MobileTag>
+    </>
   );
 };
 
