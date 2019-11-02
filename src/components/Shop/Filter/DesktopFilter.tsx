@@ -4,6 +4,8 @@ import { device } from "../../utils";
 import Tags from "./FilterTypes/Tags";
 import Price from "./FilterTypes/Price";
 import Types from "./FilterTypes/Types";
+import Categories from "./FilterTypes/Categories";
+import Brands from "./FilterTypes/Brands";
 const Container = styled.div`
   text-align: center;
   @media ${device.mobileS} {
@@ -24,6 +26,8 @@ const DesktopFilter: React.FC<Props> = ({ products }) => {
       <h3>Filter By</h3>
       <hr />
       <Types products={products} />
+      <Categories products={products} />
+      <Brands products={products} />
       <Price />
       <Tags products={products} />
     </Container>
