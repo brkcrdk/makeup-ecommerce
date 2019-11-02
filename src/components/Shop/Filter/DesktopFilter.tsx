@@ -37,7 +37,7 @@ const DesktopFilter: React.FC<Props> = ({ products, isLoading }) => {
         <Brands products={products} isLoading={isLoading} />
         <Price />
       </FilterWrapper>
-      <Tags products={products} />
+      <Tags products={products} isLoading={isLoading} />
     </Container>
   );
 };

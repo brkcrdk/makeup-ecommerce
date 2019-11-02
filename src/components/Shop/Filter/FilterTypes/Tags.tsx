@@ -4,7 +4,7 @@ import { fonts, colours, device } from "../../../utils";
 import { getTags } from "../../../getTypes";
 import { useDispatch } from "react-redux";
 import { searchTags } from "../../../../store/searchFilter/action";
-
+import Selectbox from "../../../UI/Selectbox/Selectbox";
 const Tag = styled.div`
   margin: 0.3em;
   display: flex;
@@ -50,9 +50,10 @@ const MobileTag = styled.div`
 `;
 interface Props {
   products: [];
+  isLoading: boolean;
 }
 
-const Tags: React.FC<Props> = ({ products }) => {
+const Tags: React.FC<Props> = ({ products, isLoading }) => {
   const tags = getTags(products);
   const dispatch = useDispatch();
   const addTag = useCallback(
@@ -62,7 +63,7 @@ const Tags: React.FC<Props> = ({ products }) => {
     [dispatch]
   );
 
-  const selectTag = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.options[e.target.selectedIndex].value;
     addTag(value);
   };
@@ -92,14 +93,12 @@ const Tags: React.FC<Props> = ({ products }) => {
         ))}
       </TagContainer>
       <MobileTag>
-        <label>Choose tag</label>
-        <select onChange={selectTag}>
-          {tags.map((tag, index) => (
-            <option key={index} value={tag}>
-              {tag}
-            </option>
-          ))}
-        </select>
+        <Selectbox
+          options={tags}
+          label="Tags :"
+          defaultValue={`${isLoading ? "Loading.." : "Choose here.."}`}
+          onChange={handleSelect}
+        />
       </MobileTag>
     </>
   );

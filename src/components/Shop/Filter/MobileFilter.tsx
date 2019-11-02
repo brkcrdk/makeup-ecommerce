@@ -48,7 +48,7 @@ const MobileFilter: React.FC<Props> = ({ products, isLoading }) => {
     <Container toggle={toggle}>
       <h5 onClick={handleToggle}>Filter by</h5>
       <Wrapper>
-        <Tags products={products} />
+        <Tags products={products} isLoading={isLoading} />
         <Price />
       </Wrapper>
     </Container>
