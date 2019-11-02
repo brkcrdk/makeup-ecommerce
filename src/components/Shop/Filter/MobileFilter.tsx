@@ -28,8 +28,9 @@ const Container = styled.div`
   }
 `;
 const Wrapper = styled.div`
+  grid-gap: 0.5em;
   @media ${device.mobileS} {
-    text-align: center;
+    text-align: left;
     display: grid;
   }
   @media ${device.mobileTablet} {
