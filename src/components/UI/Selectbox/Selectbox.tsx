@@ -1,11 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { fonts, colours } from "../../utils";
-interface Props {
-  options: (string | number)[];
-  label: string;
-  defaultValue?: string;
-}
+
 const Container = styled.div`
   font-family: ${fonts.aBeeZee};
   label {
@@ -25,17 +21,23 @@ const Container = styled.div`
     font-size: 1em;
   }
 `;
-
+interface Props {
+  options: (string | number)[];
+  label: string;
+  defaultValue?: string;
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+}
 const Selectbox: React.FC<Props> = ({
   defaultValue = "Choose here",
   options,
-  label
+  label,
+  onChange
 }) => {
   return (
     <Container>
       <label>{label}</label>
       <hr />
-      <select>
+      <select onChange={onChange}>
         <option value="">{defaultValue}</option>
         {options.map((option, index) => (
           <option key={index} value={option}>
