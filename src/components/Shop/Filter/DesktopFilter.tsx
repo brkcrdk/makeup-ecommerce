@@ -26,15 +26,15 @@ interface Props {
   isLoading: boolean;
 }
 
-const DesktopFilter: React.FC<Props> = ({ products }) => {
+const DesktopFilter: React.FC<Props> = ({ products, isLoading }) => {
   return (
     <Container>
       <h3>Filter By</h3>
       <hr />
       <FilterWrapper>
-        <Types products={products} />
-        <Categories products={products} />
-        <Brands products={products} />
+        <Types products={products} isLoading={isLoading} />
+        <Categories products={products} isLoading={isLoading} />
+        <Brands products={products} isLoading={isLoading} />
         <Price />
       </FilterWrapper>
       <Tags products={products} />

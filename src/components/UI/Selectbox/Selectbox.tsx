@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { fonts, colours } from "../../utils";
 interface Props {
   options: (string | number)[];
   label: string;
