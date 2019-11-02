@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { device } from "../../utils";
 import Tags from "./FilterTypes/Tags";
 import Price from "./FilterTypes/Price";
+import Types from "./FilterTypes/Types";
+import Categories from "./FilterTypes/Categories";
+import Brands from "./FilterTypes/Brands";
 interface ContainerProps {
   toggle: boolean;
 }
@@ -48,6 +51,9 @@ const MobileFilter: React.FC<Props> = ({ products, isLoading }) => {
     <Container toggle={toggle}>
       <h5 onClick={handleToggle}>Filter by</h5>
       <Wrapper>
+        <Types products={products} isLoading={isLoading} />
+        <Categories products={products} isLoading={isLoading} />
+        <Brands products={products} isLoading={isLoading} />
         <Tags products={products} isLoading={isLoading} />
         <Price />
       </Wrapper>
