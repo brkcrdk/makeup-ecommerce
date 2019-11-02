@@ -5,6 +5,18 @@ interface Props {
   label: string;
   defaultValue?: string;
 }
+const Container = styled.div`
+  label {
+    margin-bottom: 0.5em;
+    font-weight: 600;
+  }
+  select {
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    font-size: 1em;
+  }
+`;
 
 const Selectbox: React.FC<Props> = ({
   defaultValue = "Choose here",
@@ -12,8 +24,9 @@ const Selectbox: React.FC<Props> = ({
   label
 }) => {
   return (
-    <>
+    <Container>
       <label>{label}</label>
+      <hr />
       <select>
         <option value="">{defaultValue}</option>
         {options.map((option, index) => (
@@ -22,7 +35,7 @@ const Selectbox: React.FC<Props> = ({
           </option>
         ))}
       </select>
-    </>
+    </Container>
   );
 };
 
