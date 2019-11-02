@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import styled from "styled-components";
-import { fonts, colours, device } from "../../utils";
-import { getTags } from "../../getTypes";
+import { fonts, colours, device } from "../../../utils";
+import { getTags } from "../../../getTypes";
 import { useDispatch } from "react-redux";
-import { searchTags } from "../../../store/searchFilter/action";
+import { searchTags } from "../../../../store/searchFilter/action";
 
 const Tag = styled.div`
   margin: 0.3em;

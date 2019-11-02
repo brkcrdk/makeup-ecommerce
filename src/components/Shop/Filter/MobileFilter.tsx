@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { device } from "../../utils";
-import Tags from "./Tags";
-import Price from "./Price";
+import Tags from "./FilterTypes/Tags";
+import Price from "./FilterTypes/Price";
 interface ContainerProps {
   toggle: boolean;
 }

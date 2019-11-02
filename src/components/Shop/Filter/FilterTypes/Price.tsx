@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Slider from "../../UI/Slider/Slider";
-import { searchFilter } from "../../../store/searchFilter/action";
+import Slider from "../../../UI/Slider/Slider";
+import { searchFilter } from "../../../../store/searchFilter/action";
 import { useDispatch } from "react-redux";
 
 interface Props {}
