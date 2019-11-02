@@ -35,7 +35,7 @@ const Dropdown: React.FC<Props> = ({ title, content, url }) => {
                 onClick={() => {
                   handleFilter(url, item);
                 }}>
-                &#9880; {item.replace("_", " ")}
+                &#9880; {item}
               </Link>
             </DropItem>
           ))

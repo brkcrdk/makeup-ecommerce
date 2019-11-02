@@ -54,7 +54,7 @@ const Accordion: React.FC<Props> = ({ title, content, activeIndex, url }) => {
               onClick={() => {
                 handleFilter(url, item);
               }}>
-              {item.replace("_", " ")}
+              {item}
             </Link>
           </AccordionList>
         ))

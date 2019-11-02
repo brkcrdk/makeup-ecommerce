@@ -6,7 +6,7 @@ export const getCategory = (data: []) => {
       return items.category;
     })
     .map((items: IProducts) => {
-      return items.category;
+      return items.category.replace(/_/g, " ");
     });
   const categories = productTypes.filter((value, index, self) => {
     return self.indexOf(value) === index;
@@ -20,7 +20,7 @@ export const getType = (data: []) => {
       return items.product_type;
     })
     .map((items: IProducts) => {
-      return items.product_type;
+      return items.product_type.replace(/_/g, " ");
     });
   const types = productTypes.filter((value, index, self) => {
     return self.indexOf(value) === index;
@@ -34,7 +34,7 @@ export const getBrand = (data: []) => {
       return items.brand;
     })
     .map((items: IProducts) => {
-      return items.brand;
+      return items.brand.replace(/_/g, " ");
     });
   const brands = productTypes.filter((value, index, self) => {
     return self.indexOf(value) === index;
