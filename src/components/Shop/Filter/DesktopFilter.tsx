@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { device } from "../../utils";
+import { device, fonts } from "../../utils";
 import Tags from "./FilterTypes/Tags";
 import Price from "./FilterTypes/Price";
 import Types from "./FilterTypes/Types";
@@ -8,6 +8,14 @@ import Categories from "./FilterTypes/Categories";
 import Brands from "./FilterTypes/Brands";
 const Container = styled.div`
   text-align: center;
+  h3 {
+    font-family: ${fonts.raleway};
+    font-weight: 200;
+    font-size: 1.5em;
+  }
+  hr {
+    border: 0.4px solid lightgrey;
+  }
   @media ${device.mobileS} {
     display: none;
   }

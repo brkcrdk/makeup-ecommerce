@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { fonts, colours } from "../../utils";
-
+import { fonts } from "../../utils";
 const Container = styled.div`
   font-family: ${fonts.aBeeZee};
   label {
@@ -39,11 +38,13 @@ const Selectbox: React.FC<Props> = ({
       <hr />
       <select onChange={onChange}>
         <option value="">{defaultValue}</option>
-        {options.map((option, index) => (
-          <option key={index} value={option}>
-            {option}
-          </option>
-        ))}
+        {options.map((option, index) => {
+          return (
+            <option key={index} value={option}>
+              {option}
+            </option>
+          );
+        })}
       </select>
     </Container>
   );
