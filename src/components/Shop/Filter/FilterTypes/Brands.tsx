@@ -1,24 +1,13 @@
 import React from "react";
 import { getBrand } from "../../../getTypes";
+import Selectbox from "../../../UI/Selectbox/Selectbox";
 interface Props {
   products: [];
 }
 
 const Brands: React.FC<Props> = ({ products }) => {
   const brands = getBrand(products);
-  return (
-    <>
-      <label>Brand</label>
-      <select>
-        <option value="">Choose here..</option>
-        {brands.map((brand, index) => (
-          <option key={index} value={brand}>
-            {brand}
-          </option>
-        ))}
-      </select>
-    </>
-  );
+  return <Selectbox options={brands} label="Product Type:" />;
 };
 
 export default Brands;

@@ -15,6 +15,18 @@ const Container = styled.div`
     display: block;
   }
 `;
+const FilterWrapper = styled.div`
+  display: grid;
+  text-align: left;
+  padding: 0 1em;
+  label {
+    margin-bottom: 0.5em;
+  }
+  select {
+    margin-bottom: 1em;
+  }
+`;
+
 interface Props {
   products: [];
   isLoading: boolean;
@@ -25,12 +37,12 @@ const DesktopFilter: React.FC<Props> = ({ products }) => {
     <Container>
       <h3>Filter By</h3>
       <hr />
-      <div style={{ display: "grid", textAlign: "left" }}>
+      <FilterWrapper>
         <Types products={products} />
         <Categories products={products} />
         <Brands products={products} />
         <Price />
-      </div>
+      </FilterWrapper>
       <Tags products={products} />
     </Container>
   );
