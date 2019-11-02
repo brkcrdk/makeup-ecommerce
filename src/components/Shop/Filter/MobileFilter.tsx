@@ -12,8 +12,9 @@ interface ContainerProps {
 
 const Container = styled.div`
   max-height: ${(p: ContainerProps) => (p.toggle ? "50em" : "5em")};
+  background-color: ${(p: ContainerProps) => (p.toggle ? "" : `lightpink`)};
   overflow: hidden;
-  transition: max-height 0.7s;
+  transition: max-height 0.7s, background-color 1s;
   h5 {
     cursor: pointer;
     font-family: ${fonts.raleway};
