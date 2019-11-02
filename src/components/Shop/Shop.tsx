@@ -53,12 +53,6 @@ const Shop: React.FC<StoreProps> = () => {
   const products = useSelector(
     (state: StoreProps) => state.storeProduct.product
   );
-  // const handlePriceGreat = useCallback(() => {
-  //   dispatch(searchFilter({ price_greater_than: 20 }));
-  // }, [dispatch]);
-  // const handlePriceClear = useCallback(() => {
-  //   dispatch(searchFilter({ price_greater_than: 0 }));
-  // }, [dispatch]);
 
   return (
     <Container>

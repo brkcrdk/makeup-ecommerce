@@ -1,20 +1,17 @@
 import React from "react";
-import { Container } from "./FilterStyle";
-import Tags from "./Tags";
-import Price from "./Price";
+import MobileFilter from "./MobileFilter";
+import DesktopFilter from "./DesktopFilter";
 interface Props {
   products: [];
   isLoading: boolean;
 }
 
-const Filter: React.FC<Props> = ({ products }) => {
+const Filter: React.FC<Props> = ({ products, isLoading }) => {
   return (
-    <Container>
-      <h3>Filter By</h3>
-      <hr />
-      <Price />
-      <Tags products={products} />
-    </Container>
+    <>
+      <MobileFilter products={products} isLoading={isLoading} />
+      <DesktopFilter products={products} isLoading={isLoading} />
+    </>
   );
 };
 

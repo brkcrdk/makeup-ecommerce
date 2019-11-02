@@ -35,7 +35,7 @@ export const Content = styled.div`
   @media ${device.mobileS} {
     grid-template-columns: 1fr;
   }
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     grid-template-columns: 3fr 9fr;
   }
   .card-container {
