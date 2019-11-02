@@ -11,7 +11,7 @@ const Types: React.FC<Props> = ({ products }) => {
     <>
       <label>Product Type: </label>
       <select>
-        <option value="">Select Type</option>
+        <option value="">Choose here..</option>
         {types.map((type, index) => (
           <option key={index} value={type}>
             {type}

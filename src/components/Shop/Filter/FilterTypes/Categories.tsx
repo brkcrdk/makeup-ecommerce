@@ -9,9 +9,14 @@ const Categories: React.FC<Props> = ({ products }) => {
   const categories = getCategory(products);
   return (
     <>
-      <label>Choose category:</label>
+      <label>Category:</label>
       <select>
-        <option>Category</option>
+        <option value="">Choose here..</option>
+        {categories.map((category, index) => (
+          <option key={index} value={category}>
+            {category}
+          </option>
+        ))}
       </select>
     </>
   );

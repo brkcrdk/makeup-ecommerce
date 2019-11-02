@@ -8,9 +8,14 @@ const Brands: React.FC<Props> = ({ products }) => {
   const brands = getBrand(products);
   return (
     <>
-      <label>Choose brand:</label>
+      <label>Brand</label>
       <select>
-        <option>Brands</option>
+        <option value="">Choose here..</option>
+        {brands.map((brand, index) => (
+          <option key={index} value={brand}>
+            {brand}
+          </option>
+        ))}
       </select>
     </>
   );

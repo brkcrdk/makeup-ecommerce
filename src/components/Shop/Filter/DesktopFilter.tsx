@@ -25,10 +25,12 @@ const DesktopFilter: React.FC<Props> = ({ products }) => {
     <Container>
       <h3>Filter By</h3>
       <hr />
-      <Types products={products} />
-      <Categories products={products} />
-      <Brands products={products} />
-      <Price />
+      <div style={{ display: "grid", textAlign: "left" }}>
+        <Types products={products} />
+        <Categories products={products} />
+        <Brands products={products} />
+        <Price />
+      </div>
       <Tags products={products} />
     </Container>
   );
