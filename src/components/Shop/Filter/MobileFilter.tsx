@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { device, fonts, colours } from "../../utils";
+import { device, fonts } from "../../utils";
 import Tags from "./FilterTypes/Tags";
 import Price from "./FilterTypes/Price";
 import Types from "./FilterTypes/Types";

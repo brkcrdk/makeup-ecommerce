@@ -1,6 +1,5 @@
 import React from "react";
 import { Container, MainSection, Content, MiddleSection } from "./MainStyle";
-import { useSelector } from "react-redux";
 import FirstSection from "./FirstSection/FirstSection";
 import SecondSection from "./SecondSection/SecondSection";
 import Footer from "./Footer/Footer";
