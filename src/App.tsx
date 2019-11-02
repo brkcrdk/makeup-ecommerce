@@ -8,6 +8,7 @@ import SideMenu from "./components/Nav/MobileMenu/Menu";
 import Main from "./components/Content/Main";
 import Shop from "./components/Shop/Shop";
 import Box from "./components/Nav/DesktopMenu/Search/SearchBox/Box";
+import Dimmer from "./components/UI/Dimmer";
 interface Products {
   storeProducts: {
     isLoading: boolean;
@@ -34,9 +35,11 @@ const App: React.FC = () => {
         <SideMenu />
         <Box />
         <NavBar />
-        <Route path="/" exact component={Main} />
-        <Route path="/shop" component={Shop} />
-        <Route path="/shop:id" component={Shop} />
+        <Dimmer>
+          <Route path="/" exact component={Main} />
+          <Route path="/shop" component={Shop} />
+          <Route path="/shop:id" component={Shop} />
+        </Dimmer>
       </Router>
     </div>
   );

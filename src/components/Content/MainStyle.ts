@@ -35,8 +35,3 @@ export const FooterSection = styled.div``;
 interface DimmedProps {
   toggle: boolean;
 }
-
-export const Dimmed = styled.div`
-  filter: ${(p: DimmedProps) => (p.toggle ? "blur(2px)" : "")};
-  height: 100vh;
-`;
