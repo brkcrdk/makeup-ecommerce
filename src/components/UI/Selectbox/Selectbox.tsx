@@ -1,7 +1,7 @@
 import React from "react";
-
+import styled from "styled-components";
 interface Props {
-  options: string[];
+  options: (string | number)[];
   label: string;
   defaultValue?: string;
 }

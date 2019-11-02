@@ -19,12 +19,6 @@ const FilterWrapper = styled.div`
   display: grid;
   text-align: left;
   padding: 0 1em;
-  label {
-    margin-bottom: 0.5em;
-  }
-  select {
-    margin-bottom: 1em;
-  }
 `;
 
 interface Props {

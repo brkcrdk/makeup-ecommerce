@@ -7,7 +7,7 @@ interface Props {
 
 const Brands: React.FC<Props> = ({ products }) => {
   const brands = getBrand(products);
-  return <Selectbox options={brands} label="Product Type:" />;
+  return <Selectbox options={brands} label="Brands :" />;
 };
 
 export default Brands;

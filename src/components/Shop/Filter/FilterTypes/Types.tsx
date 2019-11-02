@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import { getType } from "../../../getTypes";
+import Selectbox from "../../../UI/Selectbox/Selectbox";
 import { searchFilter } from "../../../../store/searchFilter/action";
 interface Props {
   products: [];
@@ -7,19 +8,7 @@ interface Props {
 
 const Types: React.FC<Props> = ({ products }) => {
   const types = getType(products);
-  return (
-    <>
-      <label>Product Type: </label>
-      <select>
-        <option value="">Choose here..</option>
-        {types.map((type, index) => (
-          <option key={index} value={type}>
-            {type}
-          </option>
-        ))}
-      </select>
-    </>
-  );
+  return <Selectbox options={types} label="Types :" />;
 };
 
 export default Types;
