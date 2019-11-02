@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { getBrand } from "../../../getTypes";
 import { useDispatch } from "react-redux";
+import { searchFilter } from "../../../../store/searchFilter/action";
 import Selectbox from "../../../UI/Selectbox/Selectbox";
 interface Props {
   products: [];
@@ -14,7 +15,6 @@ const Brands: React.FC<Props> = ({ products, isLoading }) => {
       options={brands}
       label="Brands :"
       defaultValue={`${isLoading ? "Loading.." : "Choose here."}`}
-      onChange={}
     />
   );
 };
