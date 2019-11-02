@@ -80,6 +80,7 @@ export const getTags = (data: []) => {
         return tagList.push(tag);
       });
     });
+
   const tag = tagList.filter((value, index, self) => {
     return self.indexOf(value) === index;
   });

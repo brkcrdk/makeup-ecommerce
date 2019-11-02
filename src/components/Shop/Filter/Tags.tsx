@@ -38,6 +38,9 @@ const TagContainer = styled.div`
   }
 `;
 const MobileTag = styled.div`
+  p {
+    font-family: ${fonts.aBeeZee};
+  }
   @media ${device.mobileS} {
     display: block;
   }

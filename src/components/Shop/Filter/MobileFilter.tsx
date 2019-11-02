@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { device } from "../../utils";
 import Tags from "./Tags";
-
+import Price from "./Price";
 interface ContainerProps {
   toggle: boolean;
 }
+
 const Container = styled.div`
-  height: ${(p: ContainerProps) => (p.toggle ? "10em" : "2.5em")};
+  height: ${(p: ContainerProps) => (p.toggle ? "15em" : "2.5em")};
   overflow: hidden;
   position: relative;
   transition: height 0.5s;
@@ -19,6 +20,17 @@ const Container = styled.div`
   }
   @media ${device.laptop} {
     display: none;
+  }
+`;
+const Wrapper = styled.div`
+  @media ${device.mobileS} {
+    text-align: center;
+    display: grid;
+  }
+  @media ${device.mobileTablet} {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
   }
 `;
 
@@ -35,7 +47,10 @@ const MobileFilter: React.FC<Props> = ({ products, isLoading }) => {
   return (
     <Container toggle={toggle}>
       <h5 onClick={handleToggle}>Filter by</h5>
-      <Tags products={products} />
+      <Wrapper>
+        <Tags products={products} />
+        <Price />
+      </Wrapper>
     </Container>
   );
 };
