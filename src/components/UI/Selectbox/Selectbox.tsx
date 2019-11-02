@@ -17,6 +17,7 @@ const Container = styled.div`
     margin-bottom: 0.5em;
   }
   select {
+    text-transform: capitalize;
     font-family: ${fonts.aBeeZee};
     width: 100%;
     padding: 0.5em;
