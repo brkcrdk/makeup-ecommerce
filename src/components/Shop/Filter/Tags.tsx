@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import styled from "styled-components";
 import { fonts, colours, device } from "../../utils";
 import { getTags } from "../../getTypes";
@@ -50,6 +50,7 @@ interface Props {
 }
 
 const Tags: React.FC<Props> = ({ products }) => {
+  const [chosenTag, setChosenTag] = useState("select");
   const tags = getTags(products);
   const dispatch = useDispatch();
   const addTag = useCallback(
@@ -58,6 +59,11 @@ const Tags: React.FC<Props> = ({ products }) => {
     },
     [dispatch]
   );
+
+  const selectTag = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.options[e.target.selectedIndex].value;
+    addTag(value);
+  };
 
   if (tags.length < 1)
     return (
@@ -85,14 +91,9 @@ const Tags: React.FC<Props> = ({ products }) => {
       </TagContainer>
       <MobileTag>
         <label>Choose tag</label>
-        <select>
+        <select onChange={selectTag}>
           {tags.map((tag, index) => (
-            <option
-              onClick={() => {
-                addTag(tag);
-              }}>
-              {tag}
-            </option>
+            <option value={tag}>{tag}</option>
           ))}
         </select>
       </MobileTag>
