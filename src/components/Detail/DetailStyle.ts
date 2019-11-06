@@ -38,4 +38,6 @@ export const ImgContainer = styled.div`
     width: 100%;
   }
 `;
-export const DetailContainer = styled.div``;
+export const DetailContainer = styled.div`
+  display: grid;
+`;

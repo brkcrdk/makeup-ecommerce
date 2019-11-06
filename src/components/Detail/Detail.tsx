@@ -46,11 +46,28 @@ const Detail: React.FC<Props> = ({ match }) => {
           <img src={product[0].api_featured_image} alt={`${product[0].name}`} />
         </ImgContainer>
         <DetailContainer>
-          Name: {product[0].name}
-          Brand: {product[0].brand}
-          Description: {product[0].description}
-          Colours: {product[0].product_colors.map((color) => color.colour_name)}
-          Type: {product[0].product_type}
+          <p>Name: {product[0].name}</p>
+          <p>Brand: {product[0].brand}</p>
+          <p>Type: {product[0].product_type}</p>
+          <p>Description: {product[0].description}</p>
+          <div>
+            Colours:{" "}
+            {product[0].product_colors.map((color) => {
+              return (
+                <div>
+                  <div
+                    style={{
+                      backgroundColor: `${color.hex_value}`,
+                      borderRadius: "50%",
+                      width: "5em",
+                      height: "5em"
+                    }}
+                  />
+                  <span>{color.colour_name}</span>
+                </div>
+              );
+            })}
+          </div>
           Tags:{" "}
           {product[0].tag_list.map((tag) => (
             <li>{tag}</li>
