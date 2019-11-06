@@ -28,7 +28,6 @@ const Detail: React.FC<Props> = ({ match }) => {
   useEffect(() => {
     setProduct(getProduct(products, id));
   }, [products, id]);
-  console.log(product);
   if (product.length === 0)
     return (
       <Container>
@@ -36,6 +35,7 @@ const Detail: React.FC<Props> = ({ match }) => {
         <p>Loading..</p>
       </Container>
     );
+
   return (
     <Container>
       <Parallax>
@@ -43,9 +43,13 @@ const Detail: React.FC<Props> = ({ match }) => {
       </Parallax>
       <Content>
         <ImgContainer>
-          <img src={product[0].api_featured_image} />
+          <img src={product[0].api_featured_image} alt={`${product[0].name}`} />
         </ImgContainer>
-        <DetailContainer>Details & stuff</DetailContainer>
+        <DetailContainer>
+          Name: {product[0].name}
+          Brand: {product[0].brand}
+          Description: {product[0].description}
+        </DetailContainer>
       </Content>
       <Footer />
     </Container>

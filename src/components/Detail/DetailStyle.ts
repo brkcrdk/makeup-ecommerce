@@ -34,12 +34,8 @@ export const Content = styled.div`
 
 export const ImgContainer = styled.div`
   border: 1px solid green;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5em;
   img {
-    height: 50%;
+    width: 100%;
   }
 `;
 export const DetailContainer = styled.div``;
