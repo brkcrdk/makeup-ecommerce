@@ -7,6 +7,7 @@ export const Container = styled.div`
   cursor: pointer;
   a {
     text-decoration: none;
+    color: ${colours.primaryText};
   }
   @media ${device.mobileL} {
     &:hover {
@@ -48,8 +49,6 @@ export const Title = styled.h4`
   font-size: 0.9em;
 `;
 export const Name = styled.p`
-  /* display: flex;
-         justify-content: flex-start; */
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;

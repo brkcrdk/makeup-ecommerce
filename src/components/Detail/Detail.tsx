@@ -24,10 +24,10 @@ const Detail: React.FC<Props> = ({ match }) => {
   const products = useSelector((state: Props) => state.storeProduct.product);
   const [product, setProduct] = useState([]);
   const id = parseFloat(match.params.id);
+  console.log(match);
   useEffect(() => {
     setProduct(getProduct(products, id));
   }, [products, id]);
-  console.log(product);
   return (
     <Container>
       <Parallax />
