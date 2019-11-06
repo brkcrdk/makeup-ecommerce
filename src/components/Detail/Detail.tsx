@@ -54,7 +54,7 @@ const Detail: React.FC<Props> = ({ match }) => {
             Colours:{" "}
             {product[0].product_colors.map((color) => {
               return (
-                <div>
+                <div style={{ display: "flex", flexWrap: "wrap" }}>
                   <div
                     style={{
                       backgroundColor: `${color.hex_value}`,
@@ -68,10 +68,12 @@ const Detail: React.FC<Props> = ({ match }) => {
               );
             })}
           </div>
-          Tags:{" "}
-          {product[0].tag_list.map((tag) => (
-            <li>{tag}</li>
-          ))}
+          <span>Tags:</span>
+          <ul>
+            {product[0].tag_list.map((tag) => (
+              <li>{tag}</li>
+            ))}
+          </ul>
         </DetailContainer>
       </Content>
       <Footer />
