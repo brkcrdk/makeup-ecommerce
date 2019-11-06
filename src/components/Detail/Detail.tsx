@@ -38,7 +38,9 @@ const Detail: React.FC<Props> = ({ match }) => {
     );
   return (
     <Container>
-      <Parallax />
+      <Parallax>
+        <h3>{product[0].name}</h3>
+      </Parallax>
       <Content>
         <ImgContainer>
           <img src={product[0].api_featured_image} />

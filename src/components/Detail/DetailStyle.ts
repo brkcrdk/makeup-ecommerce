@@ -33,10 +33,13 @@ export const Content = styled.div`
 `;
 
 export const ImgContainer = styled.div`
-  padding: 2em;
+  border: 1px solid green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5em;
   img {
-    width: 100%;
-    height: 100%;
+    height: 50%;
   }
 `;
 export const DetailContainer = styled.div``;
