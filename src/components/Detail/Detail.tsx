@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 interface Props {
   match: {
     params: {
-      id: number;
+      id: string;
     };
   };
   storeProduct: {
@@ -23,10 +23,10 @@ interface Props {
 const Detail: React.FC<Props> = ({ match }) => {
   const products = useSelector((state: Props) => state.storeProduct.product);
   const [product, setProduct] = useState([]);
+  const id = parseFloat(match.params.id);
   useEffect(() => {
-    const id = match.params.id;
     setProduct(getProduct(products, id));
-  }, [match.params.id, products]);
+  }, [products, id]);
   console.log(product);
   return (
     <Container>
