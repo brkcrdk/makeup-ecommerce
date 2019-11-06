@@ -7,7 +7,7 @@ export const Container = styled.div`
 
 export const Parallax = styled.div`
   background-color: white;
-  height: 40vh;
+  height: 45vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +15,7 @@ export const Parallax = styled.div`
     color: ${colours.pink};
     font-family: ${fonts.raleway};
     font-style: italic;
-    font-size: 2em;
+    font-size: 1.5em;
     position: absolute;
   }
 `;
@@ -24,7 +24,7 @@ export const Content = styled.div`
   margin-left: 2em;
   margin-right: 2em;
   display: grid;
-
+  text-align: center;
   @media ${device.mobileS} {
     grid-template-columns: repeat(1, 12fr);
   }
@@ -34,15 +34,12 @@ export const Content = styled.div`
 `;
 
 export const ImgContainer = styled.div`
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   img {
-    width: 100%;
+    width: 40%;
   }
 `;
 export const DetailContainer = styled.div`
+  text-align: left;
   display: grid;
 `;
 export const DetailSpan = styled.span`
