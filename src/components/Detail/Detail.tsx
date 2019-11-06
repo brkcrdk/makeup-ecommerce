@@ -56,8 +56,9 @@ const Detail: React.FC<Props> = ({ match }) => {
           <p>Brand: {product[0].brand}</p>
           <p>Type: {product[0].product_type}</p>
           <p>Description: {product[0].description}</p>
-          Colours:
-          <div style={{ display: "flex", flexWrap: "wrap" }}>
+          <div
+            style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>
+            Colours:
             {product[0].product_colors.map((colour, index) => (
               <Colours
                 key={index}
