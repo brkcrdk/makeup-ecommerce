@@ -19,19 +19,20 @@ interface Props {
       id: string;
     };
   };
-  location: { pathname: string };
   storeProduct: {
     product: [];
   };
 }
 
-const Detail: React.FC<Props> = ({ match, location }) => {
+const Detail: React.FC<Props> = ({ match }) => {
   const products = useSelector((state: Props) => state.storeProduct.product);
   const [product, setProduct] = useState<IProducts[]>([]);
-  const id = parseFloat(location.pathname.split("/")[2]);
   useEffect(() => {
+    const id = parseFloat(match.params.id);
     setProduct(getProduct(products, id));
-  }, [products, id]);
+  }, [match.params.id, products]);
+  console.log(product);
+
   if (product.length === 0)
     return (
       <Container>
@@ -39,6 +40,7 @@ const Detail: React.FC<Props> = ({ match, location }) => {
         <p>Loading..</p>
       </Container>
     );
+  console.log(product);
   return (
     <Container>
       <Parallax>
