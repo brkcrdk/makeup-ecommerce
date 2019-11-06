@@ -9,6 +9,7 @@ import {
 import { getProduct } from "../getTypes";
 import Footer from "../Content/Footer/Footer";
 import { useSelector } from "react-redux";
+import { IProducts } from "../../store/fetchProducts/types";
 interface Props {
   match: {
     params: {
@@ -22,13 +23,13 @@ interface Props {
 
 const Detail: React.FC<Props> = ({ match }) => {
   const products = useSelector((state: Props) => state.storeProduct.product);
-  const [product, setProduct] = useState([]);
+  const [product, setProduct] = useState<IProducts[]>([]);
   const id = parseFloat(match.params.id);
   useEffect(() => {
     setProduct(getProduct(products, id));
   }, [products, id]);
   console.log(product);
-  if (product.length === -1)
+  if (product.length === 0)
     return (
       <Container>
         <Parallax />
@@ -39,7 +40,7 @@ const Detail: React.FC<Props> = ({ match }) => {
     <Container>
       <Parallax />
       <Content>
-        <ImgContainer>İmg</ImgContainer>
+        <ImgContainer>{product.map((item) => item.id)}</ImgContainer>
         <DetailContainer>Details & stuff</DetailContainer>
       </Content>
       <Footer />

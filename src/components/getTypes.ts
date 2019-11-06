@@ -62,7 +62,7 @@ export const getProduct = (data: [], productID: number) => {
     .filter((items: IProducts) => {
       return items.id === productID;
     })
-    .map((item) => item);
+    .map((item: IProducts) => item);
 
   return product;
 };
