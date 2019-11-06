@@ -79,7 +79,7 @@ export const getTags = (data: []) => {
 export const getProduct = (data: [], productID: number) => {
   const product = data
     .filter((items: IProducts) => {
-      return items.id === 963;
+      return items.id === productID;
     })
     .map((item: IProducts) => {
       return item;

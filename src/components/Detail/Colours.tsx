@@ -10,10 +10,14 @@ const Container = styled.div`
     visibility: visible;
   }
 `;
+interface ColourProps {
+  color: string;
+}
 const Colour = styled.div`
   width: 2em;
   height: 2em;
   border-radius: 50%;
+  background-color: ${(p: ColourProps) => `${p.color}`};
 `;
 
 const Name = styled.span`
@@ -48,7 +52,7 @@ interface Props {
 const Colours: React.FC<Props> = ({ name, hex }) => {
   return (
     <Container>
-      <Colour style={{ backgroundColor: `#${hex}` }} />
+      <Colour color={hex} />
       <Name>{name}</Name>
     </Container>
   );
