@@ -22,11 +22,12 @@ interface Props {
 
 const Detail: React.FC<Props> = ({ match }) => {
   const products = useSelector((state: Props) => state.storeProduct.product);
-  const [product, setProduct] = useState();
-  // useEffect(() => {
-  //   setProduct(getProduct(products, match.params.id));
-  // }, [match.params.id, products]);
-  console.log(getProduct(products, match.params.id));
+  const [product, setProduct] = useState([]);
+  useEffect(() => {
+    const id = match.params.id;
+    setProduct(getProduct(products, id));
+  }, [match.params.id, products]);
+  console.log(product);
   return (
     <Container>
       <Parallax />

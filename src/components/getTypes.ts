@@ -57,10 +57,10 @@ export const randomItems = (data: [], count?: number) => {
   return Items.sort();
 };
 
-export const getProduct = (data: [], id: number) => {
+export const getProduct = (data: [], productID: number) => {
   const product = data
     .filter((items: IProducts) => {
-      return items.id === id;
+      return items.id === productID;
     })
     .map((item) => item);
 

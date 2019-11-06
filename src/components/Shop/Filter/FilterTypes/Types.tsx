@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { getType, getProduct } from "../../../getTypes";
+import { getType } from "../../../getTypes";
 import { searchFilter } from "../../../../store/searchFilter/action";
 import { useDispatch } from "react-redux";
 import Selectbox from "../../../UI/Selectbox/Selectbox";
