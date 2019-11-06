@@ -60,7 +60,7 @@ export const randomItems = (data: [], count?: number) => {
 export const getProduct = (data: [], id: number) => {
   const product = data
     .filter((items: IProducts) => {
-      return items.id === 1048;
+      return items.id === id;
     })
     .map((item) => item);
 
