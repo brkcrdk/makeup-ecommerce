@@ -16,6 +16,7 @@ interface CardProps {
   price: string;
   priceSign: string;
   key: number;
+  onClick?: () => void;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -23,11 +24,12 @@ const Card: React.FC<CardProps> = ({
   image,
   name,
   price,
-  priceSign
+  priceSign,
+  onClick
 }) => {
   return (
     // TODO: use card container class to style card
-    <Container className="card-container">
+    <Container className="card-container" onClick={onClick}>
       <Img className="card-image" src={image} alt={`${name}-image`} />
       <CardContent>
         <Title className="card-title">{title}</Title>

@@ -26,6 +26,9 @@ const ProductList: React.FC<Props> = ({ products, isLoading }) => {
             name={product.name}
             price={product.price}
             priceSign={product.price_sign}
+            onClick={() => {
+              console.log(product.id);
+            }}
           />
         ))}
       </Pagination>

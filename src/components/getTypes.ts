@@ -57,16 +57,14 @@ export const randomItems = (data: [], count?: number) => {
   return Items.sort();
 };
 
-export const getColours = (data: []) => {
-  const productColours = data
+export const getProduct = (data: [], id: number) => {
+  const product = data
     .filter((items: IProducts) => {
-      return items.product_colors.length > 0;
+      return items.id === 1048;
     })
-    .map((item: IProducts, index) => {
-      return item.product_colors;
-    });
+    .map((item) => item);
 
-  return productColours;
+  return product;
 };
 //TODO: check productTags
 export const getTags = (data: []) => {

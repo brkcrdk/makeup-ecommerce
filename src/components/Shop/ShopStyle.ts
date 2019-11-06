@@ -26,6 +26,7 @@ export const Parallax = styled.div`
 
 export const Content = styled.div`
   display: grid;
+
   border-radius: 2px;
   box-shadow: ${colours.boxShadow};
   margin-top: -2em;
