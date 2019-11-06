@@ -35,7 +35,7 @@ const Detail: React.FC<Props> = ({ match }) => {
         <p>Loading..</p>
       </Container>
     );
-
+  console.log(product);
   return (
     <Container>
       <Parallax>
@@ -49,7 +49,12 @@ const Detail: React.FC<Props> = ({ match }) => {
           Name: {product[0].name}
           Brand: {product[0].brand}
           Description: {product[0].description}
-          Colours: {product[0].product_colors.map((color) => color)}
+          Colours: {product[0].product_colors.map((color) => color.colour_name)}
+          Type: {product[0].product_type}
+          Tags:{" "}
+          {product[0].tag_list.map((tag) => (
+            <li>{tag}</li>
+          ))}
         </DetailContainer>
       </Content>
       <Footer />
