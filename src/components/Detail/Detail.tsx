@@ -39,6 +39,7 @@ const Detail: React.FC<Props> = ({ match }) => {
         <p>Loading..</p>
       </Container>
     );
+
   return (
     <Container>
       <Parallax>
@@ -52,12 +53,11 @@ const Detail: React.FC<Props> = ({ match }) => {
           <DetailP>
             <DetailSpan>Name:{product[0].name}</DetailSpan>
           </DetailP>
-
           <p>Brand: {product[0].brand}</p>
           <p>Type: {product[0].product_type}</p>
           <p>Description: {product[0].description}</p>
+          Colours:
           <div style={{ display: "flex", flexWrap: "wrap" }}>
-            Colours:
             {product[0].product_colors.map((colour, index) => (
               <Colours
                 key={index}
@@ -66,7 +66,6 @@ const Detail: React.FC<Props> = ({ match }) => {
               />
             ))}
           </div>
-
           <ul>
             {product[0].tag_list.length >= 0
               ? product[0].tag_list.map((tag) => <li>{tag}</li>)

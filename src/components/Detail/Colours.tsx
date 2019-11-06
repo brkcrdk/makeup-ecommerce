@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
+  margin: 0 0.5em;
   position: relative;
   user-select: none;
   display: inline-block;

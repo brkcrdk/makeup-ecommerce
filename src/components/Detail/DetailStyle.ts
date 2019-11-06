@@ -6,7 +6,7 @@ export const Container = styled.div`
 
 export const Parallax = styled.div`
   background-color: white;
-  height: 30vh;
+  height: 40vh;
   display: flex;
   justify-content: center;
   align-items: center;
