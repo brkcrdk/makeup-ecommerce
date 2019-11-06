@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { colours, fonts, device } from "../utils";
 export const Container = styled.div`
   background: white;
+  text-align: center;
 `;
 
 export const Parallax = styled.div`
@@ -23,6 +24,7 @@ export const Content = styled.div`
   margin-left: 2em;
   margin-right: 2em;
   display: grid;
+
   @media ${device.mobileS} {
     grid-template-columns: repeat(1, 12fr);
   }
@@ -32,6 +34,10 @@ export const Content = styled.div`
 `;
 
 export const ImgContainer = styled.div`
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   img {
     width: 100%;
   }
