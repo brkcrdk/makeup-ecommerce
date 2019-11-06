@@ -50,21 +50,21 @@ const Detail: React.FC<Props> = ({ match }) => {
           <p>Brand: {product[0].brand}</p>
           <p>Type: {product[0].product_type}</p>
           <p>Description: {product[0].description}</p>
-          <div>
-            Colours:{" "}
+          <div style={{ display: "flex", flexWrap: "wrap" }}>
+            Colours:
             {product[0].product_colors.map((color) => {
               return (
-                <div style={{ display: "flex", flexWrap: "wrap" }}>
+                <>
                   <div
                     style={{
                       backgroundColor: `${color.hex_value}`,
                       borderRadius: "50%",
-                      width: "5em",
-                      height: "5em"
+                      width: "2em",
+                      height: "2em"
                     }}
                   />
                   <span>{color.colour_name}</span>
-                </div>
+                </>
               );
             })}
           </div>
