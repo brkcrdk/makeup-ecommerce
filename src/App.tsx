@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import SideMenu from "./components/Nav/MobileMenu/Menu";
 import Main from "./components/Content/Main";
 import Shop from "./components/Shop/Shop";
+import Detail from "./components/Detail/Detail";
 import Box from "./components/Nav/DesktopMenu/Search/SearchBox/Box";
 import Dimmer from "./components/UI/Dimmer";
 interface Products {
@@ -38,6 +39,7 @@ const App: React.FC = () => {
         <Dimmer>
           <Route path="/" exact component={Main} />
           <Route path="/shop" component={Shop} />
+          <Route path="/product/:id" component={Detail} />
         </Dimmer>
       </Router>
     </div>
