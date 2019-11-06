@@ -57,15 +57,6 @@ export const randomItems = (data: [], count?: number) => {
   return Items.sort();
 };
 
-export const getProduct = (data: [], productID: number) => {
-  const product = data
-    .filter((items: IProducts) => {
-      return items.id === productID;
-    })
-    .map((item: IProducts) => item);
-
-  return product;
-};
 //TODO: check productTags
 export const getTags = (data: []) => {
   const tagList: string[] = [];
@@ -83,4 +74,16 @@ export const getTags = (data: []) => {
     return self.indexOf(value) === index;
   });
   return tag;
+};
+
+export const getProduct = (data: [], productID: number) => {
+  const product = data
+    .filter((items: IProducts) => {
+      return items.id === 963;
+    })
+    .map((item: IProducts) => {
+      return item;
+    });
+
+  return product;
 };

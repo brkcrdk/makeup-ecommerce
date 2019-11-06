@@ -19,19 +19,18 @@ interface Props {
       id: string;
     };
   };
-  storeProduct: {
-    product: [];
+  storeProducts: {
+    products: [];
   };
 }
 
 const Detail: React.FC<Props> = ({ match }) => {
-  const products = useSelector((state: Props) => state.storeProduct.product);
+  const products = useSelector((state: Props) => state.storeProducts.products);
   const [product, setProduct] = useState<IProducts[]>([]);
   useEffect(() => {
     const id = parseFloat(match.params.id);
     setProduct(getProduct(products, id));
   }, [match.params.id, products]);
-  console.log(product);
 
   if (product.length === 0)
     return (
