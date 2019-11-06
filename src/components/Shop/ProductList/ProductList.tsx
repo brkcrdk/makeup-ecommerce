@@ -3,7 +3,6 @@ import { Container } from "./ProductStyle";
 import { IProduct } from "../../../store/fetchProduct/types";
 import Pagination from "../../UI/Pagination/Pagination";
 import Card from "../../UI/Card/Card";
-import { Link } from "react-router-dom";
 interface Props {
   products: IProduct[];
   isLoading: boolean;
@@ -20,16 +19,15 @@ const ProductList: React.FC<Props> = ({ products, isLoading }) => {
     <Container>
       <Pagination>
         {products.map((product, index) => (
-          <Link to={`/product/${product.id}`} key={index}>
-            <Card
-              key={index}
-              title={product.brand}
-              image={product.api_featured_image}
-              name={product.name}
-              price={product.price}
-              priceSign={product.price_sign}
-            />
-          </Link>
+          <Card
+            id={product.id}
+            key={index}
+            title={product.brand}
+            image={product.api_featured_image}
+            name={product.name}
+            price={product.price}
+            priceSign={product.price_sign}
+          />
         ))}
       </Pagination>
     </Container>

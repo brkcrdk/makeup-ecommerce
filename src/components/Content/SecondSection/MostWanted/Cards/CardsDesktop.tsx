@@ -59,6 +59,7 @@ const CardsDesktop: React.FC<Props> = ({ products }) => {
           <CardContainer key={key}>
             {arr.map((slide, key) => (
               <Card
+                id={slide.id}
                 key={key}
                 title={slide.brand}
                 image={slide.api_featured_image}

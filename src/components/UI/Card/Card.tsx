@@ -8,6 +8,7 @@ import {
   Price,
   Add
 } from "./CardStyle";
+import { Link } from "react-router-dom";
 
 interface CardProps {
   title: string;
@@ -16,6 +17,7 @@ interface CardProps {
   price: string;
   priceSign: string;
   key: number;
+  id: number;
   onClick?: () => void;
 }
 
@@ -25,20 +27,31 @@ const Card: React.FC<CardProps> = ({
   name,
   price,
   priceSign,
-  onClick
+  onClick,
+  id
 }) => {
   return (
     // TODO: use card container class to style card
-    <Container className="card-container" onClick={onClick}>
-      <Img className="card-image" src={image} alt={`${name}-image`} />
+    <Container className="card-container">
+      <Link to={`/product/${id}`}>
+        <Img className="card-image" src={image} alt={`${name}-image`} />
+      </Link>
       <CardContent>
-        <Title className="card-title">{title}</Title>
-        <Name className="card-name">{name}</Name>
+        <Link to={`/product/${id}`}>
+          <Title className="card-title">{title}</Title>
+          <Name className="card-name">{name}</Name>
+        </Link>
         <div className="card-content">
           <Price className="card-price">{`${price === null ? "10" : price}${
             priceSign === null ? "$" : priceSign
           }`}</Price>
-          <Add className="card-button">Add to Cart</Add>
+          <Add
+            className="card-button"
+            onClick={() => {
+              alert("added");
+            }}>
+            Add to Cart
+          </Add>
         </div>
       </CardContent>
     </Container>
