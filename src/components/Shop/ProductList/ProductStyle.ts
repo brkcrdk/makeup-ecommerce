@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colours, device, fonts } from "../../utils";
+import { device, fonts } from "../../utils";
 export const Container = styled.div`
   margin: 0 1em;
   overflow: hidden;
