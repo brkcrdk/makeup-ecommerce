@@ -27,6 +27,14 @@ const Detail: React.FC<Props> = ({ match }) => {
   useEffect(() => {
     setProduct(getProduct(products, id));
   }, [products, id]);
+  console.log(product);
+  if (product.length === -1)
+    return (
+      <Container>
+        <Parallax />
+        <p>Loading..</p>
+      </Container>
+    );
   return (
     <Container>
       <Parallax />
