@@ -49,6 +49,7 @@ const Detail: React.FC<Props> = ({ match }) => {
           Name: {product[0].name}
           Brand: {product[0].brand}
           Description: {product[0].description}
+          Colours: {product[0].product_colors.map((color) => color)}
         </DetailContainer>
       </Content>
       <Footer />
