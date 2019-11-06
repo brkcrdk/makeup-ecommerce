@@ -39,7 +39,6 @@ const Detail: React.FC<Props> = ({ match }) => {
         <p>Loading..</p>
       </Container>
     );
-  console.log(product);
   return (
     <Container>
       <Parallax>
