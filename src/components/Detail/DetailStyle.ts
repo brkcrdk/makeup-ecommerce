@@ -29,15 +29,19 @@ export const Content = styled.div`
   @media ${device.mobileTablet} {
     grid-template-columns: repeat(2, 6fr);
   }
-  border: 1px solid red;
 `;
 
 export const ImgContainer = styled.div`
-  border: 1px solid green;
   img {
     width: 100%;
   }
 `;
 export const DetailContainer = styled.div`
   display: grid;
+`;
+export const DetailSpan = styled.span`
+  font-weight: 600;
+`;
+export const DetailP = styled.p`
+  font-weight: 300;
 `;

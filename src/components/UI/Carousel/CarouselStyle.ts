@@ -110,9 +110,11 @@ const buttonStyles = `
   height:5em;
   margin-top:-4em;
   &:hover{
-    transform:scale(1.2,1.2);
-    @media ${device.tablet}{
+    @media ${device.mobileS}{
       transform:none;
+    }
+    @media ${device.tablet}{
+    transform:scale(1.2,1.2);
     }
   }
 `;
