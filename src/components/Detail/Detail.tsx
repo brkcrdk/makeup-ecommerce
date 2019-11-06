@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Container,
   Content,
@@ -6,13 +6,27 @@ import {
   ImgContainer,
   DetailContainer
 } from "./DetailStyle";
+import { getProduct } from "../getTypes";
 import Footer from "../Content/Footer/Footer";
+import { useSelector } from "react-redux";
 interface Props {
-  match: {};
+  match: {
+    params: {
+      id: number;
+    };
+  };
+  storeProduct: {
+    product: [];
+  };
 }
 
 const Detail: React.FC<Props> = ({ match }) => {
-  console.log(match);
+  const products = useSelector((state: Props) => state.storeProduct.product);
+  const [product, setProduct] = useState();
+  useEffect(() => {
+    setProduct(getProduct(products, match.params.id));
+  }, [match.params.id, products]);
+  console.log(product);
   return (
     <Container>
       <Parallax />

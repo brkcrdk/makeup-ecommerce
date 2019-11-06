@@ -19,7 +19,6 @@ const Types: React.FC<Props> = ({ products, isLoading }) => {
     },
     [dispatch]
   );
-  console.log(getProduct(products, 1048));
   return (
     <Selectbox
       options={types}
