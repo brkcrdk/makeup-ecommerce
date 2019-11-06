@@ -3,9 +3,7 @@ import { device, fonts } from "../../utils";
 export const Container = styled.div`
   margin: 0 1em;
   overflow: hidden;
-  a {
-    text-decoration: none;
-  }
+
   h3 {
     text-align: center;
     font-family: ${fonts.montserrat};
