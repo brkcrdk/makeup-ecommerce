@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import { colours, fonts } from "../utils";
-export const Container = styled.div``;
+import { colours, fonts, device } from "../utils";
+export const Container = styled.div`
+  background: white;
+`;
 
 export const Parallax = styled.div`
   background-color: white;
@@ -21,8 +23,20 @@ export const Content = styled.div`
   margin-left: 2em;
   margin-right: 2em;
   display: grid;
-  grid-template-columns: repeat(2, 6fr);
+  @media ${device.mobileS} {
+    grid-template-columns: repeat(1, 12fr);
+  }
+  @media ${device.mobileTablet} {
+    grid-template-columns: repeat(2, 6fr);
+  }
+  border: 1px solid red;
 `;
 
-export const ImgContainer = styled.div``;
+export const ImgContainer = styled.div`
+  padding: 2em;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+`;
 export const DetailContainer = styled.div``;

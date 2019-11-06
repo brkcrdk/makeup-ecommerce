@@ -40,7 +40,9 @@ const Detail: React.FC<Props> = ({ match }) => {
     <Container>
       <Parallax />
       <Content>
-        <ImgContainer>{product.map((item) => item.id)}</ImgContainer>
+        <ImgContainer>
+          <img src={product[0].api_featured_image} />
+        </ImgContainer>
         <DetailContainer>Details & stuff</DetailContainer>
       </Content>
       <Footer />
