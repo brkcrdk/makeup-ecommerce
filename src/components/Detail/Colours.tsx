@@ -40,13 +40,16 @@ const Name = styled.span`
     border-color: #555 transparent transparent transparent;
   }
 `;
-interface Props {}
+interface Props {
+  name: string;
+  hex: string;
+}
 
-const Colours: React.FC<Props> = () => {
+const Colours: React.FC<Props> = ({ name, hex }) => {
   return (
     <Container>
-      <Colour style={{ backgroundColor: `red` }} />
-      <Name>Colour Name</Name>
+      <Colour style={{ backgroundColor: `#${hex}` }} />
+      <Name>{name}</Name>
     </Container>
   );
 };

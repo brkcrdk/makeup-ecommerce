@@ -58,15 +58,19 @@ const Detail: React.FC<Props> = ({ match }) => {
           <p>Description: {product[0].description}</p>
           <div style={{ display: "flex", flexWrap: "wrap" }}>
             Colours:
-            {product[0].product_colors.map((color) => (
-              <Colours />
+            {product[0].product_colors.map((colour, index) => (
+              <Colours
+                key={index}
+                hex={colour.hex_value}
+                name={colour.colour_name}
+              />
             ))}
           </div>
-          <span>Tags:</span>
+
           <ul>
-            {product[0].tag_list.map((tag) => (
-              <li>{tag}</li>
-            ))}
+            {product[0].tag_list.length >= 0
+              ? product[0].tag_list.map((tag) => <li>{tag}</li>)
+              : ""}
           </ul>
         </DetailContainer>
       </Content>
