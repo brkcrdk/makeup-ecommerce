@@ -20,7 +20,7 @@ const ProductList: React.FC<Props> = ({ products, isLoading }) => {
     <Container>
       <Pagination>
         {products.map((product, index) => (
-          <Link to={`/product/${product.id}`}>
+          <Link to={`/product/${product.id}`} key={index}>
             <Card
               key={index}
               title={product.brand}
