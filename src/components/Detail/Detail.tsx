@@ -39,7 +39,7 @@ const Detail: React.FC<Props> = ({ match }) => {
         <p>Loading..</p>
       </Container>
     );
-
+  console.log(product[0].description.split(":"));
   return (
     <Container>
       <Parallax>
