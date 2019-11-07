@@ -79,6 +79,7 @@ export const TagColourContainer = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 0.5em;
 `;
 
 export const Tag = styled.span`
@@ -90,4 +91,11 @@ export const Tag = styled.span`
   margin: 0.3em;
   padding: 0.3em;
   cursor: pointer;
+`;
+
+export const DetailBottom = styled.div`
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
