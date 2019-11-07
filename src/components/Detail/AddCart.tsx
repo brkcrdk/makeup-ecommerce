@@ -10,10 +10,10 @@ const AddCart: React.FC<Props> = ({ product }) => {
   const dispatch = useDispatch();
   const handleCart = useCallback(() => {
     dispatch(addCart({ product: product, count: 2 }));
-  }, [dispatch]);
+  }, [dispatch, product]);
   const updateCart = useCallback(() => {
-    dispatch(addCart({ product: product, count: 5 }));
-  }, [dispatch]);
+    dispatch(addCart({ product: product, count: 17 }));
+  }, [dispatch, product]);
   return (
     <Container>
       <button onClick={handleCart}>add to cart</button>
