@@ -11,9 +11,13 @@ const AddCart: React.FC<Props> = ({ product }) => {
   const handleCart = useCallback(() => {
     dispatch(addCart({ product: product, count: 2 }));
   }, [dispatch]);
+  const updateCart = useCallback(() => {
+    dispatch(addCart({ product: product, count: 5 }));
+  }, [dispatch]);
   return (
     <Container>
       <button onClick={handleCart}>add to cart</button>
+      <button onClick={updateCart}>update cart</button>
     </Container>
   );
 };
