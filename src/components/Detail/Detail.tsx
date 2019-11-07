@@ -8,7 +8,8 @@ import {
   DetailHead,
   DetailText,
   Splitter,
-  TagColourContainer
+  TagColourContainer,
+  Tag
 } from "./DetailStyle";
 import { getProduct } from "../getTypes";
 import Footer from "../Content/Footer/Footer";
@@ -58,8 +59,18 @@ const Detail: React.FC<Props> = ({ match }) => {
     </>
   );
 
-  const renderTags = <DetailHead></DetailHead>;
-
+  const renderTags = (
+    <>
+      <DetailHead>Tags</DetailHead>
+      <Splitter />
+      <TagColourContainer>
+        {product[0].tag_list.map((tag, index) => (
+          <Tag key={index}>{tag}</Tag>
+        ))}
+      </TagColourContainer>
+    </>
+  );
+  console.log(product[0].tag_list);
   return (
     <Container>
       <Parallax>
@@ -83,13 +94,7 @@ const Detail: React.FC<Props> = ({ match }) => {
           <Splitter />
           <DetailText>{product[0].description.replace(":", ": ")}</DetailText>
           {product[0].product_colors.length >= 0 ? renderColours : ""}
-          <ul>
-            {product[0].tag_list.length >= 0
-              ? product[0].tag_list.map((tag, index) => (
-                  <li key={index}>{tag}</li>
-                ))
-              : ""}
-          </ul>
+          {product[0].tag_list.length > 0 ? renderTags : ""}
         </DetailContainer>
       </Content>
       <Footer />

@@ -79,3 +79,14 @@ export const TagColourContainer = styled.div`
   align-items: center;
   flex-wrap: wrap;
 `;
+
+export const Tag = styled.span`
+  border: 1px solid grey;
+  border-radius: 0.3em;
+  background: transparent;
+  font-family: ${fonts.raleway};
+  text-transform: capitalize;
+  margin: 0.3em;
+  padding: 0.3em;
+  cursor: pointer;
+`;
