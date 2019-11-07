@@ -5,8 +5,9 @@ import {
   Parallax,
   ImgContainer,
   DetailContainer,
-  DetailSpan,
-  DetailP
+  DetailHead,
+  DetailText,
+  Splitter
 } from "./DetailStyle";
 import { getProduct } from "../getTypes";
 import Footer from "../Content/Footer/Footer";
@@ -39,6 +40,17 @@ const Detail: React.FC<Props> = ({ match }) => {
         <p>Loading..</p>
       </Container>
     );
+
+  const renderColours = () => {
+    <>
+      <DetailHead>Colours</DetailHead>
+      <Splitter />
+      {product[0].product_colors.map((colour, index) => (
+        <Colours key={index} hex={colour.hex_value} name={colour.colour_name} />
+      ))}
+    </>;
+  };
+
   return (
     <Container>
       <Parallax>
@@ -49,12 +61,18 @@ const Detail: React.FC<Props> = ({ match }) => {
           <img src={product[0].api_featured_image} alt={`${product[0].name}`} />
         </ImgContainer>
         <DetailContainer>
-          <DetailP>
-            <DetailSpan>Name:{product[0].name}</DetailSpan>
-          </DetailP>
-          <p>Brand: {product[0].brand}</p>
-          <p>Type: {product[0].product_type}</p>
-          <p>Description: {product[0].description.replace(":", ": ")}</p>
+          <DetailHead>Name</DetailHead>
+          <Splitter />
+          <DetailText>{product[0].name}</DetailText>
+          <DetailHead>Brand</DetailHead>
+          <Splitter />
+          <DetailText>{product[0].brand}</DetailText>
+          <DetailHead>Type</DetailHead>
+          <Splitter />
+          <DetailText>{product[0].product_type}</DetailText>
+          <DetailHead>Description</DetailHead>
+          <Splitter />
+          <DetailText>{product[0].description.replace(":", ": ")}</DetailText>
           <div
             style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>
             Colours:
