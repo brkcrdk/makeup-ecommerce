@@ -32,10 +32,9 @@ const cartReducer = (state = initialState, action: CartActions) => {
             };
             return { ...state, cart: state.cart.concat(newObj) };
           }
-          return state;
         }
       }
-      break;
+      return state;
     default:
       return state;
   }
