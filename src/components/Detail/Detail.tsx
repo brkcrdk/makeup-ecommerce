@@ -7,7 +7,8 @@ import {
   DetailContainer,
   DetailHead,
   DetailText,
-  Splitter
+  Splitter,
+  TagColourContainer
 } from "./DetailStyle";
 import { getProduct } from "../getTypes";
 import Footer from "../Content/Footer/Footer";
@@ -41,15 +42,23 @@ const Detail: React.FC<Props> = ({ match }) => {
       </Container>
     );
 
-  const renderColours = () => {
+  const renderColours = (
     <>
       <DetailHead>Colours</DetailHead>
       <Splitter />
-      {product[0].product_colors.map((colour, index) => (
-        <Colours key={index} hex={colour.hex_value} name={colour.colour_name} />
-      ))}
-    </>;
-  };
+      <TagColourContainer>
+        {product[0].product_colors.map((colour, index) => (
+          <Colours
+            key={index}
+            hex={colour.hex_value}
+            name={colour.colour_name}
+          />
+        ))}
+      </TagColourContainer>
+    </>
+  );
+
+  const renderTags = <DetailHead></DetailHead>;
 
   return (
     <Container>
@@ -73,17 +82,7 @@ const Detail: React.FC<Props> = ({ match }) => {
           <DetailHead>Description</DetailHead>
           <Splitter />
           <DetailText>{product[0].description.replace(":", ": ")}</DetailText>
-          <div
-            style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>
-            Colours:
-            {product[0].product_colors.map((colour, index) => (
-              <Colours
-                key={index}
-                hex={colour.hex_value}
-                name={colour.colour_name}
-              />
-            ))}
-          </div>
+          {product[0].product_colors.length >= 0 ? renderColours : ""}
           <ul>
             {product[0].tag_list.length >= 0
               ? product[0].tag_list.map((tag, index) => (

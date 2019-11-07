@@ -74,6 +74,8 @@ export const DetailText = styled.p`
   margin-bottom: 1em;
 `;
 
-export const ColourContainer = styled.div`
+export const TagColourContainer = styled.div`
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 `;
