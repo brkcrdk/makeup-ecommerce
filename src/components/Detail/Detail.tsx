@@ -39,7 +39,6 @@ const Detail: React.FC<Props> = ({ match }) => {
         <p>Loading..</p>
       </Container>
     );
-  console.log(product[0].description.replace(":", `: ${<br />}`));
   return (
     <Container>
       <Parallax>
@@ -55,7 +54,7 @@ const Detail: React.FC<Props> = ({ match }) => {
           </DetailP>
           <p>Brand: {product[0].brand}</p>
           <p>Type: {product[0].product_type}</p>
-          <p>Description: {product[0].description}</p>
+          <p>Description: {product[0].description.replace(":", ": ")}</p>
           <div
             style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>
             Colours:
