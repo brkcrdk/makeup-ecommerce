@@ -1,6 +1,8 @@
+import { IProduct } from "../fetchProduct/types";
+
 export interface CartState {
   cart: {
-    product: {};
+    product: IProduct;
     count: number;
   }[];
 }
@@ -10,7 +12,7 @@ export const REMOVE_CART = "REMOVE_CART";
 
 interface AddCart {
   type: typeof ADD_CART;
-  payload: { product: {}; count: number };
+  payload: { product: IProduct; count: number };
 }
 
 interface RemoveCart {
