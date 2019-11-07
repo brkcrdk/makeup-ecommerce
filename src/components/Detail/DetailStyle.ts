@@ -57,8 +57,9 @@ export const DetailContainer = styled.div`
 `;
 export const Splitter = styled.hr`
   width: 100%;
-  border: 0.5px solid lightgrey;
-  padding: 0;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, grey, white);
 `;
 export const DetailHead = styled.h4`
   font-family: ${fonts.raleway};
