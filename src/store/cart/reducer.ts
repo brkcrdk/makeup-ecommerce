@@ -7,8 +7,7 @@ const initialState: CartState = {
 const cartReducer = (state = initialState, action: CartActions) => {
   switch (action.type) {
     case ADD_CART:
-      console.log(action.payload);
-      return state;
+      return { ...state, cart: state.cart.concat(action.payload) };
     default:
       return state;
   }

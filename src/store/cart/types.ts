@@ -10,7 +10,7 @@ export const REMOVE_CART = "REMOVE_CART";
 
 interface AddCart {
   type: typeof ADD_CART;
-  payload: {};
+  payload: { product: {}; count: number };
 }
 
 interface RemoveCart {
