@@ -8,7 +8,6 @@ interface Props {
 const Container = styled.div``;
 const AddCart: React.FC<Props> = ({ product }) => {
   const dispatch = useDispatch();
-
   const handleCart = useCallback(() => {
     dispatch(addCart({ product: product, count: 2 }));
   }, [dispatch]);

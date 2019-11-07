@@ -1,4 +1,4 @@
-import { ADD_CART, CartState } from "./types";
+import { ADD_CART } from "./types";
 
 export const addCart = (cart: {}) => {
   return {
