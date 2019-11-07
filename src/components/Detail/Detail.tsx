@@ -39,7 +39,7 @@ const Detail: React.FC<Props> = ({ match }) => {
         <p>Loading..</p>
       </Container>
     );
-  console.log(product[0].description.split(":"));
+  console.log(product[0].description.replace(":", `: ${<br />}`));
   return (
     <Container>
       <Parallax>
@@ -69,7 +69,9 @@ const Detail: React.FC<Props> = ({ match }) => {
           </div>
           <ul>
             {product[0].tag_list.length >= 0
-              ? product[0].tag_list.map((tag) => <li>{tag}</li>)
+              ? product[0].tag_list.map((tag, index) => (
+                  <li key={index}>{tag}</li>
+                ))
               : ""}
           </ul>
         </DetailContainer>
