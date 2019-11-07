@@ -1,8 +1,7 @@
 import { TOGGLE_SIDEBAR } from "./types";
 
-const toggleSidebar = () => {
+export const toggleSidebar = () => {
   return {
     type: TOGGLE_SIDEBAR
   };
 };
-export default toggleSidebar;

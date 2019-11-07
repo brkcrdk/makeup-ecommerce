@@ -7,6 +7,7 @@ import {
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { searchFilter } from "../../../../store/searchFilter/action";
+import { toggleSidebar } from "../../../../store/sidebarToggle/actions";
 import { IFilter } from "../../../../store/searchFilter/types";
 interface Props {
   title: string;
@@ -30,6 +31,7 @@ const Accordion: React.FC<Props> = ({ title, content, activeIndex, url }) => {
   const handleFilter = useCallback(
     (filterSection: string, filter: string) => {
       dispatch(searchFilter({ [filterSection]: filter }));
+      dispatch(toggleSidebar());
     },
     [dispatch]
   );

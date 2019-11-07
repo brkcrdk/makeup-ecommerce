@@ -9,12 +9,12 @@ import {
   DetailText,
   Splitter,
   TagColourContainer,
-  Tag,
-  DetailBottom
+  Tag
 } from "./DetailStyle";
 import { getProduct } from "../getTypes";
 import Footer from "../Content/Footer/Footer";
 import Colours from "./Colours";
+import AddCart from "./AddCart";
 import { useSelector } from "react-redux";
 import { IProducts } from "../../store/fetchProducts/types";
 interface Props {
@@ -90,10 +90,7 @@ const Detail: React.FC<Props> = ({ match }) => {
           <img src={product[0].api_featured_image} alt={`${product[0].name}`} />
         </ImgContainer>
         <DetailContainer>
-          <DetailBottom>
-            <p>Addtocart</p>
-            <p>go back</p>
-          </DetailBottom>
+          <AddCart />
           {product[0].description.length > 0 ? renderDescription : ""}
           {product[0].product_colors.length > 0 ? renderColours : ""}
           {product[0].tag_list.length > 0 ? renderTags : ""}

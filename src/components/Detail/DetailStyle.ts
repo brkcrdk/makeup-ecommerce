@@ -92,10 +92,3 @@ export const Tag = styled.span`
   padding: 0.3em;
   cursor: pointer;
 `;
-
-export const DetailBottom = styled.div`
-  border: 1px solid red;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
