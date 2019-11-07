@@ -25,7 +25,6 @@ export const Content = styled.div`
   margin-right: 2em;
   display: grid;
   text-align: center;
-  border: 1px solid red;
 
   @media ${device.mobileS} {
     grid-template-columns: repeat(1, 12fr);
@@ -36,7 +35,6 @@ export const Content = styled.div`
 `;
 
 export const ImgContainer = styled.div`
-  border: 1px solid yellow;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,13 +57,14 @@ export const Splitter = styled.hr`
   width: 100%;
   border: 0;
   height: 1px;
-  background-image: linear-gradient(to right, grey, white);
+  background-image: linear-gradient(to right, ${colours.pink}, transparent);
 `;
 export const DetailHead = styled.h4`
   font-family: ${fonts.raleway};
   font-size: 1.1em;
   padding: 0;
   margin: 0;
+  color: ${colours.pink};
 `;
 export const DetailText = styled.p`
   font-family: ${fonts.aBeeZee};
@@ -73,6 +72,7 @@ export const DetailText = styled.p`
   padding-left: 0.3em;
   margin: 0;
   margin-bottom: 1em;
+  color: ${colours.primaryText};
 `;
 
 export const TagColourContainer = styled.div`

@@ -70,7 +70,15 @@ const Detail: React.FC<Props> = ({ match }) => {
       </TagColourContainer>
     </>
   );
-  console.log(product[0].tag_list);
+
+  const renderDescription = (
+    <>
+      <DetailHead>Description</DetailHead>
+      <Splitter />
+      <DetailText>{product[0].description.replace(":", ": ")}</DetailText>
+    </>
+  );
+
   return (
     <Container>
       <Parallax>
@@ -84,16 +92,8 @@ const Detail: React.FC<Props> = ({ match }) => {
           <DetailHead>Name</DetailHead>
           <Splitter />
           <DetailText>{product[0].name}</DetailText>
-          <DetailHead>Brand</DetailHead>
-          <Splitter />
-          <DetailText>{product[0].brand}</DetailText>
-          <DetailHead>Type</DetailHead>
-          <Splitter />
-          <DetailText>{product[0].product_type}</DetailText>
-          <DetailHead>Description</DetailHead>
-          <Splitter />
-          <DetailText>{product[0].description.replace(":", ": ")}</DetailText>
-          {product[0].product_colors.length >= 0 ? renderColours : ""}
+          {product[0].description.length > 0 ? renderDescription : ""}
+          {product[0].product_colors.length > 0 ? renderColours : ""}
           {product[0].tag_list.length > 0 ? renderTags : ""}
         </DetailContainer>
       </Content>
