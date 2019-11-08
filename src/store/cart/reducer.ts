@@ -6,6 +6,13 @@ const initialState: CartState = {
 
 const cartReducer = (state = initialState, action: CartActions) => {
   switch (action.type) {
+    //TODO: ürün detayı sayfasında sadece ekleme olacak ekleye basıldıkça ürün eklenecek
+    //TODO: ekle butonuna basınca cart sayfasına yönlendirecek
+    //TODO: cart sayfasında ürünler listelenecek
+    //TODO: Cart sayfasında ekle çıkar butonu eklenerek ürün adedi güncelleme izin verilecek
+    //TODO: Ürün sayısı 1den az olursa ürün silinsinmi uyarısı vericek
+    //TODO: Evet derse ürün silecek
+    //TODO: Ayrı olarak ürün silme butonu eklenecek
     case ADD_CART:
       if (state.cart.length >= 0) {
         const id = state.cart.map((item) => {
