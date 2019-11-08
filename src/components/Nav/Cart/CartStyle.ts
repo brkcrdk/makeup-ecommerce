@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { device, colours } from "../../utils";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  /* When hover show cart */
+`;
 
 interface ImgProps {
   scroll: boolean;
@@ -10,22 +12,11 @@ export const Img = styled.div`
   color: ${colours.primaryText};
   font-size: 1.5em;
   margin: 0 0.5em;
-  /* When hover show cart */
-  &:hover ~ div {
-    display: flex;
-    animation: fade-in 0.3s;
-    @keyframes fade-in {
-      from {
-        opacity: 0;
-        transform: translateY(20%);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+  &:hover + div {
+    @media ${device.tablet} {
+      display: flex;
     }
   }
-
   @media ${device.mobileS} {
     color: ${(p: ImgProps) =>
       p.scroll ? `${colours.primaryText}` : `${colours.secondaryText}`};
@@ -51,16 +42,34 @@ export const Img = styled.div`
 export const CartWrapper = styled.div`
   display: none;
   position: absolute;
-  background-color: ${colours.background};
+  background-color: ${colours.secondaryText};
   margin-top: 1em;
-  margin-left: -12em;
-  width: 25%;
-  ::after {
-    content: " ";
-    border-bottom: 12px solid ${colours.background};
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    position: relative;
-    top: -1.1em;
+  animation: cartFade 0.3s;
+  @keyframes cartFade {
+    from {
+      opacity: 0;
+      transform: translateY(20%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media ${device.tablet} {
+    width: 32%;
+    margin-left: -22%;
+  }
+  @media ${device.tabletLaptop} {
+    width: 30%;
+    margin-left: -20%;
+  }
+  @media ${device.laptop} {
+    width: 30%;
+    margin-left: -22%;
+  }
+  @media ${device.laptopL} {
+    width: 25%;
+    margin-left: -17%;
   }
 `;
