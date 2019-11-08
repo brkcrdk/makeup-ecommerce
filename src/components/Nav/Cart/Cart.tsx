@@ -1,13 +1,16 @@
 import React from "react";
-import { Img } from "./CartStyle";
+import { Img, Container, CartWrapper } from "./CartStyle";
 interface Props {
   scroll: boolean;
 }
 const Cart: React.FC<Props> = ({ scroll }) => {
   return (
-    <Img scroll={scroll}>
-      <i className="fas fa-shopping-basket" />
-    </Img>
+    <Container>
+      <Img scroll={scroll}>
+        <i className="fas fa-shopping-basket" />
+      </Img>
+      <CartWrapper>Cart items here..</CartWrapper>
+    </Container>
   );
 };
 
