@@ -1,5 +1,5 @@
 import React from "react";
-import { Img, Container, CartWrapper } from "./CartStyle";
+import { Img, Container, CartWrapper, CartContent } from "./CartStyle";
 interface Props {
   scroll: boolean;
 }
@@ -10,7 +10,7 @@ const Cart: React.FC<Props> = ({ scroll }) => {
         <i className="fas fa-shopping-basket" />
       </Img>
       <CartWrapper>
-        <div>Cart items here</div>
+        <CartContent>Cart items here</CartContent>
       </CartWrapper>
     </Container>
   );

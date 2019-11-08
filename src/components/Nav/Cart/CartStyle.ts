@@ -2,12 +2,51 @@ import styled from "styled-components";
 import { device, colours } from "../../utils";
 
 export const Container = styled.div`
-  /* When hover show cart */
   &:hover > div {
     @media ${device.tablet} {
       display: block;
     }
   }
+`;
+
+export const CartWrapper = styled.div`
+  display: none;
+  position: absolute;
+  padding-top: 0.5em;
+  animation: cartFade 0.3s;
+
+  @keyframes cartFade {
+    from {
+      opacity: 0;
+      transform: translateY(20%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media ${device.tablet} {
+    width: 20em;
+    margin-left: -15em;
+  }
+  @media ${device.tabletLaptop} {
+    width: 20em;
+    margin-left: -16em;
+  }
+  @media ${device.laptop} {
+    width: 20em;
+    margin-left: -15em;
+  }
+  @media ${device.laptopL} {
+    width: 22em;
+    margin-left: -15em;
+  }
+`;
+
+export const CartContent = styled.div`
+  background-color: ${colours.secondaryText};
+  min-height: 2em;
 `;
 
 interface ImgProps {
@@ -37,42 +76,5 @@ export const Img = styled.div`
   @media ${device.desktop} {
     font-size: 3em;
     margin-right: 0;
-  }
-`;
-
-export const CartWrapper = styled.div`
-  display: none;
-  position: absolute;
-  padding-top: 0.5em;
-  animation: cartFade 0.3s;
-  div {
-    background-color: ${colours.secondaryText};
-  }
-  @keyframes cartFade {
-    from {
-      opacity: 0;
-      transform: translateY(20%);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @media ${device.tablet} {
-    width: 20em;
-    margin-left: -15em;
-  }
-  @media ${device.tabletLaptop} {
-    width: 20em;
-    margin-left: -16em;
-  }
-  @media ${device.laptop} {
-    width: 20em;
-    margin-left: -15em;
-  }
-  @media ${device.laptopL} {
-    width: 22em;
-    margin-left: -15em;
   }
 `;
