@@ -10,10 +10,22 @@ export const Img = styled.div`
   color: ${colours.primaryText};
   font-size: 1.5em;
   margin: 0 0.5em;
+  /* When hover show cart */
   &:hover ~ div {
-    transform: translateX(0);
     display: flex;
+    animation: fade-in 0.3s;
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(20%);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   }
+
   @media ${device.mobileS} {
     color: ${(p: ImgProps) =>
       p.scroll ? `${colours.primaryText}` : `${colours.secondaryText}`};
@@ -43,7 +55,6 @@ export const CartWrapper = styled.div`
   margin-top: 1em;
   margin-left: -12em;
   width: 25%;
-
   ::after {
     content: " ";
     border-bottom: 12px solid ${colours.background};
