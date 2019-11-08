@@ -3,6 +3,11 @@ import { device, colours } from "../../utils";
 
 export const Container = styled.div`
   /* When hover show cart */
+  &:hover > div {
+    @media ${device.tablet} {
+      display: block;
+    }
+  }
 `;
 
 interface ImgProps {
@@ -12,11 +17,7 @@ export const Img = styled.div`
   color: ${colours.primaryText};
   font-size: 1.5em;
   margin: 0 0.5em;
-  &:hover + div {
-    @media ${device.tablet} {
-      display: flex;
-    }
-  }
+
   @media ${device.mobileS} {
     color: ${(p: ImgProps) =>
       p.scroll ? `${colours.primaryText}` : `${colours.secondaryText}`};
@@ -43,8 +44,9 @@ export const CartWrapper = styled.div`
   display: none;
   position: absolute;
   background-color: ${colours.secondaryText};
-  margin-top: 1em;
+  padding-top: 1em;
   animation: cartFade 0.3s;
+
   @keyframes cartFade {
     from {
       opacity: 0;
