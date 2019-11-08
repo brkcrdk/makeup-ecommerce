@@ -11,6 +11,7 @@ export const Img = styled.div`
   font-size: 1.5em;
   margin: 0 0.5em;
   &:hover ~ div {
+    transform: translateX(0);
     display: flex;
   }
   @media ${device.mobileS} {
@@ -40,6 +41,15 @@ export const CartWrapper = styled.div`
   position: absolute;
   background-color: ${colours.background};
   margin-top: 1em;
-  margin-right: 2em;
-  width: 100%;
+  margin-left: -12em;
+  width: 25%;
+
+  ::after {
+    content: " ";
+    border-bottom: 12px solid ${colours.background};
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    position: relative;
+    top: -1.1em;
+  }
 `;
