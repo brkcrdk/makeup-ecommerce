@@ -12,7 +12,6 @@ const AddCart: React.FC<Props> = ({ product }) => {
   const handleCart = useCallback(() => {
     dispatch(addCart({ product: product, count: count }));
   }, [dispatch, product, count]);
-  console.log(count);
   return (
     <Container>
       <button
