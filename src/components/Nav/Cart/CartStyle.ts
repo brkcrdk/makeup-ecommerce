@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { device, colours } from "../../utils";
+import { device, colours, fonts } from "../../utils";
 
 export const Container = styled.div`
   &:hover > div {
@@ -45,8 +45,13 @@ export const CartWrapper = styled.div`
 `;
 
 export const CartContent = styled.div`
-  background-color: ${colours.secondaryText};
-  min-height: 2em;
+  background-color: ${colours.background};
+  min-height: 3em;
+  font-family: ${fonts.aBeeZee};
+  padding: 1em;
+  color: ${colours.primaryText};
+  border: 1px solid ${colours.secondaryText};
+  box-shadow: ${colours.boxShadow};
 `;
 
 interface ImgProps {
