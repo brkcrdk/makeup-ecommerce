@@ -7,11 +7,11 @@ export const fonts = {
 };
 
 export const colours = {
-  background: "#fcf7f9",
-  backgroundDarker: "#ebe4e6",
-  primaryText: "#4a3838",
+  background: "#FCF7F9",
+  backgroundDarker: "#EBE4E6",
+  primaryText: "#4A3838",
   secondaryText: "#FFAAAD",
-  pink: "#d12148",
+  pink: "#D12148",
   boxShadow: "1px 5px 1em rgba(136, 136, 136, 0.5)",
   darkerBoxShadow: "1px 5px 1em rgba(0, 0, 0, 0.5)"
 };

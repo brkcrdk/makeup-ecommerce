@@ -43,10 +43,11 @@ export const Img = styled.div`
 export const CartWrapper = styled.div`
   display: none;
   position: absolute;
-  background-color: ${colours.secondaryText};
-  padding-top: 1em;
+  padding-top: 0.5em;
   animation: cartFade 0.3s;
-
+  div {
+    background-color: ${colours.secondaryText};
+  }
   @keyframes cartFade {
     from {
       opacity: 0;
@@ -59,19 +60,19 @@ export const CartWrapper = styled.div`
   }
 
   @media ${device.tablet} {
-    width: 32%;
-    margin-left: -22%;
+    width: 20em;
+    margin-left: -15em;
   }
   @media ${device.tabletLaptop} {
-    width: 30%;
-    margin-left: -20%;
+    width: 20em;
+    margin-left: -16em;
   }
   @media ${device.laptop} {
-    width: 30%;
-    margin-left: -22%;
+    width: 20em;
+    margin-left: -15em;
   }
   @media ${device.laptopL} {
-    width: 25%;
-    margin-left: -17%;
+    width: 22em;
+    margin-left: -15em;
   }
 `;

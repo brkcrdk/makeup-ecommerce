@@ -9,7 +9,9 @@ const Cart: React.FC<Props> = ({ scroll }) => {
       <Img scroll={scroll}>
         <i className="fas fa-shopping-basket" />
       </Img>
-      <CartWrapper>Cart items here..</CartWrapper>
+      <CartWrapper>
+        <div>Cart items here</div>
+      </CartWrapper>
     </Container>
   );
 };
