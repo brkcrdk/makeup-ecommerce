@@ -16,13 +16,15 @@ interface CartProps {
 const Cart: React.FC<Props> = ({ scroll }) => {
   const cart = useSelector((state: CartProps) => state.cartStore.cart);
   const renderEmpty = <CartContent>Cart is empty</CartContent>;
-  const [total, setTotal] = useState(0);
+  const totals = cart.map((item) => {
+    const price = parseFloat(item.product.price);
+    return price * item.count;
+  });
+
   const renderItems = (
     <CartContent>
       {cart.length > 0
         ? cart.map((item, index) => {
-            const price = parseFloat(item.product.price_sign);
-            setTotal(total + item.count * price);
             return (
               <li key={index}>
                 {item.count} x {item.product.price}
@@ -30,7 +32,14 @@ const Cart: React.FC<Props> = ({ scroll }) => {
             );
           })
         : ""}
-      <p>Total Price: {total}</p>
+      <p>
+        Total Price:
+        {totals.length > 0
+          ? totals.reduce((sum, next) => {
+              return (sum = sum + next);
+            })
+          : ""}
+      </p>
     </CartContent>
   );
   return (
