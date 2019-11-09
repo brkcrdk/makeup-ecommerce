@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Img, Container, CartWrapper, CartContent } from "./CartStyle";
 import { useSelector } from "react-redux";
 import { IProducts } from "../../../store/fetchProducts/types";
@@ -16,6 +16,7 @@ interface CartProps {
 const Cart: React.FC<Props> = ({ scroll }) => {
   const cart = useSelector((state: CartProps) => state.cartStore.cart);
   const renderEmpty = <CartContent>Cart is empty</CartContent>;
+
   const totals = cart.map((item) => {
     const price = parseFloat(item.product.price);
     return price * item.count;
