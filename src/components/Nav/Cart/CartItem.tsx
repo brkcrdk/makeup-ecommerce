@@ -65,31 +65,33 @@ const CartItem: React.FC<Props> = ({ cart }) => {
     );
 
     return (
-      <>
-        <CartHeader>My Shopping Cart</CartHeader>
-        <Splitter />
-        <Container>
-          <CartImg
-            src={item.product.api_featured_image}
-            alt={`cart-${item.product.name}`}
-          />
-          <CartInfo>
-            <CartName>{item.product.name}</CartName>
-            <CartPrice>
-              {item.count}x ${price} = ${item.count * price}
-            </CartPrice>
-          </CartInfo>
-          <CartRemove>
-            <i className="fas fa-trash"></i>
-          </CartRemove>
-        </Container>
-        <Splitter />
-        <CartHeader>Total: ${totalPrice}</CartHeader>
-      </>
+      <Container>
+        <CartImg
+          src={item.product.api_featured_image}
+          alt={`cart-${item.product.name}`}
+        />
+        <CartInfo>
+          <CartName>{item.product.name}</CartName>
+          <CartPrice>
+            {item.count}x ${price} = ${item.count * price}
+          </CartPrice>
+        </CartInfo>
+        <CartRemove>
+          <i className="fas fa-trash"></i>
+        </CartRemove>
+      </Container>
     );
   });
 
-  return <>{renderCart}</>;
+  return (
+    <>
+      <CartHeader>My Shopping Cart</CartHeader>
+      <Splitter />
+      {renderCart}
+      <Splitter />
+      <CartHeader>Total: ${totalPrice}</CartHeader>
+    </>
+  );
 };
 
 export default CartItem;
