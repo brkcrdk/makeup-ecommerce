@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { colours } from "../../utils";
 import { IProducts } from "../../../store/fetchProducts/types";
 
 const Container = styled.div`
@@ -20,9 +21,15 @@ const CartInfo = styled.div`
   border: 1px solid yellow;
 `;
 const CartName = styled.h4``;
-const CartPrice = styled.p``;
-const CartRemove = styled.button``;
-const Splitter = styled.hr``;
+const CartPrice = styled.p`
+  margin-top: -1em;
+`;
+const CartRemove = styled.button`
+  text-align: right;
+`;
+const Splitter = styled.hr`
+  border: 0.3px solid ${colours.pink};
+`;
 
 interface Props {
   cart: { product: IProducts; count: number }[];
@@ -36,25 +43,29 @@ const CartItem: React.FC<Props> = ({ cart }) => {
   const totalPrice = totals.reduce((sum, next) => {
     return (sum = sum + next);
   });
-  const renderCart = cart.map((item, key) => (
-    <>
-      <Container>
-        <CartImg
-          src={item.product.api_featured_image}
-          alt={`cart-${item.product.name}`}
-        />
-        <CartInfo>
-          <CartName>{item.product.name}</CartName>
-          <CartPrice>
-            {item.count}x{item.product.price_sign}
-            {item.product.price}
-          </CartPrice>
-        </CartInfo>
-        <CartRemove />
-      </Container>
-      <Splitter />
-    </>
-  ));
+  const renderCart = cart.map((item, key) => {
+    const priceSign =
+      item.product.price_sign === null ? "$" : item.product.price_sign;
+    return (
+      <>
+        <Container>
+          <CartImg
+            src={item.product.api_featured_image}
+            alt={`cart-${item.product.name}`}
+          />
+          <CartInfo>
+            <CartName>{item.product.name}</CartName>
+            <CartPrice>
+              {item.count}x{priceSign}
+              {item.product.price}
+            </CartPrice>
+          </CartInfo>
+          <CartRemove>X</CartRemove>
+        </Container>
+        <Splitter />
+      </>
+    );
+  });
 
   return <>{renderCart}</>;
 };
