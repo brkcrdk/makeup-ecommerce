@@ -19,8 +19,13 @@ const Cart: React.FC<Props> = ({ scroll }) => {
   const renderItems = (
     <CartContent>
       {cart.length > 0
-        ? cart.map((item, index) => <li key={index}>{item.product.name}</li>)
+        ? cart.map((item, index) => (
+            <li key={index}>
+              {item.count} x {item.product.price}
+            </li>
+          ))
         : ""}
+      <p>Total Price: </p>
     </CartContent>
   );
   return (
