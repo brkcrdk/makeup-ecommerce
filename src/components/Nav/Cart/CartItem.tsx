@@ -65,21 +65,24 @@ const CartItem: React.FC<Props> = ({ cart }) => {
     );
 
     return (
-      <Container>
-        <CartImg
-          src={item.product.api_featured_image}
-          alt={`cart-${item.product.name}`}
-        />
-        <CartInfo>
-          <CartName>{item.product.name}</CartName>
-          <CartPrice>
-            {item.count}x ${price} = ${item.count * price}
-          </CartPrice>
-        </CartInfo>
-        <CartRemove>
-          <i className="fas fa-trash"></i>
-        </CartRemove>
-      </Container>
+      <>
+        <Container>
+          <CartImg
+            src={item.product.api_featured_image}
+            alt={`cart-${item.product.name}`}
+          />
+          <CartInfo>
+            <CartName>{item.product.name}</CartName>
+            <CartPrice>
+              {item.count}x ${price} = ${item.count * price}
+            </CartPrice>
+          </CartInfo>
+          <CartRemove>
+            <i className="fas fa-trash"></i>
+          </CartRemove>
+        </Container>
+        <Splitter />
+      </>
     );
   });
 
@@ -88,8 +91,9 @@ const CartItem: React.FC<Props> = ({ cart }) => {
       <CartHeader>My Shopping Cart</CartHeader>
       <Splitter />
       {renderCart}
+      <CartHeader>Total: ${totalPrice.toFixed(2)}</CartHeader>
       <Splitter />
-      <CartHeader>Total: ${totalPrice}</CartHeader>
+      <button>View Cart</button>
     </>
   );
 };
