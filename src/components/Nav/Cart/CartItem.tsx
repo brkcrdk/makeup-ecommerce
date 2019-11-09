@@ -8,7 +8,7 @@ const CartImg = styled.img``;
 const CartInfo = styled.div``;
 const CartPrice = styled.h5``;
 const CartCount = styled.p``;
-const CartRemove = styled.button;
+const CartRemove = styled.button``;
 const Splitter = styled.hr``;
 
 interface Props {
@@ -19,10 +19,19 @@ interface Props {
   count: number;
 }
 
-const CartItem: React.FC<Props> = ({ img }) => {
+const CartItem: React.FC<Props> = ({ img, name, price, priceSign, count }) => {
   return (
     <Container>
-      <CartImg>cart img</CartImg>
+      <CartImg src={img} alt={`cart-${name}`} />
+      <CartInfo>
+        <CartCount>{count}x </CartCount>
+        <CartPrice>
+          {priceSign}
+          {price}
+        </CartPrice>
+        <CartRemove>X</CartRemove>
+      </CartInfo>
+      <Splitter />
     </Container>
   );
 };

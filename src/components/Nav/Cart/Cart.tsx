@@ -2,6 +2,7 @@ import React from "react";
 import { Img, Container, CartWrapper, CartContent } from "./CartStyle";
 import { useSelector } from "react-redux";
 import { IProducts } from "../../../store/fetchProducts/types";
+import CartItem from "./CartItem";
 interface Props {
   scroll: boolean;
 }
@@ -25,13 +26,15 @@ const Cart: React.FC<Props> = ({ scroll }) => {
   const renderItems = (
     <CartContent>
       {cart.length > 0
-        ? cart.map((item, index) => {
-            return (
-              <li key={index}>
-                {item.count} x {item.product.price}
-              </li>
-            );
-          })
+        ? cart.map((item, index) => (
+            <CartItem
+              img={item.product.api_featured_image}
+              name={item.product.name}
+              price={item.product.price}
+              priceSign={item.product.price_sign}
+              count={item.count}
+            />
+          ))
         : ""}
       <p>
         Total Price:
