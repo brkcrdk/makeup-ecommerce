@@ -56,6 +56,7 @@ export const CartContent = styled.div`
 
 interface ImgProps {
   scroll: boolean;
+  count: number;
 }
 export const Img = styled.div`
   color: ${colours.primaryText};
@@ -63,6 +64,7 @@ export const Img = styled.div`
   margin: 0 0.5em;
 
   span {
+    visibility: ${(p: ImgProps) => (p.count === 0 ? "hidden" : "visible")};
     position: relative;
     top: -1em;
     right: -0.8em;

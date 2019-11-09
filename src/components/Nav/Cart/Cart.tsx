@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Img, Container, CartWrapper, CartContent } from "./CartStyle";
 import { useSelector } from "react-redux";
 import { IProducts } from "../../../store/fetchProducts/types";
@@ -10,17 +10,21 @@ interface CartProps {
     cart: {
       products: IProducts;
       count: number;
-    };
+    }[];
   };
 }
 const Cart: React.FC<Props> = ({ scroll }) => {
   const cart = useSelector((state: CartProps) => state.cartStore.cart);
+  const [cartItems, setCartItems] = useState();
   useEffect(() => {
-    console.log(cart);
+    if (cart.length > 0) {
+      setCartItems(cart);
+    }
   }, [cart]);
+  console.log(cartItems);
   return (
     <Container>
-      <Img scroll={scroll} count={cart}>
+      <Img scroll={scroll} count={0}>
         <i className="fas fa-shopping-basket" />
         <span>1</span>
       </Img>
