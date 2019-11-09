@@ -4,9 +4,14 @@ import { IProducts } from "../../../store/fetchProducts/types";
 
 const Container = styled.div`
   display: flex;
+  overflow: hidden;
 `;
-const CartImg = styled.img``;
-const CartInfo = styled.div``;
+const CartImg = styled.img`
+  width: 100%;
+`;
+const CartInfo = styled.div`
+  display: grid;
+`;
 const CartName = styled.h5``;
 const CartPrice = styled.p``;
 const CartRemove = styled.button``;
@@ -21,7 +26,7 @@ const CartItem: React.FC<Props> = ({ cart }) => {
     const price = parseFloat(item.product.price);
     return price * item.count;
   });
-  const totalPrice = totals.reduce((sum = 0, next) => {
+  const totalPrice = totals.reduce((sum, next) => {
     return (sum = sum + next);
   });
   const renderCart = cart.map((item, key) => (
@@ -30,6 +35,9 @@ const CartItem: React.FC<Props> = ({ cart }) => {
         src={item.product.api_featured_image}
         alt={`cart-${item.product.name}`}
       />
+      <CartInfo>
+        <CartName>{item.product.name}</CartName>
+      </CartInfo>
     </Container>
   ));
   return <>{renderCart}</>;
