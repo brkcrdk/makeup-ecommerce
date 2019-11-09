@@ -15,18 +15,17 @@ interface CartProps {
 }
 const Cart: React.FC<Props> = ({ scroll }) => {
   const cart = useSelector((state: CartProps) => state.cartStore.cart);
-  const [cartItems, setCartItems] = useState();
+  const [items, setItems] = useState();
   useEffect(() => {
-    if (cart.length > 0) {
-      setCartItems(cart);
-    }
+    // setItems(cart);
+    console.log(cart.length);
   }, [cart]);
-  console.log(cartItems);
+  // console.log(items);
   return (
     <Container>
-      <Img scroll={scroll} count={0}>
+      <Img scroll={scroll} count={cart.length}>
         <i className="fas fa-shopping-basket" />
-        <span>1</span>
+        <span>{cart.length}</span>
       </Img>
       <CartWrapper>
         <CartContent>Cart items here</CartContent>
