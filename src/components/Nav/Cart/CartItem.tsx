@@ -7,8 +7,8 @@ const Container = styled.div`
 `;
 const CartImg = styled.img``;
 const CartInfo = styled.div``;
-const CartPrice = styled.h5``;
-const CartCount = styled.p``;
+const CartName = styled.h5``;
+const CartPrice = styled.p``;
 const CartRemove = styled.button``;
 const Splitter = styled.hr``;
 
@@ -21,23 +21,18 @@ const CartItem: React.FC<Props> = ({ cart }) => {
     const price = parseFloat(item.product.price);
     return price * item.count;
   });
-  const totalPrice = totals.reduce((sum, next) => {
+  const totalPrice = totals.reduce((sum = 0, next) => {
     return (sum = sum + next);
   });
-  return (
+  const renderCart = cart.map((item, key) => (
     <Container>
-      {/* <CartImg src={img} alt={`cart-${name}`} />
-      <CartInfo>
-        <CartCount>{count}x </CartCount>
-        <CartPrice>
-          {priceSign}
-          {price}
-        </CartPrice>
-        <CartRemove>X</CartRemove>
-      </CartInfo>
-      <Splitter /> */}
+      <CartImg
+        src={item.product.api_featured_image}
+        alt={`cart-${item.product.name}`}
+      />
     </Container>
-  );
+  ));
+  return <>{renderCart}</>;
 };
 
 export default CartItem;
