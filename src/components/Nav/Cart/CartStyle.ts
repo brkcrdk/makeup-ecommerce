@@ -65,12 +65,11 @@ export const Img = styled.div`
   span {
     position: relative;
     top: -1em;
-    right: -1.8em;
-    font-size: 0.5em;
-    color: white;
-    background-color: ${colours.pink};
+    right: -0.8em;
+    color: ${colours.pink};
+    font-size: 0.6em;
+    font-family: ${fonts.aBeeZee};
     font-weight: 900;
-    width: 1.5em;
     border-radius: 50%;
     display: flex;
     justify-content: center;

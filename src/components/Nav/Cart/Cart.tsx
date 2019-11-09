@@ -20,7 +20,7 @@ const Cart: React.FC<Props> = ({ scroll }) => {
   }, [cart]);
   return (
     <Container>
-      <Img scroll={scroll}>
+      <Img scroll={scroll} count={cart}>
         <i className="fas fa-shopping-basket" />
         <span>1</span>
       </Img>
