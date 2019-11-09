@@ -18,41 +18,38 @@ const Cart: React.FC<Props> = ({ scroll }) => {
   const cart = useSelector((state: CartProps) => state.cartStore.cart);
   const renderEmpty = <CartContent>Cart is empty</CartContent>;
 
-  const totals = cart.map((item) => {
-    const price = parseFloat(item.product.price);
-    return price * item.count;
-  });
-
-  const renderItems = (
-    <CartContent>
-      {cart.length > 0
-        ? cart.map((item, index) => (
-            <CartItem
-              img={item.product.api_featured_image}
-              name={item.product.name}
-              price={item.product.price}
-              priceSign={item.product.price_sign}
-              count={item.count}
-            />
-          ))
-        : ""}
-      <p>
-        Total Price:
-        {totals.length > 0
-          ? totals.reduce((sum, next) => {
-              return (sum = sum + next);
-            })
-          : ""}
-      </p>
-    </CartContent>
-  );
+  // const renderItems = (
+  //   <CartContent>
+  //     {cart.length > 0
+  //       ? cart.map((item, index) => (
+  //           <CartItem
+  //             img={item.product.api_featured_image}
+  //             name={item.product.name}
+  //             price={item.product.price}
+  //             priceSign={item.product.price_sign}
+  //             count={item.count}
+  //           />
+  //         ))
+  //       : ""}
+  //     <p>
+  //       Total Price:
+  //       {totals.length > 0
+  //         ? totals.reduce((sum, next) => {
+  //             return (sum = sum + next);
+  //           })
+  //         : ""}
+  //     </p>
+  //   </CartContent>
+  // );
   return (
     <Container>
       <Img scroll={scroll} count={cart.length}>
         <i className="fas fa-shopping-basket" />
         <span>{cart.length}</span>
       </Img>
-      <CartWrapper>{cart.length > 0 ? renderItems : renderEmpty}</CartWrapper>
+      <CartWrapper>
+        {cart.length > 0 ? <CartItem cart={cart} /> : renderEmpty}
+      </CartWrapper>
     </Container>
   );
 };
