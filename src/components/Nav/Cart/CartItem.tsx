@@ -76,7 +76,9 @@ const CartItem: React.FC<Props> = ({ cart }) => {
               {item.product.price}
             </CartPrice>
           </CartInfo>
-          <CartRemove>X</CartRemove>
+          <CartRemove>
+            <i className="fas fa-trash"></i>
+          </CartRemove>
         </Container>
         <Splitter />
       </>

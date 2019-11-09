@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { device, colours, fonts } from "../../utils";
 
 export const Container = styled.div`
+  cursor: pointer;
   &:hover > div {
     @media ${device.tablet} {
       display: block;
