@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Img, Container, CartWrapper, CartContent } from "./CartStyle";
 import { useSelector } from "react-redux";
 import { IProducts } from "../../../store/fetchProducts/types";
@@ -15,21 +15,22 @@ interface CartProps {
 }
 const Cart: React.FC<Props> = ({ scroll }) => {
   const cart = useSelector((state: CartProps) => state.cartStore.cart);
-  const [items, setItems] = useState();
-  useEffect(() => {
-    // setItems(cart);
-    console.log(cart.length);
-  }, [cart]);
-  // console.log(items);
+
+  const renderEmpty = <CartContent>Cart is empty</CartContent>;
+  const renderItems = cart.map((item, key) => (
+    <CartContent key={key}>
+      <li>
+        {item.count}- {item.products.name}
+      </li>
+    </CartContent>
+  ));
   return (
     <Container>
       <Img scroll={scroll} count={cart.length}>
         <i className="fas fa-shopping-basket" />
         <span>{cart.length}</span>
       </Img>
-      <CartWrapper>
-        <CartContent>Cart items here</CartContent>
-      </CartWrapper>
+      <CartWrapper>{cart.length > 0 ? renderItems : renderEmpty}</CartWrapper>
     </Container>
   );
 };
