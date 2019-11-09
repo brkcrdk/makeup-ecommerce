@@ -33,10 +33,12 @@ const CartRemove = styled.button`
   margin-right: 0.3em;
   text-align: right;
   background-color: transparent;
+  font-size: 1.1em;
   border: none;
-  color: ${colours.secondaryText};
+  color: ${colours.primaryText};
+  cursor: pointer;
   &:hover {
-    color: ${colours.primaryText};
+    color: ${colours.pink};
   }
 `;
 const Splitter = styled.hr`
@@ -58,8 +60,10 @@ const CartItem: React.FC<Props> = ({ cart }) => {
     return (sum = sum + next);
   });
   const renderCart = cart.map((item, key) => {
-    const priceSign =
-      item.product.price_sign === null ? "$" : item.product.price_sign;
+    const price = parseFloat(
+      item.product.price === null ? "10" : item.product.price
+    );
+
     return (
       <>
         <CartHeader>My Shopping Cart</CartHeader>
@@ -72,8 +76,7 @@ const CartItem: React.FC<Props> = ({ cart }) => {
           <CartInfo>
             <CartName>{item.product.name}</CartName>
             <CartPrice>
-              {item.count}x{priceSign}
-              {item.product.price}
+              {item.count}x ${price} = ${item.count * price}
             </CartPrice>
           </CartInfo>
           <CartRemove>
@@ -81,6 +84,7 @@ const CartItem: React.FC<Props> = ({ cart }) => {
           </CartRemove>
         </Container>
         <Splitter />
+        <CartHeader>Total: ${totalPrice}</CartHeader>
       </>
     );
   });

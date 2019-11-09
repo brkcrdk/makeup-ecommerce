@@ -42,8 +42,8 @@ const Card: React.FC<CardProps> = ({
           <Name className="card-name">{name}</Name>
         </Link>
         <div className="card-content">
-          <Price className="card-price">{`${price === null ? "10" : price}${
-            priceSign === null ? "$" : priceSign
+          <Price className="card-price">{`$${
+            price === null ? "10" : price
           }`}</Price>
           <Add
             className="card-button"

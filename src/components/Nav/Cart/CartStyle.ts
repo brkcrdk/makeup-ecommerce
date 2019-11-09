@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { device, colours, fonts } from "../../utils";
 
 export const Container = styled.div`
-  cursor: pointer;
   &:hover > div {
     @media ${device.tablet} {
       display: block;
@@ -65,6 +64,7 @@ export const Img = styled.div`
   color: ${colours.primaryText};
   font-size: 1.5em;
   margin: 0 0.5em;
+  cursor: pointer;
 
   span {
     visibility: ${(p: ImgProps) => (p.count === 0 ? "hidden" : "visible")};
