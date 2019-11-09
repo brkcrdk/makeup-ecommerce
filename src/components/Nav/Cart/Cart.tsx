@@ -8,22 +8,21 @@ interface Props {
 interface CartProps {
   cartStore: {
     cart: {
-      products: IProducts;
+      product: IProducts;
       count: number;
     }[];
   };
 }
 const Cart: React.FC<Props> = ({ scroll }) => {
   const cart = useSelector((state: CartProps) => state.cartStore.cart);
-
   const renderEmpty = <CartContent>Cart is empty</CartContent>;
-  const renderItems = cart.map((item, key) => (
-    <CartContent key={key}>
-      <li>
-        {item.count}- {item.products.name}
-      </li>
+  const renderItems = (
+    <CartContent>
+      {cart.length > 0
+        ? cart.map((item, index) => <li key={index}>{item.product.name}</li>)
+        : ""}
     </CartContent>
-  ));
+  );
   return (
     <Container>
       <Img scroll={scroll} count={cart.length}>
