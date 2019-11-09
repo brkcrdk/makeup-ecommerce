@@ -4,8 +4,9 @@ import { colours } from "../../utils";
 import { IProducts } from "../../../store/fetchProducts/types";
 
 const Container = styled.div`
-  border: 1px solid red;
   display: flex;
+  margin-top: -1em;
+  justify-content: space-evenly;
   align-items: center;
   overflow: hidden;
 `;
@@ -18,17 +19,19 @@ const CartInfo = styled.div`
   font-size: 0.9em;
   display: grid;
   grid-gap: 0.2em;
-  border: 1px solid yellow;
 `;
 const CartName = styled.h4``;
 const CartPrice = styled.p`
   margin-top: -1em;
+  text-align: left;
 `;
 const CartRemove = styled.button`
   text-align: right;
 `;
 const Splitter = styled.hr`
-  border: 0.3px solid ${colours.pink};
+  margin-top: -1em;
+  width: 95%;
+  border: 0.3px solid ${colours.secondaryText};
 `;
 
 interface Props {

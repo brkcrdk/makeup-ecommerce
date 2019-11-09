@@ -16,7 +16,7 @@ interface CartProps {
 }
 const Cart: React.FC<Props> = ({ scroll }) => {
   const cart = useSelector((state: CartProps) => state.cartStore.cart);
-  const renderEmpty = <CartContent>Cart is empty</CartContent>;
+  const renderEmpty = <CartContent>Cart is empty. Shop here!</CartContent>;
   const renderItems = (
     <CartContent>
       <CartItem cart={cart} />

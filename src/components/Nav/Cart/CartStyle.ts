@@ -14,7 +14,6 @@ export const CartWrapper = styled.div`
   position: absolute;
   padding-top: 0.5em;
   animation: cartFade 0.3s;
-
   @keyframes cartFade {
     from {
       opacity: 0;
@@ -48,7 +47,8 @@ export const CartContent = styled.div`
   background-color: ${colours.background};
   min-height: 3em;
   font-family: ${fonts.aBeeZee};
-  padding: 1em;
+  padding: 1em 0.5em;
+  text-align: center;
   color: ${colours.primaryText};
   border: 1px solid ${colours.secondaryText};
   box-shadow: ${colours.smallShadow};
