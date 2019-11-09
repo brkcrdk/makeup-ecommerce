@@ -22,6 +22,7 @@ const Cart: React.FC<Props> = ({ scroll }) => {
     <Container>
       <Img scroll={scroll}>
         <i className="fas fa-shopping-basket" />
+        <span>1</span>
       </Img>
       <CartWrapper>
         <CartContent>Cart items here</CartContent>

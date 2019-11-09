@@ -13,6 +13,7 @@ export const colours = {
   secondaryText: "#FFAAAD",
   pink: "#D12148",
   boxShadow: "1px 5px 1em rgba(136, 136, 136, 0.5)",
+  smallShadow: "1px 1px 0.4em rgba(136, 136, 136, 0.5)",
   darkerBoxShadow: "1px 5px 1em rgba(0, 0, 0, 0.5)"
 };
 

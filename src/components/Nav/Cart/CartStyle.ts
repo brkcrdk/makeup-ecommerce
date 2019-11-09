@@ -51,7 +51,7 @@ export const CartContent = styled.div`
   padding: 1em;
   color: ${colours.primaryText};
   border: 1px solid ${colours.secondaryText};
-  box-shadow: ${colours.boxShadow};
+  box-shadow: ${colours.smallShadow};
 `;
 
 interface ImgProps {
@@ -61,6 +61,21 @@ export const Img = styled.div`
   color: ${colours.primaryText};
   font-size: 1.5em;
   margin: 0 0.5em;
+
+  span {
+    position: relative;
+    top: -1em;
+    right: -1.8em;
+    font-size: 0.5em;
+    color: white;
+    background-color: ${colours.pink};
+    font-weight: 900;
+    width: 1.5em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   @media ${device.mobileS} {
     color: ${(p: ImgProps) =>
