@@ -10,11 +10,15 @@ const Container = styled.div`
   align-items: center;
   overflow: hidden;
 `;
+const CartHeader = styled.h4`
+  padding-bottom: 0.5em;
+`;
 const CartImg = styled.img`
   width: 3em;
   height: 3em;
 `;
 const CartInfo = styled.div`
+  width: 95%;
   padding: 1em;
   font-size: 0.9em;
   display: grid;
@@ -26,12 +30,19 @@ const CartPrice = styled.p`
   text-align: left;
 `;
 const CartRemove = styled.button`
+  margin-right: 0.3em;
   text-align: right;
+  background-color: transparent;
+  border: none;
+  color: ${colours.secondaryText};
+  &:hover {
+    color: ${colours.primaryText};
+  }
 `;
 const Splitter = styled.hr`
   margin-top: -1em;
   width: 95%;
-  border: 0.3px solid ${colours.secondaryText};
+  border: 0.5px solid ${colours.secondaryText};
 `;
 
 interface Props {
@@ -51,6 +62,8 @@ const CartItem: React.FC<Props> = ({ cart }) => {
       item.product.price_sign === null ? "$" : item.product.price_sign;
     return (
       <>
+        <CartHeader>My Shopping Cart</CartHeader>
+        <Splitter />
         <Container>
           <CartImg
             src={item.product.api_featured_image}

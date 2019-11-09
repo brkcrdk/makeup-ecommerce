@@ -47,13 +47,15 @@ export const CartContent = styled.div`
   background-color: ${colours.background};
   min-height: 3em;
   font-family: ${fonts.aBeeZee};
-  padding: 1em 0.5em;
+  padding: 0.5em;
   text-align: center;
   color: ${colours.primaryText};
   border: 1px solid ${colours.secondaryText};
   box-shadow: ${colours.smallShadow};
 `;
-
+export const EmptyText = styled.p`
+  padding-top: 0.2em;
+`;
 interface ImgProps {
   scroll: boolean;
   count: number;

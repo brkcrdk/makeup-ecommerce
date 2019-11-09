@@ -1,5 +1,11 @@
 import React from "react";
-import { Img, Container, CartWrapper, CartContent } from "./CartStyle";
+import {
+  Img,
+  Container,
+  CartWrapper,
+  CartContent,
+  EmptyText
+} from "./CartStyle";
 import { useSelector } from "react-redux";
 import { IProducts } from "../../../store/fetchProducts/types";
 import CartItem from "./CartItem";
@@ -16,7 +22,11 @@ interface CartProps {
 }
 const Cart: React.FC<Props> = ({ scroll }) => {
   const cart = useSelector((state: CartProps) => state.cartStore.cart);
-  const renderEmpty = <CartContent>Cart is empty. Shop here!</CartContent>;
+  const renderEmpty = (
+    <CartContent>
+      <EmptyText>Cart is empty. Shop here!</EmptyText>
+    </CartContent>
+  );
   const renderItems = (
     <CartContent>
       <CartItem cart={cart} />
