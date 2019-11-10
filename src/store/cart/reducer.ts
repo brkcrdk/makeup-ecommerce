@@ -1,4 +1,10 @@
-import { ADD_CART, UPDATE_CART, CartState, CartActions } from "./types";
+import {
+  ADD_CART,
+  UPDATE_CART,
+  REMOVE_CART,
+  CartState,
+  CartActions
+} from "./types";
 
 const initialState: CartState = {
   cart: []
@@ -47,6 +53,22 @@ const cartReducer = (state = initialState, action: CartActions) => {
             };
             return { ...state, cart: state.cart.concat(newObj) };
           }
+        }
+      }
+      return state;
+    case REMOVE_CART:
+      if (state.cart.length > 0) {
+        const id = state.cart.map((item) => item.product.id);
+        if (id.indexOf(action.payload.product.id) === -1) {
+          return state;
+        } else {
+          const selected = id.indexOf(action.payload.product.id);
+          return {
+            ...state,
+            cart: state.cart.filter(
+              (item) => item.product.id !== action.payload.product.id
+            )
+          };
         }
       }
       return state;

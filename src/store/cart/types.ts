@@ -21,7 +21,7 @@ interface UpdateCart {
 }
 interface RemoveCart {
   type: typeof REMOVE_CART;
-  payload: {}[];
+  payload: { product: IProduct };
 }
 
 export type CartActions = AddCart | UpdateCart | RemoveCart;

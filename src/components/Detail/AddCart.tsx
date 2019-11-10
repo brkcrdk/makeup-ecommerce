@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import styled from "styled-components";
-import { addCart, updateCart } from "../../store/cart/actions";
+import { addCart, updateCart, removeCart } from "../../store/cart/actions";
 import { useDispatch } from "react-redux";
 interface Props {
   product: {};
@@ -19,6 +19,11 @@ const AddCart: React.FC<Props> = ({ product }) => {
   const handleIncrement = useCallback(() => {
     dispatch(updateCart({ product: product, update: "increment" }));
   }, [dispatch, product]);
+
+  const handleRemove = useCallback(() => {
+    dispatch(removeCart({ product: product }));
+  }, [dispatch]);
+
   return (
     <Container>
       <button
@@ -39,6 +44,7 @@ const AddCart: React.FC<Props> = ({ product }) => {
       <button onClick={handleCart}>Add to Cart</button>
       <button onClick={handleDecrement}>Decrement</button>
       <button onClick={handleIncrement}>Increment</button>
+      <button onClick={handleRemove}>Remove</button>
     </Container>
   );
 };
