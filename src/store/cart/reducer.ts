@@ -1,4 +1,4 @@
-import { ADD_CART, CartState, CartActions } from "./types";
+import { ADD_CART, UPDATE_CART, CartState, CartActions } from "./types";
 
 const initialState: CartState = {
   cart: []
@@ -6,18 +6,9 @@ const initialState: CartState = {
 
 const cartReducer = (state = initialState, action: CartActions) => {
   switch (action.type) {
-    //TODO: ürün detayı sayfasında sadece ekleme olacak ekleye basıldıkça ürün eklenecek
-    //TODO: ekle butonuna basınca cart sayfasına yönlendirecek
-    //TODO: cart sayfasında ürünler listelenecek
-    //TODO: Cart sayfasında ekle çıkar butonu eklenerek ürün adedi güncelleme izin verilecek
-    //TODO: Ürün sayısı 1den az olursa ürün silinsinmi uyarısı vericek
-    //TODO: Evet derse ürün silecek
-    //TODO: Ayrı olarak ürün silme butonu eklenecek
     case ADD_CART:
       if (state.cart.length >= 0) {
-        const id = state.cart.map((item) => {
-          return item.product.id;
-        });
+        const id = state.cart.map((item) => item.product.id);
         if (id.indexOf(action.payload.product.id) === -1) {
           return { ...state, cart: state.cart.concat(action.payload) };
         } else {
@@ -48,6 +39,11 @@ const cartReducer = (state = initialState, action: CartActions) => {
           //   return { ...state, cart: state.cart.concat(newObj) };
           // }
         }
+      }
+      return state;
+    case UPDATE_CART:
+      if (state.cart.length >= 0) {
+        const id = state.cart.map((item) => item.product.id);
       }
       return state;
     default:
