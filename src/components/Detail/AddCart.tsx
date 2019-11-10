@@ -15,10 +15,10 @@ const AddCart: React.FC<Props> = ({ product }) => {
 
   const handleDecrement = useCallback(() => {
     dispatch(updateCart({ product: product, update: "decrement" }));
-  }, [dispatch]);
+  }, [dispatch, product]);
   const handleIncrement = useCallback(() => {
     dispatch(updateCart({ product: product, update: "increment" }));
-  }, [dispatch]);
+  }, [dispatch, product]);
   return (
     <Container>
       <button
@@ -36,7 +36,7 @@ const AddCart: React.FC<Props> = ({ product }) => {
       </button>
       <button onClick={handleCart}>Add to Cart</button>
       <button onClick={handleDecrement}>Decrement</button>
-      <button onClick={handleIncrement}>Decrement</button>
+      <button onClick={handleIncrement}>Increment</button>
     </Container>
   );
 };
