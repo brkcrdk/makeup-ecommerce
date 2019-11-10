@@ -20,7 +20,7 @@ const CartImg = styled.img`
 const CartInfo = styled.div`
   width: 95%;
   padding: 1em;
-  font-size: 0.9em;
+  font-size: 1em;
   display: grid;
   grid-gap: 0.2em;
 `;
@@ -65,7 +65,7 @@ const CartItem: React.FC<Props> = ({ cart }) => {
     );
 
     return (
-      <>
+      <div key={key}>
         <Container>
           <CartImg
             src={item.product.api_featured_image}
@@ -74,7 +74,7 @@ const CartItem: React.FC<Props> = ({ cart }) => {
           <CartInfo>
             <CartName>{item.product.name}</CartName>
             <CartPrice>
-              {item.count}x ${price} = ${item.count * price}
+              {item.count} x ${price} = ${item.count * price}
             </CartPrice>
           </CartInfo>
           <CartRemove>
@@ -82,7 +82,7 @@ const CartItem: React.FC<Props> = ({ cart }) => {
           </CartRemove>
         </Container>
         <Splitter />
-      </>
+      </div>
     );
   });
 
