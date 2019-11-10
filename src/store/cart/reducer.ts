@@ -24,21 +24,29 @@ const cartReducer = (state = initialState, action: CartActions) => {
           const selected = id.indexOf(action.payload.product.id);
           const newCount = action.payload.count;
           const oldCount = state.cart[selected].count;
-          if (newCount > oldCount) {
-            state.cart.splice(selected, 1);
-            const newObj = {
-              product: action.payload.product,
-              count: newCount + oldCount
-            };
-            return { ...state, cart: state.cart.concat(newObj) };
-          } else if (newCount < oldCount) {
-            state.cart.splice(selected, 1);
-            const newObj = {
-              product: action.payload.product,
-              count: newCount
-            };
-            return { ...state, cart: state.cart.concat(newObj) };
-          }
+          state.cart.splice(selected, 1);
+          const newObj = {
+            product: action.payload.product,
+            count: newCount + oldCount
+          };
+          return { ...state, cart: state.cart.concat(newObj) };
+
+          //Update actions here:
+          // if (newCount > oldCount) {
+          //   state.cart.splice(selected, 1);
+          //   const newObj = {
+          //     product: action.payload.product,
+          //     count: newCount + oldCount
+          //   };
+          //   return { ...state, cart: state.cart.concat(newObj) };
+          // } else if (newCount < oldCount) {
+          //   state.cart.splice(selected, 1);
+          //   const newObj = {
+          //     product: action.payload.product,
+          //     count: newCount
+          //   };
+          //   return { ...state, cart: state.cart.concat(newObj) };
+          // }
         }
       }
       return state;
