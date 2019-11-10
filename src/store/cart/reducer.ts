@@ -62,7 +62,6 @@ const cartReducer = (state = initialState, action: CartActions) => {
         if (id.indexOf(action.payload.product.id) === -1) {
           return state;
         } else {
-          const selected = id.indexOf(action.payload.product.id);
           return {
             ...state,
             cart: state.cart.filter(
