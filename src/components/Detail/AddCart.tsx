@@ -30,7 +30,9 @@ const AddCart: React.FC<Props> = ({ product }) => {
       <input value={count} readOnly />
       <button
         onClick={() => {
-          setCount(count - 1);
+          if (count > 1) {
+            setCount(count - 1);
+          }
         }}>
         -
       </button>
