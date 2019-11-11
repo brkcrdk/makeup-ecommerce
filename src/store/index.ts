@@ -6,7 +6,14 @@ import rootReducer from "./rootReducer";
 export type AppState = ReturnType<typeof rootReducer>;
 
 export default function configureStore() {
-  const middleWare = [thunkMiddleware];
+  const customMiddleware = (store: {}) => (next: any) => (action: any) => {
+    if (action.type === "ADD_CART") {
+      localStorage.setItem("cart", JSON.stringify(action.payload));
+      console.log(action.payload);
+    }
+    return next(action);
+  };
+  const middleWare = [thunkMiddleware, customMiddleware];
   const middleWareEnhancer = applyMiddleware(...middleWare);
 
   const store = createStore(

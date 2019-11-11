@@ -10,6 +10,7 @@ import {
   CartName,
   CartRemove,
   CartPrice,
+  CartBottom,
   Splitter
 } from "./ItemStyle";
 interface Props {
@@ -92,9 +93,10 @@ const CartItem: React.FC<Props> = ({ cart }) => {
       <CartHeader>My Shopping Cart</CartHeader>
       <Splitter />
       {renderCart}
-      <CartHeader>Total: ${totalPrice.toFixed(2)}</CartHeader>
-      <Splitter />
-      <button>View Cart</button>
+      <CartBottom>
+        <CartHeader>Total: ${totalPrice.toFixed(2)}</CartHeader>
+        <button>View Cart</button>
+      </CartBottom>
     </>
   );
 };

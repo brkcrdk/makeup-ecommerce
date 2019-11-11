@@ -25,7 +25,6 @@ export const CartInfo = styled.div`
     background: transparent;
     border: none;
     padding: 0.5em;
-    margin: 0.5em;
     outline: none;
     cursor: pointer;
   }
@@ -52,4 +51,14 @@ export const Splitter = styled.hr`
   margin-top: -1em;
   width: 95%;
   border: 0.5px solid ${colours.secondaryText};
+`;
+
+export const CartBottom = styled.div`
+  display: flex;
+  justify-content: space-between;
+  button {
+    margin: 1em;
+    border: 1px solid ${colours.secondaryText};
+    background-color: transparent;
+  }
 `;
