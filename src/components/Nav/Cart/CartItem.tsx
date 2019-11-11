@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 import { colours } from "../../utils";
 import { IProducts } from "../../../store/fetchProducts/types";
-
+import { removeCart } from "../../../store/cart/actions";
+import { useDispatch } from "react-redux";
 const Container = styled.div`
   display: flex;
   margin-top: -1em;
@@ -59,11 +60,17 @@ const CartItem: React.FC<Props> = ({ cart }) => {
   const totalPrice = totals.reduce((sum, next) => {
     return (sum = sum + next);
   });
+  const dispatch = useDispatch();
+  const handleRemove = useCallback(
+    (product) => {
+      dispatch(removeCart({ product: product }));
+    },
+    [dispatch]
+  );
   const renderCart = cart.map((item, key) => {
     const price = parseFloat(
       item.product.price === null ? "10" : item.product.price
     );
-
     return (
       <div key={key}>
         <Container>
@@ -77,7 +84,10 @@ const CartItem: React.FC<Props> = ({ cart }) => {
               {item.count} x ${price} = ${item.count * price}
             </CartPrice>
           </CartInfo>
-          <CartRemove>
+          <CartRemove
+            onClick={() => {
+              handleRemove(item.product);
+            }}>
             <i className="fas fa-trash"></i>
           </CartRemove>
         </Container>
