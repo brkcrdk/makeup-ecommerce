@@ -14,11 +14,16 @@ const Container = styled.div`
     cursor: pointer;
     &:last-child {
       background-color: ${colours.secondaryText};
-      border: 1px solid ${colours.secondaryText};
-      padding: 1em;
+      border: 1px solid ${colours.primaryText};
+      padding: 0.5em;
+      font-size: 1.1em;
     }
   }
   input {
+    font-family: ${fonts.aBeeZee};
+    width: 2em;
+    height: 2em;
+    text-align: center;
   }
 `;
 const AddCart: React.FC<Props> = ({ product }) => {
