@@ -1,61 +1,17 @@
 import React, { useCallback } from "react";
-import styled from "styled-components";
-import { colours } from "../../utils";
-import { IProducts } from "../../../store/fetchProducts/types";
-import { removeCart } from "../../../store/cart/actions";
+import { IProducts } from "../../../../store/fetchProducts/types";
+import { removeCart } from "../../../../store/cart/actions";
 import { useDispatch } from "react-redux";
-const Container = styled.div`
-  display: flex;
-  margin-top: -1em;
-  justify-content: space-evenly;
-  align-items: center;
-  overflow: hidden;
-`;
-const CartHeader = styled.h4`
-  padding-bottom: 0.5em;
-`;
-const CartImg = styled.img`
-  width: 3em;
-  height: 3em;
-`;
-const CartInfo = styled.div`
-  width: 95%;
-  padding: 1em;
-  font-size: 1em;
-  display: grid;
-  grid-gap: 0.2em;
-  button {
-    background: transparent;
-    border: none;
-    padding: 0.5em;
-    margin: 0.5em;
-    outline: none;
-  }
-`;
-const CartName = styled.h4``;
-const CartPrice = styled.p`
-  margin-top: -1em;
-  text-align: left;
-`;
-const CartRemove = styled.button`
-  margin-right: 0.3em;
-  text-align: right;
-  background-color: transparent;
-  font-size: 1.1em;
-  border: none;
-  outline: none;
-  color: ${colours.primaryText};
-  cursor: pointer;
-  &:hover {
-    color: ${colours.pink};
-  }
-`;
-const Splitter = styled.hr`
-  margin-top: -1em;
-  width: 95%;
-  border: 0.5px solid ${colours.secondaryText};
-`;
-
+import {
+  Container,
+  CartHeader,
+  CartImg,
+  CartInfo,
+  CartName,
+  CartRemove,
+  CartPrice,
+  Splitter
+} from "./ItemStyle";
 interface Props {
   cart: { product: IProducts; count: number }[];
 }

@@ -8,7 +8,7 @@ import {
 } from "./CartStyle";
 import { useSelector } from "react-redux";
 import { IProducts } from "../../../store/fetchProducts/types";
-import CartItem from "./CartItem";
+import CartItem from "./CartItem/CartItem";
 interface Props {
   scroll: boolean;
 }
