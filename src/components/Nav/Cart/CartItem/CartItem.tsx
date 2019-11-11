@@ -40,7 +40,7 @@ const CartItem: React.FC<Props> = ({ cart }) => {
   );
   const handleDecrement = useCallback(
     (product) => {
-      updateCart({ product: product, update: "decrement" });
+      dispatch(updateCart({ product: product, update: "decrement" }));
     },
     [dispatch]
   );
