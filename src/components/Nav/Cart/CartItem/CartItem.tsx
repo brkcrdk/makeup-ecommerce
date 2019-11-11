@@ -61,14 +61,14 @@ const CartItem: React.FC<Props> = ({ cart }) => {
             <CartPrice>
               <button
                 onClick={() => {
-                  handleDecrement;
+                  handleDecrement(item.product);
                 }}>
                 <i className="fas fa-minus" />
               </button>
               {item.count}
               <button
                 onClick={() => {
-                  handleIncrement;
+                  handleIncrement(item.product);
                 }}>
                 <i className="fas fa-plus" />
               </button>
