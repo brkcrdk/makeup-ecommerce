@@ -10,10 +10,12 @@ const Container = styled.div`
   button {
     font-family: ${fonts.aBeeZee};
     background-color: transparent;
-    border: 1px solid ${colours.secondaryText};
+    border: none;
     cursor: pointer;
     &:last-child {
       background-color: ${colours.secondaryText};
+      border: 1px solid ${colours.secondaryText};
+      padding: 1em;
     }
   }
   input {
