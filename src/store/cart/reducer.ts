@@ -67,20 +67,6 @@ const cartReducer = (state = initialState, action: CartActions) => {
             };
           }
           return state;
-          // state.cart.splice(selected, 1);
-          // if (update === "increment") {
-          //   const newObj = {
-          //     product: action.payload.product,
-          //     count: count + 1
-          //   };
-          //   return { ...state, cart: state.cart.concat(newObj) };
-          // } else if (update === "decrement" && count > 1) {
-          //   const newObj = {
-          //     product: action.payload.product,
-          //     count: count - 1
-          //   };
-          //   return { ...state, cart: state.cart.concat(newObj) };
-          // }
         }
       }
       return state;
