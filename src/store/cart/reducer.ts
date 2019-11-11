@@ -44,15 +44,27 @@ const cartReducer = (state = initialState, action: CartActions) => {
               product: action.payload.product,
               count: count + 1
             };
-            const newArr = state.cart.splice(selected, 1, newObj);
-            return { ...state, cart: newArr };
+            return {
+              ...state,
+              cart: [
+                ...state.cart.slice(0, selected),
+                newObj,
+                ...state.cart.slice(selected + 1)
+              ]
+            };
           } else if (update === "decrement") {
             const newObj = {
               product: action.payload.product,
               count: count - 1
             };
-            const newArr = state.cart.splice(selected, 1, newObj);
-            return { ...state, cart: newArr };
+            return {
+              ...state,
+              cart: [
+                ...state.cart.slice(0, selected),
+                newObj,
+                ...state.cart.slice(selected + 1)
+              ]
+            };
           }
           return state;
           // state.cart.splice(selected, 1);
