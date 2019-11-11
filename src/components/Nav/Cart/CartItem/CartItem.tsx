@@ -72,7 +72,7 @@ const CartItem: React.FC<Props> = ({ cart }) => {
                 }}>
                 <i className="fas fa-plus" />
               </button>
-              x ${price} = ${item.count * price}
+              x${price} = ${item.count * price}
             </CartPrice>
           </CartInfo>
           <CartRemove

@@ -13,17 +13,6 @@ const AddCart: React.FC<Props> = ({ product }) => {
     dispatch(addCart({ product: product, count: count }));
   }, [dispatch, product, count]);
 
-  // const handleDecrement = useCallback(() => {
-  //   dispatch(updateCart({ product: product, update: "decrement" }));
-  // }, [dispatch, product]);
-  // const handleIncrement = useCallback(() => {
-  //   dispatch(updateCart({ product: product, update: "increment" }));
-  // }, [dispatch, product]);
-
-  // const handleRemove = useCallback(() => {
-  //   dispatch(removeCart({ product: product }));
-  // }, [dispatch]);
-
   return (
     <Container>
       <button
@@ -42,9 +31,6 @@ const AddCart: React.FC<Props> = ({ product }) => {
         -
       </button>
       <button onClick={handleCart}>Add to Cart</button>
-      {/* <button onClick={handleDecrement}>Decrement</button>
-      <button onClick={handleIncrement}>Increment</button> */}
-      {/* <button onClick={handleRemove}>Remove</button> */}
     </Container>
   );
 };
