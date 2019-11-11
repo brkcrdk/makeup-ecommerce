@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { IProducts } from "../../../../store/fetchProducts/types";
-import { removeCart } from "../../../../store/cart/actions";
+import { removeCart, updateCart } from "../../../../store/cart/actions";
 import { useDispatch } from "react-redux";
 import {
   Container,
@@ -31,6 +31,20 @@ const CartItem: React.FC<Props> = ({ cart }) => {
     },
     [dispatch]
   );
+
+  const handleIncrement = useCallback(
+    (product) => {
+      dispatch(updateCart({ product: product, update: "increment" }));
+    },
+    [dispatch]
+  );
+  const handleDecrement = useCallback(
+    (product) => {
+      updateCart({ product: product, update: "decrement" });
+    },
+    [dispatch]
+  );
+
   const renderCart = cart.map((item, key) => {
     const price = parseFloat(
       item.product.price === null ? "10" : item.product.price
@@ -45,11 +59,17 @@ const CartItem: React.FC<Props> = ({ cart }) => {
           <CartInfo>
             <CartName>{item.product.name}</CartName>
             <CartPrice>
-              <button>
+              <button
+                onClick={() => {
+                  handleDecrement;
+                }}>
                 <i className="fas fa-minus" />
               </button>
               {item.count}
-              <button>
+              <button
+                onClick={() => {
+                  handleIncrement;
+                }}>
                 <i className="fas fa-plus" />
               </button>
               x ${price} = ${item.count * price}
