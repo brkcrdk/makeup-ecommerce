@@ -24,6 +24,13 @@ const CartInfo = styled.div`
   font-size: 1em;
   display: grid;
   grid-gap: 0.2em;
+  button {
+    background: transparent;
+    border: none;
+    padding: 0.5em;
+    margin: 0.5em;
+    outline: none;
+  }
 `;
 const CartName = styled.h4``;
 const CartPrice = styled.p`
@@ -36,6 +43,7 @@ const CartRemove = styled.button`
   background-color: transparent;
   font-size: 1.1em;
   border: none;
+  outline: none;
   color: ${colours.primaryText};
   cursor: pointer;
   &:hover {
@@ -81,14 +89,21 @@ const CartItem: React.FC<Props> = ({ cart }) => {
           <CartInfo>
             <CartName>{item.product.name}</CartName>
             <CartPrice>
-              {item.count} x ${price} = ${item.count * price}
+              <button>
+                <i className="fas fa-minus" />
+              </button>
+              {item.count}
+              <button>
+                <i className="fas fa-plus" />
+              </button>
+              x ${price} = ${item.count * price}
             </CartPrice>
           </CartInfo>
           <CartRemove
             onClick={() => {
               handleRemove(item.product);
             }}>
-            <i className="fas fa-trash"></i>
+            <i className="fas fa-trash" />
           </CartRemove>
         </Container>
         <Splitter />
