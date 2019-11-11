@@ -1,16 +1,19 @@
 import React, { useCallback, useState } from "react";
 import styled from "styled-components";
-import { addCart, updateCart, removeCart } from "../../store/cart/actions";
+import { colours, fonts } from "../utils";
+import { addCart } from "../../store/cart/actions";
 import { useDispatch } from "react-redux";
 interface Props {
   product: {};
 }
 const Container = styled.div`
   button {
+    font-family: ${fonts.aBeeZee};
     background-color: transparent;
-    border: none;
+    border: 1px solid ${colours.secondaryText};
+    cursor: pointer;
     &:last-child {
-      background-color: red;
+      background-color: ${colours.secondaryText};
     }
   }
   input {
