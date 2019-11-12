@@ -34,7 +34,7 @@ export default function configureStore() {
             count: oldCount + 1
           });
           localStorage.setItem(`cart-${action.payload.product.id}`, newItem);
-        } else if (update === "decrement") {
+        } else if (update === "decrement" && oldCount > 1) {
           const newItem = JSON.stringify({
             product: action.payload.product,
             count: oldCount - 1
