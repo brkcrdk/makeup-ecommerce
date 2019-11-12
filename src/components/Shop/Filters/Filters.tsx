@@ -83,7 +83,7 @@ const Filters: React.FC<Props> = ({ activeFilters, tags }) => {
             onClick={() => {
               removeTag(item);
             }}>
-            X
+            <i className="fas fa-times" />
           </button>
         </Filter>
       ))}
