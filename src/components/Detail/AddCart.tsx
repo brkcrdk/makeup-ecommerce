@@ -7,6 +7,10 @@ interface Props {
   product: {};
 }
 const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   margin-bottom: 1em;
   button {
     font-family: ${fonts.aBeeZee};
@@ -20,10 +24,12 @@ const Container = styled.div`
     &:last-child {
       border: 1px solid ${colours.primaryText};
       padding: 0.5em;
+      margin-left: 0.5em;
       font-size: 1.1em;
       transition: 0.3s;
       &:hover {
-        background-color: ${colours.secondaryText};
+        background-color: ${colours.primaryText};
+        color: ${colours.secondaryText};
       }
     }
   }
@@ -35,6 +41,7 @@ const Container = styled.div`
     text-align: center;
     font-size: 1.5em;
     margin: 0 0.5em;
+    cursor: context-menu;
   }
 `;
 const AddCart: React.FC<Props> = ({ product }) => {
@@ -46,22 +53,25 @@ const AddCart: React.FC<Props> = ({ product }) => {
 
   return (
     <Container>
-      <button
-        onClick={() => {
-          setCount(count + 1);
-        }}>
-        <i className="fas fa-plus" />
-      </button>
-      <input value={count} readOnly />
-      <button
-        onClick={() => {
-          if (count > 1) {
-            setCount(count - 1);
-          }
-        }}>
-        <i className="fas fa-minus" />
-      </button>
-      <button onClick={handleCart}>Add to Cart</button>
+      <div>price</div>
+      <div>
+        <button
+          onClick={() => {
+            setCount(count + 1);
+          }}>
+          <i className="fas fa-plus" />
+        </button>
+        <input value={count} readOnly />
+        <button
+          onClick={() => {
+            if (count > 1) {
+              setCount(count - 1);
+            }
+          }}>
+          <i className="fas fa-minus" />
+        </button>
+        <button onClick={handleCart}>Add to Cart</button>
+      </div>
     </Container>
   );
 };
