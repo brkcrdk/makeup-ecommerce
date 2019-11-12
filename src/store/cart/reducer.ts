@@ -52,7 +52,7 @@ const cartReducer = (state = initialState, action: CartActions) => {
                 ...state.cart.slice(selected + 1)
               ]
             };
-          } else if (update === "decrement") {
+          } else if (update === "decrement" && count > 1) {
             const newObj = {
               product: action.payload.product,
               count: count - 1
