@@ -7,14 +7,20 @@ export type AppState = ReturnType<typeof rootReducer>;
 
 export default function configureStore() {
   const customMiddleware = (store: any) => (next: any) => (action: any) => {
+    const cart = store.getState().cartStore.cart;
+    const ids = cart.map((item: any) => item.product.id);
     if (action.type === "ADD_CART") {
-      const cart = store.getState().cartStore.cart;
-      console.log(cart);
       const item = JSON.stringify(action.payload);
-      if (localStorage.hasOwnPropery(`cart-${action.payload.product.id}`)) {
-        localStorage.setItem(`cart-${action.payload.product.id}`, item);
+      if (`cart-${action.payload.product.id}` in localStorage) {
+        const selected = ids.indexOf(action.payload.product.id);
+        const oldCount = cart[selected].count;
+        const newItem = JSON.stringify({
+          product: action.payload.product,
+          count: oldCount + action.payload.count
+        });
+        localStorage.setItem(`cart-${action.payload.product.id}`, newItem);
       } else {
-        console.log("already exist");
+        localStorage.setItem(`cart-${action.payload.product.id}`, item);
       }
       // localStorage.setItem(`cart-${action.payload.product.id}`, item);
     } else if (action.type === "UPDATE_CART") {
