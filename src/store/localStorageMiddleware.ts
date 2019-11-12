@@ -8,12 +8,14 @@ export const localStorageMiddleware = (store: any) => (next: any) => (
     const item = JSON.stringify(action.payload);
     if (`cart-${action.payload.product.id}` in localStorage) {
       const selected = ids.indexOf(action.payload.product.id);
-      const oldCount = cart[selected].count;
-      const newItem = JSON.stringify({
-        product: action.payload.product,
-        count: oldCount + action.payload.count
-      });
-      localStorage.setItem(`cart-${action.payload.product.id}`, newItem);
+      if (selected !== -1) {
+        const oldCount = cart[selected].count;
+        const newItem = JSON.stringify({
+          product: action.payload.product,
+          count: oldCount + action.payload.count
+        });
+        localStorage.setItem(`cart-${action.payload.product.id}`, newItem);
+      }
     } else {
       localStorage.setItem(`cart-${action.payload.product.id}`, item);
     }

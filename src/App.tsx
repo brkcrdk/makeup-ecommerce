@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavBar from "./components/Nav/NavBar/Navbar";
 import { fetchProducts } from "./store/fetchProducts/actions";
+import { addCart } from "./store/cart/actions";
 import { useDispatch } from "react-redux";
 import SideMenu from "./components/Nav/MobileMenu/Menu";
 import Main from "./components/Content/Main";
@@ -20,6 +21,17 @@ const App: React.FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());
+    const local = { ...localStorage };
+    Object.keys(local).map((key) => {
+      const item = localStorage.getItem(key);
+      if (item !== null) {
+        const cart = JSON.parse(item);
+        dispatch(addCart(cart));
+        console.log(cart);
+      } else {
+        console.log("x");
+      }
+    });
   }, [dispatch]);
 
   //TODO:
