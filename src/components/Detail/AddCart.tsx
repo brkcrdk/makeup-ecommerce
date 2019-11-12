@@ -7,23 +7,34 @@ interface Props {
   product: {};
 }
 const Container = styled.div`
+  margin-bottom: 1em;
   button {
     font-family: ${fonts.aBeeZee};
     background-color: transparent;
     border: none;
     cursor: pointer;
+    font-size: 1.5em;
+    i {
+      color: ${colours.primaryText};
+    }
     &:last-child {
-      background-color: ${colours.secondaryText};
       border: 1px solid ${colours.primaryText};
       padding: 0.5em;
       font-size: 1.1em;
+      transition: 0.3s;
+      &:hover {
+        background-color: ${colours.secondaryText};
+      }
     }
   }
   input {
+    color: ${colours.primaryText};
     font-family: ${fonts.aBeeZee};
     width: 2em;
     height: 2em;
     text-align: center;
+    font-size: 1.5em;
+    margin: 0 0.5em;
   }
 `;
 const AddCart: React.FC<Props> = ({ product }) => {
