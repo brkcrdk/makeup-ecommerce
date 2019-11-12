@@ -7,18 +7,20 @@ export type AppState = ReturnType<typeof rootReducer>;
 
 export default function configureStore() {
   const customMiddleware = (store: any) => (next: any) => (action: any) => {
-    const cart = store.getState().cartStore.cart;
-
     if (action.type === "ADD_CART") {
-      const oldCount = action.payload.count;
+      const cart = store.getState().cartStore.cart;
+      console.log(cart);
       const item = JSON.stringify(action.payload);
-      localStorage.setItem(`cart-${action.payload.product.id}`, item);
-      console.log(oldCount);
-      console.log(`current:${oldCount + action.payload.count}`);
+      if (localStorage.hasOwnPropery(`cart-${action.payload.product.id}`)) {
+        localStorage.setItem(`cart-${action.payload.product.id}`, item);
+      } else {
+        console.log("already exist");
+      }
+      // localStorage.setItem(`cart-${action.payload.product.id}`, item);
     } else if (action.type === "UPDATE_CART") {
-      localStorage.setItem("cart", JSON.stringify(action.payload));
+      // localStorage.setItem("cart", JSON.stringify(action.payload));
     } else if (action.type === "REMOVE_CART") {
-      localStorage.removeItem("cart");
+      // localStorage.removeItem("cart");
     }
     return next(action);
   };
