@@ -53,9 +53,7 @@ const AddCart: React.FC<Props> = ({ product, price }) => {
 
   return (
     <Container>
-      <div>
-        <span>{price}</span>
-      </div>
+      <div>{price}</div>
       <div>
         <button
           onClick={() => {
