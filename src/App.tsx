@@ -27,9 +27,6 @@ const App: React.FC = () => {
       if (item !== null) {
         const cart = JSON.parse(item);
         dispatch(addCart(cart));
-        console.log(cart);
-      } else {
-        console.log("x");
       }
     });
   }, [dispatch]);
