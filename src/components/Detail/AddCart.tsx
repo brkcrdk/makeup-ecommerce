@@ -5,12 +5,12 @@ import { addCart } from "../../store/cart/actions";
 import { useDispatch } from "react-redux";
 interface Props {
   product: {};
+  price: string;
 }
 const Container = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-
   margin-bottom: 1em;
   button {
     font-family: ${fonts.aBeeZee};
@@ -44,7 +44,7 @@ const Container = styled.div`
     cursor: context-menu;
   }
 `;
-const AddCart: React.FC<Props> = ({ product }) => {
+const AddCart: React.FC<Props> = ({ product, price }) => {
   const [count, setCount] = useState(1);
   const dispatch = useDispatch();
   const handleCart = useCallback(() => {
@@ -53,7 +53,9 @@ const AddCart: React.FC<Props> = ({ product }) => {
 
   return (
     <Container>
-      <div>price</div>
+      <div>
+        <span>{price}</span>
+      </div>
       <div>
         <button
           onClick={() => {
