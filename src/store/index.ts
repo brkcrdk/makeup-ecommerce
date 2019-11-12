@@ -43,7 +43,9 @@ export default function configureStore() {
         }
       }
     } else if (action.type === "REMOVE_CART") {
-      // localStorage.removeItem("cart");
+      if (`cart-${action.payload.product.id}` in localStorage) {
+        localStorage.removeItem(`cart-${action.payload.product.id}`);
+      }
     }
     return next(action);
   };
