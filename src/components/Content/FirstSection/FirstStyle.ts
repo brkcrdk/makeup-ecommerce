@@ -52,8 +52,9 @@ export const MainText = styled.div`
     margin-top: 2em;
     display: flex;
     justify-content: space-around;
-    button {
+    a {
       padding: 1em;
+      text-decoration: none;
       border: 1px solid ${colours.pink};
       color: ${colours.pink};
       background-color: transparent;

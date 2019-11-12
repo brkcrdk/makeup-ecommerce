@@ -1,6 +1,6 @@
 import React from "react";
 import { MainText } from "./FirstStyle";
-
+import { Link } from "react-router-dom";
 interface Props {}
 
 const FirstSection: React.FC<Props> = () => {
@@ -14,7 +14,7 @@ const FirstSection: React.FC<Props> = () => {
         Forever <span>Gorgeus</span>
       </p>
       <div>
-        <button>Go Shopping!</button>
+        <Link to={`/shop`}>Go Shopping!</Link>
       </div>
     </MainText>
   );
