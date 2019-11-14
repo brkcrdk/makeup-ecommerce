@@ -7,6 +7,17 @@ export const MenuContainer = styled.ul`
 export const MenuItem = styled.div`
   &:hover > div {
     display: block;
+    animation: menuFadeIn 0.3s;
+    @keyframes menuFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10%);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   }
   h4 {
     cursor: pointer;

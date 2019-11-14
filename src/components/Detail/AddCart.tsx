@@ -15,6 +15,7 @@ const Container = styled.div`
   h3 {
     font-family: ${fonts.raleway};
     color: ${colours.primaryText};
+    font-weight: 100;
     font-size: 1.5em;
   }
   div:last-child {
