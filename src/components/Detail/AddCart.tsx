@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import styled from "styled-components";
-import { colours, fonts } from "../utils";
+import { colours, fonts, device } from "../utils";
 import { addCart } from "../../store/cart/actions";
 import { useDispatch } from "react-redux";
 interface Props {
@@ -9,9 +9,14 @@ interface Props {
 }
 const Container = styled.div`
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   margin-bottom: 1em;
+  @media ${device.mobileS} {
+    justify-content: center;
+  }
+  @media ${device.mobileTablet} {
+    justify-content: flex-start;
+  }
   h3 {
     font-family: ${fonts.raleway};
     color: ${colours.primaryText};

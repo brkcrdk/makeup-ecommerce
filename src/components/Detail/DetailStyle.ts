@@ -42,6 +42,9 @@ export const ImgContainer = styled.div`
     @media ${device.mobileS} {
       width: 50%;
     }
+    @media ${device.mobileTablet} {
+      width: 30%;
+    }
     @media ${device.laptop} {
       width: 60%;
     }
