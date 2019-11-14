@@ -91,9 +91,9 @@ const Detail: React.FC<Props> = ({ match }) => {
         </ImgContainer>
         <DetailContainer>
           <AddCart product={product[0]} price={product[0].price} />
-          {product[0].description.length > 0 ? renderDescription : ""}
           {product[0].product_colors.length > 0 ? renderColours : ""}
           {product[0].tag_list.length > 0 ? renderTags : ""}
+          {product[0].description.length > 0 ? renderDescription : ""}
         </DetailContainer>
       </Content>
       <Footer />

@@ -14,7 +14,7 @@ const Container = styled.div`
   @media ${device.mobileS} {
     justify-content: center;
   }
-  @media ${device.mobileTablet} {
+  @media ${device.laptop} {
     justify-content: flex-start;
   }
   h3 {
