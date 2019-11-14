@@ -7,6 +7,7 @@ import {
   EmptyText
 } from "./CartStyle";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { IProducts } from "../../../store/fetchProducts/types";
 import CartItem from "./CartItem/CartItem";
 interface Props {
@@ -35,7 +36,9 @@ const Cart: React.FC<Props> = ({ scroll }) => {
   return (
     <Container>
       <Img scroll={scroll} count={cart.length}>
-        <i className="fas fa-shopping-basket" />
+        <Link to={`/cart`}>
+          <i className="fas fa-shopping-basket" />
+        </Link>
         <span>{cart.length}</span>
       </Img>
       <CartWrapper>{cart.length > 0 ? renderItems : renderEmpty}</CartWrapper>

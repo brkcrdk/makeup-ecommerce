@@ -38,8 +38,7 @@ export const ImgContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: sticky;
-  top: 5em;
+
   img {
     @media ${device.mobileS} {
       width: 50%;

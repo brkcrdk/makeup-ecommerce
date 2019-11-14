@@ -11,6 +11,7 @@ import Shop from "./components/Shop/Shop";
 import Detail from "./components/Detail/Detail";
 import Box from "./components/Nav/DesktopMenu/Search/SearchBox/Box";
 import Dimmer from "./components/UI/Dimmer";
+import Cart from "./components/Cart/Cart";
 interface Products {
   storeProducts: {
     isLoading: boolean;
@@ -49,6 +50,7 @@ const App: React.FC = () => {
           <Route path="/" exact component={Main} />
           <Route path="/shop" component={Shop} />
           <Route path="/product/:id" component={Detail} />
+          <Route path="/cart" component={Cart} />
         </Dimmer>
       </Router>
     </div>

@@ -81,6 +81,11 @@ export const Img = styled.div`
     align-items: center;
   }
 
+  a {
+    color: ${(p: ImgProps) =>
+      p.scroll ? `${colours.primaryText}` : `${colours.secondaryText}`};
+  }
+
   @media ${device.mobileS} {
     color: ${(p: ImgProps) =>
       p.scroll ? `${colours.primaryText}` : `${colours.secondaryText}`};

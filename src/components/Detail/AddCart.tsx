@@ -32,6 +32,7 @@ const Container = styled.div`
     border: none;
     cursor: pointer;
     font-size: 1.5em;
+    outline: none;
     i {
       color: ${colours.primaryText};
       &:hover {
