@@ -61,18 +61,7 @@ export const DropContent = styled.div`
     padding-left: 1em;
     overflow-y: scroll;
     overflow-x: hidden;
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: lightgray;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #555;
-    }
+    ${colours.scroll};
   }
 `;
 export const DropItem = styled.li`

@@ -14,7 +14,19 @@ export const colours = {
   pink: "#D12148",
   boxShadow: "1px 5px 1em rgba(136, 136, 136, 0.5)",
   smallShadow: "1px 1px 0.4em rgba(136, 136, 136, 0.5)",
-  darkerBoxShadow: "1px 5px 1em rgba(0, 0, 0, 0.5)"
+  darkerBoxShadow: "1px 5px 1em rgba(0, 0, 0, 0.5)",
+  scroll: `::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: lightgray;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }`
 };
 
 //MEDIA QUERIES
