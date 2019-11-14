@@ -20,7 +20,7 @@ interface Props {
 const CartItem: React.FC<Props> = ({ cart }) => {
   const totals = cart.map((item) => {
     const price = parseFloat(item.product.price);
-    return price * item.count;
+    return (price * item.count).toFixed(2);
   });
   const totalPrice = totals.reduce((sum, next) => {
     return (sum = sum + next);
@@ -94,7 +94,7 @@ const CartItem: React.FC<Props> = ({ cart }) => {
       <Splitter />
       {renderCart}
       <CartBottom>
-        <CartHeader>Total: ${totalPrice.toFixed(2)}</CartHeader>
+        <CartHeader>Total: ${parseFloat(totalPrice).toFixed(2)}</CartHeader>
         <button>View Cart</button>
       </CartBottom>
     </>
