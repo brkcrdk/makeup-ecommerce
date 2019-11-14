@@ -9,9 +9,11 @@ export const MenuItem = styled.div`
     display: block;
   }
   h4 {
+    cursor: pointer;
+    font-weight: 100;
     padding: 0 0.5em;
     font-size: 1.2em;
-    font-family: ${fonts.aBeeZee};
+    font-family: ${fonts.raleway};
   }
 `;
 

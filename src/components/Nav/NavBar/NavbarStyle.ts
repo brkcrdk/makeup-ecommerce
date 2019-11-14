@@ -7,8 +7,9 @@ interface ContainerProps {
 const scrolled = `
   animation-name:fade-in;
   animation-duration:1s;
-  background-color:${colours.background}; 
-`;
+  background-color:${colours.background};
+  border-bottom:1px solid lightgrey; 
+  `;
 const unscrolled = `
   background-color:transparent
 `;

@@ -3,9 +3,8 @@ import { device, colours, fonts } from "../../../utils";
 
 export const DropContainer = styled.div`
   &:hover > div {
-    padding: 1em 0.5em;
     display: block;
-    margin-left: 80%;
+    margin-left: 85%;
   }
 `;
 export const DropButton = styled.button`
@@ -53,11 +52,13 @@ export const DropContent = styled.div`
     background-color: ${colours.background};
     width: 100%;
     height: 100%;
-    display: grid;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
+    margin-top: 1.05em;
+    margin-left: 0.2em;
+    padding-left: 1em;
   }
 `;
 export const DropItem = styled.li`
