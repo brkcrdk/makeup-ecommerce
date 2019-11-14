@@ -4,7 +4,12 @@ import { device, colours, fonts } from "../../../utils";
 //If hover effect dont work look for searchbox input width.
 
 export const DropContainer = styled.div`
-  position: relative;
+  &:hover>div{
+    display:block;
+    margin-left:100%;
+  }
+
+  /* position: relative;
   display: inline-block;
   font-family: ${fonts.montserrat};
   margin: 0.8em;
@@ -18,7 +23,7 @@ export const DropContainer = styled.div`
     margin-top: 2.7em;
   }
   /* When hover content menu styles */
-  &:hover > div {
+  /* &:hover > div {
     background: rgba(252, 247, 249, 1);
     border-radius: 0.3em;
     margin-left: 110%;
@@ -27,16 +32,16 @@ export const DropContainer = styled.div`
     flex-wrap: wrap;
     overflow: scroll;
     overflow-x: hidden;
-    /* height: 15em;
-    width: 20em;
+    height:25vh;
+    width:25vw;
     @media ${device.desktop} {
-      height: 20em;
-      width: 30em;
-    } */
-  }
+      height: 50vh;
+      width: 50vw;
+    }
+  }  */
 `;
 export const DropButton = styled.button`
-  background: transparent;
+  /* background: transparent;
   border: none;
   outline: none;
   color: ${colours.primaryText};
@@ -70,33 +75,35 @@ export const DropButton = styled.button`
     width: 100%;
     left: 0;
     background: ${colours.pink};
-  }
+  } */
 `;
 
 export const DropContent = styled.div`
-  position: absolute;
   display: none;
+  position: absolute;
+  top: 0;
+  left: 1em;
+  /* position: absolute;
+  display: none;
+
   ::-webkit-scrollbar {
     width: 2px;
   }
 
-  /* Track */
   ::-webkit-scrollbar-track {
     background: transparent;
   }
 
-  /* Handle */
   ::-webkit-scrollbar-thumb {
     background: lightgray;
   }
 
-  /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: lightgray;
-  }
+  } */
 `;
 export const DropItem = styled.li`
-  padding: 0.5em;
+  /* padding: 0.5em;
   display: grid;
   text-transform: capitalize;
   cursor: pointer;
@@ -114,5 +121,5 @@ export const DropItem = styled.li`
     transform: scale(1.1, 1.1);
     color: ${colours.primaryText};
     font-weight: 700;
-  }
+  } */
 `;
