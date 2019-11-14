@@ -9,9 +9,17 @@ interface Props {
 }
 const Container = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin-bottom: 1em;
+  h3 {
+    font-family: ${fonts.raleway};
+    color: ${colours.primaryText};
+    font-size: 1.5em;
+  }
+  div:last-child {
+    margin-left: 1em;
+  }
   button {
     font-family: ${fonts.aBeeZee};
     background-color: transparent;
@@ -22,14 +30,15 @@ const Container = styled.div`
       color: ${colours.primaryText};
     }
     &:last-child {
-      border: 1px solid ${colours.primaryText};
+      border: 1px solid ${colours.pink};
+      color: ${colours.primaryText};
       padding: 0.5em;
       margin-left: 0.5em;
       font-size: 1.1em;
       transition: 0.3s;
       &:hover {
-        background-color: ${colours.primaryText};
-        color: ${colours.secondaryText};
+        background-color: ${colours.pink};
+        color: white;
       }
     }
   }
@@ -53,7 +62,9 @@ const AddCart: React.FC<Props> = ({ product, price }) => {
 
   return (
     <Container>
-      <div>{price}</div>
+      <div>
+        <h3>$ {price}</h3>
+      </div>
       <div>
         <button
           onClick={() => {
