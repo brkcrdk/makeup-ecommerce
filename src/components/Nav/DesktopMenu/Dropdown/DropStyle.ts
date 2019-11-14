@@ -4,46 +4,16 @@ import { device, colours, fonts } from "../../../utils";
 //If hover effect dont work look for searchbox input width.
 
 export const DropContainer = styled.div`
-  &:hover>div{
-    padding:1em 0.5em;
-    display:block;
-    margin-left:80%;
+  &:hover > div {
+    padding: 1em 0.5em;
+    display: block;
+    margin-left: 80%;
   }
-
-  /* position: relative;
-  display: inline-block;
-  font-family: ${fonts.montserrat};
-  margin: 0.8em;
-  @media ${device.tabletLaptop} {
-    margin-top: 1em;
-  }
-  @media ${device.laptop} {
-    margin-top: 1.5em;
-  }
-  @media ${device.desktop} {
-    margin-top: 2.7em;
-  }
-  /* When hover content menu styles */
-  /* &:hover > div {
-    background: rgba(252, 247, 249, 1);
-    border-radius: 0.3em;
-    margin-left: 110%;
-    padding-top: 0.7em;
-    display: flex;
-    flex-wrap: wrap;
-    overflow: scroll;
-    overflow-x: hidden;
-    height:25vh;
-    width:25vw;
-    @media ${device.desktop} {
-      height: 50vh;
-      width: 50vw;
-    }
-  }  */
 `;
 export const DropButton = styled.button`
   background: transparent;
   margin: 0.5em 0;
+  padding: 0.5em;
   border: none;
   outline: none;
   color: white;
@@ -90,21 +60,6 @@ export const DropContent = styled.div`
     justify-content: flex-start;
     align-items: center;
   }
-  /* ::-webkit-scrollbar {
-    width: 2px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: lightgray;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: lightgray;
-  } */
 `;
 export const DropItem = styled.li`
   padding: 0.5em;
