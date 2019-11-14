@@ -5,8 +5,9 @@ import { device, colours, fonts } from "../../../utils";
 
 export const DropContainer = styled.div`
   &:hover>div{
+    padding:1em 0.5em;
     display:block;
-    margin-left:100%;
+    margin-left:80%;
   }
 
   /* position: relative;
@@ -83,9 +84,10 @@ export const DropContent = styled.div`
   position: absolute;
   top: 0;
   left: 1em;
-  /* position: absolute;
-  display: none;
-
+  border: 1px solid red;
+  max-height: 25vh;
+  width: 30vw;
+  overflow: scroll;
   ::-webkit-scrollbar {
     width: 2px;
   }
@@ -100,7 +102,7 @@ export const DropContent = styled.div`
 
   ::-webkit-scrollbar-thumb:hover {
     background: lightgray;
-  } */
+  }
 `;
 export const DropItem = styled.li`
   /* padding: 0.5em;
