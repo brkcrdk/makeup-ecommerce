@@ -66,6 +66,7 @@ export const DropItem = styled.li`
   display: grid;
   grid-gap: 0;
   text-transform: capitalize;
+  font-family: ${fonts.raleway};
   cursor: pointer;
   a {
     text-decoration: none;
