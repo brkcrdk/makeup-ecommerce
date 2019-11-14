@@ -32,6 +32,3 @@ export const MiddleSection = styled.div`
   box-shadow: ${colours.boxShadow};
 `;
 export const FooterSection = styled.div``;
-interface DimmedProps {
-  toggle: boolean;
-}
