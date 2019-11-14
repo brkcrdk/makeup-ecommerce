@@ -48,6 +48,7 @@ export const DropContent = styled.div`
   left: 1em;
   width: 35vw;
   height: 90%;
+  overflow: hidden;
   div {
     background-color: ${colours.background};
     width: 100%;

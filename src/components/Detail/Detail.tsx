@@ -31,6 +31,7 @@ interface Props {
 const Detail: React.FC<Props> = ({ match }) => {
   const products = useSelector((state: Props) => state.storeProducts.products);
   const [product, setProduct] = useState<IProducts[]>([]);
+
   useEffect(() => {
     const id = parseFloat(match.params.id);
     setProduct(getProduct(products, id));
