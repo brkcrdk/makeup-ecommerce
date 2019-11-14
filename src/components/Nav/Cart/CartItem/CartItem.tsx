@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import { IProducts } from "../../../../store/fetchProducts/types";
 import { removeCart, updateCart } from "../../../../store/cart/actions";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   Container,
   CartHeader,
@@ -58,7 +59,11 @@ const CartItem: React.FC<Props> = ({ cart }) => {
             alt={`cart-${item.product.name}`}
           />
           <CartInfo>
-            <CartName>{item.product.name}</CartName>
+            <CartName>
+              <Link to={`/product/${item.product.id}`}>
+                {item.product.name}
+              </Link>
+            </CartName>
             <CartPrice>
               <button
                 onClick={() => {

@@ -34,6 +34,9 @@ const Container = styled.div`
     font-size: 1.5em;
     i {
       color: ${colours.primaryText};
+      &:hover {
+        color: ${colours.pink};
+      }
     }
     &:last-child {
       border: 1px solid ${colours.pink};

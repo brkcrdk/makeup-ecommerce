@@ -27,9 +27,16 @@ export const CartInfo = styled.div`
     padding: 0.5em;
     outline: none;
     cursor: pointer;
+    &:hover {
+      color: ${colours.pink};
+    }
   }
 `;
-export const CartName = styled.h4``;
+export const CartName = styled.h4`
+  a {
+    text-decoration: none;
+  }
+`;
 export const CartPrice = styled.p`
   margin-top: -1em;
   text-align: left;
