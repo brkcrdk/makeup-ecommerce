@@ -42,7 +42,8 @@ export const DropContainer = styled.div`
   }  */
 `;
 export const DropButton = styled.button`
-  /* background: transparent;
+  background: transparent;
+  margin: 0.5em 0;
   border: none;
   outline: none;
   color: ${colours.primaryText};
@@ -60,23 +61,6 @@ export const DropButton = styled.button`
   @media ${device.desktop} {
     font-size: 2em;
   }
-  &::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    display: block;
-    margin-top: 5px;
-    right: 0;
-    background: ${colours.pink};
-    transition: width 0.5s ease;
-    -webkit-transition: width 0.5s ease;
-  }
-  &:hover:after {
-    width: 100%;
-    left: 0;
-    background: ${colours.pink};
-  } */
 `;
 
 export const DropContent = styled.div`
@@ -84,11 +68,18 @@ export const DropContent = styled.div`
   position: absolute;
   top: 0;
   left: 1em;
-  border: 1px solid red;
-  max-height: 25vh;
-  width: 30vw;
-  overflow: scroll;
-  ::-webkit-scrollbar {
+  width: 35vw;
+  div {
+    background-color: ${colours.background};
+    width: 100%;
+    height: 100%;
+    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  /* ::-webkit-scrollbar {
     width: 2px;
   }
 
@@ -102,10 +93,10 @@ export const DropContent = styled.div`
 
   ::-webkit-scrollbar-thumb:hover {
     background: lightgray;
-  }
+  } */
 `;
 export const DropItem = styled.li`
-  /* padding: 0.5em;
+  padding: 0.5em;
   display: grid;
   text-transform: capitalize;
   cursor: pointer;
@@ -123,5 +114,5 @@ export const DropItem = styled.li`
     transform: scale(1.1, 1.1);
     color: ${colours.primaryText};
     font-weight: 700;
-  } */
+  }
 `;

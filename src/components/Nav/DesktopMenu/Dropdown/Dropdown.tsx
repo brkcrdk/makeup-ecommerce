@@ -25,21 +25,23 @@ const Dropdown: React.FC<Props> = ({ title, content, url }) => {
     <DropContainer>
       <DropButton>{title}</DropButton>
       <DropContent>
-        {content.length < 1 ? (
-          <DropItem> > Loading...</DropItem>
-        ) : (
-          content.map((item, key) => (
-            <DropItem key={key}>
-              <Link
-                to={"/shop"}
-                onClick={() => {
-                  handleFilter(url, item);
-                }}>
-                > {item}
-              </Link>
-            </DropItem>
-          ))
-        )}
+        <div>
+          {content.length < 1 ? (
+            <DropItem> > Loading...</DropItem>
+          ) : (
+            content.map((item, key) => (
+              <DropItem key={key}>
+                <Link
+                  to={"/shop"}
+                  onClick={() => {
+                    handleFilter(url, item);
+                  }}>
+                  > {item}
+                </Link>
+              </DropItem>
+            ))
+          )}
+        </div>
       </DropContent>
     </DropContainer>
   );
