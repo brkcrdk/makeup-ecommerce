@@ -82,8 +82,7 @@ export const Img = styled.div`
   }
 
   a {
-    color: ${(p: ImgProps) =>
-      p.scroll ? `${colours.primaryText}` : `${colours.secondaryText}`};
+    color: ${colours.primaryText};
   }
 
   @media ${device.mobileS} {
