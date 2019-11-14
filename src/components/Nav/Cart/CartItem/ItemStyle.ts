@@ -35,6 +35,10 @@ export const CartInfo = styled.div`
 export const CartName = styled.h4`
   a {
     text-decoration: none;
+    color: ${colours.primaryText};
+    &:hover {
+      color: ${colours.pink};
+    }
   }
 `;
 export const CartPrice = styled.p`
