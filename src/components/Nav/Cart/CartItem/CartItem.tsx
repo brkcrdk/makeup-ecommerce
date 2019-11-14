@@ -12,7 +12,8 @@ import {
   CartRemove,
   CartPrice,
   CartBottom,
-  Splitter
+  Splitter,
+  ItemContainer
 } from "./ItemStyle";
 interface Props {
   cart: { product: IProducts; count: number }[];
@@ -97,7 +98,7 @@ const CartItem: React.FC<Props> = ({ cart }) => {
     <>
       <CartHeader>My Shopping Cart</CartHeader>
       <Splitter />
-      {renderCart}
+      <ItemContainer>{renderCart}</ItemContainer>
       <CartBottom>
         <CartHeader>Total: ${parseFloat(totalPrice).toFixed(2)}</CartHeader>
         <button>View Cart</button>

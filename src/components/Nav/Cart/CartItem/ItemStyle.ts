@@ -8,6 +8,22 @@ export const Container = styled.div`
   align-items: center;
   overflow: hidden;
 `;
+export const ItemContainer = styled.div`
+  max-height: 60vh;
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: lightgray;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+`;
 export const CartHeader = styled.h4`
   padding-bottom: 0.5em;
 `;
