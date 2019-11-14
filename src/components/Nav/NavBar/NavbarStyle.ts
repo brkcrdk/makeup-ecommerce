@@ -48,7 +48,7 @@ export const MobileNavbar = styled.div`
   align-items: center;
   justify-content: center;
   display: grid;
-  @media ${device.tabletLaptop} {
+  @media ${device.laptop} {
     display: none;
   }
   div {
@@ -71,7 +71,7 @@ export const DesktopNavbar = styled.div`
   @media ${device.tablet} {
     display: none;
   }
-  @media ${device.tabletLaptop} {
+  @media ${device.laptop} {
     display: block;
   }
 `;

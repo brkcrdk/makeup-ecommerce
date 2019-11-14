@@ -11,6 +11,7 @@ export const MenuItem = styled.div`
   h4 {
     padding: 0 0.5em;
     /* margin: 0 0.5em; */
+    font-size: 1.2em;
     font-family: ${fonts.aBeeZee};
   }
 `;

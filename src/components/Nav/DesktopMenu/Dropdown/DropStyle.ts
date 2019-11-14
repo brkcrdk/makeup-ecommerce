@@ -50,6 +50,7 @@ export const DropContent = styled.div`
   top: 0;
   left: 1em;
   width: 35vw;
+  height: 90%;
   div {
     background-color: ${colours.background};
     width: 100%;
@@ -64,6 +65,7 @@ export const DropContent = styled.div`
 export const DropItem = styled.li`
   padding: 0.5em;
   display: grid;
+  grid-gap: 0;
   text-transform: capitalize;
   cursor: pointer;
   a {
