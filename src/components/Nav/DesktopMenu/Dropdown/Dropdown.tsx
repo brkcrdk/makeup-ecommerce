@@ -26,7 +26,7 @@ const Dropdown: React.FC<Props> = ({ title, content, url }) => {
       <DropButton>{title}</DropButton>
       <DropContent>
         {content.length < 1 ? (
-          <DropItem>&#9880; Loading...</DropItem>
+          <DropItem> > Loading...</DropItem>
         ) : (
           content.map((item, key) => (
             <DropItem key={key}>
@@ -35,7 +35,7 @@ const Dropdown: React.FC<Props> = ({ title, content, url }) => {
                 onClick={() => {
                   handleFilter(url, item);
                 }}>
-                &#9880; {item}
+                > {item}
               </Link>
             </DropItem>
           ))

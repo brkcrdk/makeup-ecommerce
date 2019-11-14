@@ -1,5 +1,10 @@
 import React from "react";
-import { MenuContainer } from "./DesktopStyle";
+import {
+  MenuContainer,
+  MenuItem,
+  MenuDropDown,
+  DropContent
+} from "./DesktopStyle";
 import Dropdown from "./Dropdown/Dropdown";
 import { getBrand, getCategory, getType } from "../../getTypes";
 import { useSelector } from "react-redux";
@@ -19,13 +24,21 @@ const DesktopMenu: React.FC = () => {
 
   return (
     <MenuContainer>
-      <Dropdown title="Types" content={types} url="product_type" />
-      <Dropdown
-        title="Categories"
-        content={categories}
-        url="product_category"
-      />
-      <Dropdown title="Brands" content={brands} url="brand" />
+      <MenuItem>Home</MenuItem>
+      <MenuItem>
+        Products
+        <MenuDropDown>
+          <DropContent>
+            <Dropdown title="Types" content={types} url="product_type" />
+            <Dropdown
+              title="Categories"
+              content={categories}
+              url="product_category"
+            />
+            <Dropdown title="Brands" content={brands} url="brand" />
+          </DropContent>
+        </MenuDropDown>
+      </MenuItem>
     </MenuContainer>
   );
 };

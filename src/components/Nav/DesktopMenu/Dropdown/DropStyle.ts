@@ -21,17 +21,18 @@ export const DropContainer = styled.div`
   &:hover > div {
     background: rgba(252, 247, 249, 1);
     border-radius: 0.3em;
+    margin-left: 110%;
     padding-top: 0.7em;
     display: flex;
     flex-wrap: wrap;
     overflow: scroll;
     overflow-x: hidden;
-    height: 15em;
+    /* height: 15em;
     width: 20em;
     @media ${device.desktop} {
       height: 20em;
       width: 30em;
-    }
+    } */
   }
 `;
 export const DropButton = styled.button`
