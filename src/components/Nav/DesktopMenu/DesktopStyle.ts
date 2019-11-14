@@ -9,7 +9,8 @@ export const MenuItem = styled.div`
     display: block;
   }
   h4 {
-    margin: 0 0.5em;
+    padding: 0 0.5em;
+    /* margin: 0 0.5em; */
     font-family: ${fonts.aBeeZee};
   }
 `;
@@ -19,6 +20,7 @@ export const MenuDropDown = styled.div`
   position: absolute;
 `;
 export const DropContent = styled.div`
+  margin-top: 1em;
   display: grid;
   background-color: ${colours.pink};
 `;

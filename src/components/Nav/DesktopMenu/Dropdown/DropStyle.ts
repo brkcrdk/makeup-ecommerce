@@ -46,12 +46,22 @@ export const DropButton = styled.button`
   margin: 0.5em 0;
   border: none;
   outline: none;
-  color: ${colours.primaryText};
+  color: white;
   font-family: ${fonts.montserrat};
   font-size: 1.1em;
   font-weight: 800;
   font-style: italic;
   text-transform: uppercase;
+    &:before {
+    z-index:1;
+    content: " ";
+    /* border: 10px solid ${colours.pink}; */
+    border-width:7px;
+    border-style:solid;
+    border-color: transparent transparent transparent ${colours.pink};
+    position: absolute;
+    right:-0.8em;
+  }
   @media ${device.tabletLaptop} {
     font-size: 0.9em;
   }
