@@ -48,7 +48,6 @@ export const DropContent = styled.div`
   left: 1em;
   width: 35vw;
   height: 90%;
-  overflow: hidden;
   div {
     background-color: ${colours.background};
     width: 100%;
@@ -60,6 +59,20 @@ export const DropContent = styled.div`
     margin-top: 1.05em;
     margin-left: 0.2em;
     padding-left: 1em;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: lightgray;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
   }
 `;
 export const DropItem = styled.li`
