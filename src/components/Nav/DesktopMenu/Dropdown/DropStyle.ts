@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { device, colours, fonts } from "../../../utils";
 
-//If hover effect dont work look for searchbox input width.
-
 export const DropContainer = styled.div`
   &:hover > div {
     padding: 1em 0.5em;
