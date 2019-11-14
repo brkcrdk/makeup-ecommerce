@@ -24,9 +24,11 @@ const DesktopMenu: React.FC = () => {
 
   return (
     <MenuContainer>
-      <MenuItem>Home</MenuItem>
       <MenuItem>
-        Products
+        <h4>Home</h4>
+      </MenuItem>
+      <MenuItem>
+        <h4>Shop</h4>
         <MenuDropDown>
           <DropContent>
             <Dropdown title="Types" content={types} url="product_type" />

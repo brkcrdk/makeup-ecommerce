@@ -76,7 +76,7 @@ export const DropContent = styled.div`
     display: grid;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
   }
   /* ::-webkit-scrollbar {
