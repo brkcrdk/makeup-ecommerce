@@ -2,6 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { device, colours, fonts } from "../utils";
 import { IProducts } from "../../store/fetchProducts/types";
+import Decrement from "../UI/Buttons/Decrement";
+import Increment from "../UI/Buttons/Increment";
+import Remove from "../UI/Buttons/Remove";
+
 interface Props {
   cart: {
     product: IProducts;
@@ -86,17 +90,10 @@ const CartList: React.FC<Props> = ({ cart }) => {
               <span>Total = ${price * item.count}</span>
             </ListResult>
             <ListActions>
-              <button>
-                <i className="fas fa-minus" />
-              </button>
+              <Decrement product={item.product} />
               <span>{item.count}</span>
-              <button>
-                <i className="fas fa-plus" />
-              </button>
-              x ${price}
-              <button>
-                <i className="fas fa-trash" />
-              </button>
+              <Increment product={item.product} />x ${price}
+              <Remove product={item.product} />
             </ListActions>
           </ListItems>
         );
