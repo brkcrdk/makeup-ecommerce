@@ -2,7 +2,7 @@ import React from "react";
 import { Container, CartWrapper } from "./CartStyle";
 import { useSelector } from "react-redux";
 import { IProducts } from "../../store/fetchProducts/types";
-import CartList from "./CartList";
+import { CartDetail } from "../UI/Cart/Carts";
 import Footer from "../../components/Content/Footer/Footer";
 interface Props {}
 interface CartProps {
@@ -18,7 +18,7 @@ const Cart: React.FC<Props> = () => {
   const cart = useSelector((state: CartProps) => state.cartStore.cart);
   const renderItems = (
     <CartWrapper>
-      <CartList cart={cart} />
+      <CartDetail cart={cart} />
     </CartWrapper>
   );
   const renderEmpty = <CartWrapper>no items in cart</CartWrapper>;
