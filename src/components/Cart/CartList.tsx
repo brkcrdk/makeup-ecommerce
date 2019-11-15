@@ -64,7 +64,9 @@ const ListImg = styled.div`
   }
 `;
 const ListDetail = styled.div``;
-const ListActions = styled.div``;
+const ListActions = styled.div`
+  justify-content: space-around !important;
+`;
 
 const CartList: React.FC<Props> = ({ cart }) => {
   return (
@@ -88,7 +90,7 @@ const CartList: React.FC<Props> = ({ cart }) => {
               <button>+</button> x ${price}
             </div>
             <ListActions>
-              <span>={price * item.count}</span>
+              <span>Total = ${price * item.count}</span>
               <button>X</button>
             </ListActions>
           </ListItems>
