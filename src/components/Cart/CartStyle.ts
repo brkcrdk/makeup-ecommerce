@@ -7,4 +7,6 @@ export const Container = styled.div`
   padding-top: 10em;
 `;
 
-export const CartWrapper = styled.div``;
+export const CartWrapper = styled.div`
+  margin-bottom: -1em;
+`;

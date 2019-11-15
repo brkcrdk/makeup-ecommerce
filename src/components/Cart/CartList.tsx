@@ -37,7 +37,7 @@ const ListItems = styled.div`
   border: 1px solid lightgray;
   box-shadow: ${colours.boxShadow};
   border-radius: 0.3em;
-  margin: 0.5em 0;
+  margin: 1em 0;
   padding: 0.5em;
   div {
     display: flex;
