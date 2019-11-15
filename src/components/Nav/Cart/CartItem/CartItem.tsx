@@ -1,7 +1,5 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { IProducts } from "../../../../store/fetchProducts/types";
-import { removeCart } from "../../../../store/cart/actions";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {
   Container,
@@ -9,7 +7,6 @@ import {
   CartImg,
   CartInfo,
   CartName,
-  CartRemove,
   CartPrice,
   CartBottom,
   Splitter,
@@ -30,13 +27,6 @@ const CartItem: React.FC<Props> = ({ cart }) => {
   const totalPrice = totals.reduce((sum, next) => {
     return (sum = sum + next);
   });
-  const dispatch = useDispatch();
-  const handleRemove = useCallback(
-    (product) => {
-      dispatch(removeCart({ product: product }));
-    },
-    [dispatch]
-  );
 
   const renderCart = cart.map((item, key) => {
     const price = parseFloat(

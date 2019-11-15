@@ -51,19 +51,7 @@ export const CartPrice = styled.p`
   margin-top: -1em;
   text-align: left;
 `;
-export const CartRemove = styled.button`
-  margin-right: 0.3em;
-  text-align: right;
-  background-color: transparent;
-  font-size: 1.1em;
-  border: none;
-  outline: none;
-  color: ${colours.primaryText};
-  cursor: pointer;
-  &:hover {
-    color: ${colours.pink};
-  }
-`;
+
 export const Splitter = styled.hr`
   margin-top: -1em;
   width: 95%;

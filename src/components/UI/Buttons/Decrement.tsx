@@ -25,7 +25,7 @@ const Increment: React.FC<Props> = ({ product }) => {
 
   return (
     <Button onClick={handleIncrement}>
-      <i className="fas fa-plus" />
+      <i className="fas fa-minus" />
     </Button>
   );
 };
