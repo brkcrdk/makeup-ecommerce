@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { device, colours } from "../utils";
+import { device, colours, fonts } from "../utils";
 import { IProducts } from "../../store/fetchProducts/types";
 interface Props {
   cart: {
@@ -34,6 +34,7 @@ const ListHeader = styled.div`
 const ListItems = styled.div`
   display: grid;
   overflow: hidden;
+  font-family: ${fonts.aBeeZee};
   border: 1px solid lightgray;
   box-shadow: ${colours.boxShadow};
   border-radius: 0.3em;
@@ -65,9 +66,21 @@ const ListImg = styled.div`
 `;
 const ListDetail = styled.div``;
 const ListActions = styled.div`
-  justify-content: space-around !important;
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
 `;
 
+const ListResult = styled.div`
+  justify-content: space-around !important;
+  button {
+    border: none;
+    background-color: transparent;
+    outline: none;
+  }
+`;
 const CartList: React.FC<Props> = ({ cart }) => {
   return (
     <Container>
@@ -84,15 +97,22 @@ const CartList: React.FC<Props> = ({ cart }) => {
               />
             </ListImg>
             <ListDetail>{item.product.name}</ListDetail>
-            <div>
-              <button>-</button>
-              <input readOnly value={item.count} />
-              <button>+</button> x ${price}
-            </div>
             <ListActions>
-              <span>Total = ${price * item.count}</span>
-              <button>X</button>
+              <button>
+                <i className="fas fa-minus" />
+              </button>
+              <input readOnly value={item.count} />
+              <button>
+                <i className="fas fa-plus" />
+              </button>
+              x ${price}
             </ListActions>
+            <ListResult>
+              <span>Total = ${price * item.count}</span>
+              <button>
+                <i className="fas fa-trash" />
+              </button>
+            </ListResult>
           </ListItems>
         );
       })}
