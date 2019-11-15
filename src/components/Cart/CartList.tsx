@@ -17,17 +17,9 @@ const Container = styled.div`
   @media ${device.tablet} {
     padding: 2em;
   }
-`;
-const ListHeader = styled.div`
-  display: grid;
-  grid-template-columns: 8fr 1fr 1fr 1fr;
-  @media ${device.mobileS} {
-    padding: 0;
-  }
-  @media ${device.tablet} {
-    padding: 0 2em;
-  }
-  p {
+
+  h3 {
+    font-family: ${fonts.raleway};
   }
 `;
 
@@ -40,20 +32,20 @@ const ListItems = styled.div`
   border-radius: 0.3em;
   margin: 1em 0;
   padding: 0.5em;
+
   div {
     display: flex;
     justify-content: center;
     align-items: center;
   }
   @media ${device.mobileS} {
-    grid-template-columns: repeat(2, 6fr);
+    grid-template-columns: 5fr 7fr;
+    grid-gap: 0.5em;
+    font-size: 0.9em;
   }
   @media ${device.tablet} {
     grid-template-columns: repeat(4, 3fr);
-  }
-  input {
-    text-align: center;
-    width: 2em;
+    font-size: 1em;
   }
 `;
 
@@ -73,14 +65,7 @@ const ListActions = styled.div`
   }
 `;
 
-const ListResult = styled.div`
-  justify-content: space-around !important;
-  button {
-    border: none;
-    background-color: transparent;
-    outline: none;
-  }
-`;
+const ListResult = styled.div``;
 const CartList: React.FC<Props> = ({ cart }) => {
   return (
     <Container>
@@ -97,22 +82,22 @@ const CartList: React.FC<Props> = ({ cart }) => {
               />
             </ListImg>
             <ListDetail>{item.product.name}</ListDetail>
+            <ListResult>
+              <span>Total = ${price * item.count}</span>
+            </ListResult>
             <ListActions>
               <button>
                 <i className="fas fa-minus" />
               </button>
-              <input readOnly value={item.count} />
+              <span>{item.count}</span>
               <button>
                 <i className="fas fa-plus" />
               </button>
               x ${price}
-            </ListActions>
-            <ListResult>
-              <span>Total = ${price * item.count}</span>
               <button>
                 <i className="fas fa-trash" />
               </button>
-            </ListResult>
+            </ListActions>
           </ListItems>
         );
       })}
