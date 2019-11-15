@@ -11,6 +11,7 @@ export const Container = styled.div`
 export const ItemContainer = styled.div`
   max-height: 60vh;
   overflow-y: scroll;
+  padding: 0.5em 0;
   ${colours.scroll}
 `;
 export const CartHeader = styled.h4`
