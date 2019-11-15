@@ -82,7 +82,10 @@ export const Img = styled.div`
   }
 
   a {
-    color: ${colours.primaryText};
+    color: ${colours.secondaryText};
+    @media ${device.laptop} {
+      color: ${colours.primaryText};
+    }
   }
 
   @media ${device.mobileS} {
