@@ -6,3 +6,5 @@ export const Container = styled.div`
   min-height: 35vh;
   padding-top: 10em;
 `;
+
+export const CartList = styled.div``;
