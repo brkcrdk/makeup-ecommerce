@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { IProducts } from "../../../../store/fetchProducts/types";
-import { removeCart, updateCart } from "../../../../store/cart/actions";
+import { removeCart } from "../../../../store/cart/actions";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {
@@ -15,6 +15,8 @@ import {
   Splitter,
   ItemContainer
 } from "./ItemStyle";
+import Increment from "../../../UI/Buttons/Increment";
+import Decrement from "../../../UI/Buttons/Decrement";
 interface Props {
   cart: { product: IProducts; count: number }[];
 }
@@ -31,19 +33,6 @@ const CartItem: React.FC<Props> = ({ cart }) => {
   const handleRemove = useCallback(
     (product) => {
       dispatch(removeCart({ product: product }));
-    },
-    [dispatch]
-  );
-
-  const handleIncrement = useCallback(
-    (product) => {
-      dispatch(updateCart({ product: product, update: "increment" }));
-    },
-    [dispatch]
-  );
-  const handleDecrement = useCallback(
-    (product) => {
-      dispatch(updateCart({ product: product, update: "decrement" }));
     },
     [dispatch]
   );
@@ -66,19 +55,9 @@ const CartItem: React.FC<Props> = ({ cart }) => {
               </Link>
             </CartName>
             <CartPrice>
-              <button
-                onClick={() => {
-                  handleDecrement(item.product);
-                }}>
-                <i className="fas fa-minus" />
-              </button>
+              <Decrement product={item.product} />
               {item.count}
-              <button
-                onClick={() => {
-                  handleIncrement(item.product);
-                }}>
-                <i className="fas fa-plus" />
-              </button>
+              <Increment product={item.product} />
               x${price} = ${item.count * price}
             </CartPrice>
           </CartInfo>

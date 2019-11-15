@@ -20,7 +20,7 @@ const Button = styled.button`
 const Increment: React.FC<Props> = ({ product }) => {
   const dispatch = useDispatch();
   const handleIncrement = useCallback(() => {
-    dispatch(updateCart({ product: product, update: "increment" }));
+    dispatch(updateCart({ product: product, update: "decrement" }));
   }, [dispatch]);
 
   return (
