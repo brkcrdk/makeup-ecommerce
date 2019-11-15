@@ -3,6 +3,7 @@ import { Container, CartWrapper } from "./CartStyle";
 import { useSelector } from "react-redux";
 import { IProducts } from "../../store/fetchProducts/types";
 import CartList from "./CartList";
+import Footer from "../../components/Content/Footer/Footer";
 interface Props {}
 interface CartProps {
   cartStore: {
@@ -21,7 +22,12 @@ const Cart: React.FC<Props> = () => {
     </CartWrapper>
   );
   const renderEmpty = <CartWrapper>no items in cart</CartWrapper>;
-  return <Container>{cart.length > 0 ? renderItems : renderEmpty}</Container>;
+  return (
+    <Container>
+      {cart.length > 0 ? renderItems : renderEmpty}
+      <Footer />
+    </Container>
+  );
 };
 
 export default Cart;
