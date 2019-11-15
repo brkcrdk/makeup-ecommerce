@@ -2,10 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { device, colours, fonts } from "../utils";
 import { IProducts } from "../../store/fetchProducts/types";
-import Decrement from "../UI/Buttons/Decrement";
-import Increment from "../UI/Buttons/Increment";
-import Remove from "../UI/Buttons/Remove";
-
+import { Decrement, Increment, Remove } from "../UI/Buttons/Button";
 interface Props {
   cart: {
     product: IProducts;
@@ -61,13 +58,7 @@ const ListImg = styled.div`
   }
 `;
 const ListDetail = styled.div``;
-const ListActions = styled.div`
-  button {
-    background-color: transparent;
-    border: none;
-    outline: none;
-  }
-`;
+const ListActions = styled.div``;
 
 const ListResult = styled.div``;
 const CartList: React.FC<Props> = ({ cart }) => {

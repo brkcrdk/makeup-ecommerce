@@ -17,7 +17,7 @@ const Button = styled.button`
   }
 `;
 
-const Increment: React.FC<Props> = ({ product }) => {
+const Decrement: React.FC<Props> = ({ product }) => {
   const dispatch = useDispatch();
   const handleIncrement = useCallback(() => {
     dispatch(updateCart({ product: product, update: "decrement" }));
@@ -30,4 +30,4 @@ const Increment: React.FC<Props> = ({ product }) => {
   );
 };
 
-export default Increment;
+export default Decrement;

@@ -12,9 +12,7 @@ import {
   Splitter,
   ItemContainer
 } from "./ItemStyle";
-import Increment from "../../../UI/Buttons/Increment";
-import Decrement from "../../../UI/Buttons/Decrement";
-import Remove from "../../../UI/Buttons/Remove";
+import { Remove, Decrement, Increment } from "../../../UI/Buttons/Button";
 interface Props {
   cart: { product: IProducts; count: number }[];
 }
