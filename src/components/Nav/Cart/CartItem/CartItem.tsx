@@ -17,6 +17,7 @@ import {
 } from "./ItemStyle";
 import Increment from "../../../UI/Buttons/Increment";
 import Decrement from "../../../UI/Buttons/Decrement";
+import Remove from "../../../UI/Buttons/Remove";
 interface Props {
   cart: { product: IProducts; count: number }[];
 }
@@ -61,12 +62,7 @@ const CartItem: React.FC<Props> = ({ cart }) => {
               x${price} = ${item.count * price}
             </CartPrice>
           </CartInfo>
-          <CartRemove
-            onClick={() => {
-              handleRemove(item.product);
-            }}>
-            <i className="fas fa-trash" />
-          </CartRemove>
+          <Remove product={item.product} />
         </Container>
         <Splitter />
       </div>
