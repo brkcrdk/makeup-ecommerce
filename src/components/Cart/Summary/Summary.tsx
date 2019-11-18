@@ -73,9 +73,8 @@ const Summary: React.FC<Props> = ({ cart }) => {
         </SummaryDetail>
         <SummaryDetail>
           <p>Total Amount</p>
-          <p>${totalAmount()}</p>
+          <p>${totalAmount().toFixed(2)}</p>
         </SummaryDetail>
-        Enter Discount Code: <input />
       </SummaryInfo>
     </Container>
   );
