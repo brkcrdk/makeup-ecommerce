@@ -88,14 +88,14 @@ const Detail: React.FC<Props> = ({ match }) => {
         <h3>{product[0].name}</h3>
       </Parallax>
       <Content>
-        <Sticky>
-          <ImgContainer>
+        <ImgContainer>
+          <Sticky>
             <img
               src={product[0].api_featured_image}
               alt={`${product[0].name}`}
             />
-          </ImgContainer>
-        </Sticky>
+          </Sticky>
+        </ImgContainer>
         <DetailContainer>
           <AddSection product={product[0]} price={product[0].price} />
           {product[0].product_colors.length > 0 ? renderColours : ""}

@@ -39,18 +39,6 @@ const Container = styled.div`
         color: ${colours.pink};
       }
     }
-    &:last-child {
-      border: 1px solid ${colours.pink};
-      color: ${colours.primaryText};
-      padding: 0.5em;
-      margin-left: 0.5em;
-      font-size: 1.1em;
-      transition: 0.3s;
-      &:hover {
-        background-color: ${colours.pink};
-        color: white;
-      }
-    }
   }
   input {
     color: ${colours.primaryText};
