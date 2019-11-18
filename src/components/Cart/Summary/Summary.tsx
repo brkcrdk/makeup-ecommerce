@@ -32,6 +32,7 @@ const SummaryInfo = styled.div`
 const SummaryDetail = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 6fr);
+  padding: 0.5em 0;
   p {
     margin: 0 0.5em;
     font-family: ${fonts.aBeeZee};

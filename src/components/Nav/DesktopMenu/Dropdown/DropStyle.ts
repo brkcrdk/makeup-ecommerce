@@ -20,6 +20,8 @@ export const DropButton = styled.button`
   font-style: italic;
   text-transform: uppercase;
   cursor: pointer;
+  width: 100%;
+  text-align: left;
   &:hover:before {
     z-index: 1;
     content: " ";

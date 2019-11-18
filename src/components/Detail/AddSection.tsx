@@ -77,12 +77,12 @@ const AddSection: React.FC<Props> = ({ product, price }) => {
         <h3>$ {price}</h3>
       </div>
       <div>
-        <button onClick={handleIncrement}>
-          <i className="fas fa-plus" />
-        </button>
-        <input value={count} readOnly />
         <button onClick={handleDecrement}>
           <i className="fas fa-minus" />
+        </button>
+        <input value={count} readOnly />
+        <button onClick={handleIncrement}>
+          <i className="fas fa-plus" />
         </button>
         <AddCart product={product} count={count} />
       </div>

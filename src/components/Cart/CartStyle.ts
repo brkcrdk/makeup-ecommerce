@@ -4,7 +4,7 @@ export const Container = styled.div`
   text-align: center;
   background-color: white;
   min-height: 35vh;
-  padding-top: 10em;
+  padding-top: 5em;
 `;
 
 export const CartWrapper = styled.div`
@@ -14,6 +14,6 @@ export const CartWrapper = styled.div`
     grid-template-columns: repeat(1, 12fr);
   }
   @media ${device.tablet} {
-    grid-template-columns: 8fr 4fr;
+    grid-template-columns: 7fr 5fr;
   }
 `;
