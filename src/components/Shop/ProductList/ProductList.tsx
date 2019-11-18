@@ -19,7 +19,7 @@ const ProductList: React.FC<Props> = ({ products, isLoading }) => {
     <Container>
       <Pagination>
         {products.map((product, index) => (
-          <Card product={product} />
+          <Card product={product} key={index} />
         ))}
       </Pagination>
     </Container>
