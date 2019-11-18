@@ -20,7 +20,7 @@ const Cart: React.FC<Props> = () => {
   const renderItems = (
     <CartWrapper>
       <CartDetail cart={cart} />
-      <Summary />
+      <Summary cart={cart} />
     </CartWrapper>
   );
   const renderEmpty = <CartWrapper>no items in cart</CartWrapper>;

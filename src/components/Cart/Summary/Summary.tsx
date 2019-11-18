@@ -1,7 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { device, fonts, colours } from "../../utils";
-interface Props {}
+import { total } from "../../UI/Cart/Carts";
+import { IProducts } from "../../../store/fetchProducts/types";
+interface Props {
+  cart: {
+    product: IProducts;
+    count: number;
+  }[];
+}
 const Container = styled.div`
   margin: 2em 0;
   @media ${device.mobileS} {
@@ -35,7 +42,18 @@ const SummaryDetail = styled.div`
   }
 `;
 
-const Summary: React.FC<Props> = () => {
+const Summary: React.FC<Props> = ({ cart }) => {
+  const totalPrice = total(cart);
+  const shipping = () => {
+    return totalPrice > 100 ? "free" : `$50`;
+  };
+  const tax = () => {
+    return (totalPrice * 12) / 100;
+  };
+  const totalAmount = () => {
+    const ship = shipping() === "free" ? 0 : 50;
+    return totalPrice + tax() + ship;
+  };
   return (
     <Container>
       <h3>Order Summary</h3>
@@ -43,16 +61,21 @@ const Summary: React.FC<Props> = () => {
       <SummaryInfo>
         <SummaryDetail>
           <p>Sub Total</p>
-          <p>$123132</p>
+          <p>${totalPrice}</p>
         </SummaryDetail>
         <SummaryDetail>
           <p>Shipping Charge</p>
-          <p>$123132</p>
+          <p>{shipping()}</p>
         </SummaryDetail>
         <SummaryDetail>
-          <p>Sale Tax</p>
-          <p>$123132</p>
+          <p>Sale Tax (%12)</p>
+          <p>{tax()}</p>
         </SummaryDetail>
+        <SummaryDetail>
+          <p>Total Amount</p>
+          <p>${totalAmount()}</p>
+        </SummaryDetail>
+        Enter Discount Code: <input />
       </SummaryInfo>
     </Container>
   );
