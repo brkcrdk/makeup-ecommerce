@@ -14,7 +14,7 @@ import {
 import { getProduct } from "../getTypes";
 import Footer from "../Content/Footer/Footer";
 import Colours from "./Colours";
-import AddCart from "./AddCart";
+import AddSection from "./AddSection";
 import { useSelector } from "react-redux";
 import { IProducts } from "../../store/fetchProducts/types";
 interface Props {
@@ -91,7 +91,7 @@ const Detail: React.FC<Props> = ({ match }) => {
           <img src={product[0].api_featured_image} alt={`${product[0].name}`} />
         </ImgContainer>
         <DetailContainer>
-          <AddCart product={product[0]} price={product[0].price} />
+          <AddSection product={product[0]} price={product[0].price} />
           {product[0].product_colors.length > 0 ? renderColours : ""}
           {product[0].tag_list.length > 0 ? renderTags : ""}
           {product[0].description.length > 0 ? renderDescription : ""}

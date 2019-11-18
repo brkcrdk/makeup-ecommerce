@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 import styled from "styled-components";
 import { colours, fonts, device } from "../utils";
+import { AddCart } from "../UI/Cart/Carts";
 import { addCart } from "../../store/cart/actions";
 import { useDispatch } from "react-redux";
 interface Props {
@@ -63,12 +64,12 @@ const Container = styled.div`
     cursor: context-menu;
   }
 `;
-const AddCart: React.FC<Props> = ({ product, price }) => {
+const AddSection: React.FC<Props> = ({ product, price }) => {
   const [count, setCount] = useState(1);
-  const dispatch = useDispatch();
-  const handleCart = useCallback(() => {
-    dispatch(addCart({ product: product, count: count }));
-  }, [dispatch, product, count]);
+  // const dispatch = useDispatch();
+  // const handleCart = useCallback(() => {
+  //   dispatch(addCart({ product: product, count: count }));
+  // }, [dispatch, product, count]);
 
   return (
     <Container>
@@ -91,10 +92,10 @@ const AddCart: React.FC<Props> = ({ product, price }) => {
           }}>
           <i className="fas fa-minus" />
         </button>
-        <button onClick={handleCart}>Add to Cart</button>
+        <AddCart product={product} count={count} />
       </div>
     </Container>
   );
 };
 
-export default AddCart;
+export default AddSection;
