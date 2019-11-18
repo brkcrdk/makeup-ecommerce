@@ -5,4 +5,14 @@ import Decrement from "./Decrement";
 import Remove from "./Remove";
 import Name from "./Name";
 import Count from "./Count";
-export { CartDetail, CartHover, Increment, Decrement, Remove, Name, Count };
+import Image from "./Image";
+export {
+  CartDetail,
+  CartHover,
+  Increment,
+  Decrement,
+  Remove,
+  Name,
+  Count,
+  Image
+};

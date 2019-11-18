@@ -32,7 +32,6 @@ const CartDetail: React.FC<Props> = ({ cart }) => {
                 alt={`cart-${item.product.name}`}
               />
             </ListImg>
-            {/* <ListDetail>{item.product.name}</ListDetail> */}
             <ListDetail>
               <Name product={item.product} />
             </ListDetail>
