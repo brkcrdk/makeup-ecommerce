@@ -1,12 +1,9 @@
 import React from "react";
 import { IProducts } from "../../../../store/fetchProducts/types";
-import { Link } from "react-router-dom";
 import {
   Container,
   CartHeader,
-  CartImg,
   CartInfo,
-  CartName,
   CartPrice,
   CartBottom,
   Splitter,
@@ -18,6 +15,8 @@ interface Props {
 }
 
 const CartItem: React.FC<Props> = ({ cart }) => {
+  const totalPrice = total(cart);
+
   const renderCart = cart.map((item, key) => {
     const price = parseFloat(
       item.product.price === null ? "10" : item.product.price
@@ -27,9 +26,7 @@ const CartItem: React.FC<Props> = ({ cart }) => {
         <Container>
           <Image url={item.product.api_featured_image} />
           <CartInfo>
-            <CartName>
-              <Name product={item.product} />
-            </CartName>
+            <Name product={item.product} />
             <CartPrice>
               <Count product={item.product} count={item.count} />
               x${price} = ${item.count * price}
@@ -48,7 +45,7 @@ const CartItem: React.FC<Props> = ({ cart }) => {
       <Splitter />
       <ItemContainer>{renderCart}</ItemContainer>
       <CartBottom>
-        <CartHeader>Total: ${total(cart)}</CartHeader>
+        <CartHeader>Total: ${totalPrice}</CartHeader>
         <button>View Cart</button>
       </CartBottom>
     </>

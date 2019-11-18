@@ -17,10 +17,7 @@ export const ItemContainer = styled.div`
 export const CartHeader = styled.h4`
   padding-bottom: 0.5em;
 `;
-export const CartImg = styled.img`
-  width: 3em;
-  height: 3em;
-`;
+
 export const CartInfo = styled.div`
   width: 95%;
   padding: 1em;
@@ -38,17 +35,7 @@ export const CartInfo = styled.div`
     }
   }
 `;
-export const CartName = styled.h4`
-  a {
-    text-decoration: none;
-    color: ${colours.primaryText};
-    &:hover {
-      color: ${colours.pink};
-    }
-  }
-`;
 export const CartPrice = styled.p`
-  margin-top: -1em;
   text-align: left;
 `;
 
