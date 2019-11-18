@@ -1,4 +1,4 @@
-import CartDetail from "./Detail/CartDetail";
+import CartDetail from "../../Cart/Detail/CartDetail";
 import CartHover from "./Hover/CartHover";
 import Increment from "./Increment";
 import Decrement from "./Decrement";
@@ -19,15 +19,4 @@ const total = (cart: { product: IProducts; count: number }[]) => {
   });
 };
 
-export {
-  CartDetail,
-  CartHover,
-  Increment,
-  Decrement,
-  Remove,
-  Name,
-  Count,
-  Image,
-  AddCart,
-  total
-};
+export { Increment, Decrement, Remove, Name, Count, Image, AddCart, total };

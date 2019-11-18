@@ -2,7 +2,7 @@ import React from "react";
 import { Container, CartWrapper } from "./CartStyle";
 import { useSelector } from "react-redux";
 import { IProducts } from "../../store/fetchProducts/types";
-import { CartDetail } from "../UI/Cart/Carts";
+import CartDetail from "./Detail/CartDetail";
 import Footer from "../../components/Content/Footer/Footer";
 interface Props {}
 interface CartProps {
