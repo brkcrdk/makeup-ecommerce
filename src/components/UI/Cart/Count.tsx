@@ -1,11 +1,21 @@
 import React from "react";
+import Decrement from "./Decrement";
+import Increment from "./Increment";
+import { IProducts } from "../../../store/fetchProducts/types";
 
 interface Props {
-  product: {};
+  product: IProducts;
+  count: number;
 }
 
-const Count: React.FC<Props> = () => {
-  return <div></div>;
+const Count: React.FC<Props> = ({ product, count }) => {
+  return (
+    <div>
+      <Decrement product={product} />
+      <span>{count}</span>
+      <Increment product={product} />
+    </div>
+  );
 };
 
 export default Count;
