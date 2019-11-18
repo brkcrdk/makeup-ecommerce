@@ -61,17 +61,3 @@ export const Name = styled.p`
 export const Price = styled.span`
   font-style: italic;
 `;
-export const Add = styled.button`
-  background-color: transparent;
-  padding: 0.5em;
-  border: 1px solid ${colours.pink};
-  outline: none;
-  font-family: ${fonts.montserrat};
-  font-weight: 700;
-  transition: 0.5s;
-  color: ${colours.pink};
-  &:hover {
-    color: ${colours.background};
-    background-color: ${colours.pink};
-  }
-`;

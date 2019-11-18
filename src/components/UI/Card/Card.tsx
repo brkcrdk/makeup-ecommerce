@@ -1,14 +1,6 @@
 import React from "react";
 import { AddCart } from "../Cart/Carts";
-import {
-  CardContent,
-  Container,
-  Name,
-  Title,
-  Img,
-  Price,
-  Add
-} from "./CardStyle";
+import { CardContent, Container, Name, Title, Img, Price } from "./CardStyle";
 import { Link } from "react-router-dom";
 import { IProducts } from "../../../store/fetchProducts/types";
 
@@ -38,13 +30,6 @@ const Card: React.FC<CardProps> = ({ product }) => {
             product.price === null ? "10" : product.price
           }`}</Price>
           <AddCart product={product} />
-          {/* <Add
-            className="card-button"
-            onClick={() => {
-              alert("added");
-            }}>
-            Add to Cart
-          </Add> */}
         </div>
       </CardContent>
     </Container>
