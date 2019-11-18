@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { device, fonts, colours } from "../../utils";
 import { total } from "../../UI/Cart/Carts";
+import Sticky from "../../UI/Sticky";
 import { IProducts } from "../../../store/fetchProducts/types";
 interface Props {
   cart: {
@@ -41,11 +42,6 @@ const SummaryDetail = styled.div`
       text-align: left;
     }
   }
-`;
-const Sticky = styled.div`
-  position: -webkit-sticky;
-  position: sticky;
-  top: 7em;
 `;
 
 const Summary: React.FC<Props> = ({ cart }) => {
