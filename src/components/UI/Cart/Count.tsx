@@ -10,11 +10,11 @@ interface Props {
 
 const Count: React.FC<Props> = ({ product, count }) => {
   return (
-    <div>
+    <>
       <Decrement product={product} />
       <span>{count}</span>
       <Increment product={product} />
-    </div>
+    </>
   );
 };
 
