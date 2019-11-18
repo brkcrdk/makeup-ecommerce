@@ -28,8 +28,8 @@ const CartItem: React.FC<Props> = ({ cart }) => {
           <CartInfo>
             <Name product={item.product} />
             <CartPrice>
-              <Count product={item.product} count={item.count} />
-              x${price} = ${item.count * price}
+              <Count product={item.product} count={item.count} />= $
+              {item.count * price}
             </CartPrice>
           </CartInfo>
           <Remove product={item.product} />

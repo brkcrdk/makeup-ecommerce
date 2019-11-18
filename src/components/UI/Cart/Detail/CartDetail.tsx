@@ -35,7 +35,7 @@ const CartDetail: React.FC<Props> = ({ cart }) => {
               <span>Total = ${price * item.count}</span>
             </ListResult>
             <ListActions>
-              <Count product={item.product} count={item.count} />x ${price}
+              <Count product={item.product} count={item.count} />
               <Remove product={item.product} />
             </ListActions>
           </ListItems>

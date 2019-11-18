@@ -14,6 +14,7 @@ const Count: React.FC<Props> = ({ product, count }) => {
       <Decrement product={product} />
       <span>{count}</span>
       <Increment product={product} />
+      <strong>x</strong> ${product.price}
     </>
   );
 };
