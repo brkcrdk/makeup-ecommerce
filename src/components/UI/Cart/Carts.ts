@@ -6,6 +6,18 @@ import Remove from "./Remove";
 import Name from "./Name";
 import Count from "./Count";
 import Image from "./Image";
+import { IProducts } from "../../../store/fetchProducts/types";
+
+const total = (cart: { product: IProducts; count: number }[]) => {
+  const totals = cart.map((item) => {
+    const price = parseFloat(item.product.price);
+    return price * item.count;
+  });
+  return totals.reduce((sum, next) => {
+    return (sum = sum + next);
+  });
+};
+
 export {
   CartDetail,
   CartHover,
@@ -14,5 +26,6 @@ export {
   Remove,
   Name,
   Count,
-  Image
+  Image,
+  total
 };

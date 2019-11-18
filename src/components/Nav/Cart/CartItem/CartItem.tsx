@@ -12,21 +12,12 @@ import {
   Splitter,
   ItemContainer
 } from "./ItemStyle";
-import { Name, Image, Remove, Count } from "../../../UI/Cart/Carts";
-// import { Remove, Decrement, Increment } from "../../../UI/Buttons/Button";
+import { Name, Image, Remove, Count, total } from "../../../UI/Cart/Carts";
 interface Props {
   cart: { product: IProducts; count: number }[];
 }
 
 const CartItem: React.FC<Props> = ({ cart }) => {
-  const totals = cart.map((item) => {
-    const price = parseFloat(item.product.price);
-    return price * item.count;
-  });
-  const totalPrice = totals.reduce((sum, next) => {
-    return (sum = sum + next);
-  });
-
   const renderCart = cart.map((item, key) => {
     const price = parseFloat(
       item.product.price === null ? "10" : item.product.price
@@ -57,7 +48,7 @@ const CartItem: React.FC<Props> = ({ cart }) => {
       <Splitter />
       <ItemContainer>{renderCart}</ItemContainer>
       <CartBottom>
-        <CartHeader>Total: ${totalPrice}</CartHeader>
+        <CartHeader>Total: ${total(cart)}</CartHeader>
         <button>View Cart</button>
       </CartBottom>
     </>

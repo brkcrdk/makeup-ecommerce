@@ -8,7 +8,7 @@ import {
   ListItems
 } from "./DetailStyle";
 import { IProducts } from "../../../../store/fetchProducts/types";
-import { Count, Remove, Name, Image } from "../../../UI/Cart/Carts";
+import { Count, Remove, Name, Image, total } from "../../../UI/Cart/Carts";
 interface Props {
   cart: {
     product: IProducts;
