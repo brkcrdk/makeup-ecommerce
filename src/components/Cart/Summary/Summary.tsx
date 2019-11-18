@@ -15,29 +15,45 @@ const Container = styled.div`
     font-family: ${fonts.raleway};
   }
 `;
-const Info = styled.div`
+const SummaryInfo = styled.div`
   display: grid;
   text-align: center;
   box-shadow: ${colours.boxShadow};
   border-radius: 1em;
   padding: 0.5em 1em;
-  span {
+`;
+const SummaryDetail = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 6fr);
+  p {
     margin: 0 0.5em;
+    font-family: ${fonts.aBeeZee};
+    text-align: right;
+    &:last-child {
+      text-align: left;
+    }
   }
 `;
+
 const Summary: React.FC<Props> = () => {
   return (
     <Container>
       <h3>Order Summary</h3>
       <hr />
-      <Info>
-        <p>
-          Sub Total <span /> $ 123134
-        </p>
-        <p>
-          Sub Total <span /> $ 123134
-        </p>
-      </Info>
+      <SummaryInfo>
+        <SummaryDetail>
+          <p>Sub Total</p>
+          <p>$123132</p>
+        </SummaryDetail>
+        <SummaryDetail>
+          <p>Shipping Charge</p>
+          <p>$123132</p>
+        </SummaryDetail>
+        <SummaryDetail>
+          <p>Sale Tax</p>
+          <p>$123132</p>
+        </SummaryDetail>
+      </SummaryInfo>
     </Container>
   );
 };
