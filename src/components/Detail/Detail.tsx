@@ -17,6 +17,7 @@ import Colours from "./Colours";
 import AddSection from "./AddSection";
 import { useSelector } from "react-redux";
 import { IProducts } from "../../store/fetchProducts/types";
+import Sticky from "../UI/Sticky";
 interface Props {
   match: {
     params: {
@@ -87,9 +88,14 @@ const Detail: React.FC<Props> = ({ match }) => {
         <h3>{product[0].name}</h3>
       </Parallax>
       <Content>
-        <ImgContainer>
-          <img src={product[0].api_featured_image} alt={`${product[0].name}`} />
-        </ImgContainer>
+        <Sticky>
+          <ImgContainer>
+            <img
+              src={product[0].api_featured_image}
+              alt={`${product[0].name}`}
+            />
+          </ImgContainer>
+        </Sticky>
         <DetailContainer>
           <AddSection product={product[0]} price={product[0].price} />
           {product[0].product_colors.length > 0 ? renderColours : ""}
