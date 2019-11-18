@@ -6,6 +6,7 @@ import Remove from "./Remove";
 import Name from "./Name";
 import Count from "./Count";
 import Image from "./Image";
+import AddCart from "./AddCart";
 import { IProducts } from "../../../store/fetchProducts/types";
 
 const total = (cart: { product: IProducts; count: number }[]) => {
@@ -27,5 +28,6 @@ export {
   Name,
   Count,
   Image,
+  AddCart,
   total
 };

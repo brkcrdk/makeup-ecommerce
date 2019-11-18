@@ -1,4 +1,5 @@
 import React from "react";
+import { AddCart } from "../Cart/Carts";
 import {
   CardContent,
   Container,
@@ -9,49 +10,48 @@ import {
   Add
 } from "./CardStyle";
 import { Link } from "react-router-dom";
+import { IProducts } from "../../../store/fetchProducts/types";
 
 interface CardProps {
-  title: string;
-  image: string;
-  name: string;
-  price: string;
-  priceSign: string;
-  key: number;
-  id: number;
+  product: IProducts;
+  // title: string;
+  // image: string;
+  // name: string;
+  // price: string;
+  // priceSign: string;
+  // key: number;
+  // id: number;
   onClick?: () => void;
 }
 
-const Card: React.FC<CardProps> = ({
-  title,
-  image,
-  name,
-  price,
-  priceSign,
-  onClick,
-  id
-}) => {
+const Card: React.FC<CardProps> = ({ product }) => {
   return (
     // TODO: use card container class to style card
     <Container className="card-container">
-      <Link to={`/product/${id}`}>
-        <Img className="card-image" src={image} alt={`${name}-image`} />
+      <Link to={`/product/${product.id}`}>
+        <Img
+          className="card-image"
+          src={product.api_featured_image}
+          alt={`${product.name}-image`}
+        />
       </Link>
       <CardContent>
-        <Link to={`/product/${id}`}>
-          <Title className="card-title">{title}</Title>
-          <Name className="card-name">{name}</Name>
+        <Link to={`/product/${product.id}`}>
+          <Title className="card-title">{product.brand}</Title>
+          <Name className="card-name">{product.name}</Name>
         </Link>
         <div className="card-content">
           <Price className="card-price">{`$ ${
-            price === null ? "10" : price
+            product.price === null ? "10" : product.price
           }`}</Price>
-          <Add
+          <AddCart product={product} />
+          {/* <Add
             className="card-button"
             onClick={() => {
               alert("added");
             }}>
             Add to Cart
-          </Add>
+          </Add> */}
         </div>
       </CardContent>
     </Container>
