@@ -19,7 +19,7 @@ interface Props {
 const CartDetail: React.FC<Props> = ({ cart }) => {
   return (
     <Container>
-      <h3>My Shopping Cart Detail</h3>
+      <h3>Shopping Cart Detail</h3>
       <hr />
       {cart.map((item, key) => {
         const price = parseFloat(item.product.price);

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-// import { colours, fonts } from "../utils";
+import { device } from "../utils";
 export const Container = styled.div`
   text-align: center;
   background-color: white;
@@ -9,4 +9,11 @@ export const Container = styled.div`
 
 export const CartWrapper = styled.div`
   margin-bottom: -1em;
+  display: grid;
+  @media ${device.mobileS} {
+    grid-template-columns: repeat(1, 12fr);
+  }
+  @media ${device.tablet} {
+    grid-template-columns: 8fr 4fr;
+  }
 `;
