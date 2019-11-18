@@ -42,6 +42,11 @@ const SummaryDetail = styled.div`
     }
   }
 `;
+const Sticky = styled.div`
+  position: -webkit-sticky;
+  position: sticky;
+  top: 7em;
+`;
 
 const Summary: React.FC<Props> = ({ cart }) => {
   const totalPrice = total(cart);
@@ -57,26 +62,28 @@ const Summary: React.FC<Props> = ({ cart }) => {
   };
   return (
     <Container>
-      <h3>Order Summary</h3>
-      <hr />
-      <SummaryInfo>
-        <SummaryDetail>
-          <p>Sub Total</p>
-          <p>${totalPrice}</p>
-        </SummaryDetail>
-        <SummaryDetail>
-          <p>Shipping Charge</p>
-          <p>{shipping()}</p>
-        </SummaryDetail>
-        <SummaryDetail>
-          <p>Sale Tax (%12)</p>
-          <p>{tax()}</p>
-        </SummaryDetail>
-        <SummaryDetail>
-          <p>Total Amount</p>
-          <p>${totalAmount().toFixed(2)}</p>
-        </SummaryDetail>
-      </SummaryInfo>
+      <Sticky>
+        <h3>Order Summary</h3>
+        <hr />
+        <SummaryInfo>
+          <SummaryDetail>
+            <p>Sub Total</p>
+            <p>${totalPrice}</p>
+          </SummaryDetail>
+          <SummaryDetail>
+            <p>Shipping Charge</p>
+            <p>{shipping()}</p>
+          </SummaryDetail>
+          <SummaryDetail>
+            <p>Sale Tax (%12)</p>
+            <p>{tax()}</p>
+          </SummaryDetail>
+          <SummaryDetail>
+            <p>Total Amount</p>
+            <p>${totalAmount().toFixed(2)}</p>
+          </SummaryDetail>
+        </SummaryInfo>
+      </Sticky>
     </Container>
   );
 };

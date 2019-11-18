@@ -10,6 +10,7 @@ export const Container = styled.div`
 export const CartWrapper = styled.div`
   margin-bottom: -1em;
   display: grid;
+
   @media ${device.mobileS} {
     grid-template-columns: repeat(1, 12fr);
   }

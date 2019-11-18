@@ -27,7 +27,6 @@ const Cart: React.FC<Props> = () => {
   return (
     <Container>
       {cart.length > 0 ? renderItems : renderEmpty}
-
       <Footer />
     </Container>
   );
