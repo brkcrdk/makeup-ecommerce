@@ -29,7 +29,7 @@ const Card: React.FC<CardProps> = ({ product }) => {
           <Price className="card-price">{`$ ${
             product.price === null ? "10" : product.price
           }`}</Price>
-          <AddCart product={product} />
+          <AddCart product={product} count={1} />
         </div>
       </CardContent>
     </Container>

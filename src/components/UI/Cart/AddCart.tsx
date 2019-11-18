@@ -20,14 +20,15 @@ const AddButton = styled.button`
 `;
 interface Props {
   product: {};
-  count?: number;
+  count: number;
 }
 
-const AddCart: React.FC<Props> = ({ product, count = 1 }) => {
+const AddCart: React.FC<Props> = ({ product, count }) => {
   const dispatch = useDispatch();
   const handleAdd = useCallback(() => {
+    console.log(count);
     dispatch(addCart({ product: product, count: count }));
-  }, [dispatch]);
+  }, [dispatch, product, count]);
   return <AddButton onClick={handleAdd}>Add Cart</AddButton>;
 };
 
