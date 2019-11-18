@@ -8,7 +8,8 @@ import {
   ListItems
 } from "./DetailStyle";
 import { IProducts } from "../../../../store/fetchProducts/types";
-import { Decrement, Increment, Remove } from "../../Buttons/Button";
+import { Count, Remove, Name } from "../../../UI/Cart/Carts";
+// import { Decrement, Increment, Remove } from "../../Buttons/Button";
 interface Props {
   cart: {
     product: IProducts;
@@ -31,14 +32,15 @@ const CartDetail: React.FC<Props> = ({ cart }) => {
                 alt={`cart-${item.product.name}`}
               />
             </ListImg>
-            <ListDetail>{item.product.name}</ListDetail>
+            {/* <ListDetail>{item.product.name}</ListDetail> */}
+            <ListDetail>
+              <Name product={item.product} />
+            </ListDetail>
             <ListResult>
               <span>Total = ${price * item.count}</span>
             </ListResult>
             <ListActions>
-              <Decrement product={item.product} />
-              <span>{item.count}</span>
-              <Increment product={item.product} />x ${price}
+              <Count product={item.product} count={item.count} />x ${price}
               <Remove product={item.product} />
             </ListActions>
           </ListItems>
