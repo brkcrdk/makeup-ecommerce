@@ -60,15 +60,7 @@ const CardsTablet: React.FC<Props> = ({ products }) => {
         {products.map((arr, key) => (
           <CardContainer key={key}>
             {arr.map((slide, key) => (
-              <Card
-                id={slide.id}
-                key={key}
-                title={slide.brand}
-                image={slide.api_featured_image}
-                price={slide.price}
-                priceSign={slide.price_sign}
-                name={slide.name}
-              />
+              <Card key={key} product={slide} />
             ))}
           </CardContainer>
         ))}

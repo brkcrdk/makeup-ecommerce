@@ -14,13 +14,6 @@ import { IProducts } from "../../../store/fetchProducts/types";
 
 interface CardProps {
   product: IProducts;
-  // title: string;
-  // image: string;
-  // name: string;
-  // price: string;
-  // priceSign: string;
-  // key: number;
-  // id: number;
   onClick?: () => void;
 }
 
