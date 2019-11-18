@@ -8,8 +8,7 @@ import {
   ListItems
 } from "./DetailStyle";
 import { IProducts } from "../../../../store/fetchProducts/types";
-import { Count, Remove, Name } from "../../../UI/Cart/Carts";
-// import { Decrement, Increment, Remove } from "../../Buttons/Button";
+import { Count, Remove, Name, Image } from "../../../UI/Cart/Carts";
 interface Props {
   cart: {
     product: IProducts;
@@ -27,10 +26,7 @@ const CartDetail: React.FC<Props> = ({ cart }) => {
         return (
           <ListItems key={key}>
             <ListImg>
-              <img
-                src={item.product.api_featured_image}
-                alt={`cart-${item.product.name}`}
-              />
+              <Image url={item.product.api_featured_image} />
             </ListImg>
             <ListDetail>
               <Name product={item.product} />

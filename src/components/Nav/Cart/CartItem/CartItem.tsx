@@ -12,7 +12,8 @@ import {
   Splitter,
   ItemContainer
 } from "./ItemStyle";
-import { Remove, Decrement, Increment } from "../../../UI/Buttons/Button";
+import { Name, Image, Remove, Count } from "../../../UI/Cart/Carts";
+// import { Remove, Decrement, Increment } from "../../../UI/Buttons/Button";
 interface Props {
   cart: { product: IProducts; count: number }[];
 }
@@ -33,20 +34,13 @@ const CartItem: React.FC<Props> = ({ cart }) => {
     return (
       <div key={key}>
         <Container>
-          <CartImg
-            src={item.product.api_featured_image}
-            alt={`cart-${item.product.name}`}
-          />
+          <Image url={item.product.api_featured_image} />
           <CartInfo>
             <CartName>
-              <Link to={`/product/${item.product.id}`}>
-                {item.product.name}
-              </Link>
+              <Name product={item.product} />
             </CartName>
             <CartPrice>
-              <Decrement product={item.product} />
-              {item.count}
-              <Increment product={item.product} />
+              <Count product={item.product} count={item.count} />
               x${price} = ${item.count * price}
             </CartPrice>
           </CartInfo>
