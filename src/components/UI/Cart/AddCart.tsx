@@ -26,7 +26,6 @@ interface Props {
 const AddCart: React.FC<Props> = ({ product, count }) => {
   const dispatch = useDispatch();
   const handleAdd = useCallback(() => {
-    console.log(count);
     dispatch(addCart({ product: product, count: count }));
   }, [dispatch, product, count]);
   return <AddButton onClick={handleAdd}>Add Cart</AddButton>;

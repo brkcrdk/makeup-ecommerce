@@ -1,9 +1,8 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { colours, fonts, device } from "../utils";
 import { AddCart } from "../UI/Cart/Carts";
-import { addCart } from "../../store/cart/actions";
-import { useDispatch } from "react-redux";
+
 interface Props {
   product: {};
   price: string;
@@ -66,10 +65,6 @@ const Container = styled.div`
 `;
 const AddSection: React.FC<Props> = ({ product, price }) => {
   const [count, setCount] = useState(1);
-  // const dispatch = useDispatch();
-  // const handleCart = useCallback(() => {
-  //   dispatch(addCart({ product: product, count: count }));
-  // }, [dispatch, product, count]);
 
   return (
     <Container>

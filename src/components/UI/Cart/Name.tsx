@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { IProducts } from "../../../store/fetchProducts/types";
-import { colours, fonts } from "../../utils";
+import { colours } from "../../utils";
 import styled from "styled-components";
 interface Props {
   product: IProducts;

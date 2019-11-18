@@ -21,7 +21,7 @@ const Decrement: React.FC<Props> = ({ product }) => {
   const dispatch = useDispatch();
   const handleIncrement = useCallback(() => {
     dispatch(updateCart({ product: product, update: "decrement" }));
-  }, [dispatch]);
+  }, [dispatch, product]);
 
   return (
     <Button onClick={handleIncrement}>

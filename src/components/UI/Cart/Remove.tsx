@@ -21,7 +21,7 @@ const Remove: React.FC<Props> = ({ product }) => {
   const dispatch = useDispatch();
   const handleIncrement = useCallback(() => {
     dispatch(removeCart({ product: product }));
-  }, [dispatch]);
+  }, [dispatch, product]);
 
   return (
     <Button onClick={handleIncrement}>

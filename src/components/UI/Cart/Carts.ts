@@ -1,5 +1,3 @@
-import CartDetail from "../../Cart/Detail/CartDetail";
-import CartHover from "./Hover/CartHover";
 import Increment from "./Increment";
 import Decrement from "./Decrement";
 import Remove from "./Remove";
